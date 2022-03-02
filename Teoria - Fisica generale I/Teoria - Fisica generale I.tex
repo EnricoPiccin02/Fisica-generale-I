@@ -42,7 +42,7 @@
 \addtolength{\headheight}{1em}
 \addtolength{\footskip}{-0.5em}
 
-\newcommand{\quotes}[1]{''#1''}
+\newcommand{\quotes}[1]{``#1''}
 \renewcommand\tabularxcolumn[1]{>{\vspace{\fill}}m{#1}<{\vspace{\fill}}}
 \renewcommand\arraystretch{}
 \newcolumntype{P}{>{\centering\arraybackslash}X}
@@ -60,6 +60,406 @@ Laurea in ingegneria elettronica e informatica}}
 \tableofcontents
 \newpage
 
-\section{Analogico e digitale}
+\noindent
+\begin{center}
+  1 Marzo 2022
+\end{center}
+
+\section{Introduzione}
+La \textbf{Fisica} è lo studio della materia e delle sue interazioni. La \textbf{Fisica classica} è divisa in tre macroaree:
+\begin{enumerate}
+  \item Meccanica classica
+  \item Termodinamica
+  \item Elettromagnetismo
+\end{enumerate}
+La Fisica è organizzata in
+\begin{itemize}
+  \item \textbf{Leggi}: relazioni fra grandezze fisiche
+  \item \textbf{Principi}: affermazioni generali da reputare vere
+  \item \textbf{Modelli}: analogie o rappresentazioni pratiche su cui basare il proprio studio
+  \item \textbf{Teoria}: insieme di leggi, principi e modelli
+\end{itemize}
+
+\vspace{1em}
+\subsection{Metodo scientifico}
+Il \textbf{metodo schientifico} si basa su \textbf{osservazioni} della realtà circostante, a cui seguono delle \textbf{ipotesi}, ossia delle possibili spiegazioni dei fonmeni osservati, basati sulle osservazioni precedentemente formulate.\\
+Dopo aver esposto le proprie ipotesi, esse devono essere verificate, mediante degli \textbf{esperimenti}, a cui seguono delle \textbf{analisi} dei risultati sperimentali ottenuti. Il processo di analisi viene seguito da delle \textbf{conclusioni} che \quotes{concludono} il metodo scientifico.\\
+Naturalmente tale circuito non è chiuso, in quanto ciascuna di queste fasi può essere ripetuta più e più volte. La parte più importante di tale \emph{metodo scientfico} è la dimostrazione, così come la verifica tramite \textbf{sperimentazioni} delle proprie ipotesi, in quanto le ipotesi devono essere \textbf{sempre verificate}. Tale processo permette di sviluppare leggi e teorie con un fondamento concreto e solido.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che \textbf{verificare un'ipotesi} non significa dimostrare che un'ipotesi è vera, ma \textbf{verificare che un'ipotesi può essere contraddetta}, ovvero ci si deve assicurare che una \textbf{teoria deve essere \quotes{falsificabile}}, ossia che può essere dimostrato che essia sia falsa.
+
+\newpage
+\section{Unità e vettori}
+
+\vspace{1em}
+\subsection{Grandezza fisica}
+Alla base della \textbf{Fisica} si pone il concetto di \textbf{grandezza fisica}. Non è facile, per esempio, definire che cosa sia il \emph{tempo}; tuttavia, la soluzione più immediata è quella che prevede di definire la misura del tempo come ciò che si riesce a misurare tramite, per esempio, un orologio.\\
+Si parla, in tale caso, di \textbf{definizione operativa}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{DEFINIZIONE OPERATIVA}}\\
+    \parbox{\linewidth}{Una grandezza fisica è definita solo dalle operazioni necessarie per misurarla.
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+Inoltre, le grandezze fisiche si esprimonon in termini di un campione, il quale prende il nome di \textbf{unità}.\\
+In Fisica, inoltre, si distinguono due diverse categorie di grandezze fisiche:
+\begin{enumerate}
+  \item Grandezze fisiche fondamentali
+  \item Grandezze fisiche derivate
+\end{enumerate}
+Le \textbf{grandezze fisiche fondamentali} sono $3$:
+\begin{enumerate}
+  \item Tempo: il tempo presenta come unità il \textbf{secondo} (s) che, dal $1967$, è stato definito come
+  \[9192631170 \text{ volte il periodo di oscillazione di una risonanza dell'atomo di Cesio } ^{133}C\]
+  Prima di tale data, il secondo era definito come una suddivisione del giorno, ma tale definizione era imprecisa: la terra non ruota sempre con lo stessa velocità.
+
+  \item Lunghezza: la lunghezza presenta come unità il \textbf{metro} (m), il quale viene definito come
+  \[\frac{1}{299 782 458} \text{ la distanza percorsa dalla luce in $1$ s}\]
+  Prima di tale definizione, il metro era definito come \(\frac{1}{10000}\) la distanza tra equatore e polo.\\
+  La nuova definizione, tuttavia, è più precisa, in quanto la velocità della luce è \textbf{costante}, fissata in quanto su tale costante si definisce il metro.
+
+  \item Massa: la massa presenta come unità il \textbf{chilogrammo} (kg), il quale viene definito in funzione della \textbf{costante di Planck} ($h = 6.62607015 \times 10^{-34} \text{ kg} \text{ m}^{2} \text{ s}^{-1}$). Prima di tale definizione, il chilogrammo era definito con riferimento ad un campione presente a Parigi e su cui si faceva riferimento per ogni misura di massa.
+\end{enumerate}
+
+\noindent
+Le grandezze fisiche fondamentali permettono, poi, di definire le grandezze fisiche derivate, quale il \textbf{Volume}, la \textbf{Forza}, etc.
+
+\vspace{1em}
+\subsection{Cifre significative e incertezza}
+In Fisica, quando si effettuano delle misurazioni, deve essere sempre specificata la precisione e, dunque, l'incertezza. Infatti, \textbf{tutte le msiure hanno un livello di incertezza}.\\
+Per esempio
+\begin{flalign*}
+  L & = 1.82 \pm 0.02 \text{ m}\\
+  m & = 3.5 \pm 0.1 \text{ kg}
+\end{flalign*}
+Da notare che l'indicazione dell'incertezza è sempre (o quasi) data da una sola cifra: altrimenti si avrebbe incertezza nell'incertezza. L'indicazione dell'incertezza è la base della \textbf{fisica sperimentale}.\\
+Nella pratica, tuttavia, l'indicazione dell'incertezza è ridondante e pesante. Per indicare il livello di precisione si ricorre alle cifre significative.\\
+Per esempio
+\begin{flalign*}
+  L & = 1.82 \text{ m} = 1.82 \pm 0.01 \text{ m}\\
+  m & = 3.5 \text{ kg} = 3.5 \pm 0.1 \text{ kg}
+\end{flalign*}
+
+\vspace{1em}
+\subsubsection{Operazioni di base}
+Per la gestione delle cifre significative nelle operazioni di calcolo è importante tenere a mente che
+\begin{itemize}
+  \item Moltiplicazione e Divisione: bisogna considerare come cifre significative del prodotto o del quoziente il più basso numero di cifre significative dei fattori o di dividendo e divisore.\\
+  Per esempio
+  \[1,1 \text{ m} \times 3.45 \text{ m} = 3.8 \text{ m}^2\]
+  in quanto il più basso numero di cifre significative dei fattori è $1$.
+
+  \item Addizione e Sottrazione: bisogna considerare come cifre significative della somma o differenza il più basso numero di decimali degli addendi o del minuendo e sottraendo.\\
+  Per esempio
+  \[1.1 \text{ m} - 12 \text{ cm} = 1.1 \text{ m} - 0.12 \text{ m} = 0.98 \text{ m} = 1.0 \text{ m}\]
+  in quanto il più basso numero di decimali tra minuendo e sottraendo è $1$.
+\end{itemize}
+
+\vspace{1em}
+\subsection{Ordini di grandezza}
+Molto spesso, nelle stime è importante non tanto la precisione delle misure, ma l'ordine di grandezza delle stesse, in modo tale da effettuare un macroconfronto utile per delle valutazioni pratiche e veloci.\\
+Lo scopo, quindi, dell'impiego degli ordini di grandezza è quello di effettuare dei calcoli veloci e, quindi, delle stime. Più precisamente:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{ORDINE DI GRANDEZZA}}\\
+    \parbox{\linewidth}{L'ordine di grandezza di una misura è la \textbf{potenza di $10$ più vicina}.
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Un ingegnere deve fabbricare un nuovo pacemaker. Si stimi quanti battiti di cuore deve fare senza malfunzionamento. Per effettuare tale stima è necessario conoscere la \textit{media dei battiti al secondo} e \textit{l'aspettativa di vita del soggetto}. Considerando, quindi, come media dei battiti $m_B = 1 \text{ battito}/\text{s}$ e come aspettativa di vita $a_V = 60 \text{ anni}$. La stima selectlanguage
+\[m_B \times a_V \times \pi \times 10^7 \text{ s}/\text{anno} = 1 \text{ battito}/\text{s} \times 60 \text{ anni} \times \times 10^7 \text{ s}/\text{anno} = 2 \times 10^9 \text{ battiti}\]
+
+\newpage
+\noindent
+\begin{center}
+  2 Marzo 2022
+\end{center}
+Il metodo scientifico permette di \textbf{falsificare una teoria}, quindi non è vero che permette di validare una teoria senza ambiguità.
+
+\vspace{1em}
+\subsection{Analisi dimensionale}
+Il concetto di \textbf{unità} è estremamente importante per parlare di \textbf{analisi dimensionale}. In particolare
+\[A = B\]
+non può essere valido e corretto formalmente se $A$ e $B$ hanno unità diverse. Questo è molto intuitivo per le grandezze fisiche fondamentali, ma quando si parla di grandezze derivate diventa un punto cruciale: tale concetto permette di validare anche delle possibili soluzioni di test.\\
+Per esempio, l'unità di misura della costante di richiamo di una molla si può facilmente ricavare dalla formula della \emph{forza di richiamo}:
+\[F = k \cdot x\]
+Da cui è immediato capire che
+\[\left[k\right] = \frac{\left[F\right]}{\left[x\right]} = \frac{\text{kg m s}^{-2}}{m} = \text{kg s}^{-2}\]
+
+\vspace{1em}
+\subsection{Scalari e vettori}
+Di seguito si espone la definizione di \textbf{scalare}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{SCALARE}}\\
+    \parbox{\linewidth}{Uno \textbf{scalare} è una grandezza specificata da un numero + unità.\\
+    Per esempio la \emph{lunghezza}, la \emph{massa} o l'\emph{energia}.
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+Mentre un \textbf{vettore} è:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{VETTORE}}\\
+    \parbox{\linewidth}{Un \textbf{vettore} è  una quantità definita da un valore e una direzione (e un verso, che può essere implicito nella definizione di direzione).
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+Tale definizione, tuttavia, pur essendo molto intuitiva, non risulta particolarmente pratica. Si potrebbe anche considerare un vettore come una \textbf{quantità con più valori associati}, ovvero una \textbf{lista di numeri a cui conferiamo un significato}.\\
+Per esempio, in algebra un vettore viene indicato come segue
+\[\vec{v} = (1, 2, 3)\]
+a cui la fisica attribuisce un significato preciso: $1$, $2$ e $3$ sono le componenti associate alle tre diverse dimensioni $x$, $y$ e $z$. Il vettore di cui sopra, allora, si può scrivere come
+\[\vec{v} = (v_x, v_y, v_z)\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Anche se tale definizione sembra identica alla definizione del \textbf{punto}, in realtà tale definizione è differente, in quanto
+\begin{itemize}
+  \item un punto non ha una lunghezza;
+  \item non è possibile eseguire la somma di due punti, etc.
+\end{itemize}
+
+\vspace{1em}
+\subsection{Prodotto con uno scalare}
+Dato un vettore
+\[\vec{v} = \left(v_x, v_y, v_z\right)\]
+e si considera uno scalare $a \in \mathbb{R}$, allora
+\[a \cdot \vec{v} = \left(a \cdot v_x, a \cdot v_y, a \cdot v_x\right)\]
+in cui il vettore $a \cdot \vec{v}$ è un vettore che
+\begin{itemize}
+  \item presenta come lunghezza la lunghezza del vettore $\vec{v}$ moltiplicata per $\vert a \vert$;
+  \item presenta come direzione la stessa direzione del vettore $\vec{v}$;
+  \item presenta come verso lo stesso verso del vettore $\vec{v}$ se $a \geq 0$, mentre avrà verso opposto se $a \leq 0$.
+\end{itemize}
+
+\vspace{1em}
+\subsection{Somma vettoriale}
+Dati due vettori $\vec{u}$ e $\vec{v}$, la loro somma viene eseguita graficamente tramite la \textbf{regola del parallelogramma}, o il metodo \quotes{punta-coda}:
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \draw [-stealth, thick, red]    (0,0) -- coordinate[midway](u1) (-3,2);
+    \draw [-stealth, thick, blue]   (0,0) -- coordinate[midway](v)  (5,2);
+    \draw [-stealth, thick, dashed] (5,2) -- coordinate[midway](u2) (2,4);
+    \draw [-stealth, thick, orange] (0,0) -- coordinate[midway](r)  (2,4);
+    \draw [thick, red]    (u1) node[above]{$\vec{u}$};
+    \draw [thick, blue]   (v)  node[above]{$\vec{v}$};
+    \draw [thick, dashed] (u2) node[above]{$\vec{u}$};
+    \draw [thick, orange] (r)  node[left]{$\vec{r}$};
+  \end{tikzpicture}
+  \caption{Somma vettoriale con il metodo \quotes{punta-coda}}
+  \label{fig:somma_vettoriale_metodo_punta_coda}
+\end{figure}
+
+\noindent
+Se $\vec{u}$ e $\vec{v}$ sono espressi nello stesso sistema di riferimento, allora è chiaro che la loro somma sarà data \textbf{componente per componente}, ovvero
+\[\vec{u} + \vec{v} = \left(u_x + v_x, u_y + v_y, u_z + v_z\right)\]
+
+\vspace{1em}
+\subsection{Versori}
+Si definiscano tre versori come segue
+\begin{flalign*}
+  \hat{i} & = (1,0,0)\\
+  \hat{j} & = (0,1,0)\\
+  \hat{k} & = (0,0,1)
+\end{flalign*}
+Allora qualsiasi vettore può essere scritto come
+\[\vec{v} = \left(v_x, v_y, v_z\right) = v_x \cdot \hat{i} + v_y \cdot \hat{j} + v_z \cdot \hat{k}\]
+in cui, naturalmente, $v_x$, $v_y$ e $v_z$ sono le componenti di $\vec{v}$ in direzione $\hat{i}$, $\hat{j}$ e $\hat{k}$.\\
+Naturalmente si scrive $\hat{i}$ e non $\vec{i}$ in quanto
+\[\left \vert \hat{i} \right \vert = \left \vert \hat{j} \right \vert = \left \vert \hat{k} \right \vert = 1\]
+essi, infatti, prendono il nome di \textbf{versori} o \textbf{vettori unità}.
+
+\vspace{1em}
+\subsection{Modulo e direzione}
+Di seguito si espone la definizione di \textbf{modulo di un vettore}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{MODULO DI UN VETTORE}}\\
+    \parbox{\linewidth}{Il modulo di un vettore è la sua \quotes{lunghezza geometrica} e si indica come segue
+    \[v = \left \vert \vec{v} \right \vert\]
+    È chiaro che il modulo può essere \textbf{positivo o nullo}, mai negativo. In termini di componenti il modulo si calcola come segue
+    \[v = \sqrt{v_x^2 + v_y^2 + v_z^2}\]
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+Per esempio, si calcoli il modulo del vettore
+\[\hat{n} = \frac{\vec{v}}{v}\]
+ovviamente si procede come segue
+\[\left \vert \frac{\vec{v}}{v} \right \vert = \frac{1}{\left \vert v \right \vert} \cdot \left \vert \vec{v} \right \vert = \frac{v}{v} = 1\]
+Ecco che allora tale vettore è a tutti gli effetti un versore in direzione $\vec{v}$, in quanto di modulo $1$.\\
+Questo fa capire come si possa definire un versore associato a qualunque vettore: basta dividere il vettore per il suo modulo.
+
+\vspace{1em}
+\noindent
+Mentre di seguito si espone la definizione di \textbf{direzione di un vettore}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{DIREZIONE DI UN VETTORE}}\\
+    \parbox{\linewidth}{La direzione di un vettore (e anche il suo verso) è definita, in due dimensioni, come l'angolo $\theta$ che il vettore descrive con il semiasse positivo delle ascisse.\\
+    È immediato osservare che
+    $\begin{array}{c}
+      v_x = v \cdot \cos(\theta)\\
+      v_y = v \cdot \sin(\theta)
+    \end{array}$
+    e si può verificare che
+    \[\left \vert \vec{v} \right \vert = \sqrt{v_x^2 + v_y^2} = \sqrt{v^2 \cdot \cos^2(\theta) + v^2 \cdot \sin^2(\theta)} = v \cdot \sqrt{\cos^2(\theta) + \sin^2(\theta)} = v\]
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\subsection{Prodotto scalare}
+Di seguito si espone la definizione di \textbf{prodotto scalare}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{PRODOTTO SCALARE}}\\
+    \parbox{\linewidth}{Il prodotto scalare tra due vettori $\vec{v}$ e $\vec{u}$, in termini di componenti si definisce come segue:
+    \[\vec{v} \cdot \vec{u} = v_x \cdot u_x + v_y \cdot u_y + v_z \cdot u_z\]
+    che è, naturalmente, uno scalare.\\
+    Analogamente si può interpretare il prodotto scalare tra due vettori $v$ e $u$ come il prodotto dei moduli per il \textbf{coseno} dell'angolo $\theta$ compreso tra i vettori stessi, ovvero
+    \[\vec{v} \cdot \vec{u} = v \cdot c \cdot \cos(\theta)\]
+    \vspace{-1mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Naturalmente, da tale definizione seguono delle importanti osservazioni:
+\begin{itemize}
+  \item \(\vec{v} \cdot \vec{v} = v_x^2 + v_y^2 + v_z^2 = \left \vert \vec{v} \right \vert ^2\)
+  \item \(\hat{i} \cdot \hat{i} = \hat{j} \cdot \hat{j} = \hat{k} \cdot \hat{k} = 1\)
+  \item \(\hat{i} \cdot \hat{j} = \hat{i} \cdot \hat{k} = \hat{j} \cdot \hat{k} = 0\). Questo significa che i due vettori considerati sono ortogonali.
+\end{itemize}
+Si consideri, invece, l'esempio seguente:
+\[\vec{v} \cdot \hat{i} = \left(v_x \cdot \hat{i} + v_y \cdot \hat{j} + v_z \cdot \hat{k} \right) \cdot \hat{i} = v_x \cdot \hat{i} \cdot \hat{i} + v_y \cdot \hat{i} \cdot \hat{j} + v_z \cdot \hat{i} \cdot \hat{k} = v_x\]
+e questo significa che $\vec{v} \cdot \hat{i}$ è la proiezione del vettore $\vec{v}$ in direzione $\hat{i}$.\\
+Per esempio, se si considerando due vettori $\vec{c}$ e $\vec{d}$, allora il loro prodotto scalare può essere interpretato come segue
+\[\vec{c} \cdot \vec{d} \cdot \frac{d}{d} = d \cdot \left(\vec{c} \cdot \frac{\vec{d}}{d}\right)\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{Cinematica}
+
+\newpage
+\section{Dinamica}
+
+\newpage
+\section{Gravità}
+
+\newpage
+\section{Energia}
+
+\newpage
+\section{Moto dei sistemi}
+
+\newpage
+\section{Corpi rigidi}
+
+\newpage
+\section{Oscillazioni}
+
+\newpage
+\section{Solidi e fluidi}
+
+\newpage
+\section{Temperatura e calore}
+
+\newpage
+\section{Il primo principio della termodinamica}
+
+\newpage
+\section{Il secondo principio della termodinamica}
+
 
 \end{document}
