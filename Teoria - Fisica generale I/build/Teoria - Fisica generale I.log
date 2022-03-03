@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.27)  2 MAR 2022 11:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.27)  3 MAR 2022 10:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -392,23 +392,55 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 \Gm@layouthoffset=\dimen289
 \Gm@layoutvoffset=\dimen290
 \Gm@dimlist=\toks34
-) (/usr/local/texlive/2021basic/texmf-dist/tex/latex/tools/tabularx.sty
+) (/usr/local/texlive/2021basic/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+(/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
+ (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+\t@pgfplots@toka=\toks35
+\t@pgfplots@tokb=\toks36
+\t@pgfplots@tokc=\toks37
+\pgfplots@tmpa=\dimen291
+\c@pgfplots@coordindex=\count292
+\c@pgfplots@scanlineindex=\count293
+ (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
+\c@pgfplotsarray@tmp=\count294
+)
+(/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
+\c@pgfplotstable@counta=\count295
+\t@pgfplotstable@a=\toks38
+) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count296
+ (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex))
+(/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex)
+(/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
+\pgfplots@numplots=\count297
+\pgfplots@xmin@reg=\dimen292
+\pgfplots@xmax@reg=\dimen293
+\pgfplots@ymin@reg=\dimen294
+\pgfplots@ymax@reg=\dimen295
+\pgfplots@zmin@reg=\dimen296
+\pgfplots@zmax@reg=\dimen297
+) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+ (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+))) (/usr/local/texlive/2021basic/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
-\TX@col@width=\dimen291
-\TX@old@table=\dimen292
-\TX@old@col=\dimen293
-\TX@target=\dimen294
-\TX@delta=\dimen295
-\TX@cols=\count292
-\TX@ftn=\toks35
+\TX@col@width=\dimen298
+\TX@old@table=\dimen299
+\TX@old@col=\dimen300
+\TX@target=\dimen301
+\TX@delta=\dimen302
+\TX@cols=\count298
+\TX@ftn=\toks39
 ) (/usr/local/texlive/2021basic/texmf-dist/tex/latex/pgf-pie/pgf-pie.sty
 Package: pgf-pie 2021/07/30 v0.6 Some LaTeX macros for pie chart by using PGF/Tikz package.
 
 (/usr/local/texlive/2021basic/texmf-dist/tex/latex/pgf-pie/tikzlibrarypie.code.tex (/usr/local/texlive/2021basic/texmf-dist/tex/latex/carlisle/scalefnt.sty)
-\pgfpie@angleEnd=\dimen296
-\pgfpie@explodeLength=\count293
-\pgfpie@colorLength=\count294
-\pgfpie@sliceLength=\count295
+\pgfpie@angleEnd=\dimen303
+\pgfpie@explodeLength=\count299
+\pgfpie@colorLength=\count300
+\pgfpie@sliceLength=\count301
 )) (/usr/local/texlive/2021basic/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2020/09/23 v2.17i AMS math features
 \@mathmargin=\skip54
@@ -418,49 +450,49 @@ For additional information on amsmath, use the `?' option.
 Package: amstext 2000/06/29 v2.01 AMS text
  (/usr/local/texlive/2021basic/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks36
-\ex@=\dimen297
+\@emptytoks=\toks40
+\ex@=\dimen304
 )) (/usr/local/texlive/2021basic/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen298
+\pmbraise@=\dimen305
 ) (/usr/local/texlive/2021basic/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count296
+\inf@bad=\count302
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count297
-\leftroot@=\count298
+\uproot@=\count303
+\leftroot@=\count304
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count299
-\DOTSCASE@=\count300
+\classnum@=\count305
+\DOTSCASE@=\count306
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
 \Mathstrutbox@=\box64
 \strutbox@=\box65
-\big@size=\dimen299
+\big@size=\dimen306
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count301
-\c@MaxMatrixCols=\count302
+\macc@depth=\count307
+\c@MaxMatrixCols=\count308
 \dotsspace@=\muskip16
-\c@parentequation=\count303
-\dspbrk@lvl=\count304
-\tag@help=\toks37
-\row@=\count305
-\column@=\count306
-\maxfields@=\count307
-\andhelp@=\toks38
-\eqnshift@=\dimen300
-\alignsep@=\dimen301
-\tagshift@=\dimen302
-\tagwidth@=\dimen303
-\totwidth@=\dimen304
-\lineht@=\dimen305
-\@envbody=\toks39
+\c@parentequation=\count309
+\dspbrk@lvl=\count310
+\tag@help=\toks41
+\row@=\count311
+\column@=\count312
+\maxfields@=\count313
+\andhelp@=\toks42
+\eqnshift@=\dimen307
+\alignsep@=\dimen308
+\tagshift@=\dimen309
+\tagwidth@=\dimen310
+\totwidth@=\dimen311
+\lineht@=\dimen312
+\@envbody=\toks43
 \multlinegap=\skip55
 \multlinetaggap=\skip56
-\mathdisplay@stack=\toks40
+\mathdisplay@stack=\toks44
 LaTeX Info: Redefining \[ on input line 2923.
 LaTeX Info: Redefining \] on input line 2924.
 ) (/usr/local/texlive/2021basic/texmf-dist/tex/latex/amsfonts/amssymb.sty
@@ -474,15 +506,15 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/soul/soul.sty
 Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
-\SOUL@word=\toks41
-\SOUL@lasttoken=\toks42
-\SOUL@cmds=\toks43
-\SOUL@buffer=\toks44
-\SOUL@token=\toks45
+\SOUL@word=\toks45
+\SOUL@lasttoken=\toks46
+\SOUL@cmds=\toks47
+\SOUL@buffer=\toks48
+\SOUL@token=\toks49
 \SOUL@spaceskip=\skip57
-\SOUL@ttwidth=\dimen306
-\SOUL@uldp=\dimen307
-\SOUL@ulht=\dimen308
+\SOUL@ttwidth=\dimen313
+\SOUL@uldp=\dimen314
+\SOUL@ulht=\dimen315
 ) (/usr/local/texlive/2021basic/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and footers
 \f@nch@headwidth=\skip58
@@ -500,62 +532,62 @@ Package: subfig 2005/06/28 ver: 1.3 subfig package
 Package: caption 2020/10/26 v3.5g Customizing captions (AR)
  (/usr/local/texlive/2021basic/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
-\captionmargin=\dimen309
-\captionmargin@=\dimen310
-\captionwidth=\dimen311
-\caption@tempdima=\dimen312
-\caption@indent=\dimen313
-\caption@parindent=\dimen314
-\caption@hangindent=\dimen315
+\captionmargin=\dimen316
+\captionmargin@=\dimen317
+\captionwidth=\dimen318
+\caption@tempdima=\dimen319
+\caption@indent=\dimen320
+\caption@parindent=\dimen321
+\caption@hangindent=\dimen322
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count308
-\c@continuedfloat=\count309
+\c@caption@flags=\count314
+\c@continuedfloat=\count315
 Package caption Info: float package is loaded.
 )
-\c@KVtest=\count310
+\c@KVtest=\count316
 \sf@farskip=\skip67
-\sf@captopadj=\dimen316
+\sf@captopadj=\dimen323
 \sf@capskip=\skip68
 \sf@nearskip=\skip69
-\c@subfigure=\count311
-\c@subfigure@save=\count312
-\c@lofdepth=\count313
-\c@subtable=\count314
-\c@subtable@save=\count315
-\c@lotdepth=\count316
+\c@subfigure=\count317
+\c@subfigure@save=\count318
+\c@lofdepth=\count319
+\c@subtable=\count320
+\c@subtable@save=\count321
+\c@lotdepth=\count322
 \sf@top=\skip70
 \sf@bottom=\skip71
 )
-\c@theorem=\count317
-\c@corollary=\count318
+\c@theorem=\count323
+\c@corollary=\count324
 
 
-Package fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 41.
+Package fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 42.
 
 (/usr/local/texlive/2021basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count319
+\l__color_backend_stack_int=\count325
 \l__pdf_internal_box=\box66
 ) (build/Teoria - Fisica generale I.aux)
 \openout1 = `"Teoria - Fisica generale I.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Info: Redefining \it@ocap on input line 55.
-LaTeX Info: Redefining \it@ccap on input line 55.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Info: Redefining \it@ocap on input line 56.
+LaTeX Info: Redefining \it@ccap on input line 56.
 
 
 File italian.ldf warning: 
@@ -563,21 +595,21 @@ italian.ldf    With OT1 encoding guillemets are poorly faked
 italian.ldf    Use T1 encoding
 italian.ldf    or specify a font with command \CaporaliFrom
 italian.ldf    See the documentation concerning the babel-italian typesetting 
-italian.ldf    on input line 55.
+italian.ldf    on input line 56.
 
 (/usr/local/texlive/2021basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count320
-\scratchdimen=\dimen317
+\scratchcounter=\count326
+\scratchdimen=\dimen324
 \scratchbox=\box67
-\nofMPsegments=\count321
-\nofMParguments=\count322
-\everyMPshowfont=\toks46
-\MPscratchCnt=\count323
-\MPscratchDim=\dimen318
-\MPnumerator=\count324
-\makeMPintoPDFobject=\count325
-\everyMPtoPDFconversion=\toks47
+\nofMPsegments=\count327
+\nofMParguments=\count328
+\everyMPshowfont=\toks50
+\MPscratchCnt=\count329
+\MPscratchDim=\dimen325
+\MPnumerator=\count330
+\makeMPintoPDFobject=\count331
+\everyMPtoPDFconversion=\toks51
 ) (/usr/local/texlive/2021basic/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -618,14 +650,18 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+
+Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into your preamble.
+ on input line 56.
+
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 58.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 59.
 (/usr/local/texlive/2021basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 58.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 59.
  (/usr/local/texlive/2021basic/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (build/Teoria - Fisica generale I.toc)
@@ -634,21 +670,1016 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [1
 
-{/usr/local/texlive/2021basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] (build/Teoria - Fisica generale I.aux) ) 
+{/usr/local/texlive/2021basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6] [7] [8] [9]
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+This error message was generated by an \errmessage
+command, so I can't give any explicit help.
+Pretend that you're Hercule Poirot: Examine all clues,
+and deduce the truth by order and method.
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That was another \errmessage.)
+
+./Teoria - Fisica generale I.tex:524: Package PGF Math Error: Unknown operator `x' or `x+' (in '2x + 2').
+
+See the PGF Math package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.524 \end{tabularx}
+                    
+(That makes 100 errors; please try again.) 
 Here is how much of TeX's memory you used:
- 32144 strings out of 480445
- 793594 string characters out of 5892391
- 1334689 words of memory out of 5000000
- 49000 multiletter control sequences out of 15000+600000
+ 41541 strings out of 480445
+ 1117602 string characters out of 5892391
+ 1761538 words of memory out of 5000000
+ 58274 multiletter control sequences out of 15000+600000
  412594 words of font info for 62 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 128i,20n,130p,490b,732s stack positions out of 5000i,500n,10000p,200000b,80000s
- </Users/enricopiccin/Library/texlive/2021basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2021basic/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "build/Teoria - Fisica generale I.pdf" (19 pages, 159845 bytes).
-PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
- 87 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 128i,20n,130p,745b,1596s stack positions out of 5000i,500n,10000p,200000b,80000s
 
+./Teoria - Fisica generale I.tex:524:  ==> Fatal error occurred, no output PDF file produced!

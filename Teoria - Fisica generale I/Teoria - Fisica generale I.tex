@@ -12,6 +12,7 @@
 \usepackage{multirow}
 \usepackage{float}
 \usepackage{geometry}
+\usepackage{pgfplots}
 \usepackage{tabularx}
 \usepackage{pgf-pie}
 \usepackage{tikz}
@@ -359,17 +360,20 @@ Mentre di seguito si espone la definizione di \textbf{direzione di un vettore}:
     {\textbf{DIREZIONE DI UN VETTORE}}\\
     \parbox{\linewidth}{La direzione di un vettore (e anche il suo verso) è definita, in due dimensioni, come l'angolo $\theta$ che il vettore descrive con il semiasse positivo delle ascisse.\\
     È immediato osservare che
-    $\begin{array}{c}
-      v_x = v \cdot \cos(\theta)\\
-      v_y = v \cdot \sin(\theta)
-    \end{array}$
+    \begin{center}
+      $\begin{array}{c}
+        v_x = v \cdot \cos(\theta)\\
+        v_y = v \cdot \sin(\theta)
+      \end{array}$
+    \end{center}
     e si può verificare che
     \[\left \vert \vec{v} \right \vert = \sqrt{v_x^2 + v_y^2} = \sqrt{v^2 \cdot \cos^2(\theta) + v^2 \cdot \sin^2(\theta)} = v \cdot \sqrt{\cos^2(\theta) + \sin^2(\theta)} = v\]
     \vspace{3mm}}\\
     \hline
 \end{tabularx}
 
-\vspace{1em}
+\newpage
+\noindent
 \subsection{Prodotto scalare}
 Di seguito si espone la definizione di \textbf{prodotto scalare}:
 
@@ -385,8 +389,8 @@ Di seguito si espone la definizione di \textbf{prodotto scalare}:
     \parbox{\linewidth}{Il prodotto scalare tra due vettori $\vec{v}$ e $\vec{u}$, in termini di componenti si definisce come segue:
     \[\vec{v} \cdot \vec{u} = v_x \cdot u_x + v_y \cdot u_y + v_z \cdot u_z\]
     che è, naturalmente, uno scalare.\\
-    Analogamente si può interpretare il prodotto scalare tra due vettori $v$ e $u$ come il prodotto dei moduli per il \textbf{coseno} dell'angolo $\theta$ compreso tra i vettori stessi, ovvero
-    \[\vec{v} \cdot \vec{u} = v \cdot c \cdot \cos(\theta)\]
+    Analogamente si può interpretare il prodotto scalare tra due vettori $\vec{v}$ e $\vec{u}$ come il prodotto dei moduli per il \textbf{coseno} dell'angolo $\theta$ compreso tra i vettori stessi, ovvero
+    \[\vec{v} \cdot \vec{u} = v \cdot u \cdot \cos(\theta)\]
     \vspace{-1mm}}\\
     \hline
 \end{tabularx}
@@ -397,39 +401,176 @@ Di seguito si espone la definizione di \textbf{prodotto scalare}:
 \begin{itemize}
   \item \(\vec{v} \cdot \vec{v} = v_x^2 + v_y^2 + v_z^2 = \left \vert \vec{v} \right \vert ^2\)
   \item \(\hat{i} \cdot \hat{i} = \hat{j} \cdot \hat{j} = \hat{k} \cdot \hat{k} = 1\)
-  \item \(\hat{i} \cdot \hat{j} = \hat{i} \cdot \hat{k} = \hat{j} \cdot \hat{k} = 0\). Questo significa che i due vettori considerati sono ortogonali.
+  \item \(\hat{i} \cdot \hat{j} = \hat{i} \cdot \hat{k} = \hat{j} \cdot \hat{k} = 0\). Questo significa che i due vettori considerati sono ortogonali, ovvero i versori $\hat{i}$, $\hat{j}$ e $\hat{k}$ sono a due a due ortogonali.
 \end{itemize}
 Si consideri, invece, l'esempio seguente:
 \[\vec{v} \cdot \hat{i} = \left(v_x \cdot \hat{i} + v_y \cdot \hat{j} + v_z \cdot \hat{k} \right) \cdot \hat{i} = v_x \cdot \hat{i} \cdot \hat{i} + v_y \cdot \hat{i} \cdot \hat{j} + v_z \cdot \hat{i} \cdot \hat{k} = v_x\]
-e questo significa che $\vec{v} \cdot \hat{i}$ è la proiezione del vettore $\vec{v}$ in direzione $\hat{i}$.\\
-Per esempio, se si considerando due vettori $\vec{c}$ e $\vec{d}$, allora il loro prodotto scalare può essere interpretato come segue
+e questo significa che $\vec{v} \cdot \hat{i}$ è la \textbf{proiezione} del vettore $\vec{v}$ in direzione $\hat{i}$. Tale metodo è molto efficace per effettuare un cambio di base: se al posto dei versori $\hat{i}$, $\hat{j}$ e $\hat{k}$, che presuppongono l'origine del sistema di riferimento in $O = (0,0,0)$ si scegliessere degli altri versori, moltiplicando il vettore $\vec{v}$ per taluni versori si otterrebbero le componenti del nuovo vettore in una nuova base.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Se si considerando due vettori $\vec{c}$ e $\vec{d}$, allora il loro prodotto scalare può essere interpretato come segue
 \[\vec{c} \cdot \vec{d} \cdot \frac{d}{d} = d \cdot \left(\vec{c} \cdot \frac{\vec{d}}{d}\right)\]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+per cui, ricordando che
+\[\hat{n} = \frac{\vec{d}}{d}\]
+è un versore in direzione del vettore $\vec{d}$, allora il prodotto scalare tra $\vec{c}$ e $\vec{d}$ è proprio la proiezione del vettore $\vec{c}$ sul vettore $\vec{d}$, per quanto appena detto a proposito delle \textbf{proiezioni}, moltiplicata per il modulo del vettore $\vec{d}$.
 
 \newpage
+\noindent
+\begin{center}
+  3 Marzo 2022
+\end{center}
+
+\vspace{1em}
 \section{Cinematica}
+La descrizione del moto di un corpo prende il nome di cinematica.\\ Com'è noto, un vettore è una quantità con \textbf{modulo} e \textbf{direzione} (e \textbf{verso}). La descrizione di un vettore avviene tramite le sue componenti: in particolare, dato un versore $\hat{n}$, la componente di un vettore $\vec{v}$ in direzione del versore $\hat{n}$ è così definita
+\[\vec{v} \cdot \hat{n}\]
+Per esempio, la componente del vettore $\vec{v}$ lungo l'asse $x$ è
+\[\vec{v} \cdot \hat{i} = v_x\]
+Inoltre, il prodotto scalare tra due vettori viene definito come ... continua ....
+Grazie a ciò è possibile definire il concetto di \textbf{Cinematica}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{CINEMATICA}}\\
+    \parbox{\linewidth}{La cinematica è lo \textbf{studio del moto}, a differenza della \textbf{dinamica} che studia la \textbf{causa del moto} e della \textbf{statica} che studia l'\textbf{equilibrio meccanico}, ossia la \textbf{causa dell'immobilità}.
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+È chiaro che lo studio di un corpo complesso e non omogeneo è molto più elaborata dello studio di un solo \textbf{punto}. Pertanto, il primo passo per lo studio del moto è quello di studiare il comportamento di un modello standard a cui può essere ricondotto, tramite approssimazione, un altro corpo, a seconda della necessità.
+
+\vspace{1em}
+\subsection{Posizione e spostamento}
+Dato un punto nello spazio, la sua posizione viene descritta tramite un \quotes{vettore} posizione $\vec{r}$, di cui è possibile calcolare la lunghezza $\left(\vec{r}\right)$, la quale, tuttavia, non ha molto significato dal momento che dipende dalla posizione dell'origine scelta: ovverosia dipende dalla posizione iniziale e, quindi, dal \textbf{sistema di riferimento adottato}. Conoscere il sistema di riferimento è fondamentale, in quanto in base a ciò possono essere effettuate diverse valutazioni in merito alle misurazioni effettuate in base a tale sistema.
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+
+  \end{tikzpicture}
+  \caption{}
+  \label{}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Lo \textbf{spostamento}, invece, è proprio un vettore e, com'é intuibile, taluno è definito come la differenza tra due posizioni, ovvero
+\[\Delta \vec{r} = \vec{r_2} - \vec{r_1}\]
+di cui è possibile calcolare il modulo come segue
+\[\left \vert \Delta \vec{r} \right \vert = \left \vert \vec{r_2} - \vec{r_1} \right \vert = \sqrt{\left(x_2 - x_1\right)^2 + \left(y_2 - y_1\right)^2 + \left(z_2 - z_1\right)^2}\]
+Per esempio, la lunghezza sull'asse $x$ è
+\[\Delta \vec{r} = \Delta x \cdot \hat{i}\]
+di cui
+\[\left \vert \Delta \vec{r} \right \vert = \left \vert x_2 - x_1 \right \vert\]
+
+\vspace{1em}
+\subsection{Posizione in funzione del tempo}
+Sia data una funzione spostamento, definita in funzione del tempo $t$, quale
+\[\vec{r}(t) = x(t) \cdot \hat{i} + y(t) \cdot \hat{j}\]
+in cui
+\begin{flalign*}
+  x(t) & = 2 \text{ m } + \left(2 \text{ m/s} \right) \cdot t\\
+  y(t) & = 0 \text{ m } + \left(4 \text{ m/s} \right) \cdot t
+\end{flalign*}
+Naturalmente si ha
+
+\begin{tabularx}{\textwidth}{PPP}
+  {
+      \begin{tikzpicture}
+        \begin{axis}[
+          axis lines = left,
+          xlabel = \(t\),
+          ylabel = {\(x(t)\)},
+        ]
+
+        \addplot [
+          domain=0:10,
+          samples=100,
+          color=red,
+        ]
+        {2x + 2};
+        \addlegendentry{\(x(t) = 2 \text{ m } + \left(2 \text{ m/s} \right) \cdot t\)}
+        \end{axis}
+    \end{tikzpicture}
+  } & {
+    \begin{tikzpicture}
+        \begin{axis}[
+          axis lines = left,
+          xlabel = \(t\),
+          ylabel = {\(y(t)\)},
+        ]
+        %Below the red parabola is defined
+        \addplot [
+          domain=0:10,
+          samples=100,
+          color=blue,
+        ]
+        {4x};
+        \addlegendentry{\(y(t) & = 0 \text{ m } + \left(4 \text{ m/s} \right) \cdot t\)}
+        \end{axis}
+    \end{tikzpicture}
+  } & {
+
+  }
+\end{tabularx}
+
+\vspace{1em}
+\subsection{Velocità}
+La \textbf{velocità} si pone alla base della cinematica. In fisica la velocità si distingue in due tipolgie
+\begin{itemize}
+  \item Velocità istantanea
+  \item Velocità media
+\end{itemize}
+Intuitivamente si ha che la velocità media è proprio il rapporto tra uno spostamento e il tempo impiegato per effettuarlo, ovvero
+\[\left<v\right> = \frac{\Delta s}{\Delta t} = \frac{x_2 - x_1}{t_2 - t_1}\]
+che, graficamente, può essere interpretata come la pendenza (o coefficiente angolare, della congiungente i punti $(x_1,t_1)$ e $(x_2,t_2)$ nel gradico spazio/tempo.\\
+Mentre la velocità istantanea è, naturalmente, la derivata nel tempo del vettore spostameto, ovvero
+\[\vec{v}(t) = \frac{d\vec{t}}{dt} = \lim_{t \to 0} \frac{x - x_0}{t - t_0}\]
+ovvero la retta tangente il grafico della funzione spostamento nel punto $(x_0,t_0)$. Naturalmente essendo un vettore la velocità istantanea, è possibile descriverlo tramite componenti come segue:
+\[\vec{v} = \frac{d}{dt} \left(\vec{r}(t)\right) = \frac{dx}{dt} \cdot \hat{i} + \frac{dy}{dt} \cdot \hat{j} + \frac{dz}{dt} \cdot \hat{k}\]
+in quanto $\hat{i}$, $\hat{j}$ e $\hat{k}$ non dipendono dal tempo (cosa che potrebbe accadre, comunque). Il modulo della velocità si calcola come segue
+\[\left \vert \vec{v} \right \vert = v = \sqrt{v_x^2 + v_y^2 + v_z^2}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri uno spostamento verso l'alto tale per cui $x_1 = 0 \text{ m}$ e $x_2 = 12000 \text{ m}$ e $t_1 = 2600 \text{ s}$ e $t_2 = 4000 \text{ s}$. Allora si ha che
+\[\left<v_z\right> = \frac{x_2 - x_1}{t_2 - t_1} = \frac{12000}{4000 - 2600} = 8.6 \text{ m/s} = 308.6 \text{ km/h}\]
+Che è una velocità irrisoria; tuttavia, ciò non sorprende, in quanto è opportuno conoscere anche le altre componenti della velocità, ossia $v_x$ e $v_y$.
+
+\vspace{1em}
+\subsection{Accelerazione}
+Di seguito si espone la definizione di \textbf{accelerazione}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{ACCELERAZIONE}}\\
+    \parbox{\linewidth}{L'accelerazione viene definita come la derivata prima della velocità nel tempo, o la derivata seconda dello spostamento nel tempo:
+    \[\vec{a} = \frac{d \vec{v}}{dt} = \frac{d^2 \vec{r}}{dt}\]
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+
+
+
+
+
+
 
 \newpage
 \section{Dinamica}
