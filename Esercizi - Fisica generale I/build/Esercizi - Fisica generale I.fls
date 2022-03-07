@@ -1,9 +1,9 @@
-PWD /Users/enricopiccin/Documents/Fisica generale I/Teoria - Fisica generale I
+PWD /Users/enricopiccin/Documents/Fisica generale I/Esercizi - Fisica generale I
 INPUT /usr/local/texlive/2021basic/texmf.cnf
 INPUT /usr/local/texlive/2021basic/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2021basic/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT Teoria - Fisica generale I.tex
-OUTPUT Teoria - Fisica generale I.log
+INPUT Esercizi - Fisica generale I.tex
+OUTPUT build/Esercizi - Fisica generale I.log
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/extsizes/extarticle.cls
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/extsizes/extarticle.cls
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/extsizes/extarticle.cls
@@ -487,6 +487,69 @@ INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/iftex/iftex.sty
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/iftex/iftex.sty
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/iftex/iftex.sty
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/iftex/iftex.sty
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/graphics/graphicx.sty
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-luatex.def
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-luatex.def
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/tools/tabularx.sty
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/tools/tabularx.sty
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/tools/tabularx.sty
@@ -677,10 +740,10 @@ INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/l3backend/l3backend-pdft
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-INPUT ./Teoria - Fisica generale I.aux
-INPUT Teoria - Fisica generale I.aux
-INPUT Teoria - Fisica generale I.aux
-OUTPUT Teoria - Fisica generale I.aux
+INPUT build/Esercizi - Fisica generale I.aux
+INPUT build/Esercizi - Fisica generale I.aux
+INPUT build/Esercizi - Fisica generale I.aux
+OUTPUT build/Esercizi - Fisica generale I.aux
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -730,28 +793,15 @@ INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT ./Teoria - Fisica generale I.toc
-INPUT Teoria - Fisica generale I.toc
-INPUT Teoria - Fisica generale I.toc
+INPUT build/Esercizi - Fisica generale I.toc
+INPUT build/Esercizi - Fisica generale I.toc
+INPUT build/Esercizi - Fisica generale I.toc
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
-INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
-INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
-INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
-INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
-OUTPUT Teoria - Fisica generale I.toc
-OUTPUT Teoria - Fisica generale I.pdf
+OUTPUT build/Esercizi - Fisica generale I.toc
+OUTPUT build/Esercizi - Fisica generale I.pdf
 INPUT /usr/local/texlive/2021basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm
-INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
-INPUT Teoria - Fisica generale I.aux
-INPUT /Users/enricopiccin/Library/texlive/2021basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk
+INPUT build/Esercizi - Fisica generale I.aux
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
-INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb

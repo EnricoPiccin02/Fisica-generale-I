@@ -83,9 +83,9 @@ La Fisica è organizzata in
 
 \vspace{1em}
 \subsection{Metodo scientifico}
-Il \textbf{metodo schientifico} si basa su \textbf{osservazioni} della realtà circostante, a cui seguono delle \textbf{ipotesi}, ossia delle possibili spiegazioni dei fonmeni osservati, basati sulle osservazioni precedentemente formulate.\\
+Il \textbf{metodo scientifico} si basa su \textbf{osservazioni} della realtà circostante, a cui seguono delle \textbf{ipotesi}, ossia delle possibili spiegazioni dei fonmeni osservati, basati sulle osservazioni precedentemente formulate.\\
 Dopo aver esposto le proprie ipotesi, esse devono essere verificate, mediante degli \textbf{esperimenti}, a cui seguono delle \textbf{analisi} dei risultati sperimentali ottenuti. Il processo di analisi viene seguito da delle \textbf{conclusioni} che \quotes{concludono} il metodo scientifico.\\
-Naturalmente tale circuito non è chiuso, in quanto ciascuna di queste fasi può essere ripetuta più e più volte. La parte più importante di tale \emph{metodo scientfico} è la dimostrazione, così come la verifica tramite \textbf{sperimentazioni} delle proprie ipotesi, in quanto le ipotesi devono essere \textbf{sempre verificate}. Tale processo permette di sviluppare leggi e teorie con un fondamento concreto e solido.
+Naturalmente tale circuito non è chiuso, in quanto ciascuna di queste fasi può essere ripetuta più e più volte. La parte più importante di tale \emph{metodo scientifico} è la dimostrazione, così come la verifica tramite \textbf{sperimentazioni} delle proprie ipotesi, in quanto le ipotesi devono essere \textbf{sempre verificate}. Tale processo permette di sviluppare leggi e teorie con un fondamento concreto e solido.
 
 \vspace{1em}
 \noindent
@@ -115,7 +115,7 @@ Si parla, in tale caso, di \textbf{definizione operativa}:
 
 \vspace{1em}
 \noindent
-Inoltre, le grandezze fisiche si esprimonon in termini di un campione, il quale prende il nome di \textbf{unità}.\\
+Inoltre, le grandezze fisiche si esprimono in termini di un \textbf{campione}, il quale prende il nome di \textbf{unità}.\\
 In Fisica, inoltre, si distinguono due diverse categorie di grandezze fisiche:
 \begin{enumerate}
   \item Grandezze fisiche fondamentali
@@ -125,7 +125,7 @@ Le \textbf{grandezze fisiche fondamentali} sono $3$:
 \begin{enumerate}
   \item Tempo: il tempo presenta come unità il \textbf{secondo} (s) che, dal $1967$, è stato definito come
   \[9192631170 \text{ volte il periodo di oscillazione di una risonanza dell'atomo di Cesio } ^{133}C\]
-  Prima di tale data, il secondo era definito come una suddivisione del giorno, ma tale definizione era imprecisa: la terra non ruota sempre con lo stessa velocità.
+  Prima di tale data, il secondo era definito come una suddivisione del giorno, ma tale definizione era imprecisa: la terra non ruota sempre con la stessa velocità.
 
   \item Lunghezza: la lunghezza presenta come unità il \textbf{metro} (m), il quale viene definito come
   \[\frac{1}{299 782 458} \text{ la distanza percorsa dalla luce in $1$ s}\]
@@ -421,7 +421,6 @@ per cui, ricordando che
   3 Marzo 2022
 \end{center}
 
-\vspace{1em}
 \section{Cinematica}
 La descrizione del moto di un corpo prende il nome di cinematica.\\ Com'è noto, un vettore è una quantità con \textbf{modulo} e \textbf{direzione} (e \textbf{verso}). La descrizione di un vettore avviene tramite le sue componenti: in particolare, dato un versore $\hat{n}$, la componente di un vettore $\vec{v}$ in direzione del versore $\hat{n}$ è così definita
 \[\vec{v} \cdot \hat{n}\]
@@ -483,44 +482,91 @@ in cui
 \end{flalign*}
 Naturalmente si ha
 
-\begin{tabularx}{\textwidth}{PPP}
+\vspace{2em}
+\noindent
+\rowcolors{1}{white}{white}
+\begin{tabularx}{\textwidth}{P}
   {
+      \centering
       \begin{tikzpicture}
         \begin{axis}[
           axis lines = left,
           xlabel = \(t\),
           ylabel = {\(x(t)\)},
+          legend pos=outer north east,
+          ymajorgrids=true,
+          xmajorgrids=true,
+          grid style=dashed,
         ]
 
         \addplot [
-          domain=0:10,
+          domain=-2:10,
           samples=100,
           color=red,
         ]
-        {2x + 2};
+        {2 + 2*x};
         \addlegendentry{\(x(t) = 2 \text{ m } + \left(2 \text{ m/s} \right) \cdot t\)}
         \end{axis}
     \end{tikzpicture}
-  } & {
-    \begin{tikzpicture}
+  }
+\end{tabularx}
+
+\vspace{2em}
+\noindent
+\rowcolors{1}{white}{white}
+\begin{tabularx}{\textwidth}{P}
+  {
+      \centering
+      \begin{tikzpicture}
+          \begin{axis}[
+            axis lines = left,
+            xlabel = \(t\),
+            ylabel = {\(y(t)\)},
+            legend pos=outer north east,
+            ymajorgrids=true,
+            xmajorgrids=true,
+            grid style=dashed,
+          ]
+
+          \addplot [
+            domain=-2:10,
+            samples=100,
+            color=blue,
+          ]
+          {4*x};
+          \addlegendentry{\(y(t) = 0 \text{ m } + \left(4 \text{ m/s} \right) \cdot t\)}
+          \end{axis}
+      \end{tikzpicture}
+  }
+\end{tabularx}
+
+\vspace{2em}
+\noindent
+\rowcolors{1}{white}{white}
+\begin{tabularx}{\textwidth}{P}
+  {
+      \centering
+      \begin{tikzpicture}
         \begin{axis}[
           axis lines = left,
           xlabel = \(t\),
-          ylabel = {\(y(t)\)},
+          ylabel = {\(r(t)\)},
+          legend pos=outer north east,
+          ymajorgrids=true,
+          xmajorgrids=true,
+          grid style=dashed,
         ]
-        %Below the red parabola is defined
-        \addplot [
-          domain=0:10,
-          samples=100,
-          color=blue,
-        ]
-        {4x};
-        \addlegendentry{\(y(t) & = 0 \text{ m } + \left(4 \text{ m/s} \right) \cdot t\)}
-        \end{axis}
-    \end{tikzpicture}
-  } & {
-
-  }
+      \addplot[
+        domain=-2:10,
+        samples=100,
+        color=orange,
+      ]
+      ({2 + 2*x},
+      {4*x});
+      \addlegendentry{\(\vec{r}(t) = x(t) \cdot \hat{i} + y(t) \cdot \hat{j}\)}
+      \end{axis}
+      \end{tikzpicture}
+        }
 \end{tabularx}
 
 \vspace{1em}
@@ -565,7 +611,314 @@ Di seguito si espone la definizione di \textbf{accelerazione}:
     \hline
 \end{tabularx}
 
+\newpage
+\noindent
+\begin{center}
+  7 Marzo 2022
+\end{center}
+Comè noto, l'accelerazione è la derivata prima della velocità in funzione del tempo, o la derivata seconda dello spostamento in funzione del tempo.\\
+L'accelerazione è fondamentale in \textbf{meccanica}, in quanto grazie all'accelerazione è possibile definire il concetto di forza: l'accelerazione è la connessione tra cinematica e dimanica.
 
+\vspace{2em}
+\noindent
+\rowcolors{1}{white}{white}
+\begin{tabularx}{\textwidth}{P}
+  {
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          axis lines = left,
+          xlabel = \(t\),
+          ylabel = {\(x(t)\)},
+          legend pos=outer north east,
+          ymajorgrids=true,
+          xmajorgrids=true,
+          grid style=dashed,
+        ]
+
+        \addplot [
+          domain=-2:10,
+          samples=100,
+          color=red,
+        ]
+        {(x-3)^3 + 5};
+        \addlegendentry{\(x(t) = 2 \text{ m } + \left(2 \text{ m/s} \right) \cdot t\)}
+        \end{axis}
+    \end{tikzpicture}
+  }
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+Avendo a disposizione il grafico dello spostamento, è possibile ora studiarne il comportamento per poi descrivere il comportamento della velocità nel secondo grafico. È sufficiente vedere gli intervalli di crescenza e decrescenza e i punti in cui la derivata è nulla:
+
+\vspace{2em}
+\noindent
+\rowcolors{1}{white}{white}
+\begin{tabularx}{\textwidth}{P}
+  {
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          axis lines = left,
+          xlabel = \(t\),
+          ylabel = {\(v(t)\)},
+          legend pos=outer north east,
+          ymajorgrids=true,
+          xmajorgrids=true,
+          grid style=dashed,
+        ]
+
+        \addplot [
+          domain=-2:10,
+          samples=100,
+          color=red,
+        ]
+        {(x-4)^2-2};
+        \addlegendentry{\(x(t) = 2 \text{ m } + \left(2 \text{ m/s} \right) \cdot t\)}
+        \end{axis}
+    \end{tikzpicture}
+  }
+\end{tabularx}
+
+\vspace{2em}
+\noindent
+\rowcolors{1}{white}{white}
+\begin{tabularx}{\textwidth}{P}
+  {
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          axis lines = left,
+          xlabel = \(t\),
+          ylabel = {\(a(t)\)},
+          legend pos=outer north east,
+          ymajorgrids=true,
+          xmajorgrids=true,
+          grid style=dashed,
+        ]
+
+        \addplot [
+          domain=-2:10,
+          samples=100,
+          color=red,
+        ]
+        {x - 4};
+        \addlegendentry{\(x(t) = 2 \text{ m } + \left(2 \text{ m/s} \right) \cdot t\)}
+        \end{axis}
+    \end{tikzpicture}
+  }
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+Ecco che il punto in cui la derivata seconda cambia segno è un \textbf{punto di flesso}. ...continua...
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri la seguente funzione spostamento in funzione del tempo:
+\[x(t) = A \cdot \cos(\omega \cdot t)\]
+questa è l'equazione di oscillazione di un pendolo o di una molla. Per il calcolo della velocità è sufficiente calcolare la derivata prima, ovvero
+\[v(t) = \frac{dx}{dt} = -\omega \cdot A \cdot \sin(\omega \cdot t)\]
+e per l'accelerazione è sufficiente derivare nuomvemente la velocità
+\[a(t) = \frac{dv}{dt} = -\omega^2 \cdot A \cdot \cos(\omega \cdot t) = -\omega^2 \cdot x(t)\]
+Tale risultato ha senso e può essere interpretato anche graficamente, grazie al grafico di una molla: quando lo spostamento è positivo, l'accelerazione è negativa, e viceversa.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Quando la velocità è nulla, la posizione si mantiene costante e non cresce o decresce. Quando si ha un punto di salto della velocità si ha una situazione difficile da riprodurre fisicamente, in quanto si ha un crollo della velocità istantanea, come un impulso.\\
+Si può utilizzare anche l'integrale per passare dalla velocità allo spostamento.
+
+\vspace{1em}
+\subsection{Moto uniformemente accelerato}
+Nel moto uniformemente accelerato si ha che l'\textbf{accelerazione} è \textbf{costante}. È noto che
+\[\frac{dv}{dt} = a \longrightarrow dv = a \cdot dt\]
+questo è possibile farlo sia per una variazione $\Delta$, ma anche per una variazione infinitesimale. Dopo aver ottenuto $dv = a \cdot dt$ si può procedere all'integrazione
+\[\int dv = \int a \cdot dt \longrightarrow v = at + c\]
+La costante $c$ che compare nella formula ottenuta grazie alla risoluzione di una equazione differenziale è la cosiddettà \textbf{velocità inziale}: se $t=0$, infatti, $v = c = v_0$. L'equazione diviene
+\[v(t) = v_0 + a \cdot t\]
+Avendo ottenuto l'equazione della velocità, è opportuno ottenere l'equazione dello spostamento, integrando nuovamente, sempre partendo da
+\[\frac{dx}{dt} = v \longrightarrow dx = v \cdot dt \longrightarrow \int dx = \int v \cdot dt = \int (v_0 + a \cdot t) dt\]
+quindi si ottiene
+\[x(t) = \int v_0 \cdot dt + \int a \cdot t \cdot dt + c = v_0 \cdot t + a \cdot \frac{t^2}{2} + c\]
+ove $c = x_0 = x(t=0)$. Pertanto l'equazione dello spostamento è
+\[x(t) = x_0 + v_0 \cdot t + \frac{1}{2} \cdot a \cdot t^2\]
+che rappresenta una parabola, come esposto di seguito
+
+\vspace{2em}
+\noindent
+\rowcolors{1}{white}{white}
+\begin{tabularx}{\textwidth}{P}
+  {
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          axis lines = left,
+          xlabel = \(t\),
+          ylabel = {\(a(t)\)},
+          legend pos=outer north east,
+          ymajorgrids=true,
+          xmajorgrids=true,
+          grid style=dashed,
+        ]
+
+        \addplot [
+          domain=-2:10,
+          samples=100,
+          color=red,
+        ]
+        {-(x-2)^2 + 5};
+        \addlegendentry{\(x(t) = 2 \text{ m } + \left(2 \text{ m/s} \right) \cdot t\)}
+        \end{axis}
+    \end{tikzpicture}
+  }
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+In cui l'intersezione tra il grafico e l'asse $y$ è $x_0$, mentre la tangente in $(x_0,0)$ è proprio la velocità $v_0$. ... continua ... (35).
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si consideri la seguente equazione
+\[v(t) = a \cdot t + v_0\]
+e si provi ad eliminare $t$ da tale equazione, come segue
+\[t = \frac{v - v_0}{a}\]
+se ora si considera l'equazione seguente
+\[x(t) = \frac{1}{2} \cdot a \cdot t^2 + v_0 \cdot t + x_0\]
+e si sostituisce il $t$ calcolato in precedenza a tale equazione si ottiene
+\[x(t) = \frac{1}{2} \cdot a \cdot \left(\frac{v - v_0}{a}\right)^2 + v_0 \cdot \left(\frac{v - v_0}{a}\right) + x_0 = \frac{1}{2} \cdot \frac{1}{a} \cdot (v^2 - 2 \cdot v \cdot v_0 + v_0^2) + \frac{1}{a} \cdot (v_0 \cdot v + v_0^2) + x_0\]
+ovvero si ottiene
+\[x = \frac{v^2}{2a} - \frac{v_0^2}{2a} + x_0\]
+quindi
+\[v^2 - v_0^2 = 2a \cdot (x - x_0)\]
+la quale è \textbf{valida solamente per il moto uniformemente accelerato}.
+
+\vspace{1em}
+\subsubsection{Caduta libera dei gravi}
+La \textbf{caduta libera} avviene con la \textbf{medesima accelerazione} per tutti i corpi (ovviamente, l'attrazione gravitazionale non è costante in tutto l'universo, ma se si considerano un punto sulla terra e distanze piccole e prossime a quella del raggio terrestre, si può, senza perdita di generalità, considerare un'accelerazione costante $g$).
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Naturalmente sulla Luna non c'è aria, si è nel vuoto, per cui tutti i corpi vengono attratti dalla Luna solamente per la forza di attrazione gravitazionale, senza che tale moto sia influenzato dall'attrito dell'aria.
+
+\vspace{1em}
+\noindent
+L'accelerazione gravitazionale può essere interpretata come segue:
+
+\begin{tikzpicture}
+  \draw [-stealth] (0,0) -- (0,-5);
+\end{tikzpicture}
+
+\vspace{1em}
+\noindent
+Ove, naturalmente si ha
+\[\vec{a} = -g \cdot \hat{j} \hspace{0.5em} \text{con} \hspace{0.5em} 9.8 \text{ m/s}\]
+Pertanto si ottengono le seguenti equazioni
+\[v_y = -g \cdot t + v_{0y}\]
+\[y = - \frac{1}{2} \cdot g \cdot t^2 + v_{0y} + y_0\]
+Pe capire che altezza raggiungerà un corpo quando viene lanciato verso l'alto si deve osservare il grafico seguente
+
+\vspace{2em}
+\noindent
+\rowcolors{1}{white}{white}
+\begin{tabularx}{\textwidth}{P}
+  {
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          axis lines = left,
+          xlabel = \(t\),
+          ylabel = {\(y(t)\)},
+          legend pos=outer north east,
+          ymajorgrids=true,
+          xmajorgrids=true,
+          grid style=dashed,
+        ]
+
+        \addplot [
+          domain=0:10,
+          samples=100,
+          color=red,
+        ]
+        {-(x-2)^2 + 5};
+        \addlegendentry{\(x(t) = 2 \text{ m } + \left(2 \text{ m/s} \right) \cdot t\)}
+        \end{axis}
+    \end{tikzpicture}
+  }
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+Naturalmente si osserva che la velocità nel punto più alto è nulla, in quanto la tangente è verticale, mentre si conosce la velocità inziale $v_0$.\\
+Per capire l'altezza, allora, si potrebbe calcolare il tempo impiegato per raggiungere il punto più alto e poi sostituire tale valore all'interno dell'equazione dello spostamento. Alternativamente, si potrebbe considerare la formula seguente
+\[v_y^2 - v_{0y}^2 = -2 \cdot g \cdot (y - y_0)\]
+e sostitutendo i valori si ha
+\[0 - v_{y_0}^2 = 2 \cdot g \cdot (y_m - y_0)\]
+\[y_m = y_0 + \frac{v_{0y}^2}{2g}\]
+
+\vspace{1em}
+\subsubsection{Moto dei proiettili}
+Il moto dei proiettili ha un'importanza storica fondamentale: Aristotele, nel $340$ a.c. parlava di \textbf{moto \quotes{naturale} e \quotes{forzato}}: tuttavia, naturalmente, un oggetto non ha la propensione a muoversi, quindi non ha senso parlare di \emph{forzatura}.\\
+Successivamente, Filipono ($490-570$) d.c. ha introdotto il concetto di \textbf{impeto}. Infine, \textbf{Galileo} ($1564-1642$) d.c., basandosi su osservazioni e misurazioni pratiche precedenti (invece che fornire una spiegazioni a priori), ha fornito una \textbf{spiegazione scentifica} a tale fenomeno.\\
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{LEGGE ORARIA DEL MOTO DEI PROIETTILI}}\\
+    \parbox{\linewidth}{Per lo studio del moto dei proiettili si considera il vettore accelerazione
+    \[\vec{a} = a_x \cdot \hat{i} + a_y \cdot \hat{j} = 0 \cdot \hat{i} - g \cdot \hat{j}\]
+    Analogamente per la velocità si ha
+    \[\vec{v} = v_x \cdot \hat{i} + v_y \cdot \hat{j} = v_{0x} \cdot \hat{i} - (v_{0y} - g \cdot t) \cdot \hat{j}\]
+    Per quanto concerne lo spostamento si ha
+    \[\vec{r} = x \cdot \hat{i} + y \cdot \hat{j} = (v_{0x} \cdot t + x_0) \cdot \hat{i} - (y_0 + v_{0y} \cdot t - \frac{1}{2} \cdot g \cdot t^2) \cdot \hat{j}\]
+    \vspace{-1mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{2em}
+\noindent
+Si consideri il seguente grafico della posizione di un proiettile:
+
+\vspace{2em}
+\noindent
+\rowcolors{1}{white}{white}
+\begin{tabularx}{\textwidth}{P}
+  {
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          axis lines = left,
+          xlabel = \(x\),
+          ylabel = {\(y\)},
+          legend pos=outer north east,
+          ymajorgrids=true,
+          xmajorgrids=true,
+          grid style=dashed,
+        ]
+
+        \addplot [
+          domain=0:10,
+          samples=100,
+          color=red,
+        ]
+        {-(x-2)^2 + 5};
+        \addlegendentry{\(x(t) = 2 \text{ m } + \left(2 \text{ m/s} \right) \cdot t\)}
+        \end{axis}
+    \end{tikzpicture}
+  }
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+Naturalmente si ha che
+\[\vec{v_{0}} = v_{0x} \cdot \hat{i} + v_{0y} \cdot \hat{j}\]
+\[\vec{r_{0}} = r_{0x} \cdot \hat{i} + r_{0y} \cdot \hat{j}\]
 
 
 
