@@ -5,6 +5,7 @@
 \usepackage[table]{xcolor}
 \usepackage{xcolor}
 \usepackage{circuitikz}
+\usetikzlibrary{calc,patterns,angles,quotes}
 \usetikzlibrary{positioning, circuits.logic.US}
 \usetikzlibrary {shapes.gates.logic.US, shapes.gates.logic.IEC, calc}
 \tikzset {branch/.style={fill, shape = circle, minimum size = 3pt, inner sep = 0pt}}
@@ -368,7 +369,7 @@ Mentre di seguito si espone la definizione di \textbf{direzione di un vettore}:
     \end{center}
     e si può verificare che
     \[\left \vert \vec{v} \right \vert = \sqrt{v_x^2 + v_y^2} = \sqrt{v^2 \cdot \cos^2(\theta) + v^2 \cdot \sin^2(\theta)} = v \cdot \sqrt{\cos^2(\theta) + \sin^2(\theta)} = v\]
-    \vspace{3mm}}\\
+    \vspace{-1mm}}\\
     \hline
 \end{tabularx}
 
@@ -422,11 +423,13 @@ per cui, ricordando che
 \end{center}
 
 \section{Cinematica}
-La descrizione del moto di un corpo prende il nome di cinematica.\\ Com'è noto, un vettore è una quantità con \textbf{modulo} e \textbf{direzione} (e \textbf{verso}). La descrizione di un vettore avviene tramite le sue componenti: in particolare, dato un versore $\hat{n}$, la componente di un vettore $\vec{v}$ in direzione del versore $\hat{n}$ è così definita
+La descrizione del moto di un corpo (approssimanto ad un punto) prende il nome di \textbf{cinematica} (mentre la ragione del moto viene studiata dalla \textbf{dinamica}). Com'è noto, inoltre, un vettore è una quantità con \textbf{modulo} e \textbf{direzione} (e \textbf{verso}). La descrizione di un vettore avviene tramite le sue componenti: in particolare, dato un versore $\hat{n}$, la componente di un vettore $\vec{v}$ in direzione del versore $\hat{n}$ è così definita
 \[\vec{v} \cdot \hat{n}\]
 Per esempio, la componente del vettore $\vec{v}$ lungo l'asse $x$ è
 \[\vec{v} \cdot \hat{i} = v_x\]
-Inoltre, il prodotto scalare tra due vettori viene definito come ... continua ....
+Inoltre, il \textbf{prodotto scalare} tra due vettori $\vec{v}$ e $\vec{u}$ viene definito come:
+\[\vec{v} \cdot \vec{u} = v_x \cdot u_x + v_y \cdot u_y \cdot v_z \cdot u_z = v \cdot z \cdot \cos(\theta)\]
+ove $\theta$ è l'angolo compreso tra i due vettori $\vec{v}$ e $\vec{u}$.\\
 Grazie a ciò è possibile definire il concetto di \textbf{Cinematica}:
 
 % Tabella per le definizione di concetti, etc...
@@ -445,27 +448,48 @@ Grazie a ciò è possibile definire il concetto di \textbf{Cinematica}:
 
 \vspace{1em}
 \noindent
-È chiaro che lo studio di un corpo complesso e non omogeneo è molto più elaborata dello studio di un solo \textbf{punto}. Pertanto, il primo passo per lo studio del moto è quello di studiare il comportamento di un modello standard a cui può essere ricondotto, tramite approssimazione, un altro corpo, a seconda della necessità.
+È chiaro che lo studio di un corpo complesso e non omogeneo è molto più elaborato dello studio di un solo \textbf{punto}. Pertanto, il primo passo per lo studio del moto è quello di studiare il comportamento di un modello standard a cui può essere ricondotto, tramite approssimazione, un altro corpo, a seconda della necessità.
 
 \vspace{1em}
 \subsection{Posizione e spostamento}
-Dato un punto nello spazio, la sua posizione viene descritta tramite un \quotes{vettore} posizione $\vec{r}$, di cui è possibile calcolare la lunghezza $\left(\vec{r}\right)$, la quale, tuttavia, non ha molto significato dal momento che dipende dalla posizione dell'origine scelta: ovverosia dipende dalla posizione iniziale e, quindi, dal \textbf{sistema di riferimento adottato}. Conoscere il sistema di riferimento è fondamentale, in quanto in base a ciò possono essere effettuate diverse valutazioni in merito alle misurazioni effettuate in base a tale sistema.
+Dato un punto nello spazio, la sua posizione viene descritta tramite un \quotes{vettore} posizione $\vec{r}$, di cui è possibile calcolare la lunghezza $\left(\vec{r}\right)$, la quale, tuttavia, non ha molto significato dal momento che dipende dalla posizione dell'origine del sistema scelta: ovverosia dipende dalla posizione iniziale e, quindi, dal \textbf{sistema di riferimento adottato}:
 
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}
-
+      \draw [-stealth] (0,0) -- (0,2);
+      \draw [-stealth] (0,0) -- (1.5,-1);
+      \draw [-stealth] (0,0) -- (-1.5,-1);
+      \draw [-stealth, blue] (0,0) -- (1.5,1);
+      \draw [blue] (0.75,0.8) node[]{$\vec{r}$};
   \end{tikzpicture}
-  \caption{}
-  \label{}
+  \caption{\quotes{Vettore} posizione}
+  \label{fig:vettore_posizione}
 \end{figure}
 
 \vspace{1em}
 \noindent
-Lo \textbf{spostamento}, invece, è proprio un vettore e, com'é intuibile, taluno è definito come la differenza tra due posizioni, ovvero
-\[\Delta \vec{r} = \vec{r_2} - \vec{r_1}\]
-di cui è possibile calcolare il modulo come segue
-\[\left \vert \Delta \vec{r} \right \vert = \left \vert \vec{r_2} - \vec{r_1} \right \vert = \sqrt{\left(x_2 - x_1\right)^2 + \left(y_2 - y_1\right)^2 + \left(z_2 - z_1\right)^2}\]
+Conoscere il sistema di riferimento è fondamentale, in quanto in base a ciò possono essere effettuate diverse valutazioni che, naturalmente, variano a seconda del sistema di riferimento scelto: si pensi ed effettuare una misurazione adottando come sistema di riferimento un treno che si muove oppure un treno immobile, o ancora un treno che sta accelerando: si parla, in tale contesto, di un \textbf{sistema di riferimento non inerziale}.
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{SPOSTAMENTO}}\\
+    \parbox{\linewidth}{Lo \textbf{spostamento}, invece, è proprio un vettore e, com'é intuibile, taluno è definito come la differenza tra due posizioni, ovvero
+    \[\boxed{\Delta \vec{r} = \vec{r_2} - \vec{r_1}}\]
+    di cui è possibile calcolare il modulo come segue
+    \[\left \vert \Delta \vec{r} \right \vert = \left \vert \vec{r_2} - \vec{r_1} \right \vert = \sqrt{\left(x_2 - x_1\right)^2 + \left(y_2 - y_1\right)^2 + \left(z_2 - z_1\right)^2} = \text{ distanza}\]
+    \vspace{1mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
 Per esempio, la lunghezza sull'asse $x$ è
 \[\Delta \vec{r} = \Delta x \cdot \hat{i}\]
 di cui
@@ -473,6 +497,22 @@ di cui
 
 \vspace{1em}
 \subsection{Posizione in funzione del tempo}
+È particolarmente importante considerare la variazion della posizione nel tempo
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+      \draw (0,0) node[circ]{} to[out=80,in=180] (2,1);
+      \draw (2,1) to[out=0,in=-120] (4,2) node[circ]{};
+      \draw (0,-0.3) node[]{$\vec{r}_i$};
+      \draw (4,2.3) node[]{$\vec{r}_f$};
+      \draw [-stealth] (1,0.91) -- (1.8,1.2);
+      \draw (1.2,1.3) node[]{$\vec{r}(t)$};
+  \end{tikzpicture}
+  \caption{\quotes{Vettore} posizione in funzione del tempo}
+  \label{fig:vettore_posizione_funzione_tempo}
+\end{figure}
+
 Sia data una funzione spostamento, definita in funzione del tempo $t$, quale
 \[\vec{r}(t) = x(t) \cdot \hat{i} + y(t) \cdot \hat{j}\]
 in cui
@@ -490,7 +530,8 @@ Naturalmente si ha
       \centering
       \begin{tikzpicture}
         \begin{axis}[
-          axis lines = left,
+          grid=both,
+          axis lines = middle,
           xlabel = \(t\),
           ylabel = {\(x(t)\)},
           legend pos=outer north east,
@@ -519,7 +560,8 @@ Naturalmente si ha
       \centering
       \begin{tikzpicture}
           \begin{axis}[
-            axis lines = left,
+            grid=both,
+            axis lines = middle,
             xlabel = \(t\),
             ylabel = {\(y(t)\)},
             legend pos=outer north east,
@@ -548,7 +590,8 @@ Naturalmente si ha
       \centering
       \begin{tikzpicture}
         \begin{axis}[
-          axis lines = left,
+          grid=both,
+          axis lines = middle,
           xlabel = \(t\),
           ylabel = {\(r(t)\)},
           legend pos=outer north east,
@@ -576,15 +619,80 @@ La \textbf{velocità} si pone alla base della cinematica. In fisica la velocità
   \item Velocità istantanea
   \item Velocità media
 \end{itemize}
-Intuitivamente si ha che la velocità media è proprio il rapporto tra uno spostamento e il tempo impiegato per effettuarlo, ovvero
-\[\left<v\right> = \frac{\Delta s}{\Delta t} = \frac{x_2 - x_1}{t_2 - t_1}\]
-che, graficamente, può essere interpretata come la pendenza (o coefficiente angolare, della congiungente i punti $(x_1,t_1)$ e $(x_2,t_2)$ nel gradico spazio/tempo.\\
-Mentre la velocità istantanea è, naturalmente, la derivata nel tempo del vettore spostameto, ovvero
-\[\vec{v}(t) = \frac{d\vec{t}}{dt} = \lim_{t \to 0} \frac{x - x_0}{t - t_0}\]
-ovvero la retta tangente il grafico della funzione spostamento nel punto $(x_0,t_0)$. Naturalmente essendo un vettore la velocità istantanea, è possibile descriverlo tramite componenti come segue:
-\[\vec{v} = \frac{d}{dt} \left(\vec{r}(t)\right) = \frac{dx}{dt} \cdot \hat{i} + \frac{dy}{dt} \cdot \hat{j} + \frac{dz}{dt} \cdot \hat{k}\]
-in quanto $\hat{i}$, $\hat{j}$ e $\hat{k}$ non dipendono dal tempo (cosa che potrebbe accadre, comunque). Il modulo della velocità si calcola come segue
-\[\left \vert \vec{v} \right \vert = v = \sqrt{v_x^2 + v_y^2 + v_z^2}\]
+Si consideri, a tal proposito, il seguente grafico spazio-tempo:
+
+\vspace{2em}
+\noindent
+\rowcolors{1}{white}{white}
+\begin{tabularx}{\textwidth}{P}
+  {
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          grid=both,
+          axis lines = middle,
+          xlabel = \(t\),
+          ylabel = {\(x\)},
+          legend pos=outer north east,
+          ymajorgrids=true,
+          xmajorgrids=true,
+          grid style=dashed,
+          xtick={50,120},
+          xticklabels={$t_1$,$t_2$},
+          ytick={76,166},
+          yticklabels={$x_1$,$x_2$},
+        ]
+      \addplot[
+        domain=0:200,
+        samples=100,
+        color=orange,
+      ]
+      {abs(x*(abs(sin(2*x)) + 0.5) + 2)};
+      \addplot [color=red,mark=*] coordinates {(50,76)};
+      \addplot [color=red,mark=*] coordinates {(120,166)};
+      \addplot [color=blue] coordinates {(50,76)(120,166)};
+      %\addlegendentry{\(\vec{r}(t) = x(t) \cdot \hat{i} + y(t) \cdot \hat{j}\)}
+      \end{axis}
+      \end{tikzpicture}
+        }
+\end{tabularx}
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{VELOCITÀ MEDIA}}\\
+    \parbox{\linewidth}{Intuitivamente si ha che la velocità media è proprio il rapporto tra uno spostamento e il tempo impiegato per effettuarlo, ovvero
+    \[\boxed{\left<v\right> = \frac{\Delta \vec{r}}{\Delta t} = \frac{x_2 - x_1}{t_2 - t_1}}\]
+    che, graficamente, può essere interpretata come la pendenza (o coefficiente angolare), della congiungente i punti $(x_1,t_1)$ e $(x_2,t_2)$ nel grafico spazio/tempo.
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+\vspace{1em}
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{VELOCITÀ ISTANTANEA}}\\
+    \parbox{\linewidth}{Mentre la velocità istantanea è, naturalmente, la derivata nel tempo del vettore posizione, ovvero
+    \[\boxed{\vec{v}(t) = \frac{d\vec{r}}{dt} = \lim_{t \to 0} \frac{x - x_0}{t - t_0}}\]
+    ovvero la retta tangente il grafico della funzione posizione nel punto $(x_0,t_0)$. Naturalmente essendo un vettore la velocità istantanea, è possibile descriverlo tramite \textbf{componenti} come segue:
+    \[\vec{v} = \frac{d}{dt} \left(\vec{r}(t)\right) = \underbrace{\frac{dx}{dt} \cdot \hat{i}}_\text{$v_x$} + \underbrace{\frac{dy}{dt} \cdot \hat{j}}_\text{$v_y$} + \underbrace{\frac{dz}{dt} \cdot \hat{k}}_\text{$v_z$}\]
+    in quanto $\hat{i}$, $\hat{j}$ e $\hat{k}$ non dipendono dal tempo (cosa che potrebbe accadere, comunque, in determinate circostanze).\\
+    Il \textbf{modulo} della velocità si calcola come segue
+    \[\left \vert \vec{v} \right \vert = v = \sqrt{v_x^2 + v_y^2 + v_z^2}\]
+    \vspace{-1mm}}\\
+    \hline
+\end{tabularx}
 
 \vspace{1em}
 \noindent
@@ -607,7 +715,7 @@ Di seguito si espone la definizione di \textbf{accelerazione}:
     {\textbf{ACCELERAZIONE}}\\
     \parbox{\linewidth}{L'accelerazione viene definita come la derivata prima della velocità nel tempo, o la derivata seconda dello spostamento nel tempo:
     \[\vec{a} = \frac{d \vec{v}}{dt} = \frac{d^2 \vec{r}}{dt}\]
-    \vspace{3mm}}\\
+    \vspace{-1mm}}\\
     \hline
 \end{tabularx}
 
@@ -627,7 +735,8 @@ L'accelerazione è fondamentale in \textbf{meccanica}, in quanto grazie all'acce
       \centering
       \begin{tikzpicture}
         \begin{axis}[
-          axis lines = left,
+          grid=both,
+          axis lines = middle,
           xlabel = \(t\),
           ylabel = {\(x(t)\)},
           legend pos=outer north east,
@@ -641,8 +750,8 @@ L'accelerazione è fondamentale in \textbf{meccanica}, in quanto grazie all'acce
           samples=100,
           color=red,
         ]
-        {(x-3)^3 + 5};
-        \addlegendentry{\(x(t) = 2 \text{ m } + \left(2 \text{ m/s} \right) \cdot t\)}
+        {(x-4)^3 + 500};
+        % \addlegendentry{\(x(t) = 2 \text{ m } + \left(2 \text{ m/s} \right) \cdot t\)}
         \end{axis}
     \end{tikzpicture}
   }
@@ -650,7 +759,7 @@ L'accelerazione è fondamentale in \textbf{meccanica}, in quanto grazie all'acce
 
 \vspace{1em}
 \noindent
-Avendo a disposizione il grafico dello spostamento, è possibile ora studiarne il comportamento per poi descrivere il comportamento della velocità nel secondo grafico. È sufficiente vedere gli intervalli di crescenza e decrescenza e i punti in cui la derivata è nulla:
+Avendo a disposizione il grafico che descrive la variazione della posizione nel tempo, è possibile ora studiarne l'andamento per poi descrivere il comportamento della velocità nel secondo grafico. È sufficiente, pertanto, osservare gli intervalli di crescenza e decrescenza e i punti in cui la derivata si annulla nulla:
 
 \vspace{2em}
 \noindent
@@ -660,7 +769,8 @@ Avendo a disposizione il grafico dello spostamento, è possibile ora studiarne i
       \centering
       \begin{tikzpicture}
         \begin{axis}[
-          axis lines = left,
+          grid=both,
+          axis lines = middle,
           xlabel = \(t\),
           ylabel = {\(v(t)\)},
           legend pos=outer north east,
@@ -674,12 +784,16 @@ Avendo a disposizione il grafico dello spostamento, è possibile ora studiarne i
           samples=100,
           color=red,
         ]
-        {(x-4)^2-2};
-        \addlegendentry{\(x(t) = 2 \text{ m } + \left(2 \text{ m/s} \right) \cdot t\)}
+        {(x-4)^2+1000};
+        % \addlegendentry{\(x(t) = 2 \text{ m } + \left(2 \text{ m/s} \right) \cdot t\)}
         \end{axis}
     \end{tikzpicture}
   }
 \end{tabularx}
+
+\vspace{1em}
+\noindent
+Ancora una volta, studiando l'andamento della velocità nel suo rispettivo grafico è ora possibile descrivere il grafico della derivata della velocità, ovvero dell'accelerazione, sempre analizzando gli intervalli di crescenza e decrescenza:
 
 \vspace{2em}
 \noindent
@@ -689,7 +803,8 @@ Avendo a disposizione il grafico dello spostamento, è possibile ora studiarne i
       \centering
       \begin{tikzpicture}
         \begin{axis}[
-          axis lines = left,
+          grid=both,
+          axis lines = middle,
           xlabel = \(t\),
           ylabel = {\(a(t)\)},
           legend pos=outer north east,
@@ -704,7 +819,7 @@ Avendo a disposizione il grafico dello spostamento, è possibile ora studiarne i
           color=red,
         ]
         {x - 4};
-        \addlegendentry{\(x(t) = 2 \text{ m } + \left(2 \text{ m/s} \right) \cdot t\)}
+        % \addlegendentry{\(x(t) = 2 \text{ m } + \left(2 \text{ m/s} \right) \cdot t\)}
         \end{axis}
     \end{tikzpicture}
   }
@@ -712,38 +827,54 @@ Avendo a disposizione il grafico dello spostamento, è possibile ora studiarne i
 
 \vspace{1em}
 \noindent
-Ecco che il punto in cui la derivata seconda cambia segno è un \textbf{punto di flesso}. ...continua...
+Ecco che il punto in cui la derivata seconda (ovverosia l'accelerazine) cambia segno è un \textbf{punto di flesso}, ovvero il punto in cui il grafico dello spostamento cambia la propria concavità.
 
 \vspace{1em}
 \noindent
 \textbf{Esempio}: Si consideri la seguente funzione spostamento in funzione del tempo:
-\[x(t) = A \cdot \cos(\omega \cdot t)\]
+\[x(t) = A \cdot \cos(\omega t)\]
 questa è l'equazione di oscillazione di un pendolo o di una molla. Per il calcolo della velocità è sufficiente calcolare la derivata prima, ovvero
-\[v(t) = \frac{dx}{dt} = -\omega \cdot A \cdot \sin(\omega \cdot t)\]
-e per l'accelerazione è sufficiente derivare nuomvemente la velocità
-\[a(t) = \frac{dv}{dt} = -\omega^2 \cdot A \cdot \cos(\omega \cdot t) = -\omega^2 \cdot x(t)\]
+\[v(t) = \frac{dx}{dt} = -\omega \cdot A \cdot \sin(\omega t)\]
+e per l'accelerazione è sufficiente derivare nuovamente la velocità
+\[a(t) = \frac{dv}{dt} = -\omega^2 \cdot A \cdot \cos(\omega t) = -\omega^2 \cdot x(t)\]
 Tale risultato ha senso e può essere interpretato anche graficamente, grazie al grafico di una molla: quando lo spostamento è positivo, l'accelerazione è negativa, e viceversa.
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[every node/.style={draw,outer sep=0pt,inner sep=0pt,thick}, scale=2]
+    \tikzstyle{spring}=[thick,decorate,decoration={aspect=0.5, segment length=1mm, amplitude=2mm,coil}]
+    \draw[thick] (0,0) --(0,1);
+    \draw[thick] (0,0) --(3,0) node[draw=none,xshift=5pt]{$x$};
+    \node at(0,0.25) (a) [draw=none] {};
+    \node at (2,0.25)(b) [minimum size=0.5cm,label=$\rightarrow$] {m};
+    \draw [spring] (a) -- (b) node[draw=none,pos=.5,right=.25cm] {};
+    \node at (2,-0.3)(c) [draw=none,yshift=5pt] {$x=0$};
+    \draw[dashed] (b.south) -- (c.north);
+  \end{tikzpicture}
+  \caption{Fisica di una molla}
+  \label{fig:fisica_molla}
+\end{figure}
 
 \vspace{1em}
 \noindent
-\textbf{Osservazione}: Quando la velocità è nulla, la posizione si mantiene costante e non cresce o decresce. Quando si ha un punto di salto della velocità si ha una situazione difficile da riprodurre fisicamente, in quanto si ha un crollo della velocità istantanea, come un impulso.\\
-Si può utilizzare anche l'integrale per passare dalla velocità allo spostamento.
+\textbf{Osservazione}: Quando la velocità è nulla, la posizione si mantiene costante e non cresce o decresce. Quando si ha un punto di salto della velocità si ha una situazione difficile da riprodurre fisicamente, in quanto si ha un crollo della velocità istantanea, come un impulso (si pensi anche al fatto che, per il teorema del limite della derivata, una funzione con un salto non può essere la derivata di una funzione derivabile).\\
+Si può utilizzare anche l'\textbf{integrale} per passare dalla velocità allo spostamento.
 
 \vspace{1em}
 \subsection{Moto uniformemente accelerato}
-Nel moto uniformemente accelerato si ha che l'\textbf{accelerazione} è \textbf{costante}. È noto che
+Nel moto uniformemente accelerato si ha che l'\textbf{accelerazione} è \textbf{costante}. Sapenche l'accelerazione è la derivata prima della velocità nel tempo, si può scrivere:
 \[\frac{dv}{dt} = a \longrightarrow dv = a \cdot dt\]
-questo è possibile farlo sia per una variazione $\Delta$, ma anche per una variazione infinitesimale. Dopo aver ottenuto $dv = a \cdot dt$ si può procedere all'integrazione
+Questo, in particolare, è possibile farlo sia per una variazione $\Delta$, ma anche per una variazione infinitesimale $d$. Ciò che si sta facendo, in questo caso, è risolvere un'\textbf{equazione differenziale}. Pertanto, dopo aver ottenuto $dv = a \cdot dt$ si può procedere all'integrazione
 \[\int dv = \int a \cdot dt \longrightarrow v = at + c\]
-La costante $c$ che compare nella formula ottenuta grazie alla risoluzione di una equazione differenziale è la cosiddettà \textbf{velocità inziale}: se $t=0$, infatti, $v = c = v_0$. L'equazione diviene
-\[v(t) = v_0 + a \cdot t\]
-Avendo ottenuto l'equazione della velocità, è opportuno ottenere l'equazione dello spostamento, integrando nuovamente, sempre partendo da
+La costante $c$ che compare nella formula, ottenuta grazie alla risoluzione di una equazione differenziale, è la cosiddettà \textbf{velocità inziale}: se $t=0$, infatti, $v = c = v_0$. Quindi l'equazione diviene
+\[\boxed{v(t) = v_0 + a \cdot t}\]
+Avendo ottenuto l'equazione della velocità nel tempo, è opportuno ottenere l'equazione della posizione in funzione del tempo, integrando nuovamente, sempre partendo da
 \[\frac{dx}{dt} = v \longrightarrow dx = v \cdot dt \longrightarrow \int dx = \int v \cdot dt = \int (v_0 + a \cdot t) dt\]
 quindi si ottiene
 \[x(t) = \int v_0 \cdot dt + \int a \cdot t \cdot dt + c = v_0 \cdot t + a \cdot \frac{t^2}{2} + c\]
-ove $c = x_0 = x(t=0)$. Pertanto l'equazione dello spostamento è
-\[x(t) = x_0 + v_0 \cdot t + \frac{1}{2} \cdot a \cdot t^2\]
-che rappresenta una parabola, come esposto di seguito
+ove $c = x_0 = x(t=0)$. Pertanto l'equazione della posizione in funzione del tempo è
+\[\boxed{x(t) = x_0 + v_0 \cdot t + \frac{1}{2} \cdot a \cdot t^2}\]
+che rappresenta l'equazione di una parabola, come illustrato nell'esempio seguente:
 
 \vspace{2em}
 \noindent
@@ -755,11 +886,14 @@ che rappresenta una parabola, come esposto di seguito
         \begin{axis}[
           axis lines = left,
           xlabel = \(t\),
-          ylabel = {\(a(t)\)},
+          ylabel = {\(x(t)\)},
           legend pos=outer north east,
           ymajorgrids=true,
           xmajorgrids=true,
           grid style=dashed,
+          ytick={-11},
+          yticklabels={$x_0$},
+          ymax=15,
         ]
 
         \addplot [
@@ -768,7 +902,8 @@ che rappresenta una parabola, come esposto di seguito
           color=red,
         ]
         {-(x-2)^2 + 5};
-        \addlegendentry{\(x(t) = 2 \text{ m } + \left(2 \text{ m/s} \right) \cdot t\)}
+        \draw [-stealth, blue, thick] (axis cs:-2,-11) -- (axis cs:1,10);
+        \draw [blue] (axis cs:-1.2,0) node[]{$\vec{v}_0$};
         \end{axis}
     \end{tikzpicture}
   }
@@ -776,23 +911,23 @@ che rappresenta una parabola, come esposto di seguito
 
 \vspace{1em}
 \noindent
-In cui l'intersezione tra il grafico e l'asse $y$ è $x_0$, mentre la tangente in $(x_0,0)$ è proprio la velocità $v_0$. ... continua ... (35).
+In cui, ovviamente, l'intersezione tra il grafico e l'asse $y$ è $x_0$, il vettore designato in blu, ossia la tangente in $(x_0,0)$, rappresenta la pendenza iniziale del grafico della posizione, ovvero la velocità iniziale $v_0$. Essndo il grafico di un moto uniformemente accelerato, è ovvio che la pendenza decresce in modo costante: prima la velocità sarà positiva, ma dcrescente, e poi continuerà a decrescere, ma con valori negativi.
 
 \vspace{1em}
 \noindent
 \textbf{Osservazione}: Si consideri la seguente equazione
 \[v(t) = a \cdot t + v_0\]
-e si provi ad eliminare $t$ da tale equazione, come segue
+e si provi ad isolare $t$ da tale equazione, come segue
 \[t = \frac{v - v_0}{a}\]
 se ora si considera l'equazione seguente
 \[x(t) = \frac{1}{2} \cdot a \cdot t^2 + v_0 \cdot t + x_0\]
 e si sostituisce il $t$ calcolato in precedenza a tale equazione si ottiene
 \[x(t) = \frac{1}{2} \cdot a \cdot \left(\frac{v - v_0}{a}\right)^2 + v_0 \cdot \left(\frac{v - v_0}{a}\right) + x_0 = \frac{1}{2} \cdot \frac{1}{a} \cdot (v^2 - 2 \cdot v \cdot v_0 + v_0^2) + \frac{1}{a} \cdot (v_0 \cdot v + v_0^2) + x_0\]
 ovvero si ottiene
-\[x = \frac{v^2}{2a} - \frac{v_0^2}{2a} + x_0\]
+\[\boxed{x = \frac{v^2}{2a} - \frac{v_0^2}{2a} + x_0}\]
 quindi
-\[v^2 - v_0^2 = 2a \cdot (x - x_0)\]
-la quale è \textbf{valida solamente per il moto uniformemente accelerato}.
+\[\boxed{v^2 - v_0^2 = 2a \cdot (x - x_0)}\]
+la quale è \textbf{valida solamente per il moto uniformemente accelerato} ed è estremamente utile per conoscere lo spazio percorso da un corpo che si muove secondo queste legge oraria, senza conoscere il \textbf{tempo}.
 
 \vspace{1em}
 \subsubsection{Caduta libera dei gravi}
@@ -806,17 +941,25 @@ La \textbf{caduta libera} avviene con la \textbf{medesima accelerazione} per tut
 \noindent
 L'accelerazione gravitazionale può essere interpretata come segue:
 
-\begin{tikzpicture}
-  \draw [-stealth] (0,0) -- (0,-5);
-\end{tikzpicture}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \draw [-stealth] (0,0) -- (0,-5);
+    \draw (2,-2.5) node[]{$\vec{a} = -g \cdot \hat{j} \hspace{0.5em} \text{con} \hspace{0.5em} 9.8 \text{ m/s}$};
+  \end{tikzpicture}
+  \caption{Visualizzazione grafica del moto di caduta libera}
+  \label{fig:visualizzazione_grafica_caduta_libera}
+\end{figure}
+
 
 \vspace{1em}
 \noindent
 Ove, naturalmente si ha
 \[\vec{a} = -g \cdot \hat{j} \hspace{0.5em} \text{con} \hspace{0.5em} 9.8 \text{ m/s}\]
-Pertanto si ottengono le seguenti equazioni
-\[v_y = -g \cdot t + v_{0y}\]
-\[y = - \frac{1}{2} \cdot g \cdot t^2 + v_{0y} + y_0\]
+Pertanto si ottengono le seguenti equazioni, a partire da quelle generali per un moto uniformemente accelerato. Per quanto riguarda la velocità di caduta si ha:
+\[\boxed{v_y = -g \cdot t + v_{0y}}\]
+mentre per quanto riguarda la posizione in funzione del tempo si ottiene
+\[\boxed{y = - \frac{1}{2} \cdot g \cdot t^2 + v_{0y} + y_0}\]
 Pe capire che altezza raggiungerà un corpo quando viene lanciato verso l'alto si deve osservare il grafico seguente
 
 \vspace{2em}
@@ -829,20 +972,24 @@ Pe capire che altezza raggiungerà un corpo quando viene lanciato verso l'alto s
         \begin{axis}[
           axis lines = left,
           xlabel = \(t\),
-          ylabel = {\(y(t)\)},
+          ylabel = {\(x(t)\)},
           legend pos=outer north east,
           ymajorgrids=true,
           xmajorgrids=true,
           grid style=dashed,
+          ytick={-11,5},
+          yticklabels={$y_0$,$y_m$},
+          ymax=15,
         ]
 
         \addplot [
-          domain=0:10,
+          domain=-2:10,
           samples=100,
           color=red,
         ]
         {-(x-2)^2 + 5};
-        \addlegendentry{\(x(t) = 2 \text{ m } + \left(2 \text{ m/s} \right) \cdot t\)}
+        \draw [thick, red, dashed] (axis cs:0,5) -- (axis cs:4,5);
+        \draw [thick, red] (axis cs:2,9) node[]{$v_y=0$};
         \end{axis}
     \end{tikzpicture}
   }
@@ -850,17 +997,19 @@ Pe capire che altezza raggiungerà un corpo quando viene lanciato verso l'alto s
 
 \vspace{1em}
 \noindent
-Naturalmente si osserva che la velocità nel punto più alto è nulla, in quanto la tangente è verticale, mentre si conosce la velocità inziale $v_0$.\\
-Per capire l'altezza, allora, si potrebbe calcolare il tempo impiegato per raggiungere il punto più alto e poi sostituire tale valore all'interno dell'equazione dello spostamento. Alternativamente, si potrebbe considerare la formula seguente
-\[v_y^2 - v_{0y}^2 = -2 \cdot g \cdot (y - y_0)\]
+Naturalmente si osserva che la velocità nel punto più alto è nulla, in quanto la tangente è orizzontale, mentre si conosce la velocità inziale $v_0$.\\
+Per capire l'altezza, allora, si potrebbe calcolare il tempo impiegato per raggiungere il punto più alto e poi sostituire tale valore all'interno dell'equazione dello spostamento.\\
+ Alternativamente, si potrebbe considerare la formula seguente
+\[v_y^2 - v_{y0}^2 = -2 \cdot g \cdot (y - y_0)\]
 e sostitutendo i valori si ha
-\[0 - v_{y_0}^2 = 2 \cdot g \cdot (y_m - y_0)\]
-\[y_m = y_0 + \frac{v_{0y}^2}{2g}\]
+\[0 - v_{y0}^2 = 2 \cdot g \cdot (y_m - y_0)\]
+Per cui l'altezza massima che un corpo raggiunge quando viene lanciato verso l'alto con velocità iniziale $v_{y0}$ e a partire da un'altezza $y_0$ è
+\[\boxed{y_m = y_0 + \frac{v_{y0}^2}{2g}}\]
 
 \vspace{1em}
 \subsubsection{Moto dei proiettili}
-Il moto dei proiettili ha un'importanza storica fondamentale: Aristotele, nel $340$ a.c. parlava di \textbf{moto \quotes{naturale} e \quotes{forzato}}: tuttavia, naturalmente, un oggetto non ha la propensione a muoversi, quindi non ha senso parlare di \emph{forzatura}.\\
-Successivamente, Filipono ($490-570$) d.c. ha introdotto il concetto di \textbf{impeto}. Infine, \textbf{Galileo} ($1564-1642$) d.c., basandosi su osservazioni e misurazioni pratiche precedenti (invece che fornire una spiegazioni a priori), ha fornito una \textbf{spiegazione scentifica} a tale fenomeno.\\
+Il moto dei proiettili ha un'importanza storica fondamentale: Aristotele, nel $340$ a.c. parlava di \textbf{moto \quotes{naturale} e \quotes{forzato}}: tuttavia, naturalmente, un oggetto fermo, privo di sollecitazioni, non ha la propensione a muoversi, quindi non ha senso parlare di \emph{forzatura}.\\
+Successivamente, Filipono ($490-570$) d.c. ha introdotto il concetto di \textbf{impeto} e, infine, \textbf{Galileo} ($1564-1642$) d.c., basandosi su osservazioni e misurazioni pratiche precedenti (invece che fornire una spiegazioni a priori), ha fornito una \textbf{spiegazione scentifica} a tale fenomeno.
 
 % Tabella per le definizione di concetti, etc...
 \vspace{1em}
@@ -872,11 +1021,11 @@ Successivamente, Filipono ($490-570$) d.c. ha introdotto il concetto di \textbf{
     \hline
     {\textbf{LEGGE ORARIA DEL MOTO DEI PROIETTILI}}\\
     \parbox{\linewidth}{Per lo studio del moto dei proiettili si considera il vettore accelerazione
-    \[\vec{a} = a_x \cdot \hat{i} + a_y \cdot \hat{j} = 0 \cdot \hat{i} - g \cdot \hat{j}\]
+    \[\boxed{\vec{a} = a_x \cdot \hat{i} + a_y \cdot \hat{j} = 0 \cdot \hat{i} - g \cdot \hat{j}}\]
     Analogamente per la velocità si ha
-    \[\vec{v} = v_x \cdot \hat{i} + v_y \cdot \hat{j} = v_{0x} \cdot \hat{i} - (v_{0y} - g \cdot t) \cdot \hat{j}\]
-    Per quanto concerne lo spostamento si ha
-    \[\vec{r} = x \cdot \hat{i} + y \cdot \hat{j} = (v_{0x} \cdot t + x_0) \cdot \hat{i} - (y_0 + v_{0y} \cdot t - \frac{1}{2} \cdot g \cdot t^2) \cdot \hat{j}\]
+    \[\boxed{\vec{v} = v_x \cdot \hat{i} + v_y \cdot \hat{j} = v_{0x} \cdot \hat{i} - (v_{0y} - g t) \cdot \hat{j}}\]
+    Per quanto concerne la posizione in funzione del tempo si ha
+    \[\boxed{\vec{r} = x \cdot \hat{i} + y \cdot \hat{j} = (v_{0x} t + x_0) \cdot \hat{i} - (y_0 + v_{0y} t - \frac{1}{2} g t^2) \cdot \hat{j}}\]
     \vspace{-1mm}}\\
     \hline
 \end{tabularx}
@@ -894,8 +1043,79 @@ Si consideri il seguente grafico della posizione di un proiettile:
       \begin{tikzpicture}
         \begin{axis}[
           axis lines = left,
-          xlabel = \(x\),
-          ylabel = {\(y\)},
+          xlabel = \(t\),
+          ylabel = {\(x(t)\)},
+          legend pos=outer north east,
+          ymajorgrids=true,
+          xmajorgrids=true,
+          grid style=dashed,
+          ytick={-11},
+          yticklabels={$x_0$},
+          ymax=15,
+        ]
+
+        \addplot [
+          domain=-2:10,
+          samples=100,
+          color=red,
+        ]
+        {-(x-2)^2 + 5};
+        \draw [-stealth, blue, thick] (axis cs:-2,-11) -- (axis cs:1,10);
+        \draw [blue] (axis cs:-1.2,0) node[]{$\vec{v}_0$};
+        \draw [blue] (axis cs:-1.6,-11.2) node[]{$\vec{r}_0$};
+        \end{axis}
+    \end{tikzpicture}
+  }
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+Naturalmente si ha che
+\[\vec{v_{0}} = v_{x0} \cdot \hat{i} + v_{x0} \cdot \hat{j}\]
+\[\vec{r_{0}} = x_0 \cdot \hat{i} + y_0 \cdot \hat{j}\]
+
+\newpage
+
+\noindent
+\begin{center}
+  8 Marzo 2022
+\end{center}
+Naturalmente il modulo di un vettore non dipende dal sistema di coordinate scelto.\\
+Naturalmente è possibile avere
+\[\left \vert \vec{A} + \vec{B} \right \vert = \left \vert \vec{A} - \vec{B} \right \vert\]
+e per dimostrarne la veridicità basta cosnsiderare due vettori perpendicolari.\\
+Ovviamente, un versore ha sempre modulo unitario per essere definito tale: in particolare, dato il vettore $\vec{v} = \hat{i} + \hat{j} + \hat{k}$, il versore
+\[\hat{n} = \frac{\vec{v}}{v}\]
+è proprio un versore in direzione $\hat{i} + \hat{j} + \hat{k}$.\\
+La componente del vettore $\vec{v} = -3 \cdot \hat{i} + 5 \cdot \hat{j} + \hat{k}$ in direzione $\hat{n} = 0.6 \cdot \hat{j} - 0.8 \cdot \hat{k}$ è ovviamente
+\[\vec{v} \cdot \hat{n} = -3 \cdot 0 + 5 \cdot 0.6 - 1 \cdot 0.8 = 2.2\]
+È chiaro che in questo caso $\hat{n}$ era già un versore, altrimenti, se si avesse avuto un vetttore, si sarebbe dovuto calcolare il versore corrispondente dividendo per il suo modulo.
+
+\vspace{1em}
+\noindent
+Nel moto dei proiettili è estremamente importante considerare l'\textbf{altezza massima} che esso raggiungerà, ma soprattutto la sua \textbf{gittata}, ovvero la distanza massima che esso raggiungerà.\\
+Molto spesso, in questo caso, per lavorare è molto più convieniente operare con le coordinate polari $v_0$ e $\theta$ (ovvero con modulo e angolo), anziché con $v_{x0}$ e $v_{y0}$, sempre ricordando che
+\[v = \left(
+  \begin{array}{l}
+    v_{x0} = v_0 \cdot \cos(\theta)\\
+    v_{y0} = v_0 \cdot \sin(\theta)\\
+  \end{array}
+\right)\]
+In questo caso, per calcolare l'altezza massima raggiunta è sufficiente considerare solamente la componente della velocità verticale, come per la caduta libera dei gravi, ovvero
+\[y_m = y_0 + \frac{v_{y0}^2}{2g} = y_0 + \frac{v_0^2 \cdot \sin^2(\theta)}{2g}\]
+Analogamente, per calcolare la gittata, ovvero la distanza orizzontale percorsa da un corpo lanciato in aria, si dovrà usare solo la componente della velocità orrizontale.
+
+\vspace{2em}
+\noindent
+\rowcolors{1}{white}{white}
+\begin{tabularx}{\textwidth}{P}
+  {
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          axis lines = left,
+          xlabel = \(y\),
+          ylabel = {\(x\)},
           legend pos=outer north east,
           ymajorgrids=true,
           xmajorgrids=true,
@@ -907,8 +1127,8 @@ Si consideri il seguente grafico della posizione di un proiettile:
           samples=100,
           color=red,
         ]
-        {-(x-2)^2 + 5};
-        \addlegendentry{\(x(t) = 2 \text{ m } + \left(2 \text{ m/s} \right) \cdot t\)}
+        {-(x-2)^2 + 4};
+        % \addlegendentry{\(x(t) = 2 \text{ m } + \left(2 \text{ m/s} \right) \cdot t\)}
         \end{axis}
     \end{tikzpicture}
   }
@@ -916,17 +1136,526 @@ Si consideri il seguente grafico della posizione di un proiettile:
 
 \vspace{1em}
 \noindent
-Naturalmente si ha che
-\[\vec{v_{0}} = v_{0x} \cdot \hat{i} + v_{0y} \cdot \hat{j}\]
-\[\vec{r_{0}} = r_{0x} \cdot \hat{i} + r_{0y} \cdot \hat{j}\]
+Naturalmente, in questo caso, il calcolo della gittata $R$ si effettua come segue: è noto che
+\[R = v_{x0} \cdot t_R\]
+ove $t_R$ è la \textbf{durata del volo}. Però è noto che al tempo $t_R$ la coordinata $y$ è nulla, ovvero
+\[y(t_R) = 0 = v_{y0} \cdot t_R - \frac{1}{2} \cdot g \cdot t_R^2\]
+Dal momento che il tempo $t_R$ non è nullo è possibile dividere per $t$, ottenendo
+\[v_{y0} - \frac{1}{2} \cdot g \cdot t_R = 0\]
+da cui si evince che il tempo $t_R$ cercato è
+\[t_R = \frac{2 \cdot v_{y0}}{g}\]
+sostituendo, ora, il tempo trovato nella formula di cui sopra si ottiene
+\[R = v_{x0} \cdot \frac{2 \cdot v_{y0}}{g} = 2 \cdot \frac{v_{x0} \cdot v_{y0}}{g}\]
+ma ricordando come si calcolano le componenti $v_{x0}$ e $v_{y0}$ si ha
+\[R = 2 \cdot \frac{v_0^2 \cdot \sin(\theta) \cdot \cos(\theta)}{g}\]
+ed essendo $2 \cdot \sin(\theta) \cdot \cos(\theta) = \sin(2 \cdot \theta)$ si ottiene
+\[\boxed{R = \frac{v_0^2 \cdot \sin(2\theta)}{g}}\]
+Le unità in gioco sono
+\[[v^2] = \frac{\text{m}^2}{\text{s}^2}\]
+\[[g] = \frac{\text{m}}{\text{s}^2}\]
+\[[R] = \frac{\dfrac{\text{m}^2}{\text{s}^2}}{\dfrac{\text{m}}{\text{s}^2}} = \text{m}\]
 
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che, naturalmente, quando $\theta=0^\circ$, si ha che $\sin(0) = 0$ e quindi $R=0$: ciò ha senso, in quanto lanciando orizzontalmente il corpo cade immediatamente.\\
+Quando $\theta=90^\circ$ non si ha gittata, in quanto, lanciando verticalmente il corpo cada verticalmene.\\
+Quando $\theta=45^\circ$ si ha la gittata massima, in quanto $\sin(90)=1$.
 
+\vspace{1em}
+\subsection{Moto in 2D e 3D}
+Si consideri la seguente traiettoria
 
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+      \draw (0,0) node[circ]{} to[out=80,in=180] (2,1);
+      \draw (2,1) to[out=0,in=-120] (4,2) node[circ]{};
+      \draw (0,-0.3) node[]{$\vec{r}_i$};
+      \draw (4,2.3) node[]{$\vec{r}_f$};
+      \draw [-stealth, red] (1,0.91) -- (1.8,1.2);
+      \draw (1.2,1.3) node[]{$\vec{v}(t)$};
+      \draw [-stealth, blue] (1,0.91) -- (1.2,0.4);
+      \draw (0.85,0.6) node[]{$\vec{a}_\perp$};
+  \end{tikzpicture}
+  \caption{\quotes{Vettore} velocità in funzione del tempo}
+  \label{fig:vettore_velocità_funzione_tempo}
+\end{figure}
 
+\vspace{1em}
+\noindent
+Naturalmente $\vec{v}$ è sempre parallelo alla tangente della curva $\vec{r}(t)$.\\
+Si osservi, inoltre, che l'accelerazione deve sempre presentare una \textbf{componente lineare} $\vec{a}_\parallel$ (parallela a $\vec{v}$) e una \textbf{componente ortogonale} $\vec{a}_\perp$ (in direzione del cambiamento dell'orientazione della velocità), la quale è fondamentale: infatti, se ci fosse solo una componente lineare, la velocità aumenterebbe il proprio modulo, ma non direzione; ogni qualvolta si ha una variazione della direzione della velocità ci deve essere una componente ortogonale dell'accelerazione.
 
+\vspace{1em}
+\noindent
+\subsection{Moto circolare uniforme}
+Per moto circolare uniforme si intende un moto circolare in cui la \textbf{velocità angolare} si mantiene \textbf{costante}.\\
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[>=Triangle]
+    \shade [top color=white, bottom color=gray!50, middle color=white]
+      (120:8/3) arc (120:190:8/3) node [black, near end, left] {$\omega$}
+      -- (190:25/9) -- (200:15/6) -- (190:20/9) -- (190:7/3)
+      arc (190:120:7/3) -- cycle;
+
+    \foreach \i in {90, 210, 330}{
+      \draw [->, thick, blue!50!cyan] (\i-65:2) arc (\i-65:\i+60:2);
+      \tikzset{shift={(\i:2)}, rotate=\i+180}
+      \draw [->, very thick, orange] (0,0) -- (1,0)
+        node [black, near end, anchor=\i+90] {$\vec a$};
+      \draw [->, very thick, green!50!black] (0,0) -- (0,-2)
+        node [black, near end, anchor=\i+180] {$\vec v$};
+      \fill circle [radius=1/10];
+  }
+  \end{tikzpicture}
+  \caption{Moto circolare uniforme}
+  \label{fig:moto_circolare_uniforme}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Naturalmente, la \textbf{circonferenza} del cerchio è $C = 2\pi R$. Parlando di moto circolare uniforme è possibile introdurre il concetto di \textbf{periodo} $T$, ovvero il tempo impiegato a completare una circonferenza completa.\\
+Pertanto, volendo conoscere la velocità del moto si ottiene
+\[\boxed{v = \frac{2\pi R}{T} = \omega R}\]
+ove $\omega$ prende il nome di \textbf{velocità angolare}, che ha una misura di $\text{RAD}/\text{s}$, per questo prende il nome di velocità angolare, in quanto ha la stessa unità di misura di una frequenza (visto che l'angolo non ha una propria vera misura).\\
+Naturalmente, volendo conoscere l'accelerazione che agisce sul punto in movimento, si può immediatamente dire che, essendo la velocità costante, si dovrà solo considerare una componente ortogonale, in quanto se essa non ci fosse, il corpo si muoverebbe in linea retta, senza compiere una traiettoria circolare.\\
+Pertanto, dal momento che $\left \vert \vec{v} \right \vert = v =$ costante, si ha che $\vec{a}_\parallel = 0$. L'accelerazione media, naturalmente, può essere calcolata come segue
+\[\boxed{\left<\vec{a}\right> = \frac{\Delta \vec{v}}{\Delta t} = \frac{\vec{v}(t_2) - \vec{v}(t_1)}{t_2 - t_1}}\]
+Anche graficamente appare evidente come l'accelerazione media sia un vettore ortogonale al vettore velocità e orientato verso il centro della circonferenza.\\
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=2]
+    \node[minimum size=4cm,circle,draw,blue!50!cyan] (circle) {};
+    \draw [thick] (0,0) -- coordinate[midway](m) (circle.80);
+    \draw [thick] (0,0) -- (circle.55);
+    \draw [thick, -stealth] (circle.80) -- (circle.55);
+    \draw (circle.67.5) ++(0.2,0.2) node[]{$\Delta \vec r$};
+    \draw (m) ++(-0.2,0) node[]{$R$};
+    \begin{scope}
+      \tikzset{shift={(30:2)}, rotate=300}
+      \draw [-stealth] (circle.30) -- ++(0.5,0) node [black, near end, anchor=210] {$\vec v(t_1)$};
+    \end{scope}
+    \begin{scope}
+      \tikzset{shift={(30:2)}, rotate=210}
+      \draw [-stealth] (circle.300) -- ++(0.5,0) node [black, near end, anchor=90] {\hspace{0.5em} $\vec v(t_2)$};
+    \end{scope}
+    \begin{scope}
+      \tikzset{shift={(30:2)}, rotate=210}
+      \draw (circle.300) ++(0.5,0) coordinate(a);
+      \tikzset{shift={(30:2)}, rotate=90}
+      \draw [-stealth] (a) -- ++(-0.5,0) coordinate(b) node [black, near end, anchor=0] {$-\vec v(t_1)$\hspace{0.5em}};
+      \draw [-stealth, orange] (circle.300) -- (b) node [orange, near end, anchor=270] {$\Delta \vec v$\hspace{0.5em}};
+    \end{scope}
+    \coordinate (i) at (circle.55);
+    \coordinate (ctr) at (0,0);
+    \coordinate (f) at (circle.80);
+    \pic [draw=red, text=red, <->, "$\Delta \theta$", angle eccentricity=1.3, angle radius=1cm] {angle = i--ctr--f};
+  \end{tikzpicture}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Lo spostamento tra due punti, naturalmente, è $\Delta \vec{r}$ e i due triangoli che vengono così disegnati sono simili, per cui il rapporto tra i lati corrispondenti deve mantenersi costantte.\\
+È facile, pertanto, vedere immediatamente come
+\[\boxed{\frac{\left \vert \Delta \vec{r} \right \vert}{R} = \frac{\left \vert \Delta \vec{v} \right \vert}{v}}\]
+ossia il rapporto tra lo spostamento e il raggio costante, così come la variazione di velocità e il modulo della velocità costante è uguale. Da ciò si evince che
+\[a = \frac{\left \vert \Delta \vec{v} \right \vert}{\Delta t} = \frac{\left \vert \Delta \vec{v} \right \vert}{v} \cdot \frac{v}{\Delta t} = \frac{\left \vert \Delta \vec{r} \right \vert}{R} \cdot \frac{v}{\Delta t} = \frac{v^2}{R}\]
+Ovvero si ha che, nel moto circolare uniforme, il modulo dell'accelerazione orientata verso il centro del cerchio è pari a
+\[\boxed{a=\frac{v^2}{R}}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri l'esempio seguente che riguarda un veicolo in movimento a velocità costante su una curva
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \draw (0,0) -- (2,0) to[out=0,in=270] coordinate[midway](r) (4,2) -- (4,4);
+    \draw (2,2) node[circ](start){} -- coordinate[midway](a) (r) (a) ++(0.3,0.3) node[]{$R$};
+    \draw [dotted] (start) -- ++(2,0) node[at end, right]{$t_2$};
+    \draw [dotted] (start) -- ++(0,-2) node[at end, below]{$t_1$};
+    \draw [-stealth] (2.4,0.05) node[circ]{} -- (2.2,0.8);
+    \draw (2.5,0.4) node[]{$\vec{a}$};
+    \draw [-stealth, red] (2,0) -- (2,1);
+    \draw [-stealth, red] (4,2) -- (3,2);
+  \end{tikzpicture}
+  \caption{Auto in movimento su una curva}
+  \label{fig:auto_movimento_curva}
+\end{figure}
+
+\vspace{1em}
+\noindent
+e si considerino le componenti dell'accelerazione in $x$ e in $y$ in funzione del tempo.
+
+\vspace{2em}
+\noindent
+\rowcolors{1}{white}{white}
+\begin{tabularx}{\textwidth}{P}
+  {
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          grid=both,
+          axis lines = middle,
+          xlabel = \(t\),
+          ylabel = {\(a_x\)},
+          legend pos=outer north east,
+          ymajorgrids=true,
+          xmajorgrids=true,
+          grid style=dashed,
+          xtick={pi/2,pi},
+          xticklabels={$t_1$,$t_2$},
+          xmin=0,
+          xmax=5,
+          ymin=-2,
+          ymax=2,
+        ]
+
+        \addplot [
+          domain=pi/2:pi,
+          samples=100,
+          color=red,
+          thick
+        ]
+        {cos(deg(x)};
+
+        \addplot [
+          domain=0:5,
+          samples=100,
+          color=red,
+          dashed
+        ]
+        {cos(deg(x)};
+        \draw [red, thick] (axis cs:0,0) -- (axis cs:pi/2,0);
+        \draw [red, thick, dotted] (axis cs:pi,0) -- (axis cs:pi,-1);
+        \draw [red, thick] (axis cs:pi,0) -- (axis cs:5,0);
+        \end{axis}
+    \end{tikzpicture}
+  }
+\end{tabularx}
+
+\vspace{2em}
+\noindent
+\rowcolors{1}{white}{white}
+\begin{tabularx}{\textwidth}{P}
+  {
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          grid=both,
+          axis lines = middle,
+          xlabel = \(t\),
+          ylabel = {\(a_y\)},
+          legend pos=outer north east,
+          ymajorgrids=true,
+          xmajorgrids=true,
+          grid style=dashed,
+          xtick={pi/2,pi},
+          xticklabels={$t_1$,$t_2$},
+          xmin=0,
+          xmax=5,
+          ymin=-2,
+          ymax=2,
+        ]
+
+        \addplot [
+          domain=pi/2:pi,
+          samples=100,
+          color=blue,
+          thick
+        ]
+        {sin(deg(x))};
+
+        \addplot [
+          domain=0:5,
+          samples=100,
+          color=blue,
+          dashed
+        ]
+        {sin(deg(x))};
+        \draw [blue, thick] (axis cs:0,0) -- (axis cs:pi/2,0);
+        \draw [blue, thick, dotted] (axis cs:pi/2,0) -- (axis cs:pi/2,1);
+        \draw [blue, thick] (axis cs:pi,0) -- (axis cs:5,0);
+        \end{axis}
+    \end{tikzpicture}
+  }
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+per capire la natura delle curve appena disegnate, è sufficiente osservare la Figura \ref{fig:visualizzazione_angoli_coinvolti} seguente:
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=2]
+    \draw (0,0) -- (2,0) to[out=0,in=270] coordinate[midway](r) (4,2) -- (4,4);
+    \draw (2,2) node[circ](start){} -- coordinate[midway](a) (r) (a) ++(0.3,0.3) node[]{$R$};
+    \draw [dotted] (start) -- ++(2,0) node[at end, right]{$t_2$};
+    \draw [dotted] (start) -- ++(0,-2) node[at end, below]{$t_1$};
+    \draw [dotted] (2.4,0.05) node[circ](b){} -- coordinate[midway](half) (2,2);
+    \draw [-stealth] (b) -- (half);
+    \draw (b) -- ++(1,0) coordinate(c);
+    \draw (2.5,0.6) node[]{$\vec{a}$};
+    \draw [-stealth, red] (2,0) -- (2,1);
+    \draw [-stealth, red] (4,2) -- (3,2);
+
+    \coordinate (f) at (2.2,0.8);
+    \coordinate (ctr) at (b);
+    \coordinate (i) at (c);
+    \pic [draw=red, text=red, <->, "$\theta$", angle eccentricity=1.5] {angle = i--ctr--f};
+
+    \coordinate (f1) at (half);
+    \coordinate (ctr1) at (2,2);
+    \coordinate (i1) at (2,1);
+    \pic [draw=blue, text=blue, <->, "$\alpha$", angle eccentricity=1.2, angle radius=1.8cm] {angle = i1--ctr1--f1};
+  \end{tikzpicture}
+  \caption{Visualizzazione degli angoli coinvolti}
+  \label{fig:visualizzazione_angoli_coinvolti}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Si può facilmente capire come $\alpha$ sia l'angolo da sommare a $90^\circ$ per ottenere $\theta$, quindi
+\[a_x=a \cdot \cos(\theta) = a \cdot \cos(\alpha + 90^\circ) = -a \cdot \sin(\alpha) = -a \cdot \sin(\omega t)\]
+pertanto nel caso di $a_x$ si è considerato un ramo di $\sin(\omega t)$, mentre nel caso di $a_y$ si è considerato un ramo di $\cos(\omega t)$.
+
+\newpage
+\noindent
+\begin{center}
+  9 Marzo 2022
+\end{center}
+Il moto circolare uniforme è un moto semplice: la formula più importante da conoscere è il modulo dell'\textbf{accelereazione centripeta}, ovvero dell'accelerazione diretta ferso il centro della circonferenza.\\
+Il raggio $R$ della circonferenza del moto è costante, mentre l'angolo $\theta$ descritto dal punto in movimento all'interno della circonferenza varia linearmente con il tempo, secondo la seguente legge
+\[\boxed{\theta(t) = \frac{2\pi}{T} \cdot t = \omega t}\]
+ove $\omega$ prende il nome di velocità angolare
+\[\boxed{\omega = \frac{2\pi}{T}}\]
+Per quando concerne la variazione della posizione nel tempo si ha
+\[\boxed{\vec{r}(t) = x(t) \cdot \hat{i} + y(t) \cdot \hat{i} = R \cdot \cos(\omega t) \cdot \hat{i} + R \cdot \sin(\omega t) \cdot \hat{j}}\]
+A partire da tale risultato si sarebbe potuto determinare il modulo dell'accelerazione, semplicemente procedendo per derivate successive, ottenendo
+\[\boxed{\vec{a}(t) = -\omega^2 \cdot \vec{r}(t)}\]
+Se ora si procede al calcolo del modulo di tale vettore si ottiene
+\[\boxed{\left \vert \vec{a} \right \vert = \omega^r \cdot R = \frac{v^2}{R}}\]
+dal momento che è not che
+\[\boxed{v = \omega T}\]
+In realtà anche $\omega$ è un vettore e la sua direzione è l'asse di rotazione e avrà una importante validità in seguito.
+
+\vspace{1em}
+\subsection{Moti relativi}
+Si consideri il caso di un moto composto da più moti: un sasso che viene lasciato cadere sullo scafo di una barca in movimento.\\
+Naturalmente, considerando la caduta di un sasso, fissando un tempo $t$, si ha che
+\[\vec{v}_{PB} = -g t \cdot \hat{j}\]
+in quanto si tratta di una caduta libera. Questo, tuttavia, osservando il moto dalla barca ($PB$ = punto-barca) in movimento. Se, invece, tale moto viene visto da terra ($PT$ = punto-terra), sarà dotato di due componenti, ovvero
+\[\vec{v}_{PT} = \vec{v} + -g t \cdot \hat{j}\]
+in cui la componente verticale è la stessa del moto precedente, metre la componente orizzontale dipende dalla velocità della barca. Questo è proprio quello che ha fatto Galileo: osservare questo tipo di situazioni nella vita reale e fornendovi una spiegazione scientifica.
+
+\subsubsection{Caso generale}
+Si consideri un caso generale, considerando come sistema di riferimento così definito:
+\begin{itemize}
+  \item posizione dell'origine
+  \item assi
+\end{itemize}
+\vspace{2em}
+\noindent
+\rowcolors{1}{white}{white}
+\begin{tabularx}{\textwidth}{P}
+  {
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          axis lines = left,
+          xlabel = \(y_A\),
+          ylabel = {\(x_A\)},
+          legend pos=outer north east,
+          ymajorgrids=true,
+          xmajorgrids=true,
+          grid style=dashed,
+          ymax=10,
+          xmax=10
+        ]
+
+        \addplot [
+          domain=0:5,
+          samples=100,
+          color=red,
+        ]
+        {0.5 * x};
+        \draw [-stealth, thick, red] (axis cs:0,0) -- (axis cs:5,2.5);
+        \end{axis}
+    \end{tikzpicture}
+  }
+\end{tabularx}
+
+... continua ... continua anche dopo ...
+
+\vspace{1em}
+\noindent
+Per passare da un sistema di riferimento $A$ all'altro $B$ è necessario definire la posizione relativa tra i due sistemi di riferimento $A-B$.\\
+Infatti, definendo un nuovo vettore $\vec{r}_{BA}$ è possibile scrivere
+\[\vec{r}_{PA} = \vec{r}_{PB} + \vec{r}_{BA}\]
+Ma non solo, ma è possibile anche calcolare la derivata e considerare le velocità
+\[\vec{v}_{PA} = \vec{v}_{PB} + \vec{v}_{BA}\]
+che corrisponde proprio al caso analizzato per la barca: la differenza tra i due sistemi di osservazione è proprio il moto della barca. Un caso ancora più importante è quello che prevede che $\vec{v}_{BA}$ è \textbf{costante}, per cui, derivando nuovamente si ottiene
+\[\vec{a}_{PA} = \vec{a}_{PB} + \vec{a}_{BA}\]
+ma essendo $\vec{v}_{BA}$ costante, ovviamente $\vec{a}_{BA} = 0$. Questo è il caso di un \textbf{sistema di riferimento inerziale}, ovvero di un sistema di riferimento che può muoversi, ma non può accelerare.
+... continua ... 29:00
+Questo, naturamente si applica sia ad un caso in 2D, ma anche in 3D.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi, ovviamente, che nel moto circolare uniforme velocità e accelerazione.\\
+Inoltre, si ha che
+\[\frac{d \left \vert \vec{v} \right \vert}{dt} = 0\]
+significa che la variazione del modulo della velocità nel tempo è nullo: pertanto, se non c'è variazione del modulo della velocità, si ha che la componnte parallela dell'accelerazione è nulla, ovvero $\vec{a}_\parallel = 0$.
 
 \newpage
 \section{Dinamica}
+Alla base della dinamica vi sono i $3$ principi della dinamica di Newton, formulati da Newton all'interno del libro ... continua .... Esse sono
+\begin{enumerate}
+  \item \textbf{Prima legge}: \emph{Ciascun corpo persevera nel proprio stato di quiete o di moto rettilineo uniforme, eccetto sia costretto a mutare quello stato da forze impresse.}
+  \item \textbf{Seconda legge}: \emph{Il cambiamento di moto è proporzionale alla forza mmotrice impressa, ed avviene lungo la linea retta secondo la quale la forza è stata impressa.}
+  \item \textbf{Terza legge}: \emph{Ad ogni azione corrisponde una reazione uguale e contraria: ossia le azioni di due corpi sono sempre uguai fra loro e dirette verso parti opposte.}
+\end{enumerate}
+Per parlare di ciò si devono introdurre due conccetti fondamentali ed interconnessi:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{MASSA INERZIALE}}\\
+    \parbox{\linewidth}{La \textbf{massa inerziale} (da \textbf{inerzia}: propensione a non muoversi) viene definita come misura della resistenza alle variazioni di velocità.
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+\vspace{1em}
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{MASSA GRAVITAZIONALE}}\\
+    \parbox{\linewidth}{La \textbf{massa gravitazionale} è proprozionale al \textbf{peso}.
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+\vspace{1em}
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{MASSA}}\\
+    \parbox{\linewidth}{La \textbf{massa} viene definita come \textbf{quantità di materia} e la sua unità di misura è
+    \[[m] = \text{kg}\]
+    Inoltre la massa è \textbf{additiva}: da un corpo, agglomerato di due masse $m_1$ e $m_2$, la massa complessiva è
+    \[m = m_1 + m_2\]
+     \vspace{-1mm}}\\
+    \hline
+\end{tabularx}
+\vspace{1em}
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{FORZA}}\\
+    \parbox{\linewidth}{Una \textbf{forza} è una spinta che produce un cambiamento di moto di un corpo.\\
+    La forza è un \textbf{vettore} la cui unità di misura è
+    \[[F] = \text{N} = \frac{\text{kg m}}{\text{s}}\]
+    \vspace{-1mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\subsection{Principi della dinamica - Leggi di Newton}
+\begin{enumerate}
+  \item Se la forza risultante che agisce su un corpo è nulla, ovvero
+  \[\sum \vec{F} = 0\]
+  allora l'accelerazione del corpo è nulla, cioé $\vec{a}=0$. Tale legge potrebbe sembrare superflua, in quanto un caso particolare della seconda: tuttavia, tale legge assolve al compito di definire un \textbf{sistema di riferimento inerziale}.
+
+  \item La forza risultante su un corpo è direttamente proporzionale all'accelerazione del corpo stesso. L'accelerazione di un corpo, quindi, è proporzionale alla forza risultante
+  \[\sum \vec{F} = m \vec{a}\]
+
+  \item La forza esercitata da un corpo $a$ su un corpo $b$ è uguale in modulo e direzione, ma ha verso opposto alla forza esercitata da $b$ su $a$.\\
+  Ovvero si ha che
+  \[\vec{F}_{ab} = -\vec{F}_{ba}\]
+  e ciò è sempre vero.
+\end{enumerate}
+
+\vspace{1em}
+\noindent
+Dopo aver definito tali leggi, è necessario definire diversi tipi di forze, distinguendole in base alla loro tipolgia.
+
+\vspace{1em}
+\noindent
+\subsection{Forza peso}
+La forza peso fiene designata con $\vec{F}_t$, ovvero la forza di attrazione esercitata dalla terra su un corpo di massa $m$. In particolare si ha
+\[\boxed{\vec{F}_t = m \vec{g}}\]
+in cui $\vec{g} = -9.8 \text{m}/\text{s}^2$ e prende il nome di \textbf{accelerazione gravitazionale} (o meglio, di \textbf{campo gravitazionale} sulla superficie della terra).
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che la formula seguente
+\[\vec{F}_t = m \vec{g}\]
+potrebbe rassomigliare la formula
+\[\vec{F}_t = m \vec{a}\]
+Tuttavia, i due concetti sono ben distinti, in quanto $\vec{F}_t = m \vec{g}$ è un caso particolare della \textbf{legge di gravitazione universale}.
+
+\vspace{1em}
+\noindent
+Si osservi che anche in questo caso, è presente il terzo principio della dinamica: infatti un corpo viene attratto verso il centro della terra ed esercita una forza sulla superficie terrestre, così come la terra esercita una forza uguale e contraria (solamente che è impercettibile).
+
+\vspace{1em}
+\subsection{Forza normale}
+La \textbf{forza normale} $\vec{F}_N$ è un caso di forza di contatto, definita come \textbf{spinta fornita da una superficie}: quando un oggetto è appoggiato su una superficie e non si muove (ovvero si ha che $\vec{v}=0$ e $\vec{a}=0$), alla \textbf{forza peso} si contrappone la \textbf{forza normale}, uguale e contraria alla forza peso.
+\[raffigurazione\]
+Una caratteristica fondamentale della forza normale è che essa è sempre \textbf{ortogonale alla superficie} su cui poggia l'oggetto. Se si osserva che il corpo presenta $\vec{a}=0$, significa che
+\[\vec{F}_t + \vec{F}_N\ = 0 = m \vec{a} \longrightarrow \vec{F}_N = - \vec{F}_t\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Una forza presenta sempre un \textbf{punto di applicazione} che, graficamente, è rappresentata dalla \quotes{coda del vettore}:
+\begin{enumerate}
+  \item Nel caso della forza peso, il punto di applicazione è sempre dato del \textbf{centro di massa} del corpo stesso;
+  \item Nel caso della forza normale, il punto di applicazione è la superficie di contatto (anche se vi sono molti punti di applicazione vista l'irregolarità della superficie stessa).
+\end{enumerate}
+Tuttavia è sempre possibile eseguire la somma di forze per conoscerne la risultante.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Quando si deve eseguire la rappresentazione grafica delle forze è necessario introdurre il cocnetto di \textbf{diagramma di corpo libero}:
+\begin{itemize}
+  \item ogni corpo è rappresentato da un \textbf{punto} (per cui il punto di applicazione delle forze sul corpo è proprio rappresentato dal punto stesso);
+  \item comporta \textbf{solo le forze} che sono applicate sul corpo, e ciò diviene particolarmente utile quando bisogna considerare un sistema di più corpi interagenti.
+\end{itemize}
+
+\vspace{1em}
+\noindent
+\textbf{esempio}: Si considerino due corpi poggiati uno sopra l'altro e stanti su una superficie fissa. Naturalmente su tali corpi agiscono due forze peso distinte. Inoltre la superficie di contatto tra i due corpi permette di indivduare due forze normali: uno del primo corpo sul secondo e una del secondo corpo sul primo. Infine vi è la forza di contatto dei due corpi con la superficie su cui poggiano.
+
+
+
+
+
+
+
 
 \newpage
 \section{Gravità}

@@ -404,6 +404,14 @@ INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/circuitikz/pgfcirclabe
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/circuitikz/pgfcircvoltage.tex
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/circuitikz/pgfcirccurrent.tex
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/circuitikz/pgfcircflow.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypatterns.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypatterns.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/libraries/pgflibrarypatterns.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/libraries/pgflibrarypatterns.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryangles.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryangles.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryquotes.code.tex
+INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryquotes.code.tex
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 INPUT /usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/circuits/tikzlibrarycircuits.logic.US.code.tex
@@ -805,9 +813,9 @@ INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
-OUTPUT build/Teoria - Fisica generale I.toc
 OUTPUT build/Teoria - Fisica generale I.pdf
 INPUT /usr/local/texlive/2021basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+OUTPUT build/Teoria - Fisica generale I.toc
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
@@ -817,10 +825,10 @@ INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
-INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
