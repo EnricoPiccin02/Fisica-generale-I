@@ -1429,16 +1429,18 @@ pertanto nel caso di $a_x$ si è considerato un ramo di $\sin(\omega t)$, mentre
 Il moto circolare uniforme è un moto semplice: la formula più importante da conoscere è il modulo dell'\textbf{accelereazione centripeta}, ovvero dell'accelerazione diretta ferso il centro della circonferenza.\\
 Il raggio $R$ della circonferenza del moto è costante, mentre l'angolo $\theta$ descritto dal punto in movimento all'interno della circonferenza varia linearmente con il tempo, secondo la seguente legge
 \[\boxed{\theta(t) = \frac{2\pi}{T} \cdot t = \omega t}\]
-ove $\omega$ prende il nome di velocità angolare
+ove $\omega$ prende il nome di velocità angolare ed è definita come segue
 \[\boxed{\omega = \frac{2\pi}{T}}\]
 Per quando concerne la variazione della posizione nel tempo si ha
 \[\boxed{\vec{r}(t) = x(t) \cdot \hat{i} + y(t) \cdot \hat{i} = R \cdot \cos(\omega t) \cdot \hat{i} + R \cdot \sin(\omega t) \cdot \hat{j}}\]
-A partire da tale risultato si sarebbe potuto determinare il modulo dell'accelerazione, semplicemente procedendo per derivate successive, ottenendo
+A partire da tale risultato si sarebbe potuto determinare il modulo dell'accelerazione, semplicemente procedendo per derivate successive, ottenendo dapprima
+\[\boxed{\vec{v}(t) = - \omega R \cdot \sin(\omega t) \cdot \hat{i} + \omega R \cos(\omega t) \cdot \hat{i}}\]
+e infine
 \[\boxed{\vec{a}(t) = -\omega^2 \cdot \vec{r}(t)}\]
 Se ora si procede al calcolo del modulo di tale vettore si ottiene
-\[\boxed{\left \vert \vec{a} \right \vert = \omega^r \cdot R = \frac{v^2}{R}}\]
-dal momento che è not che
-\[\boxed{v = \omega T}\]
+\[\boxed{\left \vert \vec{a} \right \vert = \omega^2 \cdot R = \frac{v^2}{R}}\]
+dal momento che si ha
+\[\boxed{v = \omega R}\]
 In realtà anche $\omega$ è un vettore e la sua direzione è l'asse di rotazione e avrà una importante validità in seguito.
 
 \vspace{1em}
@@ -1472,16 +1474,25 @@ Si consideri un caso generale, considerando come sistema di riferimento così de
           xmajorgrids=true,
           grid style=dashed,
           ymax=10,
-          xmax=10
+          xmax=10,
+          ytick={2},
+          xtick={2},
         ]
 
         \addplot [
-          domain=0:5,
+          domain=0:2,
           samples=100,
-          color=red,
+          color=green,
         ]
-        {0.5 * x};
-        \draw [-stealth, thick, red] (axis cs:0,0) -- (axis cs:5,2.5);
+        {x};
+        \draw [-stealth] (axis cs:2,2) -- (axis cs:2,10);
+        \draw [-stealth] (axis cs:2,2) -- (axis cs:10,2);
+        \draw [-stealth, very thick, red] (axis cs:0,0) -- (axis cs:7.5,3);
+        \draw [red] (axis cs:4,1) node[]{$\vec{r}_{PA}$};
+        \draw [-stealth, very thick, blue] (axis cs:2,2) -- (axis cs:7.5,3);
+        \draw [blue] (axis cs:3,4) node[]{$\vec{r}_{PB}$};
+        \draw [-stealth, very thick, green] (axis cs:0,0) -- (axis cs:2,2);
+        \draw [green] (axis cs:1,1.5) node[]{$\vec{r}_{AB}$};
         \end{axis}
     \end{tikzpicture}
   }
@@ -1611,6 +1622,18 @@ La forza peso fiene designata con $\vec{F}_t$, ovvero la forza di attrazione ese
 in cui $\vec{g} = -9.8 \text{m}/\text{s}^2$ e prende il nome di \textbf{accelerazione gravitazionale} (o meglio, di \textbf{campo gravitazionale} sulla superficie della terra).
 
 \vspace{1em}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \draw [fill = purple!30,draw = purple!50] (0,0) rectangle ++(2,1.2);
+    \draw [-stealth] (1,0.6) node[circ]{} -- ++(0,-2) node [midway, below right] {$\vec{F}_t = m\vec{g}$};
+    \draw (0.3,0.6) node[]{$m$};
+  \end{tikzpicture}
+  \caption{Forza peso}
+  \label{fig:forza_peso}
+\end{figure}
+
+\vspace{1em}
 \noindent
 \textbf{Osservazione}: Si osservi che la formula seguente
 \[\vec{F}_t = m \vec{g}\]
@@ -1625,7 +1648,28 @@ Si osservi che anche in questo caso, è presente il terzo principio della dinami
 \vspace{1em}
 \subsection{Forza normale}
 La \textbf{forza normale} $\vec{F}_N$ è un caso di forza di contatto, definita come \textbf{spinta fornita da una superficie}: quando un oggetto è appoggiato su una superficie e non si muove (ovvero si ha che $\vec{v}=0$ e $\vec{a}=0$), alla \textbf{forza peso} si contrappone la \textbf{forza normale}, uguale e contraria alla forza peso.
-\[raffigurazione\]
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \draw [fill = purple!30,draw = purple!50] (0,0) rectangle ++(2,1.2);
+    \draw (-1,0) -- (3,0);
+    \foreach \i in {-11,-9,...,27} {
+      \draw (\i / 10,-0.3) -- (\i / 10 + 0.3,0);
+    }
+    \draw [-stealth] (1.5,0) node[circ]{} -- ++(0,2) node [at end, right] {$\vec{F}_N$};
+    \draw (1.5,0.2) -- ++(0.2,0) -- ++ (0,-0.2);
+    \draw [-stealth] (1,0.6) node[circ]{} -- ++(0,-2) node [midway, below right] {$\vec{F}_t$};
+    \draw (0.3,0.6) node[]{$m$};
+    \draw (-1,1) node[]{$\vec{a}=0$};
+  \end{tikzpicture}
+  \caption{Forza normale}
+  \label{fig:forza_normale}
+\end{figure}
+
+\vspace{1em}
+\noindent
 Una caratteristica fondamentale della forza normale è che essa è sempre \textbf{ortogonale alla superficie} su cui poggia l'oggetto. Se si osserva che il corpo presenta $\vec{a}=0$, significa che
 \[\vec{F}_t + \vec{F}_N\ = 0 = m \vec{a} \longrightarrow \vec{F}_N = - \vec{F}_t\]
 
@@ -1648,12 +1692,233 @@ Tuttavia è sempre possibile eseguire la somma di forze per conoscerne la risult
 
 \vspace{1em}
 \noindent
-\textbf{esempio}: Si considerino due corpi poggiati uno sopra l'altro e stanti su una superficie fissa. Naturalmente su tali corpi agiscono due forze peso distinte. Inoltre la superficie di contatto tra i due corpi permette di indivduare due forze normali: uno del primo corpo sul secondo e una del secondo corpo sul primo. Infine vi è la forza di contatto dei due corpi con la superficie su cui poggiano.
+\textbf{Esempio}: Si considerino due corpi poggiati uno sopra l'altro e stanti su una superficie fissa. Naturalmente su tali corpi agiscono due forze peso distinte. Inoltre la superficie di contatto tra i due corpi permette di indivduare due forze normali: uno del primo corpo sul secondo e una del secondo corpo sul primo. Infine vi è la forza di contatto dei due corpi con la superficie su cui poggiano.
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=2]
+    \draw [fill = purple!30,draw = purple!50] (0,0) rectangle ++(2,1.2);
+    \draw [fill = red!30,draw = red!50] (-0.5,1.2) rectangle ++(3,1.2);
+    \draw (-1,0) -- (3,0);
+    \foreach \i in {-11,-9,...,27} {
+      \draw (\i / 10,-0.3) -- (\i / 10 + 0.3,0);
+    }
+    \draw [-stealth] (1.2,0) node[circ]{} -- ++(0,2) node [at end, right] {$\vec{F}_N$};
+    \draw (1.2,0.2) -- ++(0.2,0) -- ++ (0,-0.2);
+    \draw [-stealth] (1,0.6) node[circ]{} -- ++(0,-2) node [midway, below right] {$\vec{F}_{t1}$};
+    \draw [-stealth] (1.7,1.8) node[circ]{} -- ++(0,-2) node [midway, right] {$\vec{F}_{t2}$};
+    \draw [-stealth] (0.5,1.2) node[circ]{} -- ++(0,-1) node [midway, right] {$\vec{F}_{N1}$};
+    \draw [-stealth] (0.5,1.2) node[circ]{} -- ++(0,1) node [midway, right] {$\vec{F}_{N2}$};
+    \draw (0.3,0.6) node[]{$m_1$};
+    \draw (-0.1,1.8) node[]{$m_2$};
+  \end{tikzpicture}
+  \caption{Forza normale di due corpi a contatto}
+  \label{fig:forza_normale_corpi_contatto}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Dopo aver effettuato la raffigurazione, si procede alla realizzazione di un \textbf{diagramma a corpo libero}, come mostrato di seguito:
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1]
+    \draw [-stealth] (0,0) node[circ]{} -- ++(0,2) node [at end, right] {$\vec{F}_N$};
+    \draw [-stealth] (0,0) node[circ]{} -- ++(0,-1) node [midway, right] {$\vec{F}_{t1}$};
+    \draw [-stealth] (0,0) node[circ]{} -- ++(0,-1) node [midway, left] {$\vec{F}_{N1}$};
+    \draw (0.3,0.6) node[]{$m_1$};
+    \draw (-0.1,1.8) node[]{$m_2$};
+  \end{tikzpicture}
+  \caption{Forza normale di due corpi a contatto}
+  \label{fig:forza_normale_corpi_contatto}
+\end{figure}
+
+... continua ...
+
+\vspace{1em}
+\noindent
+Naturalmente in questo caso si possono determinare direttamente le forze coinvolte
+\begin{flalign*}
+  \vec{F}_{t1} & = -g m_1 \cdot \hat{j} (= m_1 \vec{g})\\
+  \vec{F}_{t2} & = -g m_2 \cdot \hat{j} (= m_2 \vec{g})\\
+\end{flalign*}
+Applicando la \textbf{$\boldsymbol{2^a}$ legge della dinamica} si perviene al risultato seguente
+\begin{flalign*}
+  m_1 \vec{g}) & = \sum \vec{F} = \vec{F}_n + \vec{F}_{N1} + \vec{F}_{t1} = 0\\
+  m_2 \vec{g}) & = \sum \vec{F} = \vec{F}_{N2} + \vec{F}_{t2} = 0\\
+\end{flalign*}
+Questo, in quanto l'accelerazione è nulla, un dato noto dal problema. Applicando, ora, la \textbf{$\boldsymbol{3^a}$ legge della dinamica} si perviene al risultato seguente:
+\[\vec{F}_{N1} = - \vec{F}_{N2}\]
+Da ciò si può concludere il problema, andando a determinare
+\begin{flalign*}
+  \vec{F}_{N2} & = - \vec{F}_{t2} = g m_2 \cdot \hat{j}\\
+  \vec{F}_{N1} & = - \vec{F}_{N2} = \vec{F}_{t2} = - g m_1 \cdot \hat{j}\\
+  \vec{F}_{N} & = - \vec{F}_{N1} - \vec{F}_{t1} = g m_2 \cdot \hat{j} + g m_1 \cdot \hat{j} = g \cdot (m_1 + m_2) \cdot \hat{j}\\
+\end{flalign*}
 
 
 
+\newpage
+\noindent
+\begin{center}
+  9 Marzo 2022
+\end{center}
 
+\subsection{Forza di tensione}
+La forza di tensione è la forza esercitata, per esempio, da un cavo o una fune, come mostrato di seguito, in cui la forza di tensione va a cancellare la forza peso del corpo appeso alla fune:
 
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1]
+    \draw [fill = purple!30,draw = purple!50] (0,-3) rectangle ++(2,1.2);
+    \draw (-1,-0.3) -- (3,-0.3);
+    \foreach \i in {-10,-8,...,26} {
+      \draw (\i / 10,-0.3) -- (\i / 10 + 0.3,0);
+    }
+    \draw (1,-1.8) -- (1,-0.3);
+    \draw [-stealth] (1,-2.4) node[circ]{} -- ++(0,-2) node [midway, below right] {$\vec{F}_{t1}$};
+    \draw (0.3,-2.6) node[]{$m_1$};
+  \end{tikzpicture}
+  \caption{Forza normale di due corpi a contatto}
+  \label{fig:forza_normale_corpi_contatto}
+\end{figure}
+
+\vspace{1em}
+\noindent
+È importante notare che $\vec{F}_T$ è sempre parallela alla direzione della corda stessa.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri l'esempio seguente, in cui vi è un corpo che rimane sospeso nel vuoto da due funi che descrivono con il sofftto due angoli, rispettivamente $\theta_1$ e $\theta_2$. Si determinino le tensioni sulle due corde.\\
+Dopo aver realizzato una figura illustrativa, bisogna sempre procedere alla raffigurazione del \textbf{diagramam a corpo libero}, come mostrato di seguito:
+
+\[diagramma a corpo libero\]
+
+\vspace{1em}
+\noindent
+Applicando, ora, la \textbf{$\boldsymbol{2^a}$ legge della dinamica} si perviene al risultato seguente:
+\[\sum \vec{F} = m \vec{a} = 0\]
+essendo l'accelerazione nulla. Pertanto si ha che
+\[\vec{F}_{T1} + \vec{F}_{T2} + \vec{F}_t = 0\]
+Sarà ora sufficiente decomporre tale equazioni nelle sue componenti, come mostrato di seguito
+\begin{flalign*}
+    x & = - F_{T1} \cdot \cos(\theta_1) + F_{T2} \cdot \cos(\theta_2) + 0 = 0\\
+    y & = F_{T1} \cdot \sin(\theta_1) + F_{T2} \cdot \sin(\theta_2) - mg = 0
+\end{flalign*}
+Dalla prima equazione si ha che
+\[F_{T1} = F_{T2} \cdot \frac{\cos(\theta_2)}{\cos(\theta_1)}\]
+che, sostituita nella seconda ecquazione, permette di ottenere
+\[F_{T2} \cdot \frac{\cos(\theta_2)}{\cos(\theta_1)} \cdot \sin(\theta_1) + F_{T2} = mg\]
+che può essere riscritto come segue
+\[F_{T2} \cdot \cos(\theta_2) \cdot \left[ \frac{\sin(\theta_1)}{\cos(\theta_1)} + \frac{\sin(\theta_2)}{\theta_2} \right] = mg\]
+Pertanto si ha che
+\[F_{T2} = \frac{mg}{\cos(\theta_2) \cdot \left(\tan(\theta_1) + \tan(\theta_2)\right)} \hspace{1em} \text{e} \hspace{1em} F_{T1} = \frac{mg}{\cos(\theta_1) \cdot \left(\tan(\theta_1) + \tan(\theta_2)\right)}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri un quadricottero, ovverosia un drone con $4$ eliche e rotori, ciascuna capace do fornire una forza propulsiva verso l'alto di eguale modulo.\\
+Considerando il drone stazionario si ha, per la \textbf{$\boldsymbol{2^a}$ legge della dinamica}
+\[4 \cdot \vec{F}_{m} + \vec{T}_1 = 0\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri una massa su un piano inclinato, come mostrato di seguito
+
+\begin{figure}[H]
+  \centering
+  \newcommand{\ang}{30}
+
+  \begin{tikzpicture} [font = \small]
+
+  % triangle:
+  \draw [draw = orange, fill = orange!15] (0,0) coordinate (O) -- (\ang:6)
+  	coordinate [pos=.45] (M) |- coordinate (B) (O);
+
+  % angles:
+  \draw [draw = orange] (O) ++(.8,0) arc (0:\ang:0.8)
+  	node [pos=.4, left] {$\theta$};
+  \draw [draw = orange] (B) rectangle ++(-0.3,0.3);
+
+  \begin{scope} [-latex,rotate=\ang]
+
+  % Object (rectangle)
+  \draw [fill = purple!30,
+  	draw = purple!50] (M) rectangle ++ (1,.6);
+
+  % Weight Force and its projections
+  \draw [dashed] (M) ++ (.5,.3) coordinate (MM) -- ++ (0,-1.29)
+  	node [very near end, right] {$mg\cos{\theta}$};
+
+  \draw [dashed] (MM) -- ++ (-0.75,0)
+  	node [very near end, left] {$mg\sin{\theta}$};
+
+  \draw (MM) -- ++ (-\ang-90:1.5)
+  	node [very near end,below left ] {$mg$};
+
+  % Normal Force
+  \draw (MM) -- ++ (0,1.29)
+  node [very near end, right] {$N$};
+
+  % Frictional Force
+  \draw (MM) -- ++ (0.75,0)
+  	node [very near end, above] {$f$};
+
+  \end{scope}
+
+  \end{tikzpicture}
+  \caption{Piano inclinato}
+  \label{fig:piano_inclinato}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Dopo aver disegnato anche il diagramma a corpo libero si può procedere a ragionare con la \textbf{$\boldsymbol{2^a}$ legge della dinamica}, ottenendo
+\[m \cdot \vec{a} = \vec{F}_N + \vec{F}_t\]
+e scomponendo tale equazione nelle sue componenti si ottiene
+\begin{flalign*}
+  m a_x & = - F_n \cdot \sin(\theta)\\
+  m a_y & = F_n \cdot \cos(\theta) - mg\\
+\end{flalign*}
+Volendo conoscere l'accelerazione del corpo, si osserva che
+\[\frac{a_y}{a_x} = \tan(\theta) \longrightarrow a_y = \frac{\sin(\theta)}{\cos(\theta)} \cdot a_x\]
+da cui
+\[a_y \cdot \cos(\theta) = a_x \cdot \sin(\theta) \longrightarrow a_x = a_y \cdot \frac{\cos(\theta)}{\sin(\theta)}\]
+Pertanto, procedendo dalla prima equazione si ottiene
+\[F_N = \frac{m a_x}{\sin(\theta)}\]
+e quindi
+\[... continua ...\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri il caso del piano inclinato precedente, procedendo, ora, alla rotazione del sistema di riferimento dell'angolo $\theta$. In base a questo questo nuovo sistema di riferimento si ottiene la seguente decomposizione
+\begin{flalign*}
+  x & : = m a_x = -m g \cdot \sin(\theta)\\
+\end{flalign*}
+per cui si ha che
+\[a_x = -g \cdot \sin(\theta)\]
+
+\vspace{1em}
+\subsection{Forza di attrito}
+La \textbf{forza di attrito} è una forza di contatto, esattamente come la forza normale: quest'ultima è sempre perpendicolare alla superficie e il suo modulo è tale che vincola il moto.\\
+La \textbf{forza di attrito}, come la forza normale, è una forza che presenta come punto di applicazione la superficie di contatto con il corpo. La forza di attrito è sempre parallela alla superficie e di modulo proporzionale a $\left \vert F_n \right \vert$ e ciò non è ovvio, in quanto bisogna osservare il comportamento delle particelle a livello microscopico.
+\[raffigurazione\]
+La forza di attrito si distingue in due diverse tipologie:
+\begin{enumerate}
+  \item L'\textbf{attrito cinetico}, si ha quando il moto relativo tra le superfici in contatto non è nullo, ovvero si ha movimento con $v \neq 0$.\\
+  Si ha che
+  \[\boxed{F_k = \mu_k \cdot F_N}\]
+  in cui $\boldsymbol{\mu_k}$ prende il nome di \textbf{coefficiente di attrito cinetico} (dall'inglese $k$, di \quotes{kinetic}), il quale, per ovvie ragione, è \textbf{adimensionale}.
+
+  \item L'\textbf{attrito statico}, si ha quando la velocità relativo tra le superfici di contatto è nulla, ovver non si ha movimento, $v = 0$.\\
+  Si ha che
+  \[\boxed{F_s \leq \mu_s \cdot F_N}\]
+  affinché la risultante delle forze interagenti sia $0$. Ovviamente, quando la forza che agisce aumenta il proprio modulo fino a superare la forza di attrito statico, il corpo inizia a muoversi e l'attrito si tramuta, a seguito del moto, in attrito cinetico.\\
+  Il coefficiente moltiplicativo $\boldsymbol{\mu_s}$ prende il nome di \textbf{coefficiente di attrito statico} e generalmente si ha che
+  \[\boxed{\mu_k < \mu_s}\]
+\end{enumerate}
 
 
 
