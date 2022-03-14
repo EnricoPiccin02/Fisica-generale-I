@@ -1809,39 +1809,51 @@ Dopo aver effettuato la raffigurazione, si procede alla realizzazione del \textb
   \label{fig:diagramma_corpo_libero_due_corpi_contatto}
 \end{figure}
 
-... continua ...
-
 \vspace{1em}
 \noindent
 Naturalmente in questo caso si possono determinare direttamente le forze coinvolte
 \begin{flalign*}
-  \vec{F}_{t1} & = -g m_1 \cdot \hat{j} (= m_1 \vec{g})\\
-  \vec{F}_{t2} & = -g m_2 \cdot \hat{j} (= m_2 \vec{g})\\
+  \vec{F}_{t1} & = -g m_1 \cdot \hat{j} = m_1 \vec{g}\\
+  \vec{F}_{t2} & = -g m_2 \cdot \hat{j} = m_2 \vec{g}\\
 \end{flalign*}
 Applicando la \textbf{$\boldsymbol{2^a}$ legge della dinamica} si perviene al risultato seguente
 \begin{flalign*}
-  m_1 \vec{g}) & = \sum \vec{F} = \vec{F}_n + \vec{F}_{N1} + \vec{F}_{t1} = 0\\
-  m_2 \vec{g}) & = \sum \vec{F} = \vec{F}_{N2} + \vec{F}_{t2} = 0\\
+  m_1 \vec{a}_1 & = m_1 \vec{g} = \sum \vec{F} = \vec{F}_N + \vec{F}_{N1} + \vec{F}_{t1} = 0\\
+  m_2 \vec{a}_2 & = m_2 \vec{g} = \sum \vec{F} = \vec{F}_{N2} + \vec{F}_{t2} = 0
 \end{flalign*}
 Questo, in quanto l'accelerazione è nulla, un dato noto dal problema. Applicando, ora, la \textbf{$\boldsymbol{3^a}$ legge della dinamica} si perviene al risultato seguente:
 \[\vec{F}_{N1} = - \vec{F}_{N2}\]
 Da ciò si può concludere il problema, andando a determinare
 \begin{flalign*}
   \vec{F}_{N2} & = - \vec{F}_{t2} = g m_2 \cdot \hat{j}\\
-  \vec{F}_{N1} & = - \vec{F}_{N2} = \vec{F}_{t2} = - g m_1 \cdot \hat{j}\\
+  \vec{F}_{N1} & = - \vec{F}_{N2} = \vec{F}_{t2} = - g m_2 \cdot \hat{j}\\
   \vec{F}_{N} & = - \vec{F}_{N1} - \vec{F}_{t1} = g m_2 \cdot \hat{j} + g m_1 \cdot \hat{j} = g \cdot (m_1 + m_2) \cdot \hat{j}\\
 \end{flalign*}
-
-
 
 \newpage
 \noindent
 \begin{center}
-  9 Marzo 2022
+  10 Marzo 2022
 \end{center}
-
 \subsection{Forza di tensione}
-La forza di tensione è la forza esercitata, per esempio, da un cavo o una fune, come mostrato di seguito, in cui la forza di tensione va a cancellare la forza peso del corpo appeso alla fune:
+Di seguito si espone il significato fisico della \textbf{forza di tensione} che, nel suo comportamente, non è dissimile dalla forza normale:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{FORZA DI TENSIONE}}\\
+    \parbox{\linewidth}{La forza di tensione è la forza esercitata, per esempio, da un cavo o una fune, come mostrato di seguito, in cui la forza di tensione va a cancellare la forza peso del corpo appeso alla fune. È importante notare che $\vec{F}_T$ è sempre \textbf{parallela alla direzione della corda} stessa.\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+Di seguito si espone una illustrazione della forza di tensione:
 
 \vspace{1em}
 \begin{figure}[H]
@@ -1854,16 +1866,12 @@ La forza di tensione è la forza esercitata, per esempio, da un cavo o una fune,
     }
     \draw (1,-1.8) -- (1,-0.3);
     \draw [-stealth, red] (1,-1.8) -- node[midway, left, red]{$\vec{F}_T$} (1,-0.75);
-    \draw [-stealth] (1,-2.4) node[circ]{} -- ++(0,-2) node [midway, below right] {$\vec{F}_{t1}$};
-    \draw (0.5,-2.4) node[]{$m_1$};
+    \draw [-stealth] (1,-2.4) node[circ]{} -- ++(0,-2) node [midway, below right] {$\vec{F}_{t}$};
+    \draw (0.5,-2.4) node[]{$m$};
   \end{tikzpicture}
-  \caption{Forza normale di tensione di un corpo sospeso}
+  \caption{Forza di tensione di un corpo sospeso}
   \label{fig:forza_tensione_corpo_sospeso}
 \end{figure}
-
-\vspace{1em}
-\noindent
-È importante notare che $\vec{F}_T$ è sempre parallela alla direzione della corda stessa.
 
 \vspace{1em}
 \noindent
@@ -1888,10 +1896,10 @@ La forza di tensione è la forza esercitata, per esempio, da un cavo o una fune,
     	node [pos=.4, left] {$\theta_1$};
     \draw [draw = violet] (O2) ++(-.8,0) arc (180:242:0.8)
     	node [pos=.4, left] {$\theta_2$};
-    \draw [-stealth] (1,-2.4) node[circ]{} -- ++(0,-2) node [midway, below right] {$\vec{F}_{t1}$};
-    \draw (0.5,-2.4) node[]{$m_1$};
+    \draw [-stealth] (1,-2.4) node[circ]{} -- ++(0,-2) node [midway, below right] {$\vec{F}_{t}$};
+    \draw (0.5,-2.4) node[]{$m$};
   \end{tikzpicture}
-  \caption{Forza normale di tensione di un corpo sospeso da due corde}
+  \caption{Forza di tensione di un corpo sospeso da due corde}
   \label{fig:forza_tensione_corpo_sospeso_due_corde}
 \end{figure}
 
@@ -2063,6 +2071,151 @@ La forza di attrito si distingue in due diverse tipologie:
   \[\boxed{\mu_k < \mu_s}\]
 \end{enumerate}
 
+\newpage
+\noindent
+\begin{center}
+  14 Marzo 2022
+\end{center}
+Si osservi che quando una massa rimane sospesa tramite due cavi che formano con la superficie di collegamento un angolo di $90^\circ$ ciascuno, non entrano in gioco solamente le forze, ma risulta fondamentale anche conoscere il concetto di \textbf{momento di forza} e di \textbf{punto di applicazione}: se il punto di applicazione delle forze di tensione è lo stesso sul corpo sospeso, basta una leggerissima differenza di lunghezza dei cavi per avere uno sbilanciamento significativo delle forze di tensione.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: L'attrito statico è come se non fosse un attrito, in quanto non si ha movimento: è come una forza normale che si oppone al tentativo di spostamento.\\
+L'attrito cinetico, invece, è un vero e proprio attrito che si oppone al moto tramite la dissipazione di potenza.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri una vettura che, in movimento, procede a frenare e a rallentare fino a fermarsi: il fenomeno che si sta studiando è l'attrito tra le ruote e la strada. in particolare la vettura richiede $70$ m per fermarsi, partendo da una velocità di $100$ km/h (a causa di uno slittamento delle gomme sull'asfalto).\\
+A partire da questi dati, si determini il \textbf{coefficiente di attrito cinetico}; si proceda alla realizzazione di un modello grafico del problema:
+
+\[raffigurazione\]
+
+È molto importante osservare che la forza normale è essenziale per il calcolo della forza di attrito cinetico, in quanto da essa dipende il suo modulo. Si realizzi, ora, il diagramma a corpo libero:
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1]
+    \draw [-stealth] (0,0) node[circ]{} -- ++(0,1) node [at end, right] {$\vec{F}_N$};
+    \draw [-stealth] (0,0) -- ++(0,-1) node [midway, right] {$\vec{F}_{t}$};
+    \draw [-stealth] (0,0) -- ++(-1,0) node [midway, above] {$\vec{F}_{k}$};
+  \end{tikzpicture}
+  \caption{Diagramma a corpo libero di una vettura in rallentamento}
+  \label{fig:diagramma_corpo_libero_vettura_rallentamento}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Per procedere si richiami la $2^a$ legge della dinamica e si scriva
+\[\sum \vec{F} = m \vec{a} = m \cdot \left(a_x \cdot \hat{i} + 0 \cdot \hat{j} \right)\]
+È noto, inoltre, che
+\[\vec{F}_t + \vec{F}_N = 0 \longrightarrow \vec{F}_t = - \vec{F}_N\]
+Per cui si ottiene che
+\[\vec{F}_k = m a_x \cdot \hat{i} \longrightarrow a_x = -\frac{F_k}{m}\]
+in cui, per convenzione, si pone la componente orizziontale negativa.\\
+Inoltre è possibile calcolare anche l'accelerazione con cui la macchina rallenta, impiegando la seguente formula del moto uniformemente accekerato seguente:
+\[v^2 - v_0^2 = 2a \cdot (x - x_0)\]
+che è possibile applicare al contesto in quanto si parla di moto uniformemente accelerato, giacché l'accelerazione è causata dalla forza di attrito, che è costante in quanto prodotto tra un coefficiente e la forza normale, la quale è costante in quanto si oppone al peso che è costante.\\
+Da tale formula si ottiene che
+\[a = \frac{1}{2} \cdot \frac{v^2-v_0^2}{x-x_0} = -\frac{1}{2} \cdot \frac{v_0^2}{2d}\]
+Da ciò segue che, ovviamente
+\[F_k = \mu_k F_N\]
+in cui ovviamente
+\[F_N = F_t = mg\]
+per cui si evince che
+\[F_k = \mu_k \cdot m g \longrightarrow a_x = - \frac{F_k}{m} = -\mu_k g\]
+da cui
+\[\mu_k = \frac{v_0^2}{2 g d} = 0.56\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che la $2^a$ legge di Newton è applicabile in un sistema di riferimento inerziale, ovvero in un sistema di riferimento che non ha propensione a muoversi.\\
+Il tempo di volo di un proiettile è
+\[\boxed{t = \frac{2 v_0 \cdot \sin(\theta)}{g}}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri un piano su cui poggiano tre masse, l'una collegata all'altra, come mostrato di seguito
+\[raffigurazione\]
+Tali masse vengono trainate con una forza $F = 200$ N, mentre le massse sono $m_A = 30$ kg, $m_B = 50$ kg e $m_C = 20$ kg; inoltre è noto che il coefficiente di attrito cinetic è $\mu_k = 0,1$. Si determini, allora
+\begin{itemize}
+  \item l'accelerazione dell'intero sistema;
+  \item la tensione delle corde $A-B$ e $B-C$.
+\end{itemize}
+Si realizzi il diagramma a corpo libero del sistema oggetto di studio
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1.5]
+    \draw [-stealth] (0,0) node[circ]{} -- ++(0,1) node [at end, right] {$\vec{F}_{NA}$};
+    \draw [-stealth] (0,0) -- ++(0,-1) node [midway, right] {$\vec{F}_{tA}$};
+    \draw [-stealth] (0,0) -- ++(-1,0) node [midway, above] {$\vec{F}_{kA}$};
+    \draw [-stealth] (0,0) -- ++(1,0) node [midway, above] {$\vec{F}_{TA}$};
+  \end{tikzpicture}
+  \hspace{2em}
+  \begin{tikzpicture}[scale=1.5]
+    \draw [-stealth] (0,0) node[circ]{} -- ++(0,1) node [at end, right] {$\vec{F}_{NB}$};
+    \draw [-stealth] (0,0) -- ++(0,-1) node [midway, right] {$\vec{F}_{tB}$};
+    \draw [-stealth] (0,0.1) -- ++(-1,0) node [midway, above] {$\vec{F}_{kB}$};
+    \draw [-stealth] (0,-0.1) -- ++(-1,0) node [midway, below] {$\vec{F}_{AB}$};
+    \draw [-stealth] (0,0) -- ++(1,0) node [midway, above] {$\vec{F}_{TB}$};
+  \end{tikzpicture}
+  \hspace{2em}
+  \begin{tikzpicture}[scale=1.5]
+    \draw [-stealth] (0,0) node[circ]{} -- ++(0,1) node [at end, right] {$\vec{F}_{NC}$};
+    \draw [-stealth] (0,0) -- ++(0,-1) node [midway, right] {$\vec{F}_{tC}$};
+    \draw [-stealth] (0,0.1) -- ++(-1,0) node [midway, above] {$\vec{F}_{kC}$};
+    \draw [-stealth] (0,-0.1) -- ++(-1,0) node [midway, below] {$\vec{F}_{BC}$};
+    \draw [-stealth] (0,0) -- ++(1,0) node [midway, above] {$\vec{F}$};
+  \end{tikzpicture}
+  \caption{Diagramma a corpo libero di $3$ masse trainate}
+  \label{fig:diagramma_corpo_libero_3_masse_trainate}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Per la risoluzione del primo quesito, si può sfruttare la \textbf{proprietà additiva} della massa, essendo i tre corpi omogenei e costituiti dalla stessa sostanza. Pertanto l'assieme $ABC$ si comporta come un unico corpo, del quale la massa complessiva è
+\[m = m_A + m_B + m_C = 30 \text{ kg} + 50 \text{ kg} + 20 \text{ kg} = 100 \text{ kg}\]
+Pertanto si può realizzare un nuovo diagramam a corpo libero, mostrato di seguito:
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1.5]
+    \draw [-stealth] (0,0) node[circ]{} -- ++(0,1) node [at end, right] {$\vec{F}_{N}$};
+    \draw [-stealth] (0,0) -- ++(0,-1) node [midway, right] {$\vec{F}_{t}$};
+    \draw [-stealth] (0,0) -- ++(-1,0) node [midway, above] {$\vec{F}_{k}$};
+    \draw [-stealth] (0,0) -- ++(1,0) node [midway, above] {$\vec{F}$};
+  \end{tikzpicture}
+  \caption{Diagramma a corpo libero di un'unica massa}
+  \label{fig:diagramma_corpo_libero_unica_massa}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Pertanto si ottiene che, per la $2^a$ legge della dinamica:
+\[\sum \vec{F} = m \vec{a}\]
+Naturalmente le forze possono essere scomposte nei loro rispettivi componenti, per cui si ottiene
+\[
+  y : \left\{
+  \begin{array}{l}
+    \vec{F}_N = - \vec{F}_t\\
+    F_N = mg
+  \end{array}
+  \right.
+\]
+mentre si ottiene che
+\[
+  x : \left\{
+  \begin{array}{l}
+    m a_x = F - F_k\\
+    F_k = \mu_k \cdot F_N
+  \end{array}
+  \right.
+\]
+da cui
+\[a_x = \frac{F}{m} - \mu_k \cdot g = 2.0 \text{ m/s}^2 - 0.98 \text{ m/s}^2 = 1.0 \text{ m/s}^2\]
 
 
 \newpage
