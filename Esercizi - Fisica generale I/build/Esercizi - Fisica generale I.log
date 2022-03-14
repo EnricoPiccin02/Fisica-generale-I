@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.27)  7 MAR 2022 08:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.27)  11 MAR 2022 13:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -670,20 +670,447 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [1
 
-{/usr/local/texlive/2021basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (build/Esercizi - Fisica generale I.aux) ) 
+{/usr/local/texlive/2021basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+./Esercizi - Fisica generale I.tex:132: Missing $ inserted.
+<inserted text> 
+                $
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./Esercizi - Fisica generale I.tex:132: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./Esercizi - Fisica generale I.tex:132: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./Esercizi - Fisica generale I.tex:132: Extra }, or forgotten $.
+\text@ ...e {\textdef@ \displaystyle \f@size {#1}}
+                                                  {\textdef@ \textstyle \f@s...
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./Esercizi - Fisica generale I.tex:132: Missing $ inserted.
+<inserted text> 
+                $
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./Esercizi - Fisica generale I.tex:132: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./Esercizi - Fisica generale I.tex:132: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./Esercizi - Fisica generale I.tex:132: Extra }, or forgotten $.
+\text@ ...xtstyle \f@size {\firstchoice@false #1}}
+                                                  {\textdef@ \textstyle \sf@...
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./Esercizi - Fisica generale I.tex:132: Missing $ inserted.
+<inserted text> 
+                $
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./Esercizi - Fisica generale I.tex:132: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./Esercizi - Fisica generale I.tex:132: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./Esercizi - Fisica generale I.tex:132: Extra }, or forgotten $.
+\text@ ...tstyle \sf@size {\firstchoice@false #1}}
+                                                  {\textdef@ \textstyle \ssf...
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./Esercizi - Fisica generale I.tex:132: Missing $ inserted.
+<inserted text> 
+                $
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./Esercizi - Fisica generale I.tex:132: Extra }, or forgotten $.
+\textdef@ ...th {#1}\let \f@size #2\selectfont #3}
+                                                  }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./Esercizi - Fisica generale I.tex:132: Extra }, or forgotten $.
+\textdef@ ...h {#1}\let \f@size #2\selectfont #3}}
+                                                  
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./Esercizi - Fisica generale I.tex:132: Extra }, or forgotten $.
+\text@ ...style \ssf@size {\firstchoice@false #1}}
+                                                  \check@mathfonts }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./Esercizi - Fisica generale I.tex:132: Extra }, or forgotten $.
+\text@ ...firstchoice@false #1}}\check@mathfonts }
+                                                  
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./Esercizi - Fisica generale I.tex:132: Missing $ inserted.
+<inserted text> 
+                $
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Esercizi - Fisica generale I.tex:132: Missing } inserted.
+<inserted text> 
+                }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Esercizi - Fisica generale I.tex:132: Missing } inserted.
+<inserted text> 
+                }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Esercizi - Fisica generale I.tex:132: Missing } inserted.
+<inserted text> 
+                }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Esercizi - Fisica generale I.tex:132: Missing $ inserted.
+<inserted text> 
+                $
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Esercizi - Fisica generale I.tex:132: Missing } inserted.
+<inserted text> 
+                }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Esercizi - Fisica generale I.tex:132: Missing } inserted.
+<inserted text> 
+                }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Esercizi - Fisica generale I.tex:132: Missing } inserted.
+<inserted text> 
+                }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Esercizi - Fisica generale I.tex:132: Missing $ inserted.
+<inserted text> 
+                $
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Esercizi - Fisica generale I.tex:132: Missing } inserted.
+<inserted text> 
+                }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Esercizi - Fisica generale I.tex:132: Missing } inserted.
+<inserted text> 
+                }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Esercizi - Fisica generale I.tex:132: Missing } inserted.
+<inserted text> 
+                }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Esercizi - Fisica generale I.tex:132: Missing $ inserted.
+<inserted text> 
+                $
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Esercizi - Fisica generale I.tex:132: Missing } inserted.
+<inserted text> 
+                }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Esercizi - Fisica generale I.tex:132: Missing } inserted.
+<inserted text> 
+                }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Esercizi - Fisica generale I.tex:132: Missing } inserted.
+<inserted text> 
+                }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Esercizi - Fisica generale I.tex:132: Missing { inserted.
+<to be read again> 
+                   \endgroup 
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./Esercizi - Fisica generale I.tex:132: Missing } inserted.
+<inserted text> 
+                }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Esercizi - Fisica generale I.tex:132: Missing { inserted.
+<to be read again> 
+                   \endgroup 
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./Esercizi - Fisica generale I.tex:132: Missing } inserted.
+<inserted text> 
+                }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Esercizi - Fisica generale I.tex:132: Missing { inserted.
+<to be read again> 
+                   \endgroup 
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./Esercizi - Fisica generale I.tex:132: Missing } inserted.
+<inserted text> 
+                }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./Esercizi - Fisica generale I.tex:132: Missing } inserted.
+<inserted text> 
+                }
+l.132 \[a_A = 3.85 \frac{\text{m^2}}{\text{s}^2}
+                                                \]
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+[3] [4] (build/Esercizi - Fisica generale I.aux) ) 
 Here is how much of TeX's memory you used:
- 41174 strings out of 480445
- 1108333 string characters out of 5892391
- 1747540 words of memory out of 5000000
- 57910 multiletter control sequences out of 15000+600000
- 409907 words of font info for 51 fonts, out of 8000000 for 9000
+ 41205 strings out of 480445
+ 1108648 string characters out of 5892391
+ 1762540 words of memory out of 5000000
+ 57931 multiletter control sequences out of 15000+600000
+ 414362 words of font info for 68 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 128i,11n,130p,747b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on "build/Esercizi - Fisica generale I.pdf" (2 pages, 50415 bytes).
+ 128i,17n,130p,747b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2021basic/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on "build/Esercizi - Fisica generale I.pdf" (4 pages, 139791 bytes).
 PDF statistics:
- 30 PDF objects out of 1000 (max. 8388607)
- 21 compressed objects within 1 object stream
+ 72 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

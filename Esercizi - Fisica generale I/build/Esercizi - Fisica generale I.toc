@@ -2,3 +2,5 @@
 \babel@toc {italian}{}
 \babel@toc {italian}{}
 \contentsline {section}{\numberline {1}Analisi dimensionale}{2}{}%
+\contentsline {subsection}{\numberline {1.1}Esrcizio 1 - Distanza di sicurezza}{3}{}%
+\contentsline {subsection}{\numberline {1.2}Esercizio 2 - Salto di una rampa}{4}{}%

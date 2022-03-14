@@ -1437,11 +1437,12 @@ A partire da tale risultato si sarebbe potuto determinare il modulo dell'acceler
 \[\boxed{\vec{v}(t) = - \omega R \cdot \sin(\omega t) \cdot \hat{i} + \omega R \cos(\omega t) \cdot \hat{i}}\]
 e infine
 \[\boxed{\vec{a}(t) = -\omega^2 \cdot \vec{r}(t)}\]
+in cui è evidente come il vettore acceerazione é sempre parallelo al vettore posizione, ma con verso opposto: il vettore posizione è sempre diretto verso l'esterno, mentre il vettore acccelerazione è diretto verso il centro della circonferenza.\\
 Se ora si procede al calcolo del modulo di tale vettore si ottiene
 \[\boxed{\left \vert \vec{a} \right \vert = \omega^2 \cdot R = \frac{v^2}{R}}\]
 dal momento che si ha
 \[\boxed{v = \omega R}\]
-In realtà anche $\omega$ è un vettore e la sua direzione è l'asse di rotazione e avrà una importante validità in seguito.
+In realtà anche $\omega$ è un vettore, in cui la sua direzione è l'asse di rotazione, mentre il modulo fornirà una stima della velocità alla quale si muove; tale risultato avrà una importante validità in seguito.
 
 \vspace{1em}
 \subsection{Moti relativi}
@@ -1450,14 +1451,15 @@ Naturalmente, considerando la caduta di un sasso, fissando un tempo $t$, si ha c
 \[\vec{v}_{PB} = -g t \cdot \hat{j}\]
 in quanto si tratta di una caduta libera. Questo, tuttavia, osservando il moto dalla barca ($PB$ = punto-barca) in movimento. Se, invece, tale moto viene visto da terra ($PT$ = punto-terra), sarà dotato di due componenti, ovvero
 \[\vec{v}_{PT} = \vec{v} + -g t \cdot \hat{j}\]
-in cui la componente verticale è la stessa del moto precedente, metre la componente orizzontale dipende dalla velocità della barca. Questo è proprio quello che ha fatto Galileo: osservare questo tipo di situazioni nella vita reale e fornendovi una spiegazione scientifica.
+in cui la componente verticale è la stessa del moto precedente, mentre la componente orizzontale dipende dalla velocità della barca. Questo è proprio quello che ha fatto Galileo: osservare questo tipo di situazioni nella vita reale, fornendovi una spiegazione scientifica e definendo, in questo caso, il concetto di sistema di riferimento e di moto relativo.
 
 \subsubsection{Caso generale}
-Si consideri un caso generale, considerando come sistema di riferimento così definito:
+Per capire come passare da un sistema di riferimento all'altro, è necessario considerare un caso generale, in cui come sistema di riferimento si assume quello definito da:
 \begin{itemize}
-  \item posizione dell'origine
-  \item assi
+  \item posizione dell'origine;
+  \item assi (posizione e orientamento).
 \end{itemize}
+
 \vspace{2em}
 \noindent
 \rowcolors{1}{white}{white}
@@ -1467,16 +1469,16 @@ Si consideri un caso generale, considerando come sistema di riferimento così de
       \begin{tikzpicture}
         \begin{axis}[
           axis lines = left,
-          xlabel = \(y_A\),
-          ylabel = {\(x_A\)},
+          xlabel = \(x_A\),
+          ylabel = {\(y_A\)},
           legend pos=outer north east,
           ymajorgrids=true,
           xmajorgrids=true,
           grid style=dashed,
           ymax=10,
           xmax=10,
-          ytick={2},
-          xtick={2},
+          ytick={3},
+          xtick={3},
         ]
 
         \addplot [
@@ -1485,33 +1487,31 @@ Si consideri un caso generale, considerando come sistema di riferimento così de
           color=green,
         ]
         {x};
-        \draw [-stealth] (axis cs:2,2) -- (axis cs:2,10);
-        \draw [-stealth] (axis cs:2,2) -- (axis cs:10,2);
-        \draw [-stealth, very thick, red] (axis cs:0,0) -- (axis cs:7.5,3);
-        \draw [red] (axis cs:4,1) node[]{$\vec{r}_{PA}$};
-        \draw [-stealth, very thick, blue] (axis cs:2,2) -- (axis cs:7.5,3);
-        \draw [blue] (axis cs:3,4) node[]{$\vec{r}_{PB}$};
-        \draw [-stealth, very thick, green] (axis cs:0,0) -- (axis cs:2,2);
-        \draw [green] (axis cs:1,1.5) node[]{$\vec{r}_{AB}$};
+        \draw [-stealth] (axis cs:3,3) -- (axis cs:3,10);
+        \draw [-stealth] (axis cs:3,3) -- (axis cs:10,3);
+        \draw [-stealth, very thick, red] (axis cs:0,0) -- (axis cs:9,5);
+        \draw [red] (axis cs:4.5,1.5) node[]{$\vec{r}_{PA}$};
+        \draw [-stealth, very thick, blue] (axis cs:3,3) -- (axis cs:9,5);
+        \draw [blue] (axis cs:5,4.5) node[]{$\vec{r}_{PB}$};
+        \draw [-stealth, very thick, orange] (axis cs:0,0) -- (axis cs:3,3);
+        \draw [orange] (axis cs:1,2) node[]{$\vec{r}_{BA}$};
+        \node[label={[rotate=90]center:$y_B$}] at (axis cs:1.5,6.5) {};
+        \node[label={center:$x_B$}] at (axis cs:6.5,1.5) {};
         \end{axis}
     \end{tikzpicture}
   }
 \end{tabularx}
 
-... continua ... continua anche dopo ...
-
 \vspace{1em}
 \noindent
 Per passare da un sistema di riferimento $A$ all'altro $B$ è necessario definire la posizione relativa tra i due sistemi di riferimento $A-B$.\\
-Infatti, definendo un nuovo vettore $\vec{r}_{BA}$ è possibile scrivere
+Infatti, definendo un nuovo vettore $\vec{r}_{BA}$ è possibile scrivere la somma di vettori seguente
 \[\vec{r}_{PA} = \vec{r}_{PB} + \vec{r}_{BA}\]
-Ma non solo, ma è possibile anche calcolare la derivata e considerare le velocità
+Ma non solo, è possibile anche calcolare la derivata nel tempo e considerare, quindi, le velocità
 \[\vec{v}_{PA} = \vec{v}_{PB} + \vec{v}_{BA}\]
-che corrisponde proprio al caso analizzato per la barca: la differenza tra i due sistemi di osservazione è proprio il moto della barca. Un caso ancora più importante è quello che prevede che $\vec{v}_{BA}$ è \textbf{costante}, per cui, derivando nuovamente si ottiene
+che corrisponde proprio al caso analizzato per la barca: la differenza tra i due sistemi di osservazione è proprio il moto della barca. Un caso ancora più importante è quello che prevede $\vec{v}_{BA}$ \textbf{costante}, per cui i due sistemi non si muovono l'uno rispetto all'altro e misurare l'accelerazione nell'uno o nell'altro non cambia, in quanto sarà la stessa. Derivando nuovamente nel tempo, infatti, si ottiene
 \[\vec{a}_{PA} = \vec{a}_{PB} + \vec{a}_{BA}\]
-ma essendo $\vec{v}_{BA}$ costante, ovviamente $\vec{a}_{BA} = 0$. Questo è il caso di un \textbf{sistema di riferimento inerziale}, ovvero di un sistema di riferimento che può muoversi, ma non può accelerare.
-... continua ... 29:00
-Questo, naturamente si applica sia ad un caso in 2D, ma anche in 3D.
+ma essendo $\vec{v}_{BA}$ costante, ovviamente $\vec{a}_{BA} = 0$. Questo è il caso di un \textbf{sistema di riferimento inerziale}, ovvero di un sistema di riferimento che può muoversi ad una certa velocità, ma non può accelerare. Naturalmente l'accelerazione del sistema ierziale non è relativa, non è da definirsi rispetto ad un altro sistema di riferimento come in questo caso, ma necessita di una definizione molto più rigorosa fornita tramite le leggi della dinamica di Newton. Questo ragionamento, naturamente, si applica sia ad un caso in 2D, ma anche in 3D.
 
 \vspace{1em}
 \noindent
@@ -1522,13 +1522,31 @@ significa che la variazione del modulo della velocità nel tempo è nullo: perta
 
 \newpage
 \section{Dinamica}
-Alla base della dinamica vi sono i $3$ principi della dinamica di Newton, formulati da Newton all'interno del libro ... continua .... Esse sono
-\begin{enumerate}
-  \item \textbf{Prima legge}: \emph{Ciascun corpo persevera nel proprio stato di quiete o di moto rettilineo uniforme, eccetto sia costretto a mutare quello stato da forze impresse.}
-  \item \textbf{Seconda legge}: \emph{Il cambiamento di moto è proporzionale alla forza mmotrice impressa, ed avviene lungo la linea retta secondo la quale la forza è stata impressa.}
-  \item \textbf{Terza legge}: \emph{Ad ogni azione corrisponde una reazione uguale e contraria: ossia le azioni di due corpi sono sempre uguai fra loro e dirette verso parti opposte.}
-\end{enumerate}
-Per parlare di ciò si devono introdurre due conccetti fondamentali ed interconnessi:
+Alla base della dinamica vi sono i $3$ principi della dinamica di Newton, formulati da Newton all'interno del libro \textbf{Philosophiae Naturalis Principia Mathematica}.\\
+Esse sono le seguenti:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{LEGGI DELLA DINAMICA}}\\
+    \parbox{\linewidth}{Le leggi della dinamica sono le seguenti:
+    \begin{enumerate}
+      \item \textbf{Prima legge}: \emph{Ciascun corpo persevera nel proprio stato di quiete o di moto rettilineo uniforme, eccetto che sia costretto a mutare quello stato da forze impresse.}
+      \item \textbf{Seconda legge}: \emph{Il cambiamento di moto è proporzionale alla forza mmotrice impressa, ed avviene lungo la linea retta secondo la quale la forza è stata impressa.}
+      \item \textbf{Terza legge}: \emph{Ad ogni azione corrisponde una reazione uguale e contraria: ossia le azioni di due corpi sono sempre uguai fra loro e dirette verso parti opposte.}
+    \end{enumerate}
+    \vspace{1mm}}\\
+    \hline
+\end{tabularx}
+\vspace{1em}
+
+\subsection{Massa}
+Per parlare della dinamica, si devono introdurre due concetti fondamentali ed interconnessi; prima di tutto si fornisce la definizione di \textbf{massa}, la quale può essere definita in modi diversi a seconda della necessità:
 
 % Tabella per le definizione di concetti, etc...
 \vspace{1em}
@@ -1545,6 +1563,10 @@ Per parlare di ciò si devono introdurre due conccetti fondamentali ed interconn
 \end{tabularx}
 \vspace{1em}
 
+\noindent
+che si adatta perfettamente alla seconda legge della dinamica, la quale afferma che l'accelerazione è proporzionale alla forza impressa ed è la massa a rappresentare la \textbf{costante di proporzionalità}: a parità di forza, più il corpo è massivo meno accelera, meno è massivo, più accelera.\\
+Di seguito, invece, si definisce il concetto di \textbf{massa gravitazionale}:
+
 % Tabella per le definizione di concetti, etc...
 \vspace{1em}
 \rowcolors{1}{black!5}{black!5}
@@ -1554,11 +1576,14 @@ Per parlare di ciò si devono introdurre due conccetti fondamentali ed interconn
 \begin{tabularx}{\textwidth}{@{}|P|@{}}
     \hline
     {\textbf{MASSA GRAVITAZIONALE}}\\
-    \parbox{\linewidth}{La \textbf{massa gravitazionale} è proprozionale al \textbf{peso}.
+    \parbox{\linewidth}{La \textbf{massa gravitazionale} è proporzionale al \textbf{peso}.
     \vspace{3mm}}\\
     \hline
 \end{tabularx}
 \vspace{1em}
+
+\noindent
+Non da ultimo si fornisce una definizione di massa che è approssimabile ad una quantificazione:
 
 % Tabella per le definizione di concetti, etc...
 \vspace{1em}
@@ -1571,12 +1596,17 @@ Per parlare di ciò si devono introdurre due conccetti fondamentali ed interconn
     {\textbf{MASSA}}\\
     \parbox{\linewidth}{La \textbf{massa} viene definita come \textbf{quantità di materia} e la sua unità di misura è
     \[[m] = \text{kg}\]
-    Inoltre la massa è \textbf{additiva}: da un corpo, agglomerato di due masse $m_1$ e $m_2$, la massa complessiva è
+    Inoltre la massa è \textbf{additiva}: dato un corpo, agglomerato compatto di due masse $m_1$ e $m_2$, la massa complessiva è
     \[m = m_1 + m_2\]
-     \vspace{-1mm}}\\
+    \vspace{-1mm}}\\
     \hline
 \end{tabularx}
 \vspace{1em}
+
+\newpage
+\noindent
+\subsection{Forza}
+Di seguito si espone il signifiato fisico di \textbf{forza}:
 
 % Tabella per le definizione di concetti, etc...
 \vspace{1em}
@@ -1588,25 +1618,30 @@ Per parlare di ciò si devono introdurre due conccetti fondamentali ed interconn
     \hline
     {\textbf{FORZA}}\\
     \parbox{\linewidth}{Una \textbf{forza} è una spinta che produce un cambiamento di moto di un corpo.\\
-    La forza è un \textbf{vettore} la cui unità di misura è
-    \[[F] = \text{N} = \frac{\text{kg m}}{\text{s}}\]
-    \vspace{-1mm}}\\
+    La forza è un \textbf{vettore} (con modulo, direzione e verso) la cui unità di misura è
+    \[[F] = \text{N} = \frac{\text{kg m}}{\text{s}^2}\]
+    ove N sta per Newton.
+    \vspace{3mm}}\\
     \hline
 \end{tabularx}
 
 \vspace{1em}
 \subsection{Principi della dinamica - Leggi di Newton}
+Si descrivano, ora, le leggi di Newton in termini dei due concetti esposti, ossia massa e forza:
+
 \begin{enumerate}
   \item Se la forza risultante che agisce su un corpo è nulla, ovvero
   \[\sum \vec{F} = 0\]
-  allora l'accelerazione del corpo è nulla, cioé $\vec{a}=0$. Tale legge potrebbe sembrare superflua, in quanto un caso particolare della seconda: tuttavia, tale legge assolve al compito di definire un \textbf{sistema di riferimento inerziale}.
+  allora l'accelerazione del corpo è nulla, cioé $\vec{a}=0$, ovvero
+  \[\boxed{\sum \vec{F} = 0 \longrightarrow \vec{a}=0}\]
+  Tale legge potrebbe sembrare superflua, in quanto un caso particolare della seconda: tuttavia, tale legge assolve al compito di definire un \textbf{sistema di riferimento inerziale}.
 
   \item La forza risultante su un corpo è direttamente proporzionale all'accelerazione del corpo stesso. L'accelerazione di un corpo, quindi, è proporzionale alla forza risultante
-  \[\sum \vec{F} = m \vec{a}\]
+  \[\boxed{\sum \vec{F} = m \vec{a}}\]
 
   \item La forza esercitata da un corpo $a$ su un corpo $b$ è uguale in modulo e direzione, ma ha verso opposto alla forza esercitata da $b$ su $a$.\\
   Ovvero si ha che
-  \[\vec{F}_{ab} = -\vec{F}_{ba}\]
+  \[\boxed{\vec{F}_{ab} = -\vec{F}_{ba}}\]
   e ciò è sempre vero.
 \end{enumerate}
 
@@ -1617,9 +1652,26 @@ Dopo aver definito tali leggi, è necessario definire diversi tipi di forze, dis
 \vspace{1em}
 \noindent
 \subsection{Forza peso}
-La forza peso fiene designata con $\vec{F}_t$, ovvero la forza di attrazione esercitata dalla terra su un corpo di massa $m$. In particolare si ha
-\[\boxed{\vec{F}_t = m \vec{g}}\]
-in cui $\vec{g} = -9.8 \text{m}/\text{s}^2$ e prende il nome di \textbf{accelerazione gravitazionale} (o meglio, di \textbf{campo gravitazionale} sulla superficie della terra).
+Di seguito si espone il significato fisico di \textbf{forza peso}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{FORZA PESO}}\\
+    \parbox{\linewidth}{La forza peso fiene designata con $\vec{F}_t$, ovvero la forza di attrazione esercitata dalla terra su un corpo di massa $m$. In particolare si ha
+    \[\boxed{\vec{F}_t = m \vec{g}}\]
+    in cui $\vec{g} = -9.8 \text{ m}/\text{s}^2 \cdot \hat{j}$ e prende il nome di \textbf{accelerazione gravitazionale} (o meglio, di \textbf{campo gravitazionale} sulla superficie della terra).
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+Di seguito si espone una illustrazione della forza peso:
 
 \vspace{1em}
 \begin{figure}[H]
@@ -1627,7 +1679,7 @@ in cui $\vec{g} = -9.8 \text{m}/\text{s}^2$ e prende il nome di \textbf{accelera
   \begin{tikzpicture}
     \draw [fill = purple!30,draw = purple!50] (0,0) rectangle ++(2,1.2);
     \draw [-stealth] (1,0.6) node[circ]{} -- ++(0,-2) node [midway, below right] {$\vec{F}_t = m\vec{g}$};
-    \draw (0.3,0.6) node[]{$m$};
+    \draw (0.5,0.6) node[]{$m$};
   \end{tikzpicture}
   \caption{Forza peso}
   \label{fig:forza_peso}
@@ -1643,11 +1695,29 @@ Tuttavia, i due concetti sono ben distinti, in quanto $\vec{F}_t = m \vec{g}$ è
 
 \vspace{1em}
 \noindent
-Si osservi che anche in questo caso, è presente il terzo principio della dinamica: infatti un corpo viene attratto verso il centro della terra ed esercita una forza sulla superficie terrestre, così come la terra esercita una forza uguale e contraria (solamente che è impercettibile).
+\textbf{Osservazione}: Si osservi che anche nel caso della forza peso è presente il terzo principio della dinamica: infatti un corpo viene attratto verso il centro della terra ed esercita una forza sulla superficie terrestre, così come la terra esercita una forza uguale e contraria (solamente che è impercettibile, è sempre presente).
 
 \vspace{1em}
 \subsection{Forza normale}
-La \textbf{forza normale} $\vec{F}_N$ è un caso di forza di contatto, definita come \textbf{spinta fornita da una superficie}: quando un oggetto è appoggiato su una superficie e non si muove (ovvero si ha che $\vec{v}=0$ e $\vec{a}=0$), alla \textbf{forza peso} si contrappone la \textbf{forza normale}, uguale e contraria alla forza peso.
+Di seguito si espone un altro tipo di forza, una forza i contatto, che prende il nome di \textbf{forza normale}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{FORZA NORMALE}}\\
+    \parbox{\linewidth}{La \textbf{forza normale} $\vec{F}_N$ è un caso di forza di contatto, definita come \textbf{spinta fornita da una superficie (o da un altro corpo)}: quando un oggetto è appoggiato su una superficie e non si muove (ovvero si ha che $\vec{v}=0$ e $\vec{a}=0$), alla \textbf{forza peso} si contrappone la \textbf{forza normale}, uguale e contraria alla forza peso.
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+Di seguito si una illustrazione della forza normale:
 
 \vspace{1em}
 \begin{figure}[H]
@@ -1672,6 +1742,7 @@ La \textbf{forza normale} $\vec{F}_N$ è un caso di forza di contatto, definita 
 \noindent
 Una caratteristica fondamentale della forza normale è che essa è sempre \textbf{ortogonale alla superficie} su cui poggia l'oggetto. Se si osserva che il corpo presenta $\vec{a}=0$, significa che
 \[\vec{F}_t + \vec{F}_N\ = 0 = m \vec{a} \longrightarrow \vec{F}_N = - \vec{F}_t\]
+Mentre la forza peso presenta un modulo preciso, calcolabile tramite la legge di gravitazione universale, la forza normale, invece, adatta la propria intensità al corpo appoggiato sulla superficie: fintantoché la superficie resiste, il modulo della forza normale coincide con quello della forza peso; se il corpo è eccessivamente massiccio, la superficie si rompe.
 
 \vspace{1em}
 \noindent
@@ -1684,7 +1755,7 @@ Tuttavia è sempre possibile eseguire la somma di forze per conoscerne la risult
 
 \vspace{1em}
 \noindent
-\textbf{Osservazione}: Quando si deve eseguire la rappresentazione grafica delle forze è necessario introdurre il cocnetto di \textbf{diagramma di corpo libero}:
+\textbf{Osservazione}: Quando si deve eseguire la rappresentazione grafica delle forze è necessario introdurre il concetto di \textbf{diagramma di corpo libero}:
 \begin{itemize}
   \item ogni corpo è rappresentato da un \textbf{punto} (per cui il punto di applicazione delle forze sul corpo è proprio rappresentato dal punto stesso);
   \item comporta \textbf{solo le forze} che sono applicate sul corpo, e ciò diviene particolarmente utile quando bisogna considerare un sistema di più corpi interagenti.
@@ -1692,7 +1763,7 @@ Tuttavia è sempre possibile eseguire la somma di forze per conoscerne la risult
 
 \vspace{1em}
 \noindent
-\textbf{Esempio}: Si considerino due corpi poggiati uno sopra l'altro e stanti su una superficie fissa. Naturalmente su tali corpi agiscono due forze peso distinte. Inoltre la superficie di contatto tra i due corpi permette di indivduare due forze normali: uno del primo corpo sul secondo e una del secondo corpo sul primo. Infine vi è la forza di contatto dei due corpi con la superficie su cui poggiano.
+\textbf{Esempio}: Si considerino due corpi poggiati uno sopra l'altro e stanti su una superficie fissa. Naturalmente su tali corpi agiscono due forze peso distinte. Inoltre la superficie di contatto tra i due corpi permette di indivduare due forze normali: uno del primo corpo sul secondo e una del secondo corpo sul primo. Infine vi è la forza di contatto dei due corpi con la superficie su cui poggiano, come mostrato di seguito:
 
 \vspace{1em}
 \begin{figure}[H]
@@ -1719,20 +1790,23 @@ Tuttavia è sempre possibile eseguire la somma di forze per conoscerne la risult
 
 \vspace{1em}
 \noindent
-Dopo aver effettuato la raffigurazione, si procede alla realizzazione di un \textbf{diagramma a corpo libero}, come mostrato di seguito:
+Dopo aver effettuato la raffigurazione, si procede alla realizzazione del \textbf{diagramma a corpo libero} di ciascuno dei due corpi, come mostrato di seguito:
 
 \vspace{1em}
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}[scale=1]
     \draw [-stealth] (0,0) node[circ]{} -- ++(0,2) node [at end, right] {$\vec{F}_N$};
-    \draw [-stealth] (0,0) node[circ]{} -- ++(0,-1) node [midway, right] {$\vec{F}_{t1}$};
-    \draw [-stealth] (0,0) node[circ]{} -- ++(0,-1) node [midway, left] {$\vec{F}_{N1}$};
-    \draw (0.3,0.6) node[]{$m_1$};
-    \draw (-0.1,1.8) node[]{$m_2$};
+    \draw [-stealth] (0.1,0) -- ++(0,-1) node [midway, right] {$\vec{F}_{t1}$};
+    \draw [-stealth] (-0.1,0) -- ++(0,-1) node [midway, left] {$\vec{F}_{N1}$};
   \end{tikzpicture}
-  \caption{Forza normale di due corpi a contatto}
-  \label{fig:forza_normale_corpi_contatto}
+  \hspace{2em}
+  \begin{tikzpicture}[scale=1]
+    \draw [-stealth] (0,0) node[circ]{} -- ++(0,1.5) node [at end, right] {$\vec{F}_{N2}$};
+    \draw [-stealth] (0,0) -- ++(0,-1.5) node [midway, right] {$\vec{F}_{t2}$};
+  \end{tikzpicture}
+  \caption{Diagramma a corpo libero di due corpi a contatto}
+  \label{fig:diagramma_corpo_libero_due_corpi_contatto}
 \end{figure}
 
 ... continua ...
@@ -1779,11 +1853,12 @@ La forza di tensione è la forza esercitata, per esempio, da un cavo o una fune,
       \draw (\i / 10,-0.3) -- (\i / 10 + 0.3,0);
     }
     \draw (1,-1.8) -- (1,-0.3);
+    \draw [-stealth, red] (1,-1.8) -- node[midway, left, red]{$\vec{F}_T$} (1,-0.75);
     \draw [-stealth] (1,-2.4) node[circ]{} -- ++(0,-2) node [midway, below right] {$\vec{F}_{t1}$};
-    \draw (0.3,-2.6) node[]{$m_1$};
+    \draw (0.5,-2.4) node[]{$m_1$};
   \end{tikzpicture}
-  \caption{Forza normale di due corpi a contatto}
-  \label{fig:forza_normale_corpi_contatto}
+  \caption{Forza normale di tensione di un corpo sospeso}
+  \label{fig:forza_tensione_corpo_sospeso}
 \end{figure}
 
 \vspace{1em}
@@ -1792,10 +1867,49 @@ La forza di tensione è la forza esercitata, per esempio, da un cavo o una fune,
 
 \vspace{1em}
 \noindent
-\textbf{Esempio}: Si consideri l'esempio seguente, in cui vi è un corpo che rimane sospeso nel vuoto da due funi che descrivono con il sofftto due angoli, rispettivamente $\theta_1$ e $\theta_2$. Si determinino le tensioni sulle due corde.\\
-Dopo aver realizzato una figura illustrativa, bisogna sempre procedere alla raffigurazione del \textbf{diagramam a corpo libero}, come mostrato di seguito:
+\textbf{Esempio}: Si consideri l'esempio seguente, in cui vi è un corpo che rimane sospeso nel vuoto da due funi che descrivono con il sofftto due angoli, rispettivamente $\theta_1$ e $\theta_2$. Si determinino le tensioni sulle due corde.
 
-\[diagramma a corpo libero\]
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1]
+    \draw [fill = purple!30,draw = purple!50] (0,-3) rectangle ++(2,1.2);
+    \draw (-1,-0.3) -- (3,-0.3);
+    \foreach \i in {-10,-8,...,26} {
+      \draw (\i / 10,-0.3) -- (\i / 10 + 0.3,0);
+    }
+    \draw (0.5,-1.8) -- coordinate[midway](a) node[midway, below left, red]{$\vec{F}_{T1}$} (-0.5,-0.3);
+    \draw (1.5,-1.8) -- coordinate[midway](b) node[midway, below right, red]{$\vec{F}_{T2}$} (2.3,-0.3);
+    \draw [-stealth, red] (0.5,-1.8) -- (a);
+    \draw [-stealth, red] (1.5,-1.8) -- (b);
+    \coordinate (O1) at (-0.5,-0.3);
+    \coordinate (O2) at (2.3,-0.3);
+    \draw [draw = orange] (O1) ++(.8,0) arc (0:-55:0.8)
+    	node [pos=.4, left] {$\theta_1$};
+    \draw [draw = violet] (O2) ++(-.8,0) arc (180:242:0.8)
+    	node [pos=.4, left] {$\theta_2$};
+    \draw [-stealth] (1,-2.4) node[circ]{} -- ++(0,-2) node [midway, below right] {$\vec{F}_{t1}$};
+    \draw (0.5,-2.4) node[]{$m_1$};
+  \end{tikzpicture}
+  \caption{Forza normale di tensione di un corpo sospeso da due corde}
+  \label{fig:forza_tensione_corpo_sospeso_due_corde}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Dopo aver realizzato una figura illustrativa, bisogna sempre procedere alla raffigurazione del \textbf{diagramma a corpo libero}, come mostrato di seguito:
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1.5]
+    \draw [-stealth, red] (0,0) node[circ]{} -- node[midway, below left, red]{$\vec{F}_{T1}$} (-0.5,0.75);
+    \draw [-stealth, red] (0,0) -- node[midway, below right, red]{$\vec{F}_{T2}$} (0.4,0.75);
+    \draw [-stealth] (0,0) -- node[midway, right]{$\vec{F}_{t1}$} (0,-1);
+  \end{tikzpicture}
+  \caption{Forza normale di tensione di un corpo sospeso da due corde}
+  \label{fig:forza_tensione_corpo_sospeso_due_corde}
+\end{figure}
 
 \vspace{1em}
 \noindent
@@ -1825,13 +1939,15 @@ Considerando il drone stazionario si ha, per la \textbf{$\boldsymbol{2^a}$ legge
 
 \vspace{1em}
 \noindent
-\textbf{Esempio}: Si consideri una massa su un piano inclinato, come mostrato di seguito
+\textbf{Esempio}: Si consideri una massa su un piano inclinato, come mostrato di seguito (considerando ininfluente l'attrito tra la massa e la superficie del piano):
 
+\vspace{1em}
+\noindent
 \begin{figure}[H]
   \centering
   \newcommand{\ang}{30}
 
-  \begin{tikzpicture} [font = \small]
+  \begin{tikzpicture} [font = \small, scale=1.5]
 
   % triangle:
   \draw [draw = orange, fill = orange!15] (0,0) coordinate (O) -- (\ang:6)
@@ -1850,27 +1966,54 @@ Considerando il drone stazionario si ha, per la \textbf{$\boldsymbol{2^a}$ legge
 
   % Weight Force and its projections
   \draw [dashed] (M) ++ (.5,.3) coordinate (MM) -- ++ (0,-1.29)
-  	node [very near end, right] {$mg\cos{\theta}$};
+  	node [very near end, right] {$\vec{F}_t \cdot \cos{\theta}$};
 
   \draw [dashed] (MM) -- ++ (-0.75,0)
-  	node [very near end, left] {$mg\sin{\theta}$};
+  	node [very near end, left] {$\vec{F}_t \cdot \sin{\theta}$};
 
   \draw (MM) -- ++ (-\ang-90:1.5)
-  	node [very near end,below left ] {$mg$};
+  	node [very near end,below left ] {$\vec{F}_t$};
 
   % Normal Force
   \draw (MM) -- ++ (0,1.29)
-  node [very near end, right] {$N$};
-
-  % Frictional Force
-  \draw (MM) -- ++ (0.75,0)
-  	node [very near end, above] {$f$};
-
+  node [very near end, right] {$\vec{F}_N$};
   \end{scope}
-
   \end{tikzpicture}
   \caption{Piano inclinato}
   \label{fig:piano_inclinato}
+\end{figure}
+
+\newpage
+\noindent
+A cui segue il diagramma a corpo libero seguente:
+
+\begin{figure}[H]
+  \newcommand{\ang}{30}
+  \vspace{-5em}
+  \hspace{15em}
+  \begin{tikzpicture} [font = \small, scale=1.5]
+  % triangle:
+  \draw (0,0) coordinate (O)  (\ang:6)
+  	coordinate [pos=.45] (M) coordinate (B) (O);
+
+  \begin{scope} [-latex,rotate=\ang]
+  % Weight Force and its projections
+  \draw [dashed] (M) ++ (.5,.3) coordinate (MM) -- ++ (0,-1.29)
+  	node [very near end, right] {$\vec{F}_t \cdot \cos{\theta}$};
+
+  \draw [dashed] (MM) -- ++ (-0.75,0)
+  	node [very near end, left] {$\vec{F}_t \cdot \sin{\theta}$};
+
+  \draw (MM) -- ++ (-\ang-90:1.5)
+  	node [very near end,below left ] {$\vec{F}_t$};
+
+  % Normal Force
+  \draw (MM) -- ++ (0,1.29)
+  node [very near end, right] {$\vec{F}_N$};
+  \end{scope}
+  \end{tikzpicture}
+  \caption{Diagramma a corpo libero di un piano inclinato}
+  \label{fig:diagramma_corpo_libero_piano_inclinato}
 \end{figure}
 
 \vspace{1em}
@@ -1879,8 +2022,8 @@ Dopo aver disegnato anche il diagramma a corpo libero si può procedere a ragion
 \[m \cdot \vec{a} = \vec{F}_N + \vec{F}_t\]
 e scomponendo tale equazione nelle sue componenti si ottiene
 \begin{flalign*}
-  m a_x & = - F_n \cdot \sin(\theta)\\
-  m a_y & = F_n \cdot \cos(\theta) - mg\\
+  m a_x & = - F_N \cdot \sin(\theta)\\
+  m a_y & = F_N \cdot \cos(\theta) - mg\\
 \end{flalign*}
 Volendo conoscere l'accelerazione del corpo, si osserva che
 \[\frac{a_y}{a_x} = \tan(\theta) \longrightarrow a_y = \frac{\sin(\theta)}{\cos(\theta)} \cdot a_x\]
@@ -1903,7 +2046,7 @@ per cui si ha che
 \vspace{1em}
 \subsection{Forza di attrito}
 La \textbf{forza di attrito} è una forza di contatto, esattamente come la forza normale: quest'ultima è sempre perpendicolare alla superficie e il suo modulo è tale che vincola il moto.\\
-La \textbf{forza di attrito}, come la forza normale, è una forza che presenta come punto di applicazione la superficie di contatto con il corpo. La forza di attrito è sempre parallela alla superficie e di modulo proporzionale a $\left \vert F_n \right \vert$ e ciò non è ovvio, in quanto bisogna osservare il comportamento delle particelle a livello microscopico.
+La \textbf{forza di attrito}, come la forza normale, è una forza che presenta come punto di applicazione la superficie di contatto con il corpo. La forza di attrito è sempre \textbf{parallela alla superficie} e di \textbf{modulo proporzionale} a $\left \vert F_n \right \vert$ e ciò non è ovvio, in quanto bisogna osservare il comportamento delle particelle a livello microscopico.
 \[raffigurazione\]
 La forza di attrito si distingue in due diverse tipologie:
 \begin{enumerate}
