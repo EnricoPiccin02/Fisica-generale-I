@@ -1903,7 +1903,6 @@ Di seguito si espone una illustrazione della forza di tensione:
   \label{fig:forza_tensione_corpo_sospeso_due_corde}
 \end{figure}
 
-\vspace{1em}
 \noindent
 Dopo aver realizzato una figura illustrativa, bisogna sempre procedere alla raffigurazione del \textbf{diagramma a corpo libero}, come mostrato di seguito:
 
@@ -1915,8 +1914,8 @@ Dopo aver realizzato una figura illustrativa, bisogna sempre procedere alla raff
     \draw [-stealth, red] (0,0) -- node[midway, below right, red]{$\vec{F}_{T2}$} (0.4,0.75);
     \draw [-stealth] (0,0) -- node[midway, right]{$\vec{F}_{t1}$} (0,-1);
   \end{tikzpicture}
-  \caption{Forza normale di tensione di un corpo sospeso da due corde}
-  \label{fig:forza_tensione_corpo_sospeso_due_corde}
+  \caption{Diagramma a corpo libero di un corpo sospeso da due corde}
+  \label{fig:diagramma_corpo_libero_corpo_sospeso_due_corde}
 \end{figure}
 
 \vspace{1em}
@@ -1925,7 +1924,7 @@ Applicando, ora, la \textbf{$\boldsymbol{2^a}$ legge della dinamica} si perviene
 \[\sum \vec{F} = m \vec{a} = 0\]
 essendo l'accelerazione nulla. Pertanto si ha che
 \[\vec{F}_{T1} + \vec{F}_{T2} + \vec{F}_t = 0\]
-Sarà ora sufficiente decomporre tale equazioni nelle sue componenti, come mostrato di seguito
+Sarà ora sufficiente decomporre tale equazione vettoriale nelle sue due componenti ($x$ e $y$), come mostrato di seguito
 \begin{flalign*}
     x & = - F_{T1} \cdot \cos(\theta_1) + F_{T2} \cdot \cos(\theta_2) + 0 = 0\\
     y & = F_{T1} \cdot \sin(\theta_1) + F_{T2} \cdot \sin(\theta_2) - mg = 0
@@ -1933,19 +1932,22 @@ Sarà ora sufficiente decomporre tale equazioni nelle sue componenti, come mostr
 Dalla prima equazione si ha che
 \[F_{T1} = F_{T2} \cdot \frac{\cos(\theta_2)}{\cos(\theta_1)}\]
 che, sostituita nella seconda ecquazione, permette di ottenere
-\[F_{T2} \cdot \frac{\cos(\theta_2)}{\cos(\theta_1)} \cdot \sin(\theta_1) + F_{T2} = mg\]
+\[F_{T2} \cdot \frac{\cos(\theta_2)}{\cos(\theta_1)} \cdot \sin(\theta_1) + F_{T2} \cdot \sin(\theta_2)= mg\]
 che può essere riscritto come segue
-\[F_{T2} \cdot \cos(\theta_2) \cdot \left[ \frac{\sin(\theta_1)}{\cos(\theta_1)} + \frac{\sin(\theta_2)}{\theta_2} \right] = mg\]
+\[F_{T2} \cdot \cos(\theta_2) \cdot \left[ \frac{\sin(\theta_1)}{\cos(\theta_1)} + \frac{\sin(\theta_2)}{\cos(\theta_2)} \right] = mg\]
 Pertanto si ha che
 \[F_{T2} = \frac{mg}{\cos(\theta_2) \cdot \left(\tan(\theta_1) + \tan(\theta_2)\right)} \hspace{1em} \text{e} \hspace{1em} F_{T1} = \frac{mg}{\cos(\theta_1) \cdot \left(\tan(\theta_1) + \tan(\theta_2)\right)}\]
 
-\vspace{1em}
+\vspace{2em}
 \noindent
 \textbf{Esempio}: Si consideri un quadricottero, ovverosia un drone con $4$ eliche e rotori, ciascuna capace do fornire una forza propulsiva verso l'alto di eguale modulo.\\
-Considerando il drone stazionario si ha, per la \textbf{$\boldsymbol{2^a}$ legge della dinamica}
-\[4 \cdot \vec{F}_{m} + \vec{T}_1 = 0\]
+Considerando il drone stazionario si ha, per la \textbf{$\boldsymbol{2^a}$ legge della dinamica}, la seguente eguaglianza
+\[4 \cdot \vec{F}_{s} + \vec{F}_t = 0\]
+questo significa che ciascun rotore deve essere in grado di sviluppare una forza propulsiva verso l'alto pari a un quarto del peso del drone; quando, invece, si ha uno sbilanciamento delle forze dei rotori si ottiene un'inclinazione del drone nella direzione delle forze di minore intensità (quello che viene chiamato \textbf{momento di forza}).\\
+Pertanto si può concludere che
+\[\vec{F}_{s} = - \frac{1}{4} \cdot \vec{F}_t\]
 
-\vspace{1em}
+\newpage
 \noindent
 \textbf{Esempio}: Si consideri una massa su un piano inclinato, come mostrato di seguito (considerando ininfluente l'attrito tra la massa e la superficie del piano):
 
@@ -1991,7 +1993,7 @@ Considerando il drone stazionario si ha, per la \textbf{$\boldsymbol{2^a}$ legge
   \label{fig:piano_inclinato}
 \end{figure}
 
-\newpage
+\vspace{1em}
 \noindent
 A cui segue il diagramma a corpo libero seguente:
 
@@ -2031,42 +2033,126 @@ Dopo aver disegnato anche il diagramma a corpo libero si può procedere a ragion
 e scomponendo tale equazione nelle sue componenti si ottiene
 \begin{flalign*}
   m a_x & = - F_N \cdot \sin(\theta)\\
-  m a_y & = F_N \cdot \cos(\theta) - mg\\
+  m a_y & = F_N \cdot \cos(\theta) - mg
 \end{flalign*}
-Volendo conoscere l'accelerazione del corpo, si osserva che
+Volendo conoscere l'accelerazione del corpo, si osserva che sussiste il seguente vincolo geometrico:
 \[\frac{a_y}{a_x} = \tan(\theta) \longrightarrow a_y = \frac{\sin(\theta)}{\cos(\theta)} \cdot a_x\]
 da cui
 \[a_y \cdot \cos(\theta) = a_x \cdot \sin(\theta) \longrightarrow a_x = a_y \cdot \frac{\cos(\theta)}{\sin(\theta)}\]
 Pertanto, procedendo dalla prima equazione si ottiene
-\[F_N = \frac{m a_x}{\sin(\theta)}\]
-e quindi
-\[... continua ...\]
+\[F_N = -\frac{m a_x}{\sin(\theta)}\]
+e quindi, nella seconda equazione si ottiene
+\[m a_x \cdot \frac{\sin(\theta)}{\cos(\theta)} = -m a_x \cdot \frac{\cos(\theta)}{\sin(\theta)} - mg \longrightarrow a_x = - g \cdot \sin(\theta) \cdot \cos(\theta)\]
+Sfruttando il vincolo geometrico precedente si ottiene anche che
+\[a_y = -g \cdot \sin^2(\theta)\]
+Avendo determinato ciò è possibile calcolare il modulo dell'accelerazione come segue
+\[a = \sqrt{g^2 \cdot \sin^2(\theta) \cdot \cos^2(\theta) + g^2 \cdot \sin^4(\theta)} = g \cdot \sin(\theta) \cdot \sqrt{\cos^2(\theta) + \sin^2(\theta)} = g \cdot \sin(\theta)\]
 
 \vspace{1em}
 \noindent
-\textbf{Esempio}: Si consideri il caso del piano inclinato precedente, procedendo, ora, alla rotazione del sistema di riferimento dell'angolo $\theta$. In base a questo questo nuovo sistema di riferimento si ottiene la seguente decomposizione
+\textbf{Esempio}: Si consideri il caso del piano inclinato precedente, procedendo, ora, alla rotazione del sistema di riferimento dell'angolo $\theta$, dimodoché lo spostamento avvenga lungo l'asse $x$ soltanto, e non vi sia, conseguentemente, acceerazione lungo l'asse $y$. In base a questo nuovo sistema di riferimento si ottiene la seguente decomposizione
 \begin{flalign*}
-  x & : = m a_x = -m g \cdot \sin(\theta)\\
+  x & : m a_x = -m g \cdot \sin(\theta)\\
+  y & : m a_y = -m g \cdot \cos(\theta) + F_N = 0
 \end{flalign*}
 per cui si ha che
 \[a_x = -g \cdot \sin(\theta)\]
 
 \vspace{1em}
 \subsection{Forza di attrito}
-La \textbf{forza di attrito} è una forza di contatto, esattamente come la forza normale: quest'ultima è sempre perpendicolare alla superficie e il suo modulo è tale che vincola il moto.\\
-La \textbf{forza di attrito}, come la forza normale, è una forza che presenta come punto di applicazione la superficie di contatto con il corpo. La forza di attrito è sempre \textbf{parallela alla superficie} e di \textbf{modulo proporzionale} a $\left \vert F_n \right \vert$ e ciò non è ovvio, in quanto bisogna osservare il comportamento delle particelle a livello microscopico.
-\[raffigurazione\]
+Di seguito si espone la definizione generale di \textbf{forza di attrito}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{FORZA DI ATTRITO}}\\
+    \parbox{\linewidth}{La \textbf{forza di attrito} è una forza di contatto, esattamente come la forza normale: quest'ultima è sempre perpendicolare alla superficie e il suo modulo è tale che vincola il moto, al fine di contrastare la forza nell'altra direzione.\\
+    La \textbf{forza di attrito}, come la forza normale, è una forza che presenta come punto di applicazione la superficie di contatto con il corpo. Inoltre, la forza di attrito
+    \begin{itemize}
+      \item è sempre \textbf{parallela alla superficie};
+      \item è di \textbf{modulo proporzionale} a $\left \vert F_N \right \vert$.
+    \end{itemize}
+    Quest'ultima osservazione non è ovvia, in quanto bisogna osservare il comportamento delle particelle a livello microscopico.\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+Si consideri l'illustrazione seguente, in cui si espongono le forze di attrito agenti:
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1]
+    \tikzset{rotate=45} {
+      \draw [fill = purple!30,draw = purple!50] (0,0) rectangle ++(2,1.2);
+      \draw (-1,0) -- (3,0);
+      \foreach \i in {-10,-8,...,26} {
+        \draw (\i / 10,-0.3) -- (\i / 10 + 0.3,0);
+      }
+    }
+    \draw (1,0.3) -- ++(0.3,0) -- ++(0,-0.3);
+    \draw [-stealth] (1,0) -- node[midway, left]{$\vec{F}_N$} (1,3) ;
+    \draw [-stealth] (1,0.6) node[circ]{} -- ++(-2,-2) node [midway, below right] {$\vec{F}_{t}$};
+    \draw (1.5,0.6) node[]{$m$};
+    \draw [-stealth, red] (2,0) node[circ]{} -- ++(2,0) node [midway, above left] {$\vec{F}_{s/k}$};
+  \end{tikzpicture}
+  \caption{Forza di attrito}
+  \label{fig:forza_attrito}
+\end{figure}
+
+\vspace{1em}
+\noindent
 La forza di attrito si distingue in due diverse tipologie:
 \begin{enumerate}
   \item L'\textbf{attrito cinetico}, si ha quando il moto relativo tra le superfici in contatto non è nullo, ovvero si ha movimento con $v \neq 0$.\\
   Si ha che
   \[\boxed{F_k = \mu_k \cdot F_N}\]
-  in cui $\boldsymbol{\mu_k}$ prende il nome di \textbf{coefficiente di attrito cinetico} (dall'inglese $k$, di \quotes{kinetic}), il quale, per ovvie ragione, è \textbf{adimensionale}.
+  in cui $\boldsymbol{\mu_k}$ prende il nome di \textbf{coefficiente di attrito cinetico} (dall'inglese $k$, di \quotes{kinetic}), il quale, per ovvie ragioni, è \textbf{adimensionale}.
 
-  \item L'\textbf{attrito statico}, si ha quando la velocità relativo tra le superfici di contatto è nulla, ovver non si ha movimento, $v = 0$.\\
+  \item L'\textbf{attrito statico}, si ha quando la velocità relativa tra le superfici di contatto è nulla, ovvero non si ha movimento, $v = 0$.\\
   Si ha che
   \[\boxed{F_s \leq \mu_s \cdot F_N}\]
-  affinché la risultante delle forze interagenti sia $0$. Ovviamente, quando la forza che agisce aumenta il proprio modulo fino a superare la forza di attrito statico, il corpo inizia a muoversi e l'attrito si tramuta, a seguito del moto, in attrito cinetico.\\
+  ovvero il modulo $F_s$ aumenta affinché la risultante delle forze interagenti (e quindi la risultante) sia $0$. Ovviamente, quando la forza che agisce aumenta il proprio modulo fino a superare la forza di attrito statico, il corpo inizia a muoversi e l'attrito si tramuta, a seguito del moto, in attrito cinetico, come si vede di seguito:
+
+  \vspace{2em}
+  \noindent
+  \rowcolors{1}{white}{white}
+  \begin{tabularx}{\textwidth}{P}
+    {
+        \centering
+        \begin{tikzpicture}
+          \begin{axis}[
+            axis lines = left,
+            xlabel = \(F_a\),
+            ylabel = {\(F_{a,k}\)},
+            legend pos=outer north east,
+            ymax=4,
+            xmax=10,
+            xtick={3},
+            xticklabels={$\mu_s \cdot F_N$},
+          ]
+
+          \addplot [
+            domain=0:3,
+            samples=100,
+            color=black,
+          ]
+          {x};
+          \draw (axis cs:3,2) -- (axis cs:10,2);
+          \draw [dashed] (axis cs:3,0) -- (axis cs:3,3);
+          \end{axis}
+      \end{tikzpicture}
+    }
+  \end{tabularx}
+
+  \vspace{1em}
+  \noindent
   Il coefficiente moltiplicativo $\boldsymbol{\mu_s}$ prende il nome di \textbf{coefficiente di attrito statico} e generalmente si ha che
   \[\boxed{\mu_k < \mu_s}\]
 \end{enumerate}
