@@ -2439,8 +2439,156 @@ Naturalmente si ha che, scomponedo tale equazione nelle sue componenti $x$ e $y$
   \end{array}
   \right.
 \]
-Si può procedere, ora, al calcolo di $F_{BA x}$ come segue
+Si può procedere, ora, al calcolo di $F_{BA x}$ come segue (ricordando che l'accelerazione del sistema è la stessa di ciascuna massa, ovviamente):
 \[F_{BA x} = m_A \cdot (a_{Ax} + \mu_k g) = 30 \text{ kg} \cdot \left[1 \text{ m/s}^2 + 0.1 \cdot 9.8 \text{ m/s}^2\right] = 60 \text{ N}\]
+Da notare che tale formula poteva anche essere riscritta come segue
+\[f_{BA} = \frac{m_A}{m_A + m_B + m_C} \cdot F = 60 \text{ N}\]
+Per la determinazione della tensione $B-C$, è sufficiente procedere come già fatto, impiegando la seconda legge della dinamica sul corpo $B$ (o anche sul corpo $C$ visto che sono noti tutti i dati). Si applichi, allora, la $2^a$ legge della dinamica sul corpo $C$, ottenendo
+\[\sum \vec{F} = m \cdot \vec{a} \longrightarrow \vec{F} + \vec{F}_{kc} + \vec{F}_{NC} + \vec{F}_{tA} = m_C \cdot \vec{a}\]
+Naturalmente è possibile scomporre tale equazione nelle sue componenti $x$ e $y$, ottenendo
+\[y : F_{NC} - F_{tC} = 0 \longrightarrow F_{NC} = F_{tC} = m_C g\]
+\[x : F - F_{kC} - F_{BC} = m a_x \longrightarrow F - \mu_k m_C g - F_{BC} = m_C \cdot a_x\]
+Da cui si evince che
+\[F_{BC} = F - \mu_k g m_C - m_C \cdot a = 200 \text{ N} - 20 \text{ N} - 20 \text{ N} = 160 \text{ N}\]
+
+\newpage
+\noindent
+\begin{center}
+  15 Marzo 2022
+\end{center}
+Quando bisogna risolvere un problema di meccanica, è essenziale visualizzare il problema tramite una rappresentazione grafica; dopodiché è fondamentale procedere alla realizzazione del diagramma a corpo libero del sistema.\\
+Solamente a questo punto è possibile procedere alla stesura delle equazioni dinamiche che consentono di isolare le richieste del problema.
+
+\vspace{1em}
+\subsection{Attrito dovuto a un fluido (resistenza)}
+La resistenza di un fluido è l'attrito che il fluido produce sul corpo in movimento, rallentandone la corsa.\\
+La causa di tale resistenza è dovuta alla \textbf{viscosità del fluido} che, naturalmente, esercita una \textbf{forza opposta} $\vec{F}_v$ al moto del fluido.\\
+Tale fenomeno si divide in due differenti tipolgie:
+\begin{enumerate}
+  \item Il problema della forza esercitata da un fluido viscoso su un corpo in esso immerso è complesso. George Stokes, nel $1845$, prese in considerazione il problema solo per un caso particolare, quello di un oggetto di forma sferica, completamente immerso in un fluido in moto laminare, di densità costante ed incomprimibile.\\
+  Perrtanto, a velocità bassa con densità bassa, si ha un \textbf{fluido laminare} e per determinare la forza resistiva si impiega la \textbf{legge di Stokes}
+  \[\boxed{\vec{F} = -b \cdot \vec{v}}\]
+  in cui $b$ prende il nome di \textbf{coefficiente di viscosità}. Naturalmente, in questo caso, l'equazione è molto semplice, ma difficilmente applicabile, in quanto nell'equazione di Newton si ha un'accelerazione, mentre la legge di Stokes fornisce una velocità: si tratta, quindi, di risolvere un'equazione differenziale.
+
+  \item Se il moto invece è turbolento le forze inerziali dominano su quelle viscose e la forza di resistenza dipende da diversi fattori:
+  \begin{itemize}
+    \item \textbf{densità} $\rho$ del fluido;
+    \item l'\textbf{area di proiezione} del fluido $A$, ovvero una stima di quando fluido viene spostato nel moto: un corpo lungo e fino non subirà molta resistenza, mentre un corpo grande e largo avrà una resistenza maggiore;
+    \item il \textbf{coefficiente di caratterizzazione della forma del corpo} $C_d$ (in cui $D$ sta per \quotes{Dvag}), determinato sperimentalmente e, per ovvie ragioni, \textbf{adimensionale}.
+  \end{itemize}
+  Considerand tali fattori, la forza di resistenza è
+  \[\boxed{F_v = \frac{1}{2} \rho A C_d v^2}\]
+\end{enumerate}
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri un quadricottero che, inclinandosi orizzontalmente di un angolo $\theta$, produce uno spostamento di velocità $v$ che, naturalmente, viene rallentato dall'aria che oppone una forza di resistenza.\\
+Si supponga, per ipotesi, che tale drone esegua un moto che è possibile modellizzare tramite la legge di Stokes, ovvero
+\[\vec{F}_v = -b \cdot \vec{v}\]
+Si determini, allora, l'angolo $\theta$ tale per cui il drone si muove ad una \textbf{velocità costante} $\vec{v}$. Si realizzi, allora, il diagramma a corpo libero seguente:
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1]
+    \draw [-stealth] (0,0) node[circ]{} -- ++(0.5,1) node [at end, right] {$\vec{F}_s$};
+    \draw [-stealth] (0,0) -- ++(0,-1) node [midway, right] {$\vec{F}_{t}$};
+    \draw [-stealth] (0,0) -- ++(-1,0) node [midway, above] {$\vec{F}_{v}$};
+  \end{tikzpicture}
+  \caption{Diagramma a corpo libero di un drone inclinato}
+  \label{fig:diagramma_corpo_libero_drone_inclina}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Naturalmente, in questo caso, è possibile applicare la $2^a$ legge della dinamica, in quanto è noto che il drone si muove a velocità costante, quindi l'accelerazione è nulla e quindi la somma delle forze risultanti è nulla.\\
+Pertanto si ha che
+\[\vec{F}_t + \vec{F}_v + \vec{F}_s = m \cdot \vec{a} = 0\]
+Nauralmene è possibile scomporre tale equazione vettoriale nelle sue componenti $x$ e $y$, ottenendo
+\[x: F_s \cdot \sin(\theta) - b v = 0\]
+\[y: F_s \cdot \cos(\theta) - m g = 0\]
+Dalla seconda equazione si ottiene che
+\[F_s = \frac{m g}{\cos(\theta)}\]
+mentre dalla prima equazione si ha che
+\[v = \frac{mg \cdot \tan(\theta)}{b}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si calcoli la velocità limite di un paracadutista che scente verticalmente, di cui si propone di seguito il diagramma a corpo libero:
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1]
+    \draw [-stealth] (0,0) node[circ]{} -- ++(0,1) node [midway, right] {$\vec{F}_v$};
+    \draw [-stealth] (0,0) -- ++(0,-1) node [midway, right] {$\vec{F}_{t}$};
+  \end{tikzpicture}
+  \caption{Diagramma a corpo libero di un drone inclinato}
+  \label{fig:diagramma_corpo_libero_drone_inclinato}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Naturalmente, in questo caso, è necessario applicare la seconda formula della resistenza, semplicemente osservando che
+\[mg = F_v = \frac{1}{2} \cdot \rho A C_d v^2\]
+Per isolare la velocità limite, semplicemente si può scrivere
+\[v = \sqrt{\frac{2 m g}{\rho A C_d}}\]
+Naturalmente, se si suppone che
+\begin{itemize}
+  \item $m = 70$ kg
+  \item $\rho = 1.2$ kg/m$^3$
+  \item $C_d = 0.8$
+  \item $A = 0.5$ m$^2$
+\end{itemize}
+Considerando tali dati per il problema si ottiene che
+\[v = 55 \text{ m/s}\]
+e tale risultato è totalmente ininflente dall'altezza dalla quale ci si paracaduta, in quanto la velocità limite che è possibile raggiungere è $v = 55 \text{ m/s}$.
+
+\vspace{1em}
+\subsection{Dinamica del moto circolare uniforme}
+Naturalmente, è noto che nel moto circolare uniforme la velocità $v$ è costante, per cui l'accelerazione è soltanto centripeta e diretta verso il centro della circonferenza, ortogonalmente al vettore velocità.\\
+È noto che il modulo dell'accelerazione nel moto circolare uniforme è pari a
+\[a = \frac{v^2}{R} = \omega^2 R\]
+essendo
+\[\omega = \frac{v}{R}\]
+Allora la forza necessaria per mantenere il moto circolare è, per la seconda legge della dimanica:
+\[\vec{F} = m \vec{a}\]
+e sostitutendo ad $a$ la formula precedentemente ottenuta si ha
+\[\boxed{F_c = \frac{m v^2}{R}}\]
+orientata verso il centro della circonferenza. Naturalmente quest'ultima è la \textbf{forza centripeta}, così chiamata per descriverne la direzione e il verso, ma non la sua natura (anche la forza di attrazione gravitazionale è una forza centripeta quando si parla di attrazione tra pianeti, anche la forza d'attrito è una forza centripeta, come quando si gira con la macchina).
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Nelle curve delle strade, la carreggiata è inclinata, in quanto la forza normale si scompone in due componenti: una centrifuga e una centripeta; ciò, naturalmente, aiuta la forza di attrito ad evitare che la vettura esca fuori strada.\\
+Si determini, allora, l'angolo $\theta$ di inclinazione della strada affinché la componente orizzontale della forza normale fornisca la forza centripeta necessaria per girare (supponendo in assenza di attrito).\\
+Si realizzi il diagramma a corpo libero di tale corpo
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1]
+    \draw [-stealth] (0,0) node[circ]{} -- ++(-0.8,0.8) node [midway, right] {$\vec{F}_N$};
+    \draw [-stealth] (0,0) -- ++(0,-1) node [midway, right] {$\vec{F}_{t}$};
+  \end{tikzpicture}
+  \caption{Diagramma a corpo libero di una macchina in curva}
+  \label{fig:diagramma_corpo_libero_macchina_curva}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Naturalmente, scomponendo la forza normale nelle sue due componenti (orizzontale e verticale) si ottiene che
+\[F_N \cdot \sin(\theta) = F_c = \frac{m v^2}{R}\]
+\[F_N \cdot \cos(\theta) - mg = 0 \longrightarrow F_N \cdot \cos(\theta) = mg\]
+Allora si ha che
+\[\tan(\theta) = \frac{v^2}{R g}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Anche quando si considera il moto di una corda che viene fatta ruotare nell'aria, la tensione della corda è esattamente la forza centripeta necessaria a mantere il moto circolare uniforme.
+
+
+
+
 
 
 \newpage
