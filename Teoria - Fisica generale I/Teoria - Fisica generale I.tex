@@ -2630,7 +2630,7 @@ Si determini, allora, l'angolo $\theta$ di inclinazione della strada affinché l
   \label{fig:auto_curva_piano_inclinato}
 \end{figure}
 
-\vspace
+\vspace{1em}
 \noindent
 Si realizzi il diagramma a corpo libero della vettura:
 
@@ -2663,6 +2663,174 @@ Per verificare che il coefficiente di attrito statico non può essere mai maggio
 \begin{center}
   16 Marzo 2022
 \end{center}
+\subsection{Sistemi non-inerziali}
+Il concetto di sistema non-inerziale è essenziale per lo studio della dinamica dei corpi. Infatti, un sistema non-inerziale è un sistema di riferimento in cui l'accelerazione non é nulla, ovvero $a \neq 0$. Ciò impedisce di applicare la $2^a$ legge della dinamica, in quanto tale legge si applica solo a sistemi di riferimento inerziali.\\
+Si consideri il caso di un treno in accelerazione e di una massa sospesa al soffitto; naturalmente, quando il treno accelera (e quindi la sua velocità non è costante), la massa si inclina nella direzione opposta al moto. Si consideri il diagramma a corpo libero della massa
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1]
+    \draw [-stealth] (0,0) -- ++(0,-1) node [midway, right] {$\vec{F}_{t}$};
+    \draw [-stealth] (0,0) -- ++(0.5,1) node [midway, above] {$\vec{F}_{T}$};
+  \end{tikzpicture}
+  \caption{Diagramma a corpo libero di una massa sospesa in movimento}
+  \label{fig:diagramma_corpo_libero_massa_sospesa}
+\end{figure}
+
+\vspace{1em}
+\noindent
+In cui, ovviamente, applicando la $2^a$ legge della dinamica si ottiene che
+\[\vec{F}_T + \vec{F}_t = m \cdot \vec{a}\]
+da cui
+\[\vec{F}_T + m \vec{g} = m \vec{a} \longrightarrow \vec{F}_T = m \cdot \left(\vec{a} - \vec{g}\right)\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che la prima equazione può essere riscritta come segue:
+\[\vec{F}_T + \vec{F}_t = m \cdot \vec{a} \longrightarrow \vec{F}_T + \vec{F}_t - m \cdot \vec{a} = 0\]
+Ecco che allora la forza $\vec{F}_a = m \vec{a}$ è una nuova forza, la quale prende il nome di \textbf{forza apparente}, o anche \textbf{pseudo-forza apparente} o \textbf{forza inerziale}, che agisce ancora una volta sulla massa $m$, in direzione opposta alla direzione del moto.\\
+Naturalmente, in questo, l'unico termine da considerare è $m \vec{a}$, in quanto l'accelerazione è costante, mentre se l'accelerazione non lo fosse, all'interno della formula dovrebbero figurare altri termini (si pensi, per esempio, ad una \textbf{pseudo-forza apparente centrifuga}, la quale può essere costante in modulo, ma cambia direzione e forza).
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri il caso in cui una massa $m$ è posta su un cuneo e l'intero sistema accelerazione con $\vec{a}$ costante. Si determini, allora, quale deve essere l'accelerazione $\vec{a}$ affinché il blocco rimanga immobile sul cuneo.\\
+Naturalmente, osservando il sistema da fuori, le uniche forze che agiscono su tale corpo sono la forza peso e la forza normale. Se, invece, tale corpo viene osservato dall'interno, impiegando un sistema di riferimento non-inserziale, allora a tali forze se ne deve aggiungere una terza, una \textbf{pseudo-forza apparente} che agisce in verso opposto a quello dell'accelerazione $\vec{a}$, ovvero la forza $\vec{F}_a = - m \vec{a}$, come mostrato di seguito:
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1]
+    \draw [-stealth] (0,0) -- ++(0,-1) node [midway, right] {$\vec{F}_{t}$};
+    \draw [-stealth] (0,0) -- ++(0.5,1) node [midway, above] {$\vec{F}_{T}$};
+    \draw [-stealth] (0,0) -- ++(-1,0) node [midway, above] {$\vec{F}_{a}$};
+  \end{tikzpicture}
+  \caption{Diagramma a corpo libero di una massa su un piano inclinato}
+  \label{fig:diagramma_corpo_libero_massa_piano_inclinato}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Da cui si evince che
+\[\vec{F}_N + \vec{F}_t + \vec{F}_a = 0\]
+
+\begin{align*}
+  F_N \cdot \cos(\theta) - mg = 0\\
+  -F_A + F_N \cdot \sin(\theta) = 0
+\end{align*}
+per cui si ottiene che
+\[a = g \cdot \tan(\theta)\]
+
+\vspace{1em}
+\subsection{Prodotto vettoriale}
+Si considerino due vettori $\vec{A}$ e $\vec{B}$, allora si ha che
+\[\left \vert \vec{A} \times \vec{B} \right \vert = \left \vert \vec{A} \right \vert \cdot \left \vert B \right \vert \cdot \sin(\theta)\]
+ove $\theta$ è l'angolo compreso tra i vettori $\vec{A}$ e $\vec{B}$.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che il prodotto vettoriale $\vec{A} \times \vec{B}$ è un vettore ortogonale ad $\vec{A}$ e $\vec{B}$.\\
+Inoltre si ha che
+\begin{itemize}
+  \item se $\vec{A} \perp \vec{B}$, allora si ha che
+  \[\left \vert \vec{A} \times \vec{B} \right \vert = \left \vert \vec{A} \right \vert \cdot \left \vert B \right \vert\]
+
+  \item se $\vec{A} \parallel \vec{B}$, allora si ha che
+  \[\left \vert \vec{A} \times \vec{B} \right \vert = 0\]
+
+  \item negli altri casi bisogna impiegare la regola della mano destra
+
+  \item $\hat{i} \times \hat{j} = \hat{k}$
+  \item $\hat{j} \times \hat{k} = \hat{i}$
+  \item $\hat{k} \times \hat{i} = \hat{j}$
+  \item $\hat{j} \times \hat{i} = -\hat{k}$
+  \item $\hat{k} \times \hat{j} = -\hat{i}$
+  \item $\hat{i} \times \hat{k} = -\hat{j}$
+  \item $\hat{i} \times \hat{i} = \hat{j} \times \hat{j} = \hat{k} \times \hat{k} = 0$
+\end{itemize}
+Alternativamente, è noto che il prodotto vettoriale $\vec{A} \times \vec{B}$ si calcola come
+\[\vec{A} \times \vec{B} = \det \left(
+  \rowcolors{1}{white}{white}
+  \begin{array}{ccc}
+    \hat{i} & \hat{j} & \hat{k}\\
+    A_x & A_y & A_z\\
+    B_x & B_y & B_z
+  \end{array}
+\right)\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che, nel caso del prodotto scalare, $\vec{B} \cdot \vec{A}$ si interpretava come $\vert A \vert$ per la componente di $B$ su $A$.\\
+Inoltre si ha che che il prodotto scalare tra $\vec{A}$ e $\vec{B}$ non viene alterato se ai due vettori vengono aggiunte ulteriori componenti parallele ad $\vec{A}$ e $\vec{B}$.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si osservi che la forza di Lorentz
+\[\vec{F} = g \vec{E} + g \vec{v} \times \vec{B}\]
+in cui, senza $\vec{E}$, sarebbe stato
+\[\vec{F} = g \vec{v} \times \vec{B}\]
+In questo caso, il campo magnetico $\vec{B}$ va dentro la pagina e la velocità $\vec{v}$ è parallela alla pagina, pertanto la forza $\vec{F}$ è diretta verso il centro della spirale, ovvero $\vec{F}$ è una \textbf{forza centripeta}, calcolata come segue
+\[\vec{F} = -e \cdot (\vec{v} \times \vec{B})\]
+Ma alla cinetica è anche noto che la forza centripeta si calcola come
+\[F_c = \frac{m v^2}{R}\]
+per cui operando una eguaglianza si ottiene
+\[\frac{m v^2}{R} = e v B \longrightarrow \frac{m v}{R} = e B \longrightarrow m \omega = e B \longrightarrow \omega = \frac{eB}{m}\]
+in cui $\omega$ prende il nome di \textbf{frequenza ciclotronica}, un valore utilizzabile per determinare la traiettoria e la natura del campo magnetico $B$.
+
+\vspace{1em}
+\subsection{Pseudo-forza di Coriolis}
+Si consideri il seguente diagramma di un moto circolare
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[>=Triangle]
+    \shade [top color=white, bottom color=gray!50, middle color=white]
+      (120:8/3) arc (120:190:8/3) node [black, near end, left] {$\omega$}
+      -- (190:25/9) -- (200:15/6) -- (190:20/9) -- (190:7/3)
+      arc (190:120:7/3) -- cycle;
+
+    \foreach \i in {90, 210, 330}{
+      \draw [->, thick, blue!50!cyan] (\i-65:2) arc (\i-65:\i+60:2);
+      \tikzset{shift={(\i:2)}, rotate=\i+180}
+      \draw [->, very thick, orange] (0,0) -- (1,0)
+        node [black, near end, anchor=\i+90] {$\vec a$};
+      \draw [->, very thick, green!50!black] (0,0) -- (0,-2)
+        node [black, near end, anchor=\i+180] {$\vec v$};
+      \fill circle [radius=1/10];
+  }
+  \end{tikzpicture}
+  \caption{Pseudo-forza di Coriolis}
+  \label{fig:pseudo_forza_coriolis}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Allora si può scrivere che, naturalmente, la velocità è il prodotto vettoriale tra il vettore velocità angolare e il vettore posizione, ovvero
+\[\boxed{\vec v = \vec w \times \vec R}\]
+E procedendo a derivare tale espressione rispetto al tempo si ottiene che
+\[\boxed{\vec{a} = \vec{\omega} \times \vec{v} = \vec \omega \times \left(\omega \times \vec R \right)}\]
+in cui le parentesi sono importanti, essendo il prodotto vettoriale non associativo.\\
+La pseudo-forza centrifuga, pertanto,  si calcola come segue
+\[\boxed{\vec F = -m \vec a = -m \vec \omega \times \left(\vec \omega \times \vec R \right)}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si consideri un punto materiale che si muove in linea retta e si supponga che poggi su un piano rotante con velocità angolare $\omega$; allora si osserva che, naturalmente, la pseudo-forza centrifuga è una componente che contribuisce a fare sì che il punto vada verso l'esterno, ma oltre a ciò, è da considerare anche un'altra forza che spinge il punto materiale in direzione opposta al verso di rotazione.
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{FORZA DI CORIOLIS}}\\
+    \parbox{\linewidth}{Tale forza prende il nome di \textbf{pseudo-forza di Coriolis}, la quale è perpendicolare a $\vec \omega$ e a $\vec v$ e si calcola come segue
+    \[\boxed{\vec F = -2 m \vec \omega \times \vec v}\]
+    \vspace{-1mm}}\\
+    \hline
+\end{tabularx}
 
 
 
