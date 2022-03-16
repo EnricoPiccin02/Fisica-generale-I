@@ -2442,14 +2442,14 @@ Naturalmente si ha che, scomponedo tale equazione nelle sue componenti $x$ e $y$
 Si può procedere, ora, al calcolo di $F_{BA x}$ come segue (ricordando che l'accelerazione del sistema è la stessa di ciascuna massa, ovviamente):
 \[F_{BA x} = m_A \cdot (a_{Ax} + \mu_k g) = 30 \text{ kg} \cdot \left[1 \text{ m/s}^2 + 0.1 \cdot 9.8 \text{ m/s}^2\right] = 60 \text{ N}\]
 Da notare che tale formula poteva anche essere riscritta come segue
-\[f_{BA} = \frac{m_A}{m_A + m_B + m_C} \cdot F = 60 \text{ N}\]
-Per la determinazione della tensione $B-C$, è sufficiente procedere come già fatto, impiegando la seconda legge della dinamica sul corpo $B$ (o anche sul corpo $C$ visto che sono noti tutti i dati). Si applichi, allora, la $2^a$ legge della dinamica sul corpo $C$, ottenendo
-\[\sum \vec{F} = m \cdot \vec{a} \longrightarrow \vec{F} + \vec{F}_{kc} + \vec{F}_{NC} + \vec{F}_{tA} = m_C \cdot \vec{a}\]
+\[F_{BA} = m_A \cdot \left(\frac{F}{m} - \mu_k \cdot g + \mu_k \cdot g\right) = \frac{m_A}{m_A + m_B + m_C} \cdot F = 60 \text{ N}\]
+Per la determinazione della tensione $B-C$, è sufficiente procedere come già fatto, impiegando la seconda legge della dinamica sul corpo $B$ (o anche sul corpo $C$, visto che sono noti tutti i dati del problema). Si applichi, allora, la $2^a$ legge della dinamica sul corpo $C$, ottenendo
+\[\sum \vec{F} = m \cdot \vec{a} \longrightarrow \vec{F} + \vec{F}_{kc} + \vec{F}_{NC} + \vec{F}_{tC} + \vec{F}_{BC} = m_C \cdot \vec{a}_C\]
 Naturalmente è possibile scomporre tale equazione nelle sue componenti $x$ e $y$, ottenendo
 \[y : F_{NC} - F_{tC} = 0 \longrightarrow F_{NC} = F_{tC} = m_C g\]
-\[x : F - F_{kC} - F_{BC} = m a_x \longrightarrow F - \mu_k m_C g - F_{BC} = m_C \cdot a_x\]
+\[x : F - F_{kC} - F_{BC} = m_C a_{xC} \longrightarrow F - \mu_k m_C g - F_{BC} = m_C \cdot a_{xC}\]
 Da cui si evince che
-\[F_{BC} = F - \mu_k g m_C - m_C \cdot a = 200 \text{ N} - 20 \text{ N} - 20 \text{ N} = 160 \text{ N}\]
+\[F_{BC} = F - \mu_k g m_C - m_C \cdot a_{xC} = 200 \text{ N} - 20 \text{ N} - 20 \text{ N} = 160 \text{ N}\]
 
 \newpage
 \noindent
@@ -2461,24 +2461,37 @@ Solamente a questo punto è possibile procedere alla stesura delle equazioni din
 
 \vspace{1em}
 \subsection{Attrito dovuto a un fluido (resistenza)}
-La resistenza di un fluido è l'attrito che il fluido produce sul corpo in movimento, rallentandone la corsa.\\
-La causa di tale resistenza è dovuta alla \textbf{viscosità del fluido} che, naturalmente, esercita una \textbf{forza opposta} $\vec{F}_v$ al moto del fluido.\\
-Tale fenomeno si divide in due differenti tipolgie:
-\begin{enumerate}
-  \item Il problema della forza esercitata da un fluido viscoso su un corpo in esso immerso è complesso. George Stokes, nel $1845$, prese in considerazione il problema solo per un caso particolare, quello di un oggetto di forma sferica, completamente immerso in un fluido in moto laminare, di densità costante ed incomprimibile.\\
-  Perrtanto, a velocità bassa con densità bassa, si ha un \textbf{fluido laminare} e per determinare la forza resistiva si impiega la \textbf{legge di Stokes}
-  \[\boxed{\vec{F} = -b \cdot \vec{v}}\]
-  in cui $b$ prende il nome di \textbf{coefficiente di viscosità}. Naturalmente, in questo caso, l'equazione è molto semplice, ma difficilmente applicabile, in quanto nell'equazione di Newton si ha un'accelerazione, mentre la legge di Stokes fornisce una velocità: si tratta, quindi, di risolvere un'equazione differenziale.
+Un'altra importante forza di attrito è la resistenza di un fluido: l'aria, per esempio, rallenta il moto di un corpo, come accade quando si lascia cadere dalla stessa altezza un martello e una piuma (sulla terra, dove c'è aria, il martello cade prima della piuma, mentre sulla Luna, in assenza di atmosfera, i due corpi cadono alla medesima velocià, impiegando lo stesso tempo).
 
-  \item Se il moto invece è turbolento le forze inerziali dominano su quelle viscose e la forza di resistenza dipende da diversi fattori:
-  \begin{itemize}
-    \item \textbf{densità} $\rho$ del fluido;
-    \item l'\textbf{area di proiezione} del fluido $A$, ovvero una stima di quando fluido viene spostato nel moto: un corpo lungo e fino non subirà molta resistenza, mentre un corpo grande e largo avrà una resistenza maggiore;
-    \item il \textbf{coefficiente di caratterizzazione della forma del corpo} $C_d$ (in cui $D$ sta per \quotes{Dvag}), determinato sperimentalmente e, per ovvie ragioni, \textbf{adimensionale}.
-  \end{itemize}
-  Considerand tali fattori, la forza di resistenza è
-  \[\boxed{F_v = \frac{1}{2} \rho A C_d v^2}\]
-\end{enumerate}
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{ATTRITO DOVUTO A UN FLUIDO (RESISTENZA)}}\\
+    \parbox{\linewidth}{La resistenza di un fluido è la forza di attrito che il fluido produce sul corpo in movimento, rallentandone la corsa. La causa di tale resistenza è dovuta alla \textbf{viscosità del fluido} che, naturalmente, esercita una \textbf{forza opposta} $\vec{F}_v$ al moto del fluido (naturalmente le proprietà del fluido sono determinanti).\\
+    Il problema della forza esercitata da un fluido viscoso su un corpo in esso immerso è complesso; tuttavia, tale fenomeno vine modellizzato, in maniera approssimativa, attraverso due diversi schemi teorici:
+    \begin{enumerate}
+      \item George Stokes, nel $1845$, prese in considerazione il problema solo per un caso particolare, quello di un \textbf{oggetto di forma sferica}, \textbf{completamente immerso} in un fluido in \textbf{moto laminare}, di \textbf{densità costante} ed \textbf{incomprimibile}.\\
+      Perrtanto, a velocità bassa con densità bassa, si ha un \textbf{flusso laminare} (ovvero si è in \textbf{assenza di turbolenza}) e per determinare la forza resistiva si impiega, appunto, la \textbf{legge di Stokes}
+      \[\boxed{\vec{F} = -b \cdot \vec{v}}\]
+      in cui $b$ prende il nome di \textbf{coefficiente di viscosità}, che dipende dalle proprietà del fluido ed è un coefficiente di proporzionalità diretta: più aumenta la velocità, maggiore sarà l'intensità della forza d'attrito. Tale forza è molto diversa rispetto alle forze precedentemente analizzate, in quanto dipende strettamente dalla tipologia di moto del corpo considerato. Naturalmente, in questo caso, l'equazione è molto semplice, ma difficilmente applicabile, in quanto nell'equazione di Newton si ha un'accelerazione, mentre la legge di Stokes fornisce una velocità: si tratta, quindi, di risolvere un'\textbf{equazione differenziale}.
+
+      \item Se il \textbf{moto} invece è \textbf{turbolento} le forze inerziali dominano su quelle viscose e la forza di resistenza dipende da diversi fattori:
+      \begin{itemize}
+        \item \textbf{densità} $\rho$ del fluido;
+        \item l'\textbf{area di proiezione} del fluido $A$, ovvero una stima di quando fluido viene spostato nel moto: un corpo lungo e fino non subirà molta resistenza, mentre un corpo grande e largo avrà una resistenza maggiore;
+        \item il \textbf{coefficiente di caratterizzazione della forma del corpo} $C_d$ (in cui $D$ sta per \quotes{Drag}), determinato sperimentalmente e, per ovvie ragioni, \textbf{adimensionale}.
+      \end{itemize}
+      Considerando tali fattori, la forza di resistenza è
+      \[\boxed{F_v = \frac{1}{2} \rho A C_d v^2}\]
+    \end{enumerate}
+    \vspace{1mm}}\\
+    \hline
+\end{tabularx}
 
 \vspace{1em}
 \noindent
@@ -2490,8 +2503,13 @@ Si determini, allora, l'angolo $\theta$ tale per cui il drone si muove ad una \t
 \vspace{1em}
 \begin{figure}[H]
   \centering
-  \begin{tikzpicture}[scale=1]
+  \begin{tikzpicture}[scale=1.5]
     \draw [-stealth] (0,0) node[circ]{} -- ++(0.5,1) node [at end, right] {$\vec{F}_s$};
+    \draw [dotted] (0,0) -- ++(0,1);
+    \coordinate (f) at (0,0.8);
+    \coordinate (ctr) at (0,0);
+    \coordinate (i) at (0.5,1);
+    \pic [draw=red, text=red, <->, "$\theta$", angle radius=1cm, angle eccentricity=1.4] {angle = i--ctr--f};
     \draw [-stealth] (0,0) -- ++(0,-1) node [midway, right] {$\vec{F}_{t}$};
     \draw [-stealth] (0,0) -- ++(-1,0) node [midway, above] {$\vec{F}_{v}$};
   \end{tikzpicture}
@@ -2504,13 +2522,13 @@ Si determini, allora, l'angolo $\theta$ tale per cui il drone si muove ad una \t
 Naturalmente, in questo caso, è possibile applicare la $2^a$ legge della dinamica, in quanto è noto che il drone si muove a velocità costante, quindi l'accelerazione è nulla e quindi la somma delle forze risultanti è nulla.\\
 Pertanto si ha che
 \[\vec{F}_t + \vec{F}_v + \vec{F}_s = m \cdot \vec{a} = 0\]
-Nauralmene è possibile scomporre tale equazione vettoriale nelle sue componenti $x$ e $y$, ottenendo
+Naturalmene è possibile scomporre tale equazione vettoriale nelle sue componenti $x$ e $y$, ottenendo
 \[x: F_s \cdot \sin(\theta) - b v = 0\]
 \[y: F_s \cdot \cos(\theta) - m g = 0\]
 Dalla seconda equazione si ottiene che
 \[F_s = \frac{m g}{\cos(\theta)}\]
 mentre dalla prima equazione si ha che
-\[v = \frac{mg \cdot \tan(\theta)}{b}\]
+\[v = \frac{mg}{b} \cdot \tan(\theta)\]
 
 \vspace{1em}
 \noindent
@@ -2529,6 +2547,7 @@ mentre dalla prima equazione si ha che
 
 \vspace{1em}
 \noindent
+Infatti, ad un certo punto, la forza peso del corpo in caduta libera verrà eguagliata dalla forza di resistenza dell'aria e il paracadutista non aumenterà più la sua velocità, ma la manterrà costante.\\
 Naturalmente, in questo caso, è necessario applicare la seconda formula della resistenza, semplicemente osservando che
 \[mg = F_v = \frac{1}{2} \cdot \rho A C_d v^2\]
 Per isolare la velocità limite, semplicemente si può scrivere
@@ -2551,23 +2570,75 @@ Naturalmente, è noto che nel moto circolare uniforme la velocità $v$ è costan
 \[a = \frac{v^2}{R} = \omega^2 R\]
 essendo
 \[\omega = \frac{v}{R}\]
-Allora la forza necessaria per mantenere il moto circolare è, per la seconda legge della dimanica:
-\[\vec{F} = m \vec{a}\]
-e sostitutendo ad $a$ la formula precedentemente ottenuta si ha
-\[\boxed{F_c = \frac{m v^2}{R}}\]
-orientata verso il centro della circonferenza. Naturalmente quest'ultima è la \textbf{forza centripeta}, così chiamata per descriverne la direzione e il verso, ma non la sua natura (anche la forza di attrazione gravitazionale è una forza centripeta quando si parla di attrazione tra pianeti, anche la forza d'attrito è una forza centripeta, come quando si gira con la macchina).
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{FORZA CENTRIPETA}}\\
+    \parbox{\linewidth}{La forza necessaria per mantenere il moto circolare è, per la seconda legge della dimanica:
+    \[\vec{F} = m \vec{a}\]
+    e sostitutendo ad $a$ la formula precedentemente ottenuta si ha
+    \[\boxed{F_c = \frac{m v^2}{R}}\]
+    orientata verso il centro della circonferenza. Naturalmente quest'ultima è la \textbf{forza centripeta}, così chiamata per descriverne la direzione e il verso, ma non la natura della forza (la forza centripeta non è un tipo di forza, in quanto anche la forza di attrazione gravitazionale è una forza centripeta quando si parla di attrazione tra pianeti, anche la forza d'attrito è una forza centripeta, come quando si gira con la macchina).\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{2em}
+\noindent
+\textbf{Esempio}: Nelle curve delle strade, la carreggiata è inclinata, in quanto la forza normale si scompone in due componenti: una centrifuga e una centripeta; ciò, naturalmente, aiuta la forza di attrito ad evitare che la vettura esca fuori strada.\\
+Si determini, allora, l'angolo $\theta$ di inclinazione della strada affinché la componente orizzontale della forza normale fornisca la forza centripeta necessaria per girare (supponendo in assenza di attrito):
 
 \vspace{1em}
 \noindent
-\textbf{Esempio}: Nelle curve delle strade, la carreggiata è inclinata, in quanto la forza normale si scompone in due componenti: una centrifuga e una centripeta; ciò, naturalmente, aiuta la forza di attrito ad evitare che la vettura esca fuori strada.\\
-Si determini, allora, l'angolo $\theta$ di inclinazione della strada affinché la componente orizzontale della forza normale fornisca la forza centripeta necessaria per girare (supponendo in assenza di attrito).\\
-Si realizzi il diagramma a corpo libero di tale corpo
+\begin{figure}[H]
+  \centering
+  \newcommand{\ang}{30}
+
+  \begin{tikzpicture}[scale=1.5]
+
+  % triangle:
+  \draw [draw = orange, fill = orange!15] (0,0) coordinate (O) -- (\ang:6)
+  	coordinate [pos=.45] (M) |- coordinate (B) (O);
+
+  % angles:
+  \draw [draw = orange] (O) ++(.8,0) arc (0:\ang:0.8)
+  	node [pos=.4, left] {$\theta$};
+  \draw [draw = orange] (B) rectangle ++(-0.3,0.3);
+
+  \begin{scope} [rotate=\ang]
+    \draw (M) -- ++(0,0.25) -- ++(-0.25,0) -- ++(0,0.25) -- ++(0.25,0) -- ++(0,0.5) -- ++(1,0) -- ++(0,-0.5) -- ++(0.25,0) -- ++(0,-0.25) -- ++(-0.25,0) -- ++(0,-0.25) ++(-0.25,0) -- ++(0,0.25) -- ++(-0.5,0) -- ++(0,-0.25);
+  \end{scope}
+
+  \begin{scope} [-latex,rotate=\ang]
+  % Weight Force and its projections
+  \coordinate (MM) at ([xshift=0.5cm,yshift=0.6cm]M);
+
+  \draw (MM) node[circ]{} -- ++ (-\ang-90:1.5)
+  	node [very near end, right] {$\vec{F}_t$};
+
+  % Normal Force
+  \draw (MM) ++(0,-0.6) -- ++ (0,1.8)
+    node [very near end, right] {$\vec{F}_N$};
+  \end{scope}
+  \end{tikzpicture}
+  \caption{Auto in curva su un piano inclinato}
+  \label{fig:auto_curva_piano_inclinato}
+\end{figure}
+
+\vspace
+\noindent
+Si realizzi il diagramma a corpo libero della vettura:
 
 \vspace{1em}
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}[scale=1]
-    \draw [-stealth] (0,0) node[circ]{} -- ++(-0.8,0.8) node [midway, right] {$\vec{F}_N$};
+    \draw [-stealth] (0,0) node[circ]{} -- ++(-0.8,0.8) node [near end, above right] {$\vec{F}_N$};
     \draw [-stealth] (0,0) -- ++(0,-1) node [midway, right] {$\vec{F}_{t}$};
   \end{tikzpicture}
   \caption{Diagramma a corpo libero di una macchina in curva}
@@ -2584,10 +2655,14 @@ Allora si ha che
 
 \vspace{1em}
 \noindent
-\textbf{Esempio}: Anche quando si considera il moto di una corda che viene fatta ruotare nell'aria, la tensione della corda è esattamente la forza centripeta necessaria a mantere il moto circolare uniforme.
+\textbf{Osservazione}: Anche quando si considera il moto di una corda che viene fatta ruotare nell'aria, la tensione della corda è esattamente la forza centripeta necessaria a mantere il moto circolare uniforme (conoscendo il raggio di rotazione, ossia la lunghezza della corda, nonché la velocità di rotazione).\\
+Per verificare che il coefficiente di attrito statico non può essere mai maggiore di $1$ è sufficiente porre una massa su una superficie inclinata e aumentare l'angolo di inclinazione.\\
 
-
-
+\newpage
+\noindent
+\begin{center}
+  16 Marzo 2022
+\end{center}
 
 
 
