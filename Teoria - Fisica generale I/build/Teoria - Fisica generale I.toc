@@ -41,11 +41,15 @@
 \contentsline {subsection}{\numberline {4.11}Prodotto vettoriale}{48}{}%
 \contentsline {subsection}{\numberline {4.12}Pseudo-forza di Coriolis}{49}{}%
 \contentsline {section}{\numberline {5}Gravità}{51}{}%
-\contentsline {section}{\numberline {6}Energia}{52}{}%
-\contentsline {section}{\numberline {7}Moto dei sistemi}{53}{}%
-\contentsline {section}{\numberline {8}Corpi rigidi}{54}{}%
-\contentsline {section}{\numberline {9}Oscillazioni}{55}{}%
-\contentsline {section}{\numberline {10}Solidi e fluidi}{56}{}%
-\contentsline {section}{\numberline {11}Temperatura e calore}{57}{}%
-\contentsline {section}{\numberline {12}Il primo principio della termodinamica}{58}{}%
-\contentsline {section}{\numberline {13}Il secondo principio della termodinamica}{59}{}%
+\contentsline {subsection}{\numberline {5.1}L'esperimento di Cavendish}{52}{}%
+\contentsline {subsection}{\numberline {5.2}Campo gravitazionale}{52}{}%
+\contentsline {subsection}{\numberline {5.3}Massa gravitazionale e inerziale}{52}{}%
+\contentsline {subsection}{\numberline {5.4}Corpi estesi}{53}{}%
+\contentsline {section}{\numberline {6}Energia}{54}{}%
+\contentsline {section}{\numberline {7}Moto dei sistemi}{55}{}%
+\contentsline {section}{\numberline {8}Corpi rigidi}{56}{}%
+\contentsline {section}{\numberline {9}Oscillazioni}{57}{}%
+\contentsline {section}{\numberline {10}Solidi e fluidi}{58}{}%
+\contentsline {section}{\numberline {11}Temperatura e calore}{59}{}%
+\contentsline {section}{\numberline {12}Il primo principio della termodinamica}{60}{}%
+\contentsline {section}{\numberline {13}Il secondo principio della termodinamica}{61}{}%

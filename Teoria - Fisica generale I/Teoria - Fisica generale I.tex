@@ -2825,17 +2825,129 @@ La pseudo-forza centrifuga, pertanto,  si calcola come segue
 \noindent
 \begin{tabularx}{\textwidth}{@{}|P|@{}}
     \hline
-    {\textbf{FORZA DI CORIOLIS}}\\
+    {\textbf{PSEUDO-FORZA DI CORIOLIS}}\\
     \parbox{\linewidth}{Tale forza prende il nome di \textbf{pseudo-forza di Coriolis}, la quale è perpendicolare a $\vec \omega$ e a $\vec v$ e si calcola come segue
     \[\boxed{\vec F = -2 m \vec \omega \times \vec v}\]
     \vspace{-1mm}}\\
     \hline
 \end{tabularx}
 
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si osservi che, in un vortice di bassa pressione, considerando la velocità angolare terrestre con verso uscente dal foglio e la velocità delle particielle di aria dirette verso il centro del vortice, si ottiene che la pseudo-forza di Coriolis, per la regola della mano destra, è diretta ortogonalmente al vettore velocità e giacente sul foglio stesso.
 
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che il calcolo della velocità limite segue la seguente formula
+\[v = \sqrt{\frac{2mg}{\rho A C_d}}\]
+e sapendo che
+\[m = V \cdot \rho\]
+si evince che
+\[v = \sqrt{\frac{2 V \rho g}{\rho A C_d}} = \sqrt{\frac{2 V g}{A C_d}}\]
+pertanto, a parità di accelerazione gravitazione $g$ e coefficiente di resistenza $C_d$, ciò che determina la velocità dell'impatto con il suolo è il rapporto
+\[\frac{V}{A}\]
+pertanto più un corpo è voluminoso, maggiore sarà la velocità con cui impatta al suolo.
 
 \newpage
 \section{Gravità}
+\noindent
+\begin{center}
+  17 Marzo 2022
+\end{center}
+La \textbf{legge di gravitazione universale} venne formulata da Isaac Newton nell'opera Philosophiae Naturalis Principia Mathematica ("Principia") e pubblicata il 5 luglio 1687. Newton, infatti, ha affermato di voler formulare una teoria unica (appunto, universale) che descriva sia la caduta dei corpi sulla terra, sia il movimento degli astri.\\
+Al fine di determinare tale formula, Newton si basò sull'osservazione della Luna e del suo moto; l'\textbf{accelerazione centripeta della Luna}, naturalmente, si calcola come segue
+\[a = \frac{v^2}{R} = \omega^2 R\]
+in cui, ovviamente, $\omega$ è la velocità angolare, mentre $R$ è il raggio dell'orbita della Luna, ovvero la distanza Terra-Luna (già nota dai tempi dei Greci); in particolare è noto che $R = 60 \cdot R_T$, in cui $R_T = 6371$ km, mentre per determinare la velocità angolare, è noto che
+\[\omega = \frac{2\pi}{T}\]
+in cui $T \cong 27.3$ giorni. Ovviamente con questi dati è possibile calcolare l'accelerazione centripeta della Luna è
+\[a_c = 2.7 \times 10^{-3} \text{m/s}^2\]
+inoltre è noto che l'accelerazione gravitazionale terrestre è $g=9.8$ m/s$^2$ per cui eseguendo il rapporto si ottiene
+\[\frac{g}{a_c} = 60^2\]
+che è un risultato importante, in quanto fa capire come il modulo dell'accelerazione centripeta sia inversamente proporzionale alla distanza tra i due corpi che si attraggono; una proprietà che viene espressa tramite la seguente legge di gravitazione universale
+\[\boxed{F = G \cdot \frac{m_1 \cdot m_2}{r^2}}\]
+in cui $G$ prende il nome di \textbf{costante di gravitazione universale}.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si considerino due punti materiali $m_1$ e $m_2$ ad una certa posizione:
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1]
+    \draw (0,0) node[circ](start){} (-1,2) node[circ](m_1){$m_1$} (2,3) node[circ](m_2){$m_2$};
+  \end{tikzpicture}
+  \caption{Diagramma a corpo libero di una vettura in rallentamento}
+  \label{fig:diagramma_corpo_libero_vettura_rallentamento}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Allora si ha che, normalmente, il modulo della forza di attrazione gravitazinale dal corpo $1$ al corpo $2$ è
+\[F_{1,2} = G \cdot \frac{m_1 \cdot m_2}{\left \vert \vec r_1 - \vec r_2 \right \vert}\]
+e volendo determinare il vettore forza di attrazione, semplicemente si può scrivere
+\[\vec F_{1,2} = -G \cdot \frac{m_1 \cdot m_2}{\left \vert \vec r_1 - \vec r_2 \right \vert} \cdot \hat{r_{1,2}}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Allora si ha che, naturalmente, sulla Terra, fissando come origine il centro della Terra:
+\[\vec{F}_t = -G \cdot \frac{m_T \cdot m}{r^2} \cdot \vec r = - \left(G \cdot \frac{m_2}{R_T^2}\right) \cdot m \hat{r}\]
+in cui, ovviamente
+\[g = \left(G \cdot \frac{m_T}{R_T^2}\right)\]
+in cui si è fissato come raggio il raggio terrestre, dal momento che la Terra è un corpo sferico e, quindi, tutta la sua massa può essere considerata concentrata nel suo nucleo.
+
+\vspace{1em}
+\subsection{L'esperimento di Cavendish}
+Per misurare la forza di attrazione gravitazionale, Cavendish ha impiegato un pendolo su cui venivano fissate due masse che oscillavano leggermente ed è riuscito a determinare la densità della terra; sapendo la densità e il volume della Terra, si sarebbe stati in grado di conoscerne la massa e, sapendo il valore di $g$, si sarebbe, in seguito, stati in grado di isolare la costante gravitazionale $G$, che presenta il valore seguente:
+\[\boxed{G = 6.67 \times 10^{-11} \frac{\text{m}^3}{\text{s}^2 \text{ kg}}}\]
+A partire da tale risultato è possibile analizzare il moto e le caratteristiche di diversi pianeti.
+
+\vspace{1em}
+\subsection{Campo gravitazionale}
+A partire dall'equazione seguente
+\[\vec{F}_t = -G \cdot \frac{m_t}{R_t^2} \cdot \hat{r} \cdot m\]
+allora per campo si definisce una valutazione della \textbf{forza per unità di massa}, come mostrato di seguito:
+\[\boxed{\frac{\vec{F}_t}{m} = -G \cdot \frac{m_t}{R_t^2} = \vec g}\]
+che è esattamente lo stesso concetto di di campo elettrico, ovvero la forza per unità di carica (nel caso di un campo gravitazionale, la carica è proprio la massa).
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che il \textbf{campo gravitazionale è additivo}: infatti, date due masse identiche, poste vicine l'una all'altra, le linee di campo dell'una si fondono con quelle dell'altra, dando vita a delle deformazioni delle lineee di campo.
+
+Di fatto si ha che il campo gravitazionale risultante è
+\[\vec{g} = \vec{g}_1 + \vec{g}_2\]
+
+\vspace{1em}
+\subsection{Massa gravitazionale e inerziale}
+Dalla $2^a$ legge della dinamica
+\[\vec{F} = m_I \cdot \vec{a}\]
+si evince come la massa $m_I$ sia da considerarsi com l'\textbf{inerzia}, ovvero la \textbf{resistenza alla variazione di moto}.\\
+Mentre dalla legge di gravitazione universale
+\[\vec{F} = - G \cdot \frac{m_1 \cdot m_G}{r^2} \cdot \vec{r}\]
+si ha che $m_G$ è una sorta di \quotes{carica gravitazionale}, che non sono da reputarsi il medesimo concetto dal punto di vista teorico, per cui si dovrebbe dire che
+\[a_y = -G \cdot \frac{m_1}{r^2} \cdot \left(\frac{m_G}{m_I}\right)\]
+Tuttavia, dal punto di vista sperimentale, sono state eseguite delle misurazioni con un altissimo livello di precisione che hanno confermato come
+\[\frac{m_G}{m_I} = 1\]
+per cui le due masse sono da reputarsi identiche.
+
+\vspace{1em}
+\subsection{Corpi estesi}
+Il campo gravitazionale è una quantità additiva, per cui per conoscere la forza di attrazione di un corpo non puntiforme, è sufficiente scomporlo in punti e sommare il contributo di ciascuno per pervenire al risultato cercato.\\
+In altri termini si ha che
+\[\boxed{\vec{g} = \sum_i \vec{g}_i = \sum_i - G \cdot \frac{m_i}{r_i^2} \cdot \hat{r} = -G \cdot \int \frac{dm}{r^2} \cdot \hat{r}}\]
+in cui si deve integrare all'infinito il contributo di ciascuna punto.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Se si considera una distribuzione con simmetria sferica (ovvero una sfera in cui la densità non deve necessariamente essere uniforme), allora tutta la massa è da reputarsi al centro della sfera.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che il numero di giri compiuti nell'unità di tempo è, ovviamente, data da
+\[\frac{1}{T}\]
+Inoltre, si ha che la forza centripeta descrive la natura della forza, non il tipo di forza, per cui la forza centripeta può essere causata da qualsiasi tipo di forza.\\
+Si osservi che un punto materiale si muove con velocità di modulo costante lungo un'ellisse, allora, l'accelerazione punta sempre verso il centro dell'elisse, in quanto il moto considerato è lo stesso di un moto circolare uniforme, ma visto da un sistema di riferimento a velocità costante (per cui l'accelerazione è nulla).\\
+Naturalmente, i corpi liberi su una vettura in decelerazione cadono in avanti perché mantengono la stessa velocità che avevano prima della decelerazione.
 
 \newpage
 \section{Energia}
