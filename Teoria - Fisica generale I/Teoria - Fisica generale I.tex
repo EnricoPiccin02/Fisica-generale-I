@@ -23,6 +23,27 @@
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{subfig}
+\usepackage{physics}
+\tikzset{>=latex} % for LaTeX arrow head
+\colorlet{pinkskin}{pink!25}
+\colorlet{brownskin}{pink!5!brown!45}
+\colorlet{myred}{red!90!black}
+\colorlet{myblue}{blue!90!black}
+\colorlet{mypurple}{blue!50!red!80!black!80}
+\colorlet{Bcol}{violet!90}
+\colorlet{BFcol}{red!60!black}
+\colorlet{veccol}{green!45!black}
+\colorlet{Icol}{blue!70!black}
+\colorlet{mucol}{red!90!black}
+\tikzstyle{BField}=[->,line width=2,Bcol]
+\tikzstyle{current}=[->,Icol] %thick,
+\tikzstyle{force}=[->,line width=2,BFcol]
+\tikzstyle{vector}=[->,line width=2,veccol]
+\tikzstyle{thick vector}=[->,line width=2,veccol]
+\tikzstyle{mu vector}=[->,line width=2,mucol]
+\tikzstyle{velocity}=[->,line width=2,veccol]
+\tikzstyle{charge+}=[very thin,draw=black,top color=red!50,bottom color=red!90!black,shading angle=20,circle,inner sep=0.5]
+
 \graphicspath{ {./img/} }
 \newtheorem{theorem}{Teorema}[section]
 \newtheorem{corollary}{Corollario}[theorem]
@@ -2665,20 +2686,27 @@ Per verificare che il coefficiente di attrito statico non può essere mai maggio
 \end{center}
 \subsection{Sistemi non-inerziali}
 Il concetto di sistema non-inerziale è essenziale per lo studio della dinamica dei corpi. Infatti, un sistema non-inerziale è un sistema di riferimento in cui l'accelerazione non é nulla, ovvero $a \neq 0$. Ciò impedisce di applicare la $2^a$ legge della dinamica, in quanto tale legge si applica solo a sistemi di riferimento inerziali.\\
-Si consideri il caso di un treno in accelerazione e di una massa sospesa al soffitto; naturalmente, quando il treno accelera (e quindi la sua velocità non è costante), la massa si inclina nella direzione opposta al moto. Si consideri il diagramma a corpo libero della massa
+Si consideri il caso di un treno in accelerazione e di una massa sospesa al soffitto; naturalmente, quando il treno accelera (e quindi la sua velocità non è costante), la massa si inclina nella direzione opposta al moto:
 
-\vspace{1em}
 \begin{figure}[H]
   \centering
-  \begin{tikzpicture}[scale=1]
-    \draw [-stealth] (0,0) -- ++(0,-1) node [midway, right] {$\vec{F}_{t}$};
-    \draw [-stealth] (0,0) -- ++(0.5,1) node [midway, above] {$\vec{F}_{T}$};
+  \begin{tikzpicture}[scale=4]
+    \draw [dashed] (0,2.5) node[circ]{} -- ++(0,-1);
+    \draw [dashed] (0,2.5) node[circ]{} -- (-0.4,1.5);
+    \draw (0,2.5) node[circ]{} -- (-0.2,2) node[circ]{};
+    \coordinate (i) at (-0.2,2);
+    \coordinate (ctr) at (0,2.5);
+    \coordinate (f) at (0,2);
+    \pic [draw=red, text=red, <->, "$\theta$", angle radius=1cm, angle eccentricity=1.4] {angle = i--ctr--f};
+    \draw [-stealth] (0.2,2) -- ++(0.4,0) node[midway, above]{$\vec a$};
+    \draw [-stealth] (-0.2,2) -- ++(0,-0.4) node[at end, right]{$\vec F_t$};
+    \draw [-stealth,red] (-0.2,2) -- ++(0.1,0.25) node[left]{$\vec F_T$};
+    \draw [-stealth,blue] (-0.2,2) -- ++(-0.2,0) node[above]{$\vec F_a$};
   \end{tikzpicture}
-  \caption{Diagramma a corpo libero di una massa sospesa in movimento}
-  \label{fig:diagramma_corpo_libero_massa_sospesa}
+  \caption{Forza apparente}
+  \label{fig:forza_apparente}
 \end{figure}
 
-\vspace{1em}
 \noindent
 In cui, ovviamente, applicando la $2^a$ legge della dinamica si ottiene che
 \[\vec{F}_T + \vec{F}_t = m \cdot \vec{a}\]
@@ -2690,33 +2718,79 @@ da cui
 \textbf{Osservazione}: Si osservi che la prima equazione può essere riscritta come segue:
 \[\vec{F}_T + \vec{F}_t = m \cdot \vec{a} \longrightarrow \vec{F}_T + \vec{F}_t - m \cdot \vec{a} = 0\]
 Ecco che allora la forza $\vec{F}_a = m \vec{a}$ è una nuova forza, la quale prende il nome di \textbf{forza apparente}, o anche \textbf{pseudo-forza apparente} o \textbf{forza inerziale}, che agisce ancora una volta sulla massa $m$, in direzione opposta alla direzione del moto.\\
-Naturalmente, in questo, l'unico termine da considerare è $m \vec{a}$, in quanto l'accelerazione è costante, mentre se l'accelerazione non lo fosse, all'interno della formula dovrebbero figurare altri termini (si pensi, per esempio, ad una \textbf{pseudo-forza apparente centrifuga}, la quale può essere costante in modulo, ma cambia direzione e forza).
+Naturalmente, in questo caso, l'unico termine da considerare è $m \vec{a}$, in quanto l'accelerazione è costante, mentre se l'accelerazione non lo fosse, all'interno della formula dovrebbero figurare altri termini (si pensi, per esempio, ad una \textbf{pseudo-forza apparente centrifuga}, la quale può essere costante in modulo, ma cambia direzione e verso).
 
 \vspace{1em}
 \noindent
-\textbf{Esempio}: Si consideri il caso in cui una massa $m$ è posta su un cuneo e l'intero sistema accelerazione con $\vec{a}$ costante. Si determini, allora, quale deve essere l'accelerazione $\vec{a}$ affinché il blocco rimanga immobile sul cuneo.\\
+\textbf{Esempio}: Si consideri il caso in cui una massa $m$ è posta su un cuneo e l'intero sistema accelera con $\vec{a}$ costante:
+
+\vspace{1em}
+\noindent
+\begin{figure}[H]
+  \centering
+  \newcommand{\ang}{30}
+
+  \begin{tikzpicture} [xshift=-12em,font = \small, scale=1.5]
+  \reflectbox{\rotatebox[origin=c]{360}{
+    % triangle:
+    \draw [draw = orange, fill = orange!15] (0,0) coordinate (O) -- (\ang:6)
+    	coordinate [pos=.45] (M) |- coordinate (B) (O);
+
+    % angles:
+    \draw [draw = orange] (O) ++(.8,0) arc (0:\ang:0.8)
+    	node [pos=.4, left] {\reflectbox{\rotatebox[origin=c]{360}{$\theta$}}};
+    \draw [draw = orange] (B) rectangle ++(-0.3,0.3);
+    \draw [-stealth] (5.5,1.5) ++(1,0) -- ++(-0.75,0) node[midway,above]{\reflectbox{\rotatebox[origin=c]{360}{$a$}}};
+
+    \begin{scope} [-latex,rotate=\ang]
+    % Object (rectangle)
+    \draw [fill = purple!30,
+    	draw = purple!50] (M) rectangle ++ (1,.6);
+
+    % Weight Force and its projections
+    \draw [dashed] (M) ++ (.5,.3) coordinate (MM) -- ++ (0,-1.29)
+    	node [very near end, right] {\reflectbox{\rotatebox[origin=c]{360}{$\vec{F}_t \cdot \cos{\theta}$}}};
+
+    \draw [dashed] (MM) -- ++ (-0.75,0)
+    	node [very near end, left] {\reflectbox{\rotatebox[origin=c]{360}{$\vec{F}_t \cdot \sin{\theta}$}}};
+
+    \draw (MM) -- ++ (-\ang-90:1.5)
+    	node [very near end,below left ] {\reflectbox{\rotatebox[origin=c]{360}{$\vec{F}_t$}}};
+
+    % Normal Force
+    \draw (MM) -- ++ (0,1.29)
+    node [very near end, right] {\reflectbox{\rotatebox[origin=c]{360}{$\vec{F}_N$}}};
+    \end{scope}
+  }}
+  \end{tikzpicture}
+  \caption{Piano inclinato in accelerazione}
+  \label{fig:piano_inclinato_in_accelerazione}
+\end{figure}
+
+\noindent
+Si determini, allora, quale deve essere l'accelerazione $\vec{a}$ affinché il blocco rimanga immobile sul cuneo.\\
 Naturalmente, osservando il sistema da fuori, le uniche forze che agiscono su tale corpo sono la forza peso e la forza normale. Se, invece, tale corpo viene osservato dall'interno, impiegando un sistema di riferimento non-inserziale, allora a tali forze se ne deve aggiungere una terza, una \textbf{pseudo-forza apparente} che agisce in verso opposto a quello dell'accelerazione $\vec{a}$, ovvero la forza $\vec{F}_a = - m \vec{a}$, come mostrato di seguito:
 
 \vspace{1em}
 \begin{figure}[H]
   \centering
-  \begin{tikzpicture}[scale=1]
+  \begin{tikzpicture}[scale=1.5]
     \draw [-stealth] (0,0) -- ++(0,-1) node [midway, right] {$\vec{F}_{t}$};
-    \draw [-stealth] (0,0) -- ++(0.5,1) node [midway, above] {$\vec{F}_{T}$};
+    \draw [-stealth] (0,0) -- ++(0.5,1) node [midway, above left] {$\vec{F}_{T}$};
     \draw [-stealth] (0,0) -- ++(-1,0) node [midway, above] {$\vec{F}_{a}$};
   \end{tikzpicture}
-  \caption{Diagramma a corpo libero di una massa su un piano inclinato}
-  \label{fig:diagramma_corpo_libero_massa_piano_inclinato}
+  \caption{Diagramma a corpo libero di una massa su un piano inclinato in accelerazione}
+  \label{fig:diagramma_corpo_libero_massa_piano_inclinato_in_accelerazione}
 \end{figure}
 
 \vspace{1em}
 \noindent
 Da cui si evince che
 \[\vec{F}_N + \vec{F}_t + \vec{F}_a = 0\]
-
+e scomponento l'equazione nelle sue componenti orizzontali e verticali si perviene al risultato seguente:
 \begin{align*}
   F_N \cdot \cos(\theta) - mg = 0\\
-  -F_A + F_N \cdot \sin(\theta) = 0
+  -F_a + F_N \cdot \sin(\theta) = 0
 \end{align*}
 per cui si ottiene che
 \[a = g \cdot \tan(\theta)\]
@@ -2724,21 +2798,153 @@ per cui si ottiene che
 \vspace{1em}
 \subsection{Prodotto vettoriale}
 Si considerino due vettori $\vec{A}$ e $\vec{B}$, allora si ha che
-\[\left \vert \vec{A} \times \vec{B} \right \vert = \left \vert \vec{A} \right \vert \cdot \left \vert B \right \vert \cdot \sin(\theta)\]
+\[\left \vert \vec{A} \times \vec{B} \right \vert = \left \vert A \right \vert \cdot \left \vert B \right \vert \cdot \sin(\theta)\]
 ove $\theta$ è l'angolo compreso tra i vettori $\vec{A}$ e $\vec{B}$.
 
 \vspace{1em}
 \noindent
-\textbf{Osservazione}: Si osservi che il prodotto vettoriale $\vec{A} \times \vec{B}$ è un vettore ortogonale ad $\vec{A}$ e $\vec{B}$.\\
+\textbf{Osservazione}: Si osservi che il prodotto vettoriale $\vec{A} \times \vec{B}$ è un vettore ortogonale ad $\vec{A}$ e $\vec{B}$:
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \draw[-,fill=white!95!red](0,0)--(3,0)--(4,1)--(1,1)--cycle;
+    \node at (2,0.5) {$|\textcolor{blue}{a}\times \textcolor{red}{b}|$};
+    \draw[ultra thick,-latex,blue](0,0)--(3,0)node[midway,below]{$a$};
+    \draw[ultra thick,-latex,red](0,0)--(1,1)node[midway,above]{$b$};
+    \draw[ultra thick,-latex,blue!50!red](0,0)--(0,3)node[pos=0.7,right]{$a\times b$};
+    \draw (0.6,0) arc [start angle=0,end angle=45,radius=0.6]
+    node[pos=0.7,right]{$\theta$};
+  \end{tikzpicture}
+  \caption{Prodotto vettoriale}
+  \label{fig:prodotto_vettoriale}
+\end{figure}
+
+\noindent
 Inoltre si ha che
 \begin{itemize}
   \item se $\vec{A} \perp \vec{B}$, allora si ha che
-  \[\left \vert \vec{A} \times \vec{B} \right \vert = \left \vert \vec{A} \right \vert \cdot \left \vert B \right \vert\]
+  \[\left \vert \vec{A} \times \vec{B} \right \vert = \left \vert A \right \vert \cdot \left \vert B \right \vert\]
 
   \item se $\vec{A} \parallel \vec{B}$, allora si ha che
   \[\left \vert \vec{A} \times \vec{B} \right \vert = 0\]
 
-  \item negli altri casi bisogna impiegare la regola della mano destra
+  \item negli altri casi bisogna impiegare la regola della mano destra. Se si considera il prodotto vettoriale seguente (che non è mai commutativo)
+  \[\vec F = q \vec v \times \vec B\]
+  la regola della mano destra si applica come segue:
+
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=0.5]
+      \coordinate (O) at (1.0,0.7);    % ORIGIN
+      \coordinate (WT) at ( 2.9,-1.1); % WRIST TOP
+      \coordinate (T1) at ( 2.3, 0.7); % THUMB
+      \coordinate (T2) at ( 1.75, 2.3);
+      \coordinate (T3) at ( 2.0, 3.1);
+      \coordinate (T4) at (1.38, 3.15);
+      \coordinate (T5) at ( 0.9, 2.3);
+      \coordinate (T6) at ( 0.85, 1.2);
+      \coordinate (T7) at ( 0.85, 0.2);
+      \coordinate (I1) at (-1.1, 2.45); % INDEX
+      \coordinate (I2) at (-2.9, 3.45);
+      \coordinate (I3) at (-3.3, 2.9);
+      \coordinate (I4) at (-1.5, 1.8);
+      \coordinate (I5) at (-0.9, 1.1);
+      \coordinate (I6) at (-0.9, 0.3);
+      \coordinate (M1) at (-2.1, 0.9); % MIDDLE
+      \coordinate (M2) at (-3.95,0.55);
+      \coordinate (M3) at (-4.0,-0.15);
+      \coordinate (M4) at (-2.3, 0.05);
+      \coordinate (M5) at (-1.1, 0.20);
+      \coordinate (R1) at (-1.9,-0.1); % RING
+      \coordinate (R2) at (-1.8,-0.7);
+      \coordinate (R3) at (-0.3,-1.5);
+      \coordinate (R4) at ( 0.1,-1.7);
+      \coordinate (R5) at ( 0.1,-1.0);
+      \coordinate (R6) at (-0.5,-0.7);
+      \coordinate (R7) at (-1.2,-0.3);
+      \coordinate (P1) at (-1.9,-1.3); % PINKY
+      \coordinate (P2) at (-0.8,-1.9);
+      \coordinate (P3) at (-0.2,-2.1);
+      \coordinate (P4) at (-0.05,-1.65);
+      \coordinate (W1) at ( 0.4,-2.9); % WRIST BOTTOM
+      \coordinate (W2) at ( 1.6,-3.5);
+
+      % HAND
+      \fill[pinkskin]
+        (WT) -- (T6) -- (I5) -- (M5) -- (R2) -- (P2) -- (W2) to[out=25,in=-90] cycle;
+      \draw[fill=pinkskin]
+        (WT) to[out=120,in=-60] % THUMB
+        (T1) to[out=120,in=-90]
+        (T2) to[out=80,in=-110]
+        (T3) to[out=80,in=50,looseness=1.5] % tip
+        (T4) to[out=-130,in=80]
+        (T5) to[out=-100,in=70]
+        (T6) to[out=-100,in=100]
+        (T7)
+        (T6) to[out=150,in=-30] % INDEX
+        (I1) to[out=150,in=-30]
+        (I2) to[out=150,in=145,looseness=1.7] % tip
+        (I3) to[out=-30,in=150]
+        (I4) to[out=-30,in=105]
+        (I5) to[out=-75,in=90]
+        (I6)
+        (I5) to[out=-170,in=10] % MIDDLE
+        (M1) to[out=-170,in=10]
+        (M2) to[out=-170,in=-175,looseness=1.8] % tip
+        (M3) to[out=5,in=-170]
+        (M4) to[out=10,in=-170] % bottom knuckle
+        (M5)
+        (M5) to[out=-160,in=50] % RING
+        (R1) to[out=-130,in=140,looseness=1.2]
+        (R2) to[out=-30,in=160]
+        (R3) --
+        (R4) to[out=-20,in=-20,looseness=1.5] % tip
+        (R5) --
+        (R6) to[out=140,in=8,looseness=0.9]
+        (R7)
+        (R2) to[out=-160,in=155] % PINKY
+        (P1) to[out=-35,in=150]
+        (P2) to[out=-30,in=160]
+        (P3) to[out=-20,in=-30,looseness=1.5] % tip
+        %(P4) --
+        (R4)
+        (P2) to[out=-50,in=140] % WRIST
+        (W1) to[out=-40,in=160]
+        (W2);
+
+      % FOLDS
+      \draw[very thin] (T5)++(-80:0.3) to[out=40,in=180]++ (25:0.45); % THUMB
+      \draw[very thin] (I1)++(180:0.2) to[out=-160,in=90]++ (-130:0.6); % INDEX
+      \draw[very thin] (I1)++(155:1.3) to[out=-150,in=80]++ (-130:0.55);
+      \draw[very thin] (M4)++(30:0.2) to[out=80,in=-65]++ (95:0.5); % MIDDLE FINGER
+      \draw[very thin] (M3)++(10:0.8) to[out=80,in=-75]++ (90:0.45);
+      \draw[very thin] (M5)++(-140:0.1) to[out=-20,in=90]++ (-54:0.8); % RING
+      \draw[very thin] (R6) to[out=160,in=10]++ (180:0.2);
+      \draw[very thin] (R3)++(155:0.5) to[out=120,in=-100]++ (100:0.2);
+      \draw[very thin] (P2)++(140:0.1) to[out=95,in=-110]++ (80:0.4); % PINKY
+      %\draw[very thin] (P1)++( 10:0.04) to[out=95,in=-130]++ (70:0.4);
+      \draw[very thin] (I5)++(-40:0.45) to[out=-70,in=90]++ (-70:1.7);    % PALM
+      \draw[very thin] (P3)++(-155:0.05) to[out=-120,in=40]++ (-130:0.2); % PALM
+      \draw[very thin] (W2)++(70:1.4) to[out=-175,in=-40]++ (160:1.4); % PALM
+
+      % VECTORS
+      \def\R{0.32}
+      \draw[force]
+        (O) --++ (82:3.2)
+        node[above,scale=1.5] {$\vb{F} \color{black} = q {\color{veccol}\vb{v}} \times {\color{Bcol}\vb{B}}$};
+      \draw[velocity]
+        (O) --++ (148:3.3) coordinate (V)
+        node[above=2,left=-6,scale=1.5] {$\vb{v}$};
+      \draw[charge+] (O) circle (\R) node[scale=1.4] {$+$};
+      \draw[BField]
+        (O)++(-172:0.7*\R) --++ (-172:3.25) coordinate (B)
+        node[above=4,left=-6,scale=1.5] {$\vb{B}$};
+      \draw pic[->,"\huge$\theta$",draw=black,thick,angle radius=28,angle eccentricity=1.26] {angle = V--O--B};
+    \end{tikzpicture}
+    \caption{Regola della mano destra}
+    \label{fig:regola_mano_destra}
+  \end{figure}
 
   \item $\hat{i} \times \hat{j} = \hat{k}$
   \item $\hat{j} \times \hat{k} = \hat{i}$
@@ -2760,18 +2966,18 @@ Alternativamente, è noto che il prodotto vettoriale $\vec{A} \times \vec{B}$ si
 
 \vspace{1em}
 \noindent
-\textbf{Osservazione}: Si osservi che, nel caso del prodotto scalare, $\vec{B} \cdot \vec{A}$ si interpretava come $\vert A \vert$ per la componente di $B$ su $A$.\\
-Inoltre si ha che che il prodotto scalare tra $\vec{A}$ e $\vec{B}$ non viene alterato se ai due vettori vengono aggiunte ulteriori componenti parallele ad $\vec{A}$ e $\vec{B}$.
+\textbf{Osservazione}: Mentre il prodotto vettoriale è il determinante della matrice di cui sopra, il prodotto scalare, $\vec{B} \cdot \vec{A}$ si interpretava come $\vert A \vert$ per la componente di $B$ su $A$.\\
+Inoltre si ha che il prodotto scalare tra $\vec{A}$ e $\vec{B}$ non viene alterato se ai due vettori vengono aggiunte ulteriori componenti parallele ad $\vec{A}$ e $\vec{B}$.
 
 \vspace{1em}
 \noindent
-\textbf{Esempio}: Si osservi che la forza di Lorentz
-\[\vec{F} = g \vec{E} + g \vec{v} \times \vec{B}\]
+\textbf{Esempio}: Si consideri la forza di Lorentz, la cui formula viene di seguito esposta
+\[\boxed{\vec{F} = g \vec{E} + g \vec{v} \times \vec{B}}\]
 in cui, senza $\vec{E}$, sarebbe stato
-\[\vec{F} = g \vec{v} \times \vec{B}\]
-In questo caso, il campo magnetico $\vec{B}$ va dentro la pagina e la velocità $\vec{v}$ è parallela alla pagina, pertanto la forza $\vec{F}$ è diretta verso il centro della spirale, ovvero $\vec{F}$ è una \textbf{forza centripeta}, calcolata come segue
+\[\boxed{\vec{F} = g \vec{v} \times \vec{B}}\]
+Allora, in questo caso, se il campo magnetico $\vec{B}$ va dentro la pagina e la velocità $\vec{v}$ è parallela alla pagina, la forza $\vec{F}$ è diretta verso il centro della spirale, ovvero $\vec{F}$ è una \textbf{forza centripeta}, calcolata come segue
 \[\vec{F} = -e \cdot (\vec{v} \times \vec{B})\]
-Ma alla cinetica è anche noto che la forza centripeta si calcola come
+Ma dalla cinetica è anche noto che la forza centripeta si calcola come
 \[F_c = \frac{m v^2}{R}\]
 per cui operando una eguaglianza si ottiene
 \[\frac{m v^2}{R} = e v B \longrightarrow \frac{m v}{R} = e B \longrightarrow m \omega = e B \longrightarrow \omega = \frac{eB}{m}\]
@@ -2950,13 +3156,102 @@ Si osservi che un punto materiale si muove con velocità di modulo costante lung
 Naturalmente, i corpi liberi su una vettura in decelerazione cadono in avanti perché mantengono la stessa velocità che avevano prima della decelerazione.
 
 \newpage
-\section{Energia}
+\noindent
+\begin{center}
+  21 Marzo 2022
+\end{center}
+La forza di attrazione tra due corpi è direttamente proporzionale alla massa dei due corpi e inversamente proporzionale alla distanza fra i due (e tale concetto si trasla anche alla teoria della carica, per la \textbf{Forza di Coulomb}).\\
+Il \textbf{campo gravitazionale}, inoltre, è una vera e propria forza che si applica indistintamente ad ogni corpo, indipendentemente dalla massa di ogni corpo.\\
+La differenza tra massa gravitazionale e massa inserziale è puramente concettuale, anche se nella pratica tali masse coincidono; infine, per quanto concerne i corpi estesi, al fine di considerare la forza attrattiva totale, è sufficiente sommare i contributi di tutte le masse.
 
-\newpage
-\section{Moto dei sistemi}
+\vspace{1em}
+\subsection{Leggi di Keplero}
+Di seguito si espongono le tre fondamentali leggi di Keplero:
 
-\newpage
-\section{Corpi rigidi}
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{LEGGI DI KEPLERO}}\\
+    \parbox{\linewidth}{Le leggi di Keplero sono:
+    \begin{enumerate}
+      \item \emph{Tutti i pianeti si muovono lungo orbite ellittiche di cui il sole occupa uno dei fuochi}
+      \item \emph{La congiungente di un pianeta con il Sole spazza aree uguali in intervalli di tempo uguali}
+      \item \emph{Il quadrato del periodo di un qualunque pianeta è proporzionale al cubo della distanza media del pianeta dal Sole}
+    \end{enumerate}
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+La terza legge di Keplero può essere facilmente giustificata alla luce della legge di gravitazione universale di Newton.\\
+Se, infatti, si considera un'orbita circolare (anziché ellittica) è possibile confondere la forza di attrazione gravitazionale $\vec F_a$ con la forza centripeta $\vec F_c$, per cui si ottiene
+\[\vec F_c = \vec F_a \longrightarrow m_P \cdot \frac{v^2}{d} = G \cdot \frac{m_P \cdot m_S}{d^2}\]
+o anche
+\[\vec F_c = \vec F_a \longrightarrow m_P \cdot \omega^2 \cdot d = G \cdot \frac{m_P \cdot m_S}{d^2}\]
+in cui, ovviamente, $m_P$ è la massa del pianeta, mentre $m_S$ è la massa del sole e $d$ è la distanza tra il pianeta e il sole. Da questo si ottiene che:
+\[\frac{1}{\omega^2} = \frac{1}{G \cdot m_S}\]
+Ma siccome $\omega$ è la velocità angolare, ovvero il rapporto fra un giro completo e il periodo di rotazione, è facile capire che:
+\[\frac{T^2}{(2\pi)^2} = \frac{1}{G \cdot m_S} \cdot d^3\]
+Allora isolando il quadrato del periodo si ottiene:
+\[\boxed{T^2 = \frac{(2 \pi)^2}{G \cdot m_S} \cdot d^3}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio}: Un'orbita geostazionaria è l'orbita di un satellite attorno alla Terra che presenta un periodo di rotazione identico a quello della terra, per cui si mantiene sempre sopra lo stesso punto sopra la terra: secondo la terza di legge di Keplero, esiste una sola altezza tale per cui l'orbita di un satellite possa essere geostazionaria.\\
+Si calcoli, allora, la velocità alla quale deve ruotare un satellite (idealmente sulla superficie della Terra). È facile capire che tale velocità si calcola come segue
+\[v = \frac{\Delta s}{\Delta t} = \frac{2 \pi r}{\sqrt{\dfrac{(2 \pi)^2}{g \cdot r^2} \cdot r^3}} = r \cdot \sqrt{\frac{g}{r}} = \sqrt{g \cdot r}\]
+Ecco che allora la velocità cercata è
+\[v = \sqrt{g \cdot r}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che dalla terza legge di Keplero si ottiene che
+\[d^3 = \frac{G \cdot m_S}{(2\pi)^2} \cdot T^2\]
+ma più in generale, per un qualsiasi pianeta si ottiene che
+\[T = 2\pi \cdot \sqrt{\frac{R_P^3}{G \cdot m_P}}\]
+in cui, sotto la radice, compare il rapporto
+\[\frac{R^3}{m_P}\]
+che è esattamente il reciproco della densità del pianeta, essendo
+\[V_S = \frac{4}{3} \cdot \pi \cdot R^3\]
+da cui si evince che
+\[T = 2\pi \cdot \sqrt{\frac{3}{4} \cdot \frac{1}{\rho}}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Se fosse possibile tagliare la terra in due parti uguali e si lasciasse cadere una massa in tale foro, allora la massa accelerebbe fino a raggiungere il centro della terra, dove la forza di attrazione si annullerebbe; pertanto, la massa continuerebbe a scendere venenedo progressivamente decelerata fino a raggiungere velocità nulla al culmine della sua corsa dall'altra parte del pianeta, venendo nuovamente attratta al centro e così via, fino a quando non si viene a creare un moto oscillatorio di periodo esattamente pari alla rotazione della Terra.
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio}: Si consideri una macchina che cerca di accelerare su diverse superfici e avente diverse configurazioni di trazione.\\
+Allora se il coefficiente di attrito statico è $\mu_s=1.0$ e la macchina presenta solo due ruote trainanti, l'accelerazione della vettura deve essere
+\[a \leq \frac{\mu_s}{2} \cdot g = 4.9 \text{ m/s}^2\]
+e così via, variando il coefficiente di attrito statico e la distribuzione del peso.
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio}: Si consideri un'ascensore sospeso da un cavo, avente massa $1.7 \times 10^3$ kg.\\
+Allora, richiamando la seconda legge della dinamica, si può scrivere:
+\[\vec F_T + F_t = m \cdot \vec a\]
+e sostiutendo a tali vettori i moduli, si ottiene
+\[F_T = m \cdot (a + g)\]
+
+
+
+
+
+
+
+
+
+
+
+
 
 \newpage
 \section{Oscillazioni}
