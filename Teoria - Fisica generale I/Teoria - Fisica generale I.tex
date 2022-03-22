@@ -5,6 +5,9 @@
 \usepackage[table]{xcolor}
 \usepackage{xcolor}
 \usepackage{circuitikz}
+\usepackage{bm}
+\usetikzlibrary{decorations.markings,intersections,calc}
+\usepackage{ifthen}
 \usetikzlibrary{calc,patterns,angles,quotes}
 \usetikzlibrary{positioning, circuits.logic.US}
 \usetikzlibrary {shapes.gates.logic.US, shapes.gates.logic.IEC, calc}
@@ -17,6 +20,7 @@
 \usepackage{tabularx}
 \usepackage{pgf-pie}
 \usepackage{tikz}
+\usepackage{tikz-3dplot}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{color, soul}
@@ -2935,11 +2939,11 @@ Inoltre si ha che
         node[above,scale=1.5] {$\vb{F} \color{black} = q {\color{veccol}\vb{v}} \times {\color{Bcol}\vb{B}}$};
       \draw[velocity]
         (O) --++ (148:3.3) coordinate (V)
-        node[above=2,left=-6,scale=1.5] {$\vb{v}$};
+        node[above=2,left=0,scale=1.5] {$\vb{v}$};
       \draw[charge+] (O) circle (\R) node[scale=1.4] {$+$};
       \draw[BField]
         (O)++(-172:0.7*\R) --++ (-172:3.25) coordinate (B)
-        node[above=4,left=-6,scale=1.5] {$\vb{B}$};
+        node[above=4,left=0,scale=1.5] {$\vb{B}$};
       \draw pic[->,"\huge$\theta$",draw=black,thick,angle radius=28,angle eccentricity=1.26] {angle = V--O--B};
     \end{tikzpicture}
     \caption{Regola della mano destra}
@@ -2981,7 +2985,8 @@ Ma dalla cinetica è anche noto che la forza centripeta si calcola come
 \[F_c = \frac{m v^2}{R}\]
 per cui operando una eguaglianza si ottiene
 \[\frac{m v^2}{R} = e v B \longrightarrow \frac{m v}{R} = e B \longrightarrow m \omega = e B \longrightarrow \omega = \frac{eB}{m}\]
-in cui $\omega$ prende il nome di \textbf{frequenza ciclotronica}, un valore utilizzabile per determinare la traiettoria e la natura del campo magnetico $B$.
+in cui $\omega$ prende il nome di \textbf{frequenza ciclotronica}, un valore utilizzabile per determinare la traiettoria e la natura del campo magnetico $B$, grazie all'emissione di fotoni da parte delle particelle.\\
+Tale fenomeno non si verifica solo sperimentalmente grazie ad un acceleratore di particelle, ma anche nello spazio, dove sono presenti campi magnetici e particelle cariche, le quali ruotano con frequenza angolare corrispondente alla frequenza ciclotronica;
 
 \vspace{1em}
 \subsection{Pseudo-forza di Coriolis}
@@ -3005,8 +3010,33 @@ Si consideri il seguente diagramma di un moto circolare
       \fill circle [radius=1/10];
   }
   \end{tikzpicture}
-  \caption{Pseudo-forza di Coriolis}
-  \label{fig:pseudo_forza_coriolis}
+  % Set the Angles of the Axis
+	\tdplotsetmaincoords{57}{120}
+  \begin{tikzpicture}[scale=2,tdplot_main_coords]
+		% Axis
+	    \draw[->] (2,0,0) -- (-2,0,0) node[above right]{$y$};
+	    \draw[->] (0,-1.3,0) -- (0,1.5,0)coordinate(C) node[right]{$x$};
+	    \draw[->] (0,0,0)coordinate(B) -- (0,0,1.5) node[above]{$z$};
+
+  	    % Circural Loop
+  		\draw (0,0,0) circle [radius=1];
+
+  		% Node
+  		\draw (0,0,0) -- +(0.8,0,0) node [pos=0.6, above left] {\small$R$} ;
+
+  		% Current Direction
+  		\draw [blue, ->] (0.3,-1.2,0) arc (280:340:1.1) node [black, pos=0.4, left] {$\omega$};
+
+  		% Vectors
+  		\draw[->,very thick] (0,0,0) -- (0,0,1) node [pos=0.5, left] {$\vec \omega$};
+      \draw[very thick, ->] (0,0,0) -- (-0.8,0.60,0) coordinate(A) node[above, pos=0.5] {$\vec r$};
+      \draw[very thick, ->] (A) -- ++(-0.51,-0.51,0) node[above right, pos=0.5] {$\vec v$};
+
+  		% Angle
+  		\pic[draw, angle radius=7mm,"$\phi$", angle eccentricity=1.7, thick] {angle=C--B--A};
+	\end{tikzpicture}
+  \caption{Moto circolare uniforme e pseudo-forza di Coriolis}
+  \label{fig:moto_circolare_uniforme_pseudo_forza_coriolis}
 \end{figure}
 
 \vspace{1em}
@@ -3014,14 +3044,15 @@ Si consideri il seguente diagramma di un moto circolare
 Allora si può scrivere che, naturalmente, la velocità è il prodotto vettoriale tra il vettore velocità angolare e il vettore posizione, ovvero
 \[\boxed{\vec v = \vec w \times \vec R}\]
 E procedendo a derivare tale espressione rispetto al tempo si ottiene che
-\[\boxed{\vec{a} = \vec{\omega} \times \vec{v} = \vec \omega \times \left(\omega \times \vec R \right)}\]
-in cui le parentesi sono importanti, essendo il prodotto vettoriale non associativo.\\
+\[\boxed{\vec{a} = \vec{\omega} \times \vec{v} = \vec \omega \times \left(\vec \omega \times \vec R \right)}\]
+in cui le parentesi sono importanti, essendo il prodotto vettoriale non associativo (infatti $\vec \omega \times \vec \omega = 0$, essendo paralleli).\\
 La pseudo-forza centrifuga, pertanto,  si calcola come segue
 \[\boxed{\vec F = -m \vec a = -m \vec \omega \times \left(\vec \omega \times \vec R \right)}\]
+da cui si evince che se $\vec R = 0$, ovvero il punto si trova sull'asse di rotazione, allora non subisce alcuna forza, ma tanto più grande sarà il raggio, maggiore sarà anche la pseudo-forza che lo spinge in direzione opposta al moto.
 
 \vspace{1em}
 \noindent
-\textbf{Osservazione}: Si consideri un punto materiale che si muove in linea retta e si supponga che poggi su un piano rotante con velocità angolare $\omega$; allora si osserva che, naturalmente, la pseudo-forza centrifuga è una componente che contribuisce a fare sì che il punto vada verso l'esterno, ma oltre a ciò, è da considerare anche un'altra forza che spinge il punto materiale in direzione opposta al verso di rotazione.
+\textbf{Osservazione}: Si consideri un punto materiale che si muove in linea retta e si supponga che poggi su un piano rotante con velocità angolare $\omega$; allora si osserva che, naturalmente, la pseudo-forza centrifuga è una componente che contribuisce a fare sì che il punto vada verso l'esterno, ma oltre a ciò, è da considerare anche un'altra forza che spinge il punto materiale in direzione opposta al verso di rotazione, ovvero la pseudo-forza di Coriolis, la quale si ha quando il sistema di riferimento non inerziale dal quale si osserva il fenomeno presenta una propria velocità, ossia non si muove con traiettoria circolare.
 
 % Tabella per le definizione di concetti, etc...
 \vspace{1em}
@@ -3040,7 +3071,41 @@ La pseudo-forza centrifuga, pertanto,  si calcola come segue
 
 \vspace{1em}
 \noindent
-\textbf{Esempio}: Si osservi che, in un vortice di bassa pressione, considerando la velocità angolare terrestre con verso uscente dal foglio e la velocità delle particielle di aria dirette verso il centro del vortice, si ottiene che la pseudo-forza di Coriolis, per la regola della mano destra, è diretta ortogonalmente al vettore velocità e giacente sul foglio stesso.
+\textbf{Esempio}: Si osservi che, in un vortice di bassa pressione, considerando la velocità angolare terrestre con verso uscente dal foglio e la velocità delle particelle di aria dirette verso il centro del vortice, si ottiene che la pseudo-forza di Coriolis, per la regola della mano destra, è diretta ortogonalmente al vettore velocità e giacente sul foglio stesso:
+
+\newcommand\bonusspiral{} % just for safety
+\def\bonusspiral[#1](#2)(#3:#4)(#5:#6)[#7]{% \bonusspiral[draw options](placement)(start angle:end angle)(start radius:final radius)[revolutions]
+\pgfmathsetmacro{\domain}{#4+#7*360}
+\pgfmathsetmacro{\growth}{180*(#6-#5)/(pi*(\domain-#3))}
+\draw [#1,
+       shift={(#2)},
+       domain=#3*pi/180:\domain*pi/180,
+       variable=\t,
+       smooth,
+       samples=int(\domain/5)] plot ({\t r}: {#5+\growth*\t-\growth*#3*pi/180})
+}
+
+\begin{figure}[H]
+  \centering
+  \rowcolors{1}{white}{white}
+  \renewcommand{\arraystretch}{4}
+  \begin{tabularx}{\textwidth}{|P|}
+    \hline
+    {
+      \vspace{1.5em}
+      \begin{tikzpicture}[scale=0.7]
+      \node[circle,draw,minimum width=2cm] at (6.5,3.5){};
+      \draw (6.5,3.5) node[circ]{} (6.5,4) node[]{$\vec \omega$} (0,0) node[]{\huge$L$};
+      \bonusspiral[red](0,0)(60:270)(-1:-5)[2];
+      \draw[very thick, -stealth] (2.8,-1) -- ++(-1.5,1) node[at end, above]{$\vec v$};
+      \draw[very thick, -stealth] (2.8,-1) -- ++(0.5,1.5) node[at end, right]{$\vec F_c$};
+      \end{tikzpicture}
+    }\\
+    \hline
+  \end{tabularx}
+  \caption{Vortice di bassa pressione e pseudo-forza di Coriolis}
+  \label{fig:vortice_bassa_pressione_pseudo_forza_coriolis}
+\end{figure}
 
 \vspace{1em}
 \noindent
@@ -3060,20 +3125,22 @@ pertanto più un corpo è voluminoso, maggiore sarà la velocità con cui impatt
 \begin{center}
   17 Marzo 2022
 \end{center}
-La \textbf{legge di gravitazione universale} venne formulata da Isaac Newton nell'opera Philosophiae Naturalis Principia Mathematica ("Principia") e pubblicata il 5 luglio 1687. Newton, infatti, ha affermato di voler formulare una teoria unica (appunto, universale) che descriva sia la caduta dei corpi sulla terra, sia il movimento degli astri.\\
+La \textbf{legge di gravitazione universale} venne formulata da Isaac Newton nell'opera Philosophiae Naturalis Principia Mathematica (\quotes{Principia}) e pubblicata il 5 luglio 1687. Newton, infatti, ha affermato di voler formulare una teoria unica (appunto, universale) che descriva sia la caduta dei corpi sulla terra, sia il movimento degli astri.\\
 Al fine di determinare tale formula, Newton si basò sull'osservazione della Luna e del suo moto; l'\textbf{accelerazione centripeta della Luna}, naturalmente, si calcola come segue
-\[a = \frac{v^2}{R} = \omega^2 R\]
-in cui, ovviamente, $\omega$ è la velocità angolare, mentre $R$ è il raggio dell'orbita della Luna, ovvero la distanza Terra-Luna (già nota dai tempi dei Greci); in particolare è noto che $R = 60 \cdot R_T$, in cui $R_T = 6371$ km, mentre per determinare la velocità angolare, è noto che
+\[a_c = \frac{v^2}{R} = \omega^2 R\]
+in cui, ovviamente, $\omega$ è la velocità angolare, mentre $R$ è il raggio dell'orbita della Luna, ovvero la distanza Terra-Luna (già nota dai tempi dei Greci); in particolare è noto che $R = 60 \cdot R_T$, in cui $R_T = 6371$ km, mentre per determinare la velocità angolare della Luna, è noto che
 \[\omega = \frac{2\pi}{T}\]
-in cui $T \cong 27.3$ giorni. Ovviamente con questi dati è possibile calcolare l'accelerazione centripeta della Luna è
-\[a_c = 2.7 \times 10^{-3} \text{m/s}^2\]
+ovvero il rapporto tra l'angolo descritto dal moto e il tempo impiegato: anche in questo caso è noto che $T \cong 27.3$ giorni. Ovviamente, ora, con questi dati è possibile calcolare l'accelerazione centripeta della Luna, ossia:
+\[a_c = 2.7 \times 10^{-3} \text{ m/s}^2\]
 inoltre è noto che l'accelerazione gravitazionale terrestre è $g=9.8$ m/s$^2$ per cui eseguendo il rapporto si ottiene
-\[\frac{g}{a_c} = 60^2\]
-che è un risultato importante, in quanto fa capire come il modulo dell'accelerazione centripeta sia inversamente proporzionale alla distanza tra i due corpi che si attraggono; una proprietà che viene espressa tramite la seguente legge di gravitazione universale
+\[\frac{g}{a_c} \cong 60^2\]
+che è un risultato importante, in quanto fa capire come il modulo dell'accelerazione centripeta sia \textbf{inversamente proporzionale al quadrato della distanza} tra i due corpi che si attraggono:
+\[F \propto \frac{1}{d^2}\]
+Tale proprietà viene espressa tramite la seguente legge di gravitazione universale
 \[\boxed{F = G \cdot \frac{m_1 \cdot m_2}{r^2}}\]
-in cui $G$ prende il nome di \textbf{costante di gravitazione universale}.
+in cui $G$ prende il nome di \textbf{costante di gravitazione universale}, la quale venne determinata significativamente dopo Newton.
 
-\vspace{1em}
+\vspace{2em}
 \noindent
 \textbf{Esempio}: Si considerino due punti materiali $m_1$ e $m_2$ ad una certa posizione:
 
@@ -3081,30 +3148,63 @@ in cui $G$ prende il nome di \textbf{costante di gravitazione universale}.
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}[scale=1]
-    \draw (0,0) node[circ](start){} (-1,2) node[circ](m_1){$m_1$} (2,3) node[circ](m_2){$m_2$};
+    \draw (0,0) node[circ](start){} (-1,2) node[circ, above](m_1){} ++(0,0.4) node[]{$m_1$} (2,3) node[circ](m_2){} ++(0,0.4) node[]{$m_2$};
+    \draw [-stealth] (start) -- (m_1) node[midway, below left]{$\vec r_1$};
+    \draw [-stealth] (start) -- (m_2) node[midway, below right]{$\vec r_2$};
+    \draw [dashed] (m_1) -- coordinate[midway](mid) (m_2);
+    \draw [-stealth] (m_1) -- (mid) node[midway, above]{$\vec r_{1,2}$};
+    \draw [-stealth] (m_2) ++(-0.5,0.5) -- ++(-0.75,-0.25) node[midway, above]{$\vec F_{1,2}$};
   \end{tikzpicture}
-  \caption{Diagramma a corpo libero di una vettura in rallentamento}
-  \label{fig:diagramma_corpo_libero_vettura_rallentamento}
+  \caption{Forza di attrazione tra due masse}
+  \label{fig:forza_attrazione_gravitazionale}
 \end{figure}
 
 \vspace{1em}
 \noindent
 Allora si ha che, normalmente, il modulo della forza di attrazione gravitazinale dal corpo $1$ al corpo $2$ è
-\[F_{1,2} = G \cdot \frac{m_1 \cdot m_2}{\left \vert \vec r_1 - \vec r_2 \right \vert}\]
+\[\vec F_{1,2} = G \cdot \frac{m_1 \cdot m_2}{\left \vert \vec r_1 - \vec r_2 \right \vert}\]
 e volendo determinare il vettore forza di attrazione, semplicemente si può scrivere
-\[\vec F_{1,2} = -G \cdot \frac{m_1 \cdot m_2}{\left \vert \vec r_1 - \vec r_2 \right \vert} \cdot \hat{r_{1,2}}\]
+\[\boxed{\vec F_{1,2} = -G \cdot \frac{m_1 \cdot m_2}{\left \vert \vec r_1 - \vec r_2 \right \vert} \cdot \hat{r}_{1,2}}\]
+in cui cambiando il versore $\hat{r}_{1,2}$ si osserva come tale formula si adatti perfettamente alla terza legge di Newton: infatti il versore cambia segno, ma il modulo della forza rimane lo stesso.
 
 \vspace{1em}
 \noindent
-\textbf{Osservazione}: Allora si ha che, naturalmente, sulla Terra, fissando come origine il centro della Terra:
-\[\vec{F}_t = -G \cdot \frac{m_T \cdot m}{r^2} \cdot \vec r = - \left(G \cdot \frac{m_2}{R_T^2}\right) \cdot m \hat{r}\]
+\textbf{Osservazione}: Si osservi che, naturalmente, sulla Terra, fissando come origine il centro della Terra:
+\[\vec{F}_t = -G \cdot \frac{m_t \cdot m}{r^2} \cdot \hat{r} = - \left(G \cdot \frac{m_2}{R_t^2}\right) \cdot m \cdot \hat{r}\]
 in cui, ovviamente
-\[g = \left(G \cdot \frac{m_T}{R_T^2}\right)\]
-in cui si è fissato come raggio il raggio terrestre, dal momento che la Terra è un corpo sferico e, quindi, tutta la sua massa può essere considerata concentrata nel suo nucleo.
+\[g = \left(G \cdot \frac{m_t}{R_t^2}\right)\]
+in cui si è fissato come raggio il raggio terrestre, dal momento che la Terra è un corpo sferico e, quindi, tutta la sua massa può essere considerata concentrata nel suo nucleo (un'assunzione che corrisponde alla somma del contributo attrattivo di tutte le infinitesime masse che costiuiscono la Terra).
 
 \vspace{1em}
 \subsection{L'esperimento di Cavendish}
-Per misurare la forza di attrazione gravitazionale, Cavendish ha impiegato un pendolo su cui venivano fissate due masse che oscillavano leggermente ed è riuscito a determinare la densità della terra; sapendo la densità e il volume della Terra, si sarebbe stati in grado di conoscerne la massa e, sapendo il valore di $g$, si sarebbe, in seguito, stati in grado di isolare la costante gravitazionale $G$, che presenta il valore seguente:
+Per misurare la forza di attrazione gravitazionale, Cavendish ha impiegato un \textbf{pendolo a torsione} su cui venivano fissate due masse, in corrispondenza delle loro estremità:
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \draw (0,0) node[circ]{} -- ++(0,3) -- ++(3,0);
+    \draw (3,2) -- (3,4);
+    \foreach \i in {22,23,...,39} {
+      \draw (3,\i / 10) -- (3.3,\i / 10-0.3);
+    }
+    \draw (-2,5.5) -- (2,5.5);
+    \draw (0,5) -- ++(0,0.5);
+    \foreach \i in {-19,-18,...,19} {
+      \draw (\i / 10,5.5) -- (\i / 10+0.3,5.8);
+    }
+    \draw (0,5) node[circ]{} -- ++(1,-1) -- ++(0,-4.7) node[circle,fill=black,minimum width=10pt]{};
+    \draw (0,5) node[circ]{} -- ++(-1,-1) -- ++(0,-4.7) node[circle,fill=black,minimum width=10pt]{};
+    \draw (-1.5,-0.5) node[circ]{} -- (1.5,0.5) node[circ]{};
+    \draw (-1.5,-0.5) ++(0,-0.4) node[]{$m_1$};
+    \draw (1.5,0.5) ++(0,0.4) node[]{$m_2$};
+  \end{tikzpicture}
+  \caption{Esperimento di Cavendish}
+  \label{fig:esperimento_cavendish}
+\end{figure}
+
+\noindent
+Tali piccole masse oscillavano leggermente, a causa dell'attrazione con masse più considenti, in un moto continuativo, ma molto lento (in questo caso il periodo si aggirava intorno a $20$ minuti); l'esperimento doveva svolgersi esattamente sul piano, in modo tale da essere ortogonale alla forza di gravità della terra e ciò richiedeva molta precisione e condizioni sperimentali costanti (quali temperatura, pressioni, vento, etc.).\\
+Grazie a ciò Cavendish è riuscito a determinare la \textbf{densità della terra}, che era ciò che gli interessava maggiormente: sapendo, infatti, la densità e il volume della Terra, si sarebbe stati in grado di conoscerne la massa e, sapendo il valore di $g$, si sarebbe, in seguito, stati in grado di isolare la costante gravitazionale $G$, che presenta il valore seguente:
 \[\boxed{G = 6.67 \times 10^{-11} \frac{\text{m}^3}{\text{s}^2 \text{ kg}}}\]
 A partire da tale risultato è possibile analizzare il moto e le caratteristiche di diversi pianeti.
 
@@ -3112,14 +3212,68 @@ A partire da tale risultato è possibile analizzare il moto e le caratteristiche
 \subsection{Campo gravitazionale}
 A partire dall'equazione seguente
 \[\vec{F}_t = -G \cdot \frac{m_t}{R_t^2} \cdot \hat{r} \cdot m\]
-allora per campo si definisce una valutazione della \textbf{forza per unità di massa}, come mostrato di seguito:
-\[\boxed{\frac{\vec{F}_t}{m} = -G \cdot \frac{m_t}{R_t^2} = \vec g}\]
-che è esattamente lo stesso concetto di di campo elettrico, ovvero la forza per unità di carica (nel caso di un campo gravitazionale, la carica è proprio la massa).
+si osserva come la forza sia proporzionale alla massa: conoscendo la massa del corpo è possibile conoscere la forza su tale corpo.\\
+Per campo è da intendersi una valutazione della \textbf{forza per unità di massa}, come mostrato di seguito:
+\[\boxed{\frac{\vec{F}_t}{m} = -G \cdot \frac{m_t}{R_t^2} \cdot \hat{r} = \vec g}\]
+
+\colorlet{myred}{red!65!black}
+\colorlet{mygreen}{green!60!black}
+\colorlet{mydarkred}{red!50!black}
+\colorlet{mydarkblue}{blue!40!black}
+\tikzstyle{measure}=[{Latex[length=4,width=3]}-{Latex[length=4,width=3]},line width=0.4,mydarkblue]
+\tikzstyle{ground}=[preaction={fill,top color=black!10,bottom color=black!5,shading angle=20},
+                    fill,pattern=north east lines,draw=none,minimum width=0.3,minimum height=0.6]
+\tikzstyle{mass}=[line width=0.6,red!30!black,fill=red!40!black!10,rounded corners=1,
+                  top color=red!40!black!20,bottom color=red!40!black!10,shading angle=20]
+\tikzstyle{rope}=[brown!70!black,line width=1.2,line cap=round] %very thick
+\tikzstyle{force}=[->,myred,thick,line cap=round]
+\tikzstyle{unit}=[->,mygreen,thick,line cap=round]
+\tikzset{fieldlines/.style={mydarkred,decoration={markings,mark=at position #1 with {\arrow{latex}}},
+                            postaction={decorate},line width=0.7},
+         fieldlines/.default=0.55}
+\newcommand{\vbF}{\vb{F}}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=2]
+    \def\W{2.4}   % ground width
+    \def\D{0.2}   % ground depth
+    \def\H{1.5}   % height
+    \def\E{0.35}  % Earth's radius
+    \def\R{1.3}   % field line max. radius
+    \def\N{10}    % number of field lines
+    \def\rang{45} % angle or r axis
+
+    % FIELD LINES
+    \foreach \i [evaluate={\ang=\i*360/\N;}] in {1,...,\N}{
+      \draw[fieldlines=0.6] (\ang:\R) -- (\ang:\E); % field lines
+    }
+    \node[mydarkred,right] at (-0.6,-1.6) {$\vec g = -G \cdot \dfrac{m_t}{R_t^2} \cdot \hat{r}$};
+    \draw[->] (\rang:0.44*\R) --++ (\rang:0.4*\R) node[anchor=\rang+170,inner sep=1] {$r$};
+
+    % EARTH
+    \fill[blue!70!black!70] (0,0) circle(\E);
+    \begin{scope}[rotate=-11]
+      \clip (0,0) circle(\E);
+      \fill[white] (0,\E) ellipse({0.6*\E} and {0.15*\E});
+      \fill[white] (0,-\E) ellipse({0.8*\E} and {0.08*\E});
+      \fill[green!70!black!60,rotate=-30] (160:1.1*\E) ellipse({0.2*\E} and {0.8*\E});
+      \fill[green!70!black!60,rotate=40] (-10:1.14*\E) ellipse({0.2*\E} and {0.9*\E});
+      \fill[green!60!black!60,very thick,rotate=-20] % Australia
+        (230:0.86*\E) ellipse({0.25*\E} and {0.18*\E});
+    \end{scope}
+    \draw[line width=0.3] (0,0) circle(\E);
+  \end{tikzpicture}
+  \caption{Campo gravitazionale terrestre}
+  \label{fig:campo_gravitazionale_terrestre}
+\end{figure}
+
+\noindent
+che è esattamente lo stesso concetto di di campo elettrico, ovvero la forza per unità di carica (nel caso di un campo gravitazionale, la carica è proprio la massa): sapendo la carica, e qui la massa, è possibile conoscere la forza associata, in quanto è noto il campo, ossia la forza per unità di carica/massa.
 
 \vspace{1em}
 \noindent
-\textbf{Osservazione}: Si osservi che il \textbf{campo gravitazionale è additivo}: infatti, date due masse identiche, poste vicine l'una all'altra, le linee di campo dell'una si fondono con quelle dell'altra, dando vita a delle deformazioni delle lineee di campo.
-
+\textbf{Osservazione}: Si osservi che il \textbf{campo gravitazionale è additivo}: infatti, date due masse identiche $m_1$ e $m_2$, poste vicine l'una all'altra, le linee di campo dell'una si fondono con quelle dell'altra, dando vita a delle deformazioni delle linee di campo.\\
+Si osservi che, ovviamente, le linee di campo sono una convenzione grafica atta a rappresentare qualitativamente il fenomeno attrattivo: in ogni punto dello spazio vi sono dei vettori che dovrebbero essere rappresentati integralmente, ma per ovvie ragioni di comprensione, si preferisce la più elegante soluzione delle linee di campo.\\
 Di fatto si ha che il campo gravitazionale risultante è
 \[\vec{g} = \vec{g}_1 + \vec{g}_2\]
 
@@ -3127,14 +3281,16 @@ Di fatto si ha che il campo gravitazionale risultante è
 \subsection{Massa gravitazionale e inerziale}
 Dalla $2^a$ legge della dinamica
 \[\vec{F} = m_I \cdot \vec{a}\]
-si evince come la massa $m_I$ sia da considerarsi com l'\textbf{inerzia}, ovvero la \textbf{resistenza alla variazione di moto}.\\
+si evince come la massa $m_I$ sia da considerarsi com l'\textbf{inerzia}, ovvero la \textbf{resistenza alla variazione di moto} (e quindi di velocità).\\
 Mentre dalla legge di gravitazione universale
 \[\vec{F} = - G \cdot \frac{m_1 \cdot m_G}{r^2} \cdot \vec{r}\]
-si ha che $m_G$ è una sorta di \quotes{carica gravitazionale}, che non sono da reputarsi il medesimo concetto dal punto di vista teorico, per cui si dovrebbe dire che
+si ha che $m_G$ è una sorta di \quotes{carica gravitazionale}; tuttavia $m_I$ e $m_G$ non sono da reputarsi il medesimo concetto dal punto di vista teorico: si consideri, per esempio, il caso di due particelle, una poco massiva, ma molto carica e l'altra più massiva, che presenta una carica elettrica pressoché nulla, tale che la forza che subiscono sia completamente slegata dalla loro massa; in generale, infatti, non vi è correlazione fra le due masse, per cui, nel caso di una caduta libera, si dovrebbe avere che
+\[m_I \cdot \vec{a} = - G \cdot \frac{m_1 \cdot m_G}{r^2} \cdot \vec{r}\]
+in cui, isolando l'accelerazione si ottiene
 \[a_y = -G \cdot \frac{m_1}{r^2} \cdot \left(\frac{m_G}{m_I}\right)\]
-Tuttavia, dal punto di vista sperimentale, sono state eseguite delle misurazioni con un altissimo livello di precisione che hanno confermato come
+in cui non è possibile, in linea teoria, confondere $m_I$ con $m_G$. Tuttavia, dal punto di vista sperimentale, sono state eseguite delle misurazioni con un altissimo livello di precisione che hanno confermato come
 \[\frac{m_G}{m_I} = 1\]
-per cui le due masse sono da reputarsi identiche.
+per cui le due masse sono da reputarsi identiche. Anche nella teoria della relatività generale tale risultato trova significato: in essa, infatti, non si considera un'attrazione gravitazionale, ma solamente una deformazione spazio-temporale, per cui tutto il sistema è non-inerziale.
 
 \vspace{1em}
 \subsection{Corpi estesi}
@@ -3145,7 +3301,7 @@ in cui si deve integrare all'infinito il contributo di ciascuna punto.
 
 \vspace{1em}
 \noindent
-\textbf{Esempio}: Se si considera una distribuzione con simmetria sferica (ovvero una sfera in cui la densità non deve necessariamente essere uniforme), allora tutta la massa è da reputarsi al centro della sfera.
+\textbf{Esempio}: Se si considera una \textbf{distribuzione con simmetria sferica} (ovvero una sfera in cui la densità non deve necessariamente essere uniforme), allora tutta la massa è da reputarsi concentrata al centro della sfera, in quanto tale interpretazione è perfettamente equivalente alla somma infinita di tutti i contributi.
 
 \vspace{1em}
 \noindent
@@ -3153,7 +3309,10 @@ in cui si deve integrare all'infinito il contributo di ciascuna punto.
 \[\frac{1}{T}\]
 Inoltre, si ha che la forza centripeta descrive la natura della forza, non il tipo di forza, per cui la forza centripeta può essere causata da qualsiasi tipo di forza.\\
 Si osservi che un punto materiale si muove con velocità di modulo costante lungo un'ellisse, allora, l'accelerazione punta sempre verso il centro dell'elisse, in quanto il moto considerato è lo stesso di un moto circolare uniforme, ma visto da un sistema di riferimento a velocità costante (per cui l'accelerazione è nulla).\\
-Naturalmente, i corpi liberi su una vettura in decelerazione cadono in avanti perché mantengono la stessa velocità che avevano prima della decelerazione.
+Naturalmente, i corpi liberi su una vettura in decelerazione cadono in avanti perché mantengono la stessa velocità che avevano prima della decelerazione, mentre la pseudo-forza di Coriolis ha effetto solamente su grandi distanza, come si può evincere dalla seguente formula:
+\[\vec F_c = -2 m  \vec \omega \times \vec v\]
+ricordando che
+\[\vec \omega = \frac{\vec v}{R}\]
 
 \newpage
 \noindent
@@ -3240,6 +3399,132 @@ Allora, richiamando la seconda legge della dinamica, si può scrivere:
 \[\vec F_T + F_t = m \cdot \vec a\]
 e sostiutendo a tali vettori i moduli, si ottiene
 \[F_T = m \cdot (a + g)\]
+
+\newpage
+\noindent
+\begin{center}
+  22 Marzo 2022
+\end{center}
+\section{Energia}
+
+\vspace{1em}
+\subsection{Energia cinetica}
+L'\textbf{energia cinetica} (originariamente chiamata \emph{vis viva}) venne teorizzata da Leibniz e da Decartes: il primo asseriva che l'energia cinetica era direttamente proporzionale alla massa e al quadrato della velocità, mentre il secondo considerava soltanto la massa e la velocità e non il suo quadrato.\\
+Grazie a Thomas Young, tale concetto prese il nome di \textbf{energia} ed infine Coriolis gli attribuì il nome di \textbf{energia cinetica}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{ENERGIA CINETICA}}\\
+    \parbox{\linewidth}{L'\textbf{energia cinetica} viene calcolata come segue:
+    \[\boxed{K=\frac{1}{2}mv^2}\]
+    per quanto riguarda un solo punto materiale. Se, invece, si considera un agglomerato di punti materiali, allora
+    \[\boxed{K=\frac{1}{2} \sum_{i} m_i \cdot v_i^2}\]
+    Naturalmente, l'energia cinetica è uno scalare (non può avare una direzione), in cui $v^2=\vert \vec v \vert^2 = \vec v \cdot \vec v $.\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri una macchina di $m=1000$ kg e avente una velocità di $50$ km/h. Allora l'energia cinetica si calcola come segue:
+\[K=\frac{1}{2} \cdot 1000 \text{ kg} \cdot \left( \frac{50}{3.6} \text{ m/s} \right)^2 = 96.5 \text{ kJ}\]
+in cui
+\[\boxed{1 \text{ J} = \frac{\text{kg m}^2}{\text{s}^2}}\]
+Mentre se la velocità della vettura è $60$ km/h allora l'energia cinetica della macchina diventa:
+\[K=\frac{1}{2} \cdot 1000 \text{ kg} \cdot \left( \frac{60}{3.6} \text{ m/s} \right)^2 = 139 \text{ kJ}\]
+che significa che l'aumento di soli $10$ km/h comporta un aumento del $50\%$ dell'energia e, quindi, della dissipazione di energia in calore in caso di frenata.
+
+\vspace{1em}
+\subsection{Teorema lavoro-energia cinetica}
+Si osservi che dalla cinetica, in particolare, per quanto riguarda il moto uniformemente accelerato, era nota la formula seguente:
+\[v^2 - v_0^2 = 2a \cdot (x-x_0)\]
+Ma se ambo i membri si moltiplicano per $\frac{1}{2}m$ si ottiene
+\[\frac{1}{2} m v^2 - \frac{1}{2} m v_0^2 = ma \cdot (x-x_0)\]
+che corrisponde a
+\[K - K_0 = F \cdot (x-x_0) \longrightarrow \Delta K = F \cdot \Delta x \longrightarrow \Delta K = W\]
+ovvero si è ottenuto il \textbf{lavoro compiuto sul sistema da una forza esterna (trasferimento di energia verso (o da) il sistema)}.\\
+In altre parole, quando una forza viene applicata su un sistema, si assiste ad un trasferimento di energia.
+
+\vspace{1em}
+\subsection{Lavoro}
+Di seguito si espone la definizione di \textbf{lavoro}
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{LAVORO}}\\
+    \parbox{\linewidth}{Quando una forza $\vec F$ viene applicata su un corpo e produce uno spostamento $\Delta \vec s$, allora si ha che la forza ha compiuto un lavoro, calcolato come
+    \[\boxed{W = \vec F \cdot \Delta \vec r \cdot \cos(\theta)}\]
+    che significa che
+    \begin{itemize}
+      \item Se $\vec F$ è parallelo a $\Delta \vec r$, allora il lavoro è massimo.
+      \item Se $\vec F$ è perpendicolare a $\Delta \vec r$, allora il lavoro è nullo.
+      \item Se $\vec F$ presenta verso opposto rispetto a $\Delta \vec r$, allora il lavoro è negativo (si ha sottrazione di energia al sistema).
+    \end{itemize}
+    Naturalmente, nel caso in cui vi siano più forze agenti sul sistema, ciascuna delle quali produce uno spostamento si ottiene che
+    \[W_{TOT} = \vec F_1 \cdot \Delta \vec r_1 + \vec F_2 \cdot \Delta \vec r_2 + ... = \sum_{i} F_i \cdot \Delta \vec r_i\]
+    infine se il corpo non ruota e non si deforma, tutti gli spostamenti sono uguali, ovvero $\Delta \vec r_1 = \Delta \vec r_2 = ... + \Delta \vec r_n$.
+     \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che un astronauta in orbita attorno alla terra \textbf{ha peso}, in quanto è grazie a tale forza che risce a mantenere la propria orbita, altrimenti continuerebbe il proprio moto in linea retta.\\
+È facile, inoltre, determinare il raggio di orbita geostazionaria, calcolabile come:
+\[d=\frac{T^2 \cdot g}{(2 \pi)^2} = \]
+
+\vspace{1em}
+\noindent
+Si osservi che
+\[dW = \left(\sum \vec F\right) \cdot d \vec r = m \vec a \cdot d \vec r\]
+ma sapendo che
+\[\vec v \]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Il \textbf{teorema lavoro-energia cinetica} è una \textbf{conseguenza diretta} della seconda legge di Newton
+\[F = m \vec a\]
+e si applica ai punti materiali (ma non ad un sistema più complesso).\\
+Si osservi che tale risultato non è equivalente al teorema di \textbf{conservazione dell'energia}, anche se fornisce risultati uguali in importanti casi.\\
+È significativo osservare che il lavoro totale $W_{tot}$ così calcolato non corrisponde al \quotes{lavoro} in senso termodinamico. In questo caso si ha che
+\[W_{tot} = \Delta K\]
+da cui si può capire come il laovoro di una \textbf{forza costante} si possa calcolare come segue:
+\[W = \int_i^f \vec F \cdot d \vec r = \vec F \cdot (\vec r_f - \vec r_i) = \vec F \cdot \vec l\]
+in cui $\vec l$ indica lo \textbf{spostamento totale}, il quale non dipende assolutamente dal percorso compiuto.
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio}: Si consideri una vettura di massa $m=1000$ kg che viagga ad una velocità $v_0=50$ km/h. Si calcoli la distanza di arresto, considerando che la frenatura è resa possibile dalla forza di attrito cinetico $\vec F_k$.\\
+Naturalmente è ovvio che $F_N=F_t=mg$, mentre $F_k=\mu_k F_N=\mu_k mg$. Allora il lavoro compiuto dalla forza di attrito è
+\[W = \int_i^f \vec F_k \cdot d \vec r\]
+ed essendo la forza di attrito di verso opposto al moto, il lavoro $W$ avrà segno negativo.\\
+Pertanto si ottiene
+\[W = \int_i^f \vec F_k \cdot d \vec r = \int_0^d -F_k \cdot dx = -F_k \cdot d = -\mu m g d\]
+E richiamando il teorema lavoro-energia cinetica, si ottiene che
+\[W=\Delta K \longrightarrow -\mu_k m g d = K_f-K_i=-\frac{1}{2}mv_i^2\longrightarrow d=\frac{v_i^2}{2\mu_k g}\]
+e com'era da aspettarsi, lo spazio di frenata aumenta con il quadrato della velocità.
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio}: Si consideri un proiettile che viene sparato in aria, in direzione verticale, con velocità $\vec v_i$ sufficiente per raggiungere l'altezza di $h$ in cui l'accelerazione gravitazionale non può essere considerata costante.\\
+Naturalmente, dalla legge di gravitazione universale si ottiene che
+\[\vec F = - G \cdot \frac{m_t \cdot m}{(R_t + h)^2} \cdot \hat{j}\]
+Allora per il calcolo del lavoro si può procedere come segue:
+\[W=\int \vec F \cdot d \vec r = \int -G \cdot \frac{m_t \cdot m}{(R_t + h)^2}\]
+Naturalmente, in questo caso, la forza non è costante, per cui bisogna calcolare l'integrale, posto $h'=R_t+h$
+\[W=\int \vec F \cdot d \vec r = \int -G \cdot \frac{m_t \cdot m}{(R_t + h)^2} \cdot dh = \int_{R_t}^{R_t+h} - \frac{G m_t m}{{h'}^2} = G m_t m \cdot \left(\right)\]
+
 
 
 
