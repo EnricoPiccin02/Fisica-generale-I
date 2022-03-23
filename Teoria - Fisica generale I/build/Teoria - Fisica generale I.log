@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.27)  23 MAR 2022 07:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.27)  23 MAR 2022 10:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -602,7 +602,11 @@ File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 
 Package fancyhdr Warning: \fancyfoot's `E' option without twoside option is useless on input line 68.
 
-(build/Teoria - Fisica generale I.aux)
+(build/Teoria - Fisica generale I.aux
+
+LaTeX Warning: Label `fig:fisica_molla' multiply defined.
+
+)
 \openout1 = `"Teoria - Fisica generale I.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
@@ -723,21 +727,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 2682--2685
 
  []
 
-[46] [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] (build/Teoria - Fisica generale I.aux) ) 
+[46] [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71] (build/Teoria - Fisica generale I.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 46135 strings out of 480445
- 1212650 string characters out of 5892391
- 1889284 words of memory out of 5000000
- 62796 multiletter control sequences out of 15000+600000
+ 46183 strings out of 480445
+ 1213682 string characters out of 5892391
+ 1889325 words of memory out of 5000000
+ 62844 multiletter control sequences out of 15000+600000
  424297 words of font info for 103 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  128i,28n,130p,745b,2417s stack positions out of 5000i,500n,10000p,200000b,80000s
- </Users/enricopiccin/Library/texlive/2021basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local
-/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "build/Teoria - Fisica generale I.pdf" (66 pages, 440527 bytes).
+ </Users/enricopiccin/Library/texlive/2021basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/c
+mextra/cmmib7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on "build/Teoria - Fisica generale I.pdf" (71 pages, 461222 bytes).
 PDF statistics:
- 310 PDF objects out of 1000 (max. 8388607)
- 216 compressed objects within 3 object streams
+ 326 PDF objects out of 1000 (max. 8388607)
+ 227 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  25 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -2547,7 +2547,7 @@ Si determini, allora, l'angolo $\theta$ tale per cui il drone si muove ad una \t
 Naturalmente, in questo caso, è possibile applicare la $2^a$ legge della dinamica, in quanto è noto che il drone si muove a velocità costante, quindi l'accelerazione è nulla e quindi la somma delle forze risultanti è nulla.\\
 Pertanto si ha che
 \[\vec{F}_t + \vec{F}_v + \vec{F}_s = m \cdot \vec{a} = 0\]
-Naturalmene è possibile scomporre tale equazione vettoriale nelle sue componenti $x$ e $y$, ottenendo
+Naturalmente è possibile scomporre tale equazione vettoriale nelle sue componenti $x$ e $y$, ottenendo
 \[x: F_s \cdot \sin(\theta) - b v = 0\]
 \[y: F_s \cdot \cos(\theta) - m g = 0\]
 Dalla seconda equazione si ottiene che
@@ -3450,18 +3450,8 @@ Mentre se la velocità della vettura è $60$ km/h allora l'energia cinetica dell
 \[K=\frac{1}{2} \cdot 1000 \text{ kg} \cdot \left( \frac{60}{3.6} \text{ m/s} \right)^2 = 139 \text{ kJ}\]
 che significa che l'aumento di soli $10$ km/h comporta un aumento del $50\%$ dell'energia e, quindi, della dissipazione di energia in calore in caso di frenata.
 
-\vspace{1em}
-\subsection{Teorema lavoro-energia cinetica}
-Si osservi che dalla cinetica, in particolare, per quanto riguarda il moto uniformemente accelerato, era nota la formula seguente:
-\[v^2 - v_0^2 = 2a \cdot (x-x_0)\]
-Ma se ambo i membri si moltiplicano per $\frac{1}{2}m$ si ottiene
-\[\frac{1}{2} m v^2 - \frac{1}{2} m v_0^2 = ma \cdot (x-x_0)\]
-che corrisponde a
-\[K - K_0 = F \cdot (x-x_0) \longrightarrow \Delta K = F \cdot \Delta x \longrightarrow \Delta K = W\]
-ovvero si è ottenuto il \textbf{lavoro compiuto sul sistema da una forza esterna (trasferimento di energia verso (o da) il sistema)}.\\
-In altre parole, quando una forza viene applicata su un sistema, si assiste ad un trasferimento di energia.
-
-\vspace{1em}
+\newpage
+\noindent
 \subsection{Lavoro}
 Di seguito si espone la definizione di \textbf{lavoro}
 
@@ -3489,18 +3479,39 @@ Di seguito si espone la definizione di \textbf{lavoro}
     \hline
 \end{tabularx}
 
-\vspace{1em}
+\vspace{2em}
 \noindent
 \textbf{Osservazione}: Si osservi che un astronauta in orbita attorno alla terra \textbf{ha peso}, in quanto è grazie a tale forza che risce a mantenere la propria orbita, altrimenti continuerebbe il proprio moto in linea retta.\\
-È facile, inoltre, determinare il raggio di orbita geostazionaria, calcolabile come:
-\[d=\frac{T^2 \cdot g}{(2 \pi)^2} = \]
+È facile, inoltre, determinare il raggio di orbita geostazionaria (partendo dal centro della Terra), calcolabile come:
+\[d=\frac{T^2 \cdot g \cdot R_t^2}{(2 \pi)^2} = 42 221 \text{ km}\]
 
 \vspace{1em}
-\noindent
-Si osservi che
+\subsection{Teorema lavoro-energia cinetica}
+Si osservi che dalla cinetica, per quanto riguarda il moto uniformemente accelerato, è nota la formula seguente:
+\[v^2 - v_0^2 = 2a \cdot (x-x_0)\]
+Ma se ambo i membri si moltiplicano per $\frac{1}{2}m$ si ottiene
+\[\frac{1}{2} m v^2 - \frac{1}{2} m v_0^2 = ma \cdot (x-x_0)\]
+che corrisponde a
+\[K - K_0 = F \cdot (x-x_0) \longrightarrow \Delta K = F \cdot \Delta x \longrightarrow \Delta K = W\]
+ovvero si è ottenuto il \textbf{lavoro compiuto sul sistema da una forza esterna (trasferimento di energia verso (o da) il sistema)}. In altre parole, quando una forza viene applicata su un sistema, si assiste ad un trasferimento di energia.\\
+Più in generale, è possibile affermare dalla seconda legge della dinamica applicata ad un punto materiale di massa $m$ che
+\[\sum \vec F = m \cdot \vec a\]
+considerando, ora, uno \textbf{spostamento infinitesimale} $d \vec r$ (che è da interpretarsi come $\Delta \vec r \rightarrow 0$), si può calcolare il \textbf{lavoro infinitesimale} compiuto dalla forza sul punto materiale per determinare tale spostamento:
 \[dW = \left(\sum \vec F\right) \cdot d \vec r = m \vec a \cdot d \vec r\]
-ma sapendo che
-\[\vec v \]
+ma dalla cinetica è anche noto che
+\[\vec v = \frac{d \vec r}{d t} \longrightarrow d \vec r = \vec v \cdot dt\]
+che significa che in intervallo di tempo infinitesimale $dt$, un punto materiale alla velocità $\vec v$ compie uno spostamento infinitesimale $d \vec r$. Alla luce di tale evidenza, la formula ottenuta precedentemente diviene:
+\[m \vec a \cdot d \vec r = m \vec a \cdot \vec v dt\]
+Ma calcolando la derivata della velocità al quadrato si ottiene
+\[\frac{d}{dt} \vec v^2 = \frac{d}{dt} \left(\vec v \cdot \vec v\right) = \vec a \cdot \vec v + \vec v \cdot \vec a = 2 \cdot \vec a \cdot \vec v\]
+Alla luce di tale risultato si può quindi scrivere
+\[m \vec a \cdot \vec v dt = \frac{1}{2}m \cdot \frac{d}{dt} (\vec v)^2\]
+ovvero
+\[\boxed{dW = \frac{1}{2}m \cdot \frac{d}{dt} (\vec v)^2}\]
+Avendo ottenuto la formula per il calcolo del lavoro infinitesimale $dW$, è possibile eseguire una somma infinita di tali contributi per determinare il lavoro compiuto per effettuare uno spostamento maggiore, come mostrato di seguito:
+\[W_{tot} = \int_i^f dW = \int_{t_i}^{t_f} \left(\sum \vec F\right) \cdot d \vec{r} = \int_{t_i}^{t_f} \frac{1}{2}m \cdot \frac{d}{dt} (\vec v)^2 \cdot dt = \frac{1}{2}m \cdot \left(v_f^2 - v_i^2\right)\]
+per cui la formula finale ottenuta è proprio quanto ci si aspettava:
+\[\boxed{W_{tot} = \frac{1}{2}m \cdot \left(v_f^2 - v_i^2\right)}\]
 
 \vspace{1em}
 \noindent
@@ -3510,7 +3521,7 @@ e si applica ai punti materiali (ma non ad un sistema più complesso).\\
 Si osservi che tale risultato non è equivalente al teorema di \textbf{conservazione dell'energia}, anche se fornisce risultati uguali in importanti casi.\\
 È significativo osservare che il lavoro totale $W_{tot}$ così calcolato non corrisponde al \quotes{lavoro} in senso termodinamico. In questo caso si ha che
 \[W_{tot} = \Delta K\]
-da cui si può capire come il laovoro di una \textbf{forza costante} si possa calcolare come segue:
+da cui si può capire come il lavoro di una \textbf{forza costante} si possa calcolare come segue:
 \[W = \int_i^f \vec F \cdot d \vec r = \vec F \cdot (\vec r_f - \vec r_i) = \vec F \cdot \vec l\]
 in cui $\vec l$ indica lo \textbf{spostamento totale}, il quale non dipende assolutamente dal percorso compiuto.
 
@@ -3534,7 +3545,202 @@ Naturalmente, dalla legge di gravitazione universale si ottiene che
 Allora per il calcolo del lavoro si può procedere come segue:
 \[W=\int \vec F \cdot d \vec r = \int -G \cdot \frac{m_t \cdot m}{(R_t + h)^2}\]
 Naturalmente, in questo caso, la forza non è costante, per cui bisogna calcolare l'integrale, posto $h'=R_t+h$
-\[W=\int \vec F \cdot d \vec r = \int -G \cdot \frac{m_t \cdot m}{(R_t + h)^2} \cdot dh = \int_{R_t}^{R_t+h} - \frac{G m_t m}{{h'}^2} = G m_t m \cdot \left(\right)\]
+\[W=\int \vec F \cdot d \vec r = \int -G \cdot \frac{m_t \cdot m}{(R_t + h)^2} \cdot dh = \int_{R_t}^{R_t+h} - \frac{G m_t m}{{h'}^2} = G m_t m \cdot \left(\frac{1}{R_t+h}-\frac{1}{R_t}\right)\]
+in cui si ottiene che
+\[\Delta K = 0 - \frac{1}{2}m \cdot v_i^2 = W = \frac{}{}\]
+
+\newpage
+\noindent
+\begin{center}
+  23 Marzo 2022
+\end{center}
+\subsection{Lavoro compiuto da una forza variabile}
+Il lavoro compiuto da una forza variabile si ha quando la forza non è costante, ma dipende dalla distanza: in altre parole, sussiste una \textbf{relazione lineare tra forza e distanza}:
+
+
+\vspace{2em}
+\noindent
+\rowcolors{1}{white}{white}
+\begin{tabularx}{\textwidth}{P}
+  {
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          grid=both,
+          axis lines = middle,
+          xlabel = \(x\),
+          ylabel = {\(F_x\)},
+          legend pos=outer north east,
+          ymajorgrids=true,
+          xmajorgrids=true,
+          grid style=dashed,
+        ]
+      \addplot[
+        domain=-5:5,
+        samples=100,
+        color=orange,
+      ]
+      {-x};
+      \end{axis}
+      \end{tikzpicture}
+    }
+\end{tabularx}
+
+\noindent
+Per cui si perviene al risultato seguente:
+\[\boxed{F_x=-kx}\]
+la quale prende il nome di \textbf{legge di Hooke} che, propriamente, viene impiegata per descrivere la \textbf{forza di una molla}: quando lo spostamento è positivo, la forza è negativa (si chiama, infatti, \textbf{forza di richiamo}), e viceversa.
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[every node/.style={draw,outer sep=0pt,inner sep=0pt,thick}, scale=2]
+    \tikzstyle{spring}=[thick,decorate,decoration={aspect=0.5, segment length=1mm, amplitude=2mm,coil}]
+    \draw[thick] (0,0) --(0,1);
+    \draw[thick] (0,0) --(3,0) node[draw=none,xshift=5pt]{$x$};
+    \node at(0,0.25) (a) [draw=none] {};
+    \node at (2,0.25)(b) [minimum size=0.5cm,label=$\rightarrow$] {m};
+    \draw [spring] (a) -- (b) node[draw=none,pos=.5,right=.25cm] {};
+    \node at (2,-0.3)(c) [draw=none,yshift=5pt] {$x=0$};
+    \draw[dashed] (b.south) -- (c.north);
+  \end{tikzpicture}
+  \caption{Fisica di una molla}
+  \label{fig:fisica_molla}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Volendo calcolare il lavoro compiuto da tale forza, è sufficiente considerare l'integrale della forza risultante moltiplicata per lo spostamento, come mostrato di seguito:
+\[\boxed{W=\int_{x_i}^{x_f}-k x dx = - \frac{1}{2}k \cdot (x_f^2-x_i^2)}\]
+che costiuisce un lavoro che è \textbf{indipendente dal percorso compiuto}.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio $\boldsymbol{1}$}: Si consideri un blocco sospeso da una molla, in cui la costante di elasticità della molla è $k$, mentre il blocco è immobile.\\
+Naturalmente, le due forze che agiscono su tale massa sono la forza peso $\vec F_t$ e la forza di richiamo della molla $\vec F_m$. Naturalmente, essendo il blocco immobile, deve essere che
+\[\sum \vec F = m \vec a = 0\]
+Applicando la seconda legge della dinamica, quindi, si ottiene che
+\[k \cdot \Delta y = mg \longrightarrow \Delta y = \frac{mg}{k}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio $\boldsymbol{2}$}: Si consideri un carrello che si muove di velocità $\vec v_i$ e che deve arrestare la sua corsa da una molla posta orizzontalmente al moto. Si determini, allora, la costante di elasticità della molla $k$ affinché il modulo dell'accelerazione sia al massimo $a_{max}=5g$.\\
+È chiaro che l'accelerazione sarà massima nel punto di massima compressione, mentre sarà nulla prima del punto di contatto e crescerà in modo lineare secondo la legge di Hooke:
+
+\vspace{2em}
+\noindent
+\rowcolors{1}{white}{white}
+\begin{tabularx}{\textwidth}{P}
+  {
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          grid=both,
+          axis lines = middle,
+          xlabel = \(x\),
+          ylabel = {\(a\)},
+          legend pos=outer north east,
+          ymajorgrids=true,
+          xmajorgrids=true,
+          grid style=dashed,
+          xmin=-6,
+          xmax=6,
+          ymin=-2,
+          ymax=6,
+          xtick={0,5},
+          xticklabels={O,$x_{max}$},
+          ytick={5},
+          yticklabels={$a_{max}$},
+        ]
+      \addplot[
+        domain=0:5,
+        samples=100,
+        color=blue,
+        thick,
+      ]
+      {x};
+      \draw[thick,blue] (axis cs:-5,0) -- (axis cs:0,0);
+      \end{axis}
+      \end{tikzpicture}
+    }
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+Dalla seconda legge della dinamica si ottiene che
+\[\sum \vec F = m \vec a\]
+per cui considerando solamente la componente orizzontale, si ottiene
+\[F_x = m a_x \longrightarrow -k x = m a_x \longrightarrow a_x = - \frac{k}{m} x\]
+Applicando, ora, il teorema lavoro-energia cinetica si ottiene che
+\[W = \Delta K\]
+in cui è noto che $\vec v_i = \vec v_i$ mentre $x_i = 0$, e $\vec v_f = 0$, mentre $x_f = x_{max}$ da cui:
+\[W = - \frac{1}{2}k \cdot \left(x_f^2 - x_i^2\right) = - \frac{1}{2}k \cdot x_{max}^2\]
+invece si ottiene che
+\[\Delta K = K_f - K_i = 0 - \frac{1}{2}m v_i^2\]
+Applicando infine il teorema lavoro-energia cinetica si ottiene che
+\[- \frac{1}{2}k \cdot x_{max}^2 = - \frac{1}{2}m v_i^2 \longrightarrow x_{max} = \sqrt{\frac{m}{k}} \cdot v_i\]
+Ecco che avendo isolato $x_{max}$ si può scrivere che
+\[a_{max} = - \frac{k}{m} x_{max} \longrightarrow a_{max} = \sqrt{\frac{k}{m}} \cdot v_i\]
+Ma sapendo che $a_{max}=5g$, si può facilmente isolare $k$, ottenendo:
+\[k \leq \frac{a_{max}^2}{v_{i}^2} \cdot m = \frac{25 g^2}{v_{i}^2} \cdot m\]
+
+\vspace{1em}
+\subsection{Lavoro compiuto dalla forza di gravità}
+Naturalmente la forza di gravità è una forza costante, per cui il lavoro che essa compie dipende unicamente dalla posizione iniziale e finale scelta.\\
+Allora, applicando la formula per il calcolo del lavoro compiuto da una forza costante si ottiene
+\[W=\int_i^f \vec F \cdot d \vec r = -mg \cdot (y_f - y_i)\]
+pertanto il laovor compiuto dalla forza di gravità è
+\[\boxed{W=-mg \cdot (y_f - y_i)}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri una massa $m$ che viene lasciata scivolare (senza attrito) su una discesa, partendo con velocità iniziale $\vec v_i = 0$ e giungendo alla base di tale discesa con velocità finale $\vec v_f$. Si calcoli, allora, la velocità finale della massa.\\
+Naturalmente, applicando il teorema lavoro-energia cinetica si ottiene che
+\[W=\Delta K \longrightarrow -mg \cdot (y_f - y_i) = \frac{1}{2}m \cdot v_f^2 \longrightarrow mgh = \frac{1}{2} m v_f^2\]
+Ecco allora che la velocità finale di un corpo che viene lasciato cadere da una altezza $h$, in assenza di attriti è
+\[\boxed{v_f=\sqrt{2gh}}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che il lavoro compiuto da una forza può essere sia positivo o negativo (se la forza è diretta nello stesso verso dello spostamento, oppure no).\\
+Una forza che non compie mai lavoro è il campo magnetico: ciò significa che il campo magnetico non può mai accelerare delle particelle; per farlo è necessario impiegare un campo elettrico.\\
+Ovviamente il lavoro è l'integrale della forza per lo spostamento, per cui rappresenta l'area della parte di piano sottesa al grafico della forza in funzione dello spostamento.
+
+\vspace{1em}
+\subsection{Forze conservative}
+Di seguito si espone la definzione di \textbf{forza conservativa}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{FORZA CONSERVATIVA}}\\
+    \parbox{\linewidth}{Una forza si definisce \textbf{conservativa} se
+    \[\boxed{\int_i^f \vec F \cdot d \vec r}\]
+    è \textbf{indipendente dal percorso}. Analogamente si ha che
+    \[\boxed{\oint \vec F \cdot d \vec r} = 0\]
+    che corrisponde a dire che
+    \[\boxed{\int_i^f \vec F \cdot d \vec r + \int_f^i \vec F \cdot d \vec r = 0}\]
+    In altri termini, si potrebbe dire che una funzione è definita conservativa se esiste una funzione $\mathcal{U}$ tale che
+    \[\boxed{\vec F = \nabla \mathcal{U}}\]
+    Ove per $\nabla \mathcal{U}$ è da intendersi il \textbf{gradiente} di $\mathcal{U}$, ossia la derivata coalcolata in tutte le direzioni:
+    \[\nabla \mathcal{U} = \frac{\nabla \mathcal{U}}{\nabla x} \cdot \hat{i} + \frac{\nabla \mathcal{U}}{\nabla y} \cdot \hat{j} + \frac{\nabla \mathcal{U}}{\nabla z} \cdot \hat{k}\]
+    \vspace{-1mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che la funzione $\mathcal{U}$ impiiegata nella definizione prende il nome di \textbf{energia potenziale}.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si osservi che un esempio molto semplice di \textbf{forza non-conservativa} è l'attrito, in quanto il lavoro compiuto da tale forza dipende necessariamente dal percorso, essendo la forza d'attrito è sempre opposta allo spostamento. Pertanto si ottiene che:
+\[\oint F_k \cdot d \vec{r} = \int_i^f F_k \cdot d \vec r + \int_f^i F_k \cdot d \vec r = 2 F_k \cdot \int_i^f d \vec r\]
+
 
 
 
