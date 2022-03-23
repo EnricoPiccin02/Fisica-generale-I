@@ -1108,7 +1108,7 @@ Naturalmente si ha che
 Naturalmente il modulo di un vettore non dipende dal sistema di coordinate scelto.\\
 Naturalmente è possibile avere
 \[\left \vert \vec{A} + \vec{B} \right \vert = \left \vert \vec{A} - \vec{B} \right \vert\]
-e per dimostrarne la veridicità basta cosnsiderare due vettori perpendicolari.\\
+e per dimostrarne la veridicità basta considerare due vettori perpendicolari.\\
 Ovviamente, un versore ha sempre modulo unitario per essere definito tale: in particolare, dato il vettore $\vec{v} = \hat{i} + \hat{j} + \hat{k}$, il versore
 \[\hat{n} = \frac{\vec{v}}{v}\]
 è proprio un versore in direzione $\hat{i} + \hat{j} + \hat{k}$.\\
@@ -3319,13 +3319,14 @@ ricordando che
 \begin{center}
   21 Marzo 2022
 \end{center}
-La forza di attrazione tra due corpi è direttamente proporzionale alla massa dei due corpi e inversamente proporzionale alla distanza fra i due (e tale concetto si trasla anche alla teoria della carica, per la \textbf{Forza di Coulomb}).\\
-Il \textbf{campo gravitazionale}, inoltre, è una vera e propria forza che si applica indistintamente ad ogni corpo, indipendentemente dalla massa di ogni corpo.\\
-La differenza tra massa gravitazionale e massa inserziale è puramente concettuale, anche se nella pratica tali masse coincidono; infine, per quanto concerne i corpi estesi, al fine di considerare la forza attrattiva totale, è sufficiente sommare i contributi di tutte le masse.
+La forza di attrazione tra due corpi è direttamente proporzionale alla massa dei due corpi e inversamente proporzionale alla distanza fra i due (e tale concetto si trasla anche alla teoria della carica, per la \textbf{Forza di Coulomb}, in cui al posto della massa si deve considerare la carica di una particella e in questo caso la carica può essere positiva o negativa, ottenendo forze attrattive o repulsive). La formula per il calcolo della forza di attrazione gravitazionale presenta un $-$ in quanto si tratta di una forza attrattiva, ovviamente.\\
+Il \textbf{campo gravitazionale} è definita come la forza per unità di massa: è, quindi, una vera e propria forza che si applica indistintamente ad ogni corpo, indipendentemente dalla massa di ogni corpo.\\
+La differenza tra massa gravitazionale e massa inserziale è puramente concettuale, anche se nella pratica tali masse coincidono; infine, per quanto concerne i corpi estesi, al fine di considerare la forza attrattiva totale, è sufficiente sommare i contributi di tutte le masse; nel caso di un corpo con simmetria sferica, invece, è sufficiente considerare che la massa sia idealmente concentrata nel centro della sfera stessa, un'agevolazione che permette anche di semplificare i calcoli da svolgere.
 
 \vspace{1em}
 \subsection{Leggi di Keplero}
-Di seguito si espongono le tre fondamentali leggi di Keplero:
+Kelpero, impiegando dei dati molto precisi, è riuscito a formulare delle valutazioni estremamente importanti sull'orbita dei pianeti: egli, infatti, ha scoperto che l'orbita dei pianeti è ellettica, in cui il sole si trova in uno dei due fuochi.\\
+Non solo, Keplero, osservando il moto degli astri, è riuscito anche a formulare due leggi che spiegano la cinetica del moto dei pianeti, attraverso calcoli molto complessi e basandosi su risultati sperimentali. Di seguito si espongono le tre fondamentali leggi di Keplero:
 
 % Tabella per le definizione di concetti, etc...
 \vspace{1em}
@@ -3338,15 +3339,15 @@ Di seguito si espongono le tre fondamentali leggi di Keplero:
     {\textbf{LEGGI DI KEPLERO}}\\
     \parbox{\linewidth}{Le leggi di Keplero sono:
     \begin{enumerate}
-      \item \emph{Tutti i pianeti si muovono lungo orbite ellittiche di cui il sole occupa uno dei fuochi}
-      \item \emph{La congiungente di un pianeta con il Sole spazza aree uguali in intervalli di tempo uguali}
-      \item \emph{Il quadrato del periodo di un qualunque pianeta è proporzionale al cubo della distanza media del pianeta dal Sole}
+      \item \emph{Tutti i pianeti si muovono lungo orbite ellittiche di cui il sole occupa uno dei fuochi};
+      \item \emph{La congiungente di un pianeta con il Sole spazza aree uguali in intervalli di tempo uguali} (ciò significa che i pianeti, quando sono più lontani dal sole, ruotano più lentamente rispetto a quando si trovano nelle sue prossimità);
+      \item \emph{Il quadrato del periodo di un qualunque pianeta è proporzionale al cubo della distanza media del pianeta dal Sole}.
     \end{enumerate}
-    \vspace{3mm}}\\
+    \vspace{1mm}}\\
     \hline
 \end{tabularx}
 
-\vspace{1em}
+\vspace{2em}
 \noindent
 La terza legge di Keplero può essere facilmente giustificata alla luce della legge di gravitazione universale di Newton.\\
 Se, infatti, si considera un'orbita circolare (anziché ellittica) è possibile confondere la forza di attrazione gravitazionale $\vec F_a$ con la forza centripeta $\vec F_c$, per cui si ottiene
@@ -3354,7 +3355,7 @@ Se, infatti, si considera un'orbita circolare (anziché ellittica) è possibile 
 o anche
 \[\vec F_c = \vec F_a \longrightarrow m_P \cdot \omega^2 \cdot d = G \cdot \frac{m_P \cdot m_S}{d^2}\]
 in cui, ovviamente, $m_P$ è la massa del pianeta, mentre $m_S$ è la massa del sole e $d$ è la distanza tra il pianeta e il sole. Da questo si ottiene che:
-\[\frac{1}{\omega^2} = \frac{1}{G \cdot m_S}\]
+\[\frac{1}{\omega^2} = \frac{1}{G \cdot m_S} \cdot d^3\]
 Ma siccome $\omega$ è la velocità angolare, ovvero il rapporto fra un giro completo e il periodo di rotazione, è facile capire che:
 \[\frac{T^2}{(2\pi)^2} = \frac{1}{G \cdot m_S} \cdot d^3\]
 Allora isolando il quadrato del periodo si ottiene:
@@ -3363,27 +3364,36 @@ Allora isolando il quadrato del periodo si ottiene:
 \vspace{1em}
 \noindent
 \textbf{Esercizio}: Un'orbita geostazionaria è l'orbita di un satellite attorno alla Terra che presenta un periodo di rotazione identico a quello della terra, per cui si mantiene sempre sopra lo stesso punto sopra la terra: secondo la terza di legge di Keplero, esiste una sola altezza tale per cui l'orbita di un satellite possa essere geostazionaria.\\
-Si calcoli, allora, la velocità alla quale deve ruotare un satellite (idealmente sulla superficie della Terra). È facile capire che tale velocità si calcola come segue
+Si calcoli, allora, la velocità alla quale deve ruotare un satellite (idealmente sulla superficie della Terra) affinché la sua orbita sia geostazionaria. È facile capire che tale velocità si calcola come segue
 \[v = \frac{\Delta s}{\Delta t} = \frac{2 \pi r}{\sqrt{\dfrac{(2 \pi)^2}{g \cdot r^2} \cdot r^3}} = r \cdot \sqrt{\frac{g}{r}} = \sqrt{g \cdot r}\]
+ricordando che
+\[g=\frac{G \cdot m_t}{R_t^2} \longrightarrow G \cdot m_t = g \cdot R_t^2\]
 Ecco che allora la velocità cercata è
-\[v = \sqrt{g \cdot r}\]
+\[\boxed{v = \sqrt{g \cdot r}}\]
+Si possono, naturalmente, anche considerare le due uguaglianze seguenti:
+\[\boxed{\frac{v^2}{R_t} = g} \hspace{1em} \text{e} \hspace{1em} \boxed{\omega^2 \cdot R_t = g}\]
+Ovviamente, per determinare il periodo di rotazione di un satellite attorno alla terra è sufficiente impiegare la terza legge di Kelpero, per cui
+\[\boxed{T=\sqrt{\frac{(2\pi)^2}{g} \cdot d}}\]
 
-\vspace{1em}
+\vspace{2em}
 \noindent
-\textbf{Osservazione}: Si osservi che dalla terza legge di Keplero si ottiene che
+\textbf{Osservazione}: Si osservi che il periodo dell'orbita per diversi pianeti risula essere molto simile; in particolare è noto che, per un qualsiasi pianeta, dalla terza legge di Keplero si ottiene che
 \[d^3 = \frac{G \cdot m_S}{(2\pi)^2} \cdot T^2\]
 ma più in generale, per un qualsiasi pianeta si ottiene che
 \[T = 2\pi \cdot \sqrt{\frac{R_P^3}{G \cdot m_P}}\]
 in cui, sotto la radice, compare il rapporto
-\[\frac{R^3}{m_P}\]
-che è esattamente il reciproco della densità del pianeta, essendo
+\[\frac{R_P^3}{m_P}\]
+che è esattamente il reciproco della densità del pianeta, essendo il volume di una sfera
 \[V_S = \frac{4}{3} \cdot \pi \cdot R^3\]
 da cui si evince che
-\[T = 2\pi \cdot \sqrt{\frac{3}{4} \cdot \frac{1}{\rho}}\]
+\[T = 2\pi \cdot \sqrt{\frac{3}{4\pi} \cdot \frac{1}{\rho}}\]
+in cui, naturalmente
+\[\rho = \frac{m}{V}\]
+Pertanto si ottiene che tutti i pianeti che sono stati considerati presentano lo stesso periodo di orbita in quanto hanno tutti la \textbf{stessa densità} (in quanto formati da ghiaccio, rocce, acqua, etc.).
 
 \vspace{1em}
 \noindent
-\textbf{Osservazione}: Se fosse possibile tagliare la terra in due parti uguali e si lasciasse cadere una massa in tale foro, allora la massa accelerebbe fino a raggiungere il centro della terra, dove la forza di attrazione si annullerebbe; pertanto, la massa continuerebbe a scendere venenedo progressivamente decelerata fino a raggiungere velocità nulla al culmine della sua corsa dall'altra parte del pianeta, venendo nuovamente attratta al centro e così via, fino a quando non si viene a creare un moto oscillatorio di periodo esattamente pari alla rotazione della Terra.
+\textbf{Osservazione}: Se fosse possibile tagliare la terra in due parti uguali e si lasciasse cadere una massa in tale foro, allora la massa accelerebbe fino a raggiungere il centro della terra, dove la forza di attrazione si annullerebbe; pertanto, la massa continuerebbe a scendere venenedo progressivamente decelerata fino a raggiungere velocità nulla al culmine della sua corsa dall'altra parte del pianeta, venendo nuovamente attratta al centro e così via, fino a quando non si viene a creare un moto oscillatorio di periodo esattamente pari al periodo di orbita attorno alla Terra.
 
 \vspace{1em}
 \noindent
@@ -3399,6 +3409,7 @@ Allora, richiamando la seconda legge della dinamica, si può scrivere:
 \[\vec F_T + F_t = m \cdot \vec a\]
 e sostiutendo a tali vettori i moduli, si ottiene
 \[F_T = m \cdot (a + g)\]
+Taluna è la formula che si può adattare a qualsiasi scenario al fine di calcolare la forza di tensione sul cavo: se essso si muove di moto rettilineo uniforme, se accelera o decelera.
 
 \newpage
 \noindent

@@ -46,12 +46,12 @@
 \contentsline {subsection}{\numberline {5.3}Massa gravitazionale e inerziale}{54}{}%
 \contentsline {subsection}{\numberline {5.4}Corpi estesi}{55}{}%
 \contentsline {subsection}{\numberline {5.5}Leggi di Keplero}{56}{}%
-\contentsline {section}{\numberline {6}Energia}{58}{}%
-\contentsline {subsection}{\numberline {6.1}Energia cinetica}{58}{}%
-\contentsline {subsection}{\numberline {6.2}Teorema lavoro-energia cinetica}{58}{}%
-\contentsline {subsection}{\numberline {6.3}Lavoro}{59}{}%
-\contentsline {section}{\numberline {7}Oscillazioni}{61}{}%
-\contentsline {section}{\numberline {8}Solidi e fluidi}{62}{}%
-\contentsline {section}{\numberline {9}Temperatura e calore}{63}{}%
-\contentsline {section}{\numberline {10}Il primo principio della termodinamica}{64}{}%
-\contentsline {section}{\numberline {11}Il secondo principio della termodinamica}{65}{}%
+\contentsline {section}{\numberline {6}Energia}{59}{}%
+\contentsline {subsection}{\numberline {6.1}Energia cinetica}{59}{}%
+\contentsline {subsection}{\numberline {6.2}Teorema lavoro-energia cinetica}{59}{}%
+\contentsline {subsection}{\numberline {6.3}Lavoro}{60}{}%
+\contentsline {section}{\numberline {7}Oscillazioni}{62}{}%
+\contentsline {section}{\numberline {8}Solidi e fluidi}{63}{}%
+\contentsline {section}{\numberline {9}Temperatura e calore}{64}{}%
+\contentsline {section}{\numberline {10}Il primo principio della termodinamica}{65}{}%
+\contentsline {section}{\numberline {11}Il secondo principio della termodinamica}{66}{}%
