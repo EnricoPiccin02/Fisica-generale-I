@@ -3721,7 +3721,7 @@ Di seguito si espone la definzione di \textbf{forza conservativa}:
     \parbox{\linewidth}{Una forza si definisce \textbf{conservativa} se
     \[\boxed{\int_i^f \vec F \cdot d \vec r}\]
     è \textbf{indipendente dal percorso}. Analogamente si ha che
-    \[\boxed{\oint \vec F \cdot d \vec r} = 0\]
+    \[\boxed{\oint \vec F \cdot d \vec r = 0}\]
     che corrisponde a dire che
     \[\boxed{\int_i^f \vec F \cdot d \vec r + \int_f^i \vec F \cdot d \vec r = 0}\]
     In altri termini, si potrebbe dire che una funzione è definita conservativa se esiste una funzione $\mathcal{U}$ tale che
@@ -3742,9 +3742,146 @@ Di seguito si espone la definzione di \textbf{forza conservativa}:
 \[\oint F_k \cdot d \vec{r} = \int_i^f F_k \cdot d \vec r + \int_f^i F_k \cdot d \vec r = 2 F_k \cdot \int_i^f d \vec r\]
 
 
+\newpage
+\noindent
+\begin{center}
+  24 Marzo 2022
+\end{center}
+Il lavoro viene definito come l'integrale del prodotto tra la forza applicata e lo spostamento ottenuto: naturalmente il lavoro può essere positivo o negativo e il laovoro può essere eseguito da qualsiasi forza.\\
+Le forze conservative sono forze per le quali il lavoro non dipende dal percorso e, quindi, è possibile applicare il principio di conservazione dell'energia cinetica. Esempi di forze conservative sono:
+\begin{itemize}
+  \item Gravità;
+  \item Forza elastica (non sempre);
+  \item Forza elettrica;
+  \item etc.
+\end{itemize}
+Mentre forze non conservative sono:
+\begin{itemize}
+  \item Attrito;
+  \item Resistenza dell'aria;
+  \item Forza compiuta da una persona;
+  \item etc.
+\end{itemize}
 
+\vspace{1em}
+\subsection{Forza conservativa}
+Di seguito si espone la definizione di \textbf{energia potenziale}:
 
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{ENERGIA POTENZIALE}}\\
+    \parbox{\linewidth}{Data una forza conservativa $\vec F$, è noto che il lavoro compiuto da tale forza è
+    \[W_{i,f}=\int_{i}^f \vec F \cdot d \vec r\]
+    e dipende solamente dai vettori posizione $\vec r_i$ e $\vec r_f$. Tale integrale, riscritto sottoforma di energia potenziale è
+    \[W_{i,f} = \left(-\mathcal{U}(\vec r_f)\right) - \left(-\mathcal{U}(\vec r_i)\right)\]
+    In altre parole si ha che
+    \[\boxed{\mathcal{U}(\vec r) = - \int \vec F \cdot d \vec r + c}\]
+    in cui $c=$ costante. Pertanto da ciò segue che
+    \[W_{i,f}=-\Delta \mathcal{U}_{i,f}\]
+    per cui il lavoro compiuto da $i$ a $f$ è uguale all'opposto della differenza di energia potenziale.
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
 
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che ogni qualvolta vi è una forza conservativa vi è energia potenziale.\\
+L'energia potenziale, più in generale, può essere interpretata come un modo di immagazzinare energia per essere successivamente impiegata per compiere un lavoro (si parla di \quotes{potenziale di compiere un lavoro})
+
+\vspace{1em}
+\subsubsection{Energia potenziale gravitazionale}
+Per quanto concerne la forza di gravità, è noto che $\vec F_t = mg \cdot \hat{j}$ e $d \vec r = dy \cdot \hat{j}$, per cui l'energia potenziale gravitazionale diviene
+\[\mathcal{U}(y)=-\int(-mg \cdot dy) = mg \cdot y + c\]
+Per cui l'energia potenziale gravitazionale si calcola come segue:
+\[\boxed{\mathcal{U}(h)=mgh}\]
+
+\vspace{1em}
+\subsubsection{Energia potenziale elastica}
+Per quanto concerne la forza elastica, è noto che $\vec F_t \cdot d \vec r = -k x dx$, da cui:
+
+\[\mathcal{U}(x) = -\int - k x dx = \frac{1}{2}k \cdot x^2 + c\]
+... continua ...\\
+$mg \cdot \hat{j}$ e $d \vec r = dy \cdot \hat{j}$, per cui l'energia potenziale gravitazionale diviene
+\[\mathcal{U}(y)=-\int(-mg \cdot dy) = mg \cdot y + c\]
+Per cui l'energia potenziale gravitazionale si calcola come segue:
+\[\boxed{\mathcal{U}(h)=mgh}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri il pompaggio idroelettrico che prevede un bacino idrico in rilievo con $h=1050 \text{ m}$, avente una capacità di $V=9000000 \text{ m}^3$. Allora per conoscere l'energia potenziale è sufficiente impiegare la formula precedente:
+\[\mathcal{U}=mgh=V \rho g h = 90 TJ\]
+
+\vspace{1em}
+\subsection{Potenza}
+Di seguito si espone la definizione di \textbf{potenza}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{POTENZA}}\\
+    \parbox{\linewidth}{La \textbf{potenza} viene definita come
+    \[\boxed{P=\frac{dW}{dt}}\]
+    ovverosia la quantità di energia trasferita per unità di tempo. L'unità di misura è, naturalmente, il \textbf{Watt}, per cui
+    \[1 \text{ W} = 1 \frac{\text{J}}{\text{s}}\]
+    mentre per l'unità di energia $1 \text{ kWh}$ è da considerarsi
+    \[1 \text{ kWh} = 1000 \text{ W} \cdot 3600 \text{ s} = 3.6 \text{ MJ}\]
+    \vspace{-1mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Se si considera un lavoro di $3.6 \text{ TJ}$, allora tale lavoro corrisponde ad una potenza di $25 \text{ GWh}$. Se si considera il flusso massimo di una turbina pari a $130 \text{ m}^3/\text{s}$, allora la potenza massima diviene:
+\[P=\frac{dW}{dt}=\frac{d\mathcal{U}}{dt}=\frac{d}{dt}(mgh)=\frac{dm}{dt} gh = \rho \cdot \frac{dV}{dt} gh = 1.4 \text{ MW}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio}: Si consideri una macchina di $10^3 \text{ kg}$ che necessita una potenza di $16 \text{ hp}$ per andare ad una velocità costante di $80 \text{ km/h}$. Si determini, allora, la potenza necessaria per salire una pendenza di $10^\circ$.\\
+Naturalmente le forze in gioco sono la forza di gravità, la forza normale, la forza di attrito e la forza di trazione.\\
+Giacché la velocità è costante, l'accelerazione della vettura è nulla, per cui
+\[\sum \vec F = 0\]
+Da ciò si evince
+\[\vec F = \vec F_r\]
+Applicando il teorema lavoro-energia cinetica, si ha che
+\[W_{tot}=\Delta K\]
+in cui è da considerare $W_{tot}=W_m+W_r$, i quali sono uguali e oppposti. Ovviamente si ha che
+\[W_m = \int \vec f \cdot d \vec r \hspace{1em} \text{e} \hspace{1em} W_r = \int \vec F_r \cdot d \vec r\]
+e sono entrambi uguali a $W=F \cdot d$. Naturalmente, in questo caso, si ottiene che la potenza cercata è proprio:
+\[P=\frac{d}{dt}W_m=\frac{d}{dt}F \cdot d = f \cdot v\]
+che è un risultato fondamentale:
+\[\boxed{P=\vec v \cdot \vec v}\]
+Dai dati del problema si ha che tale potenza, ovvero $P=F \cdot v = 16 \text{ hp}$.\\
+Se la macchina deve affrontare una salita di $10^\circ$, allora la forza peso deve essere scomposta nelle sue due componenti, e non viene cancellata totalmente dalla forza normale; tuttavia, si ha sempre che:
+\[\sum \vec F = 0 = \vec F_r + \vec F_N + \vec F_t + \vec F\]
+Ruotando il sistema di $10^\circ$ si ottiene che, scomponendo l'equazione nelle sue due componenti:
+\begin{align*}
+    \hat{j}:F_N - F_t \cdot \cos(\theta) = 0
+    \hat{j}:F - F_r  - F_t \cdot \sin(\theta) = 0
+\end{align*}
+Volendo cercare la potenza della mattina necessaria per affrontare la salita, si deve procedere al calcolo seguente:
+\[P=F \cdot v=(F_r + F_t \cdot \sin(\theta)) \cdot v\]
+Ma volendo calcolare $F_r \cdot v$, si può impiegare il risultato precedente, sapendo che $F_r \cdot v = 16 \text{ hp}$. Da ciò si evince che:
+\[P=F_r \cdot v + mg \cdot \sin(\theta) \cdot v = 16 \text{ hp} + \frac{27.8 \text{ kW}}{743 \text{ W/hp}} = 67 \text{ hp}\]
+In cui, ovviamente, $mg \cdot \sin(\theta) \cdot v$ è il tasso di cambio della propria velocità in energia potenziale.
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio}: Si calcoli la velocità di un motorino elettrico avente una potenza di $3000 \text{ W}$ in salita avente una pendenza del $10^\circ$, in cui la massa complessiva del sistema è di $200 \text{ kg}$ (trascurando la resistenza dell'aria).\\
+Naturalmente, giacché $v$ è costante, significa che non vi è accelerazione $a=0$. Da ciò si ha che $f=mg \cdot \sin(\theta)$, mentre la potenza cercata è
+\[P = mg \cdot \sin(\theta) \cdot v = F \cdot v = \frac{d}{dt} \left(\mathcal{U}(y)\right) = mg \cdot \frac{dy}{dt}\]
+Da cui si evince che la velocità del sistema cercata è proprio data dal rapporto seguente:
+\[v = \frac{P}{mg \cdot \sin(\theta)} = 55 \text{ km/h}\]
 
 
 
