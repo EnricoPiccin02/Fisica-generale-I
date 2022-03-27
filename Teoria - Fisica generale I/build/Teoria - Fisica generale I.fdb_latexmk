@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1648390885 "Teoria - Fisica generale I.tex" "build/Teoria - Fisica generale I.pdf" "Teoria - Fisica generale I" 1648390893
+["pdflatex"] 1648406960 "Teoria - Fisica generale I.tex" "build/Teoria - Fisica generale I.pdf" "Teoria - Fisica generale I" 1648406968
   "/Users/enricopiccin/Library/texlive/2021basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk" 1643364959 11524 2df7d3388477aff28c2fab5169faa2c5 ""
   "/usr/local/texlive/2021basic/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm" 1136768653 1536 06717a2b50de47d4087ac0e6cd759455 ""
   "/usr/local/texlive/2021basic/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -116,6 +116,7 @@
   "/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.markings.code.tex" 1601326656 788 fb28645a91ec7448ebe79bee60965a88 ""
   "/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex" 1601326656 321 cdd11262840e01e25374a2d458f15e99 ""
   "/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex" 1601326656 1319 0b2de5126c6cbc295f0eb77f7344b34d ""
+  "/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.shapes.code.tex" 1601326656 315 5323c9e6a39bb8c3348c7ab5617a0a70 ""
   "/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfpu.code.tex" 1601326656 283 0802c14f542ec5204d2d1cc89f08a4d2 ""
   "/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryintersections.code.tex" 1601674905 5286 9a47f1a4030b41b12ff25b93bef99d01 ""
   "/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex" 1601326656 4202 b95061a2334c704bfa941fb8d5c0d0a2 ""
@@ -125,11 +126,13 @@
   "/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryquotes.code.tex" 1601326656 3931 8b99416ab2e0d0d6af4e0cc444f11055 ""
   "/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.gates.logic.IEC.code.tex" 1601326656 1532 33d9c3a19a8778fcac828706b0496775 ""
   "/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.gates.logic.US.code.tex" 1601326656 1303 b644e1b1918d0267a87c19c968c4c3f3 ""
+  "/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarysnakes.code.tex" 1601326656 2732 29a079fc99cf56bcf4aba1d043737f49 ""
   "/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex" 1608933718 11518 738408f795261b70ce8dd47459171309 ""
   "/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex" 1609106292 188275 555994923a0cb0c4aff9710e303272bb ""
   "/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.markings.code.tex" 1601326656 5220 c70346acb7ff99702098460fd6c18993 ""
   "/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex" 1601326656 8843 5533436db3e30fbad1e0440db6027dac ""
   "/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex" 1601326656 7474 f05a7223b140f230922562ac6a9fede5 ""
+  "/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.shapes.code.tex" 1601326656 16467 9dae0e3876f615b059bae4858b49eeb4 ""
   "/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex" 1601326656 31874 89148c383c49d4c72114a76fd0062299 ""
   "/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex" 1601326656 58801 1e750fb0692eb99aaac45698bbec96b1 ""
   "/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/libraries/pgflibrarycurvilinear.code.tex" 1601326656 14117 ce877c5ca2b43f31c2cd81e74cc26bd9 ""
@@ -272,9 +275,9 @@
   "/usr/local/texlive/2021basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1616691443 79187 72c3adcacc8085f6390cf80c64ac00e5 ""
   "/usr/local/texlive/2021basic/texmf-var/web2c/pdftex/pdflatex.fmt" 1643302228 2057433 28863b3cbca3a1e9d798e67601f03c47 ""
   "/usr/local/texlive/2021basic/texmf.cnf" 1616691442 628 e23d78b1be89c53495d66eec94d2300d ""
-  "Teoria - Fisica generale I.tex" 1648390885 194916 38e72ee30ddae45ea9886cd8f4625b8c ""
-  "build/Teoria - Fisica generale I.aux" 1648390893 15791 56f6b9362aa8f073c9df72e4f1560cc4 "pdflatex"
-  "build/Teoria - Fisica generale I.toc" 1648390893 4472 7d5305d535ffa2d0e9ff084056f1b090 "pdflatex"
+  "Teoria - Fisica generale I.tex" 1648406960 202779 f33400b2aede764c5ceae57933b0ea87 ""
+  "build/Teoria - Fisica generale I.aux" 1648406968 16190 b683d69bdfbd66b63724b6791471bd01 "pdflatex"
+  "build/Teoria - Fisica generale I.toc" 1648406968 4472 01e883e629e66c74ec87ee4ea4164f24 "pdflatex"
   (generated)
   "build/Teoria - Fisica generale I.aux"
   "build/Teoria - Fisica generale I.log"

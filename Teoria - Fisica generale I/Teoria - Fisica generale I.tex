@@ -6,6 +6,7 @@
 \usepackage{xcolor}
 \usepackage{circuitikz}
 \usepackage{bm}
+\usetikzlibrary{patterns,snakes}
 \usetikzlibrary{decorations.markings,intersections,calc}
 \usepackage{ifthen}
 \usetikzlibrary{calc,patterns,angles,quotes}
@@ -3594,6 +3595,7 @@ in cui si ottiene che
 \[\Delta K = W_{tot} \longrightarrow 0 - \frac{1}{2}m \cdot v_i^2 = G m_t m \cdot \left(\frac{1}{R_t+h}-\frac{1}{R_t}\right)\]
 in cui, isolando $h$ si ottiene
 \[h = \frac{1}{2} \cdot \frac{R_t^2 \cdot v_i^2}{G m_t} \cdot \left(1 - \frac{1}{2} \cdot \frac{R_t \cdot v_i^2}{G m_t} \right)^{-1} \longrightarrow h = \frac{1}{2} \cdot \frac{v_i^2}{g} \cdot \left(1 - \frac{1}{2} \cdot \frac{v_i^2}{g R_t} \right)^{-1}\]
+in cui appare evidente come l'altezza dipenda dal quadrato della velocità; inoltre se il secondo termine si annulla, con una velocità sufficiente, essendo valutato il regiproco, l'altezza diviene idealmente infinita e quindi il proiettile esce dall'orbita terrestre.
 
 \newpage
 \noindent
@@ -3635,42 +3637,167 @@ Il lavoro compiuto da una forza variabile si ha quando la forza non è costante,
 \noindent
 Per cui si perviene al risultato seguente:
 \[\boxed{F_x=-kx}\]
-la quale prende il nome di \textbf{legge di Hooke} che, propriamente, viene impiegata per descrivere la \textbf{forza di una molla}: quando lo spostamento è positivo, la forza è negativa (si chiama, infatti, \textbf{forza di richiamo}), e viceversa.
+la quale prende il nome di \textbf{legge di Hooke}, in cui $k$ è la costante di proporzionalità. Tipicamente, tale legge viene impiegata per descrivere la \textbf{forza di una molla}: quando lo spostamento è positivo, la forza è negativa (si chiama, infatti, \textbf{forza di richiamo}), e viceversa.
 
 \begin{figure}[H]
   \centering
-  \begin{tikzpicture}[every node/.style={draw,outer sep=0pt,inner sep=0pt,thick}, scale=2]
-    \tikzstyle{spring}=[thick,decorate,decoration={aspect=0.5, segment length=1mm, amplitude=2mm,coil}]
-    \draw[thick] (0,0) --(0,1);
-    \draw[thick] (0,0) --(3,0) node[draw=none,xshift=5pt]{$x$};
-    \node at(0,0.25) (a) [draw=none] {};
-    \node at (2,0.25)(b) [minimum size=0.5cm,label=$\rightarrow$] {m};
-    \draw [spring] (a) -- (b) node[draw=none,pos=.5,right=.25cm] {};
-    \node at (2,-0.3)(c) [draw=none,yshift=5pt] {$x=0$};
-    \draw[dashed] (b.south) -- (c.north);
+  \colorlet{xcol}{blue!70!black}
+  \colorlet{darkblue}{blue!40!black}
+  \colorlet{myred}{red!65!black}
+  \tikzstyle{mydashed}=[xcol,dashed,line width=0.25,dash pattern=on 2.2pt off 2.2pt]
+  \tikzstyle{axis}=[->,thick] %line width=0.6
+  \tikzstyle{ell}=[{Latex[length=3.3,width=2.2]}-{Latex[length=3.3,width=2.2]},line width=0.3]
+  \tikzstyle{dx}=[-{Latex[length=3.3,width=2.2]},darkblue,line width=0.3]
+  \tikzstyle{ground}=[preaction={fill,top color=black!10,bottom color=black!5,shading angle=20},
+                      fill,pattern=north east lines,draw=none,minimum width=0.3,minimum height=0.6]
+  \tikzstyle{mass}=[line width=0.6,red!30!black,fill=red!40!black!10,rounded corners=1,
+                    top color=red!40!black!20,bottom color=red!40!black!10,shading angle=20]
+  \tikzstyle{spring}=[line width=0.8,blue!7!black!80,snake=coil,segment amplitude=5,segment length=5,line cap=round]
+  \tikzset{>=latex} % for LaTeX arrow head
+  \tikzstyle{force}=[->,myred,very thick,line cap=round]
+  \def\tick#1#2{\draw[thick] (#1)++(#2:0.1) --++ (#2-180:0.2)}
+
+  \begin{tikzpicture}[scale=1.5]
+    \def\H{1.1} % wall height
+    \def\T{0.3} % wall thickness
+    \def\W{3.9} % ground length
+    \def\D{0.2} % ground depth
+    \def\h{0.7} % mass height
+    \def\w{0.8} % mass width
+    \def\x{2.0} % mass x position
+    \def\dx{0.9} % extension
+    \def\y{1.22*\H} % x axis y position
+    \def\F{0.8} % force
+
+    % AXIS
+    \draw[mydashed] (\x,0) --++ (0,\y) (\x-\dx,0) --++ (0,1.1*\y);
+    \draw[axis] (\x-0.4*\W,\y) -- (\x+0.4*\W,\y) node[right] {$x$};
+    \tick{\x,\y}{-90} node[scale=0.8,above=0] {$0$};
+    \draw[ell] (0,1.3*\h) --++ (\x,0) node[pos=0.4,fill=white,inner sep=0] {$\ell_0$};
+    \draw[dx] (\x,1.6*\h) --++ (-\dx,0)
+      node[pos=0.45,fill=white,inner sep=0,scale=0.9] {$x$};
+
+    % SPRING & MASS
+    \draw[spring,segment length=2.9] (0,\h/2) --++ (\x-\dx,0);
+    \draw[ground] (0,0) |-++ (-\T,\H) |-++ (\T+\W,-\H-\D) -- (\W,0) -- cycle;
+    \draw (0,\H) -- (0,0) -- (\W,0);
+    \draw[mass] (\x-\dx,0) rectangle++ (\w,\h) node[midway] {$m$};
+    \draw[force] (\x-\dx+0.8*\w,0.8*\h) --++ (\F,0) node[below=0,right=0] {$\vb{F}$};
+
   \end{tikzpicture}
   \caption{Fisica di una molla}
   \label{fig:fisica_molla}
 \end{figure}
 
-\vspace{1em}
 \noindent
 Volendo calcolare il lavoro compiuto da tale forza, è sufficiente considerare l'integrale della forza risultante moltiplicata per lo spostamento, come mostrato di seguito:
-\[\boxed{W=\int_{x_i}^{x_f}-k x dx = - \frac{1}{2}k \cdot (x_f^2-x_i^2)}\]
-che costiuisce un lavoro che è \textbf{indipendente dal percorso compiuto}.
+\[\boxed{W=\int_{x_i}^{x_f}-k x \cdot dx = - \frac{1}{2}k \cdot (x_f^2-x_i^2)}\]
+che costiuisce un lavoro che è \textbf{indipendente dal percorso compiuto}, ma dipende solamente dalla posizione iniziale e finale.
 
-\vspace{1em}
+\newpage
 \noindent
-\textbf{Esempio $\boldsymbol{1}$}: Si consideri un blocco sospeso da una molla, in cui la costante di elasticità della molla è $k$, mentre il blocco è immobile.\\
-Naturalmente, le due forze che agiscono su tale massa sono la forza peso $\vec F_t$ e la forza di richiamo della molla $\vec F_m$. Naturalmente, essendo il blocco immobile, deve essere che
+\textbf{Esempio $\boldsymbol{1}$}: Si consideri un blocco sospeso da una molla, in cui la costante di elasticità della molla è $k$, mentre il blocco è immobile:
+
+\begin{figure}[H]
+  \centering
+  \colorlet{xcol}{blue!70!black}
+  \colorlet{darkblue}{blue!40!black}
+  \colorlet{myred}{red!65!black}
+  \tikzstyle{mydashed}=[xcol,dashed,line width=0.25,dash pattern=on 2.2pt off 2.2pt]
+  \tikzstyle{axis}=[->,thick] %line width=0.6
+  \tikzstyle{ell}=[{Latex[length=3.3,width=2.2]}-{Latex[length=3.3,width=2.2]},line width=0.3]
+  \tikzstyle{dx}=[-{Latex[length=3.3,width=2.2]},darkblue,line width=0.3]
+  \tikzstyle{ground}=[preaction={fill,top color=black!10,bottom color=black!5,shading angle=20},
+                      fill,pattern=north east lines,draw=none,minimum width=0.3,minimum height=0.6]
+  \tikzstyle{mass}=[line width=0.6,red!30!black,fill=red!40!black!10,rounded corners=1,
+                    top color=red!40!black!20,bottom color=red!40!black!10,shading angle=20]
+  \tikzstyle{spring}=[line width=0.8,blue!7!black!80,snake=coil,segment amplitude=5,segment length=5,line cap=round]
+  \tikzset{>=latex} % for LaTeX arrow head
+  \tikzstyle{force}=[->,myred,very thick,line cap=round]
+  \def\tick#1#2{\draw[thick] (#1)++(#2:0.1) --++ (#2-180:0.2)}
+
+  \begin{tikzpicture}[scale=2]
+    \def\H{0.25}     % ceiling height
+    \def\W{2.6}      % ceiling width
+    \def\h{0.7}      % mass height
+    \def\w{0.6}      % mass width
+    \def\l{0.5*\y}   % rest length without weight
+    \def\dl{0.7*\y}  % rest length with weight
+    \def\y{2.4}      % mass y position
+    \def\xy{0.38*\W} % mass y position
+    \def\F{0.8}      % force magnitude
+    \draw[spring,segment length=7.2] (0,0) -- (0,-\y);
+    \draw[ground] (-\W/2,0) rectangle++ (\W,\H);
+    \draw (-\W/2,0) --++ (\W,0);
+    \draw[axis] (-\xy,0) --++ (0,-\y-0.7*\h) node[left] {$y$};
+    \draw[axis] ( \xy,0) --++ (0,-\y-0.7*\h) node[right] {$y'$};
+    \draw[mydashed] (-\xy,-\l) --++ (2.3*\xy,0);
+    \draw[mydashed] (-\xy,-\dl) --++ (2*\xy,0);
+    \draw[mydashed] (-0.46*\W,-\y) --++ (0.92*\W,0);
+    \tick{-\xy,-\l}{0} node[left] {$0$};
+    \tick{-\xy,-\dl}{0} node[left] {$y_0$};
+    \tick{ \xy,-\dl}{180} node[right] {$0$};
+    \draw[mass] (-\w/2,-\y) rectangle++ (\w,-\h) node[midway] {$m$};
+    \draw[force] (0.4*\w,-\y-0.3*\h) --++ (0,1.6*\F) node[pos=0.9,right=0] {$\vb{F}$};
+    \draw[force] (0.3*\w,-\y-0.7*\h) --++ (0,-\F) node[above right=0] {$m\vb{g}$};
+    \draw[ell] (0.45*\W,0) --++ (0,-\l) node[midway,right=-2] {$\ell_0$};
+    %\draw[ell] (-0.4*\W,-0.75*\y) --++ (0,-0.25*\y) node[midway,left=1] {$y_0$};
+  \end{tikzpicture}
+  \caption{Fisica di una molla verticale}
+  \label{fig:fisica_molla_verticale}
+\end{figure}
+
+\noindent
+Naturalmente, le due forze che agiscono su tale massa sono la forza peso $\vec F_t$ e la forza di richiamo della molla $\vec F_m$. Inoltre, essendo il blocco immobile ($\vec a = 0$), deve essere che
 \[\sum \vec F = m \vec a = 0\]
 Applicando la seconda legge della dinamica, quindi, si ottiene che
 \[k \cdot \Delta y = mg \longrightarrow \Delta y = \frac{mg}{k}\]
 
 \vspace{1em}
 \noindent
-\textbf{Esempio $\boldsymbol{2}$}: Si consideri un carrello che si muove di velocità $\vec v_i$ e che deve arrestare la sua corsa da una molla posta orizzontalmente al moto. Si determini, allora, la costante di elasticità della molla $k$ affinché il modulo dell'accelerazione sia al massimo $a_{max}=5g$.\\
-È chiaro che l'accelerazione sarà massima nel punto di massima compressione, mentre sarà nulla prima del punto di contatto e crescerà in modo lineare secondo la legge di Hooke:
+\textbf{Esempio $\boldsymbol{2}$}: Si consideri un carrello che si muove di velocità $\vec v_i$ e che deve arrestare la sua corsa per mezzo di una molla posta orizzontalmente al moto:
+
+\begin{figure}[H]
+  \centering
+  \colorlet{xcol}{blue!70!black}
+  \colorlet{darkblue}{blue!40!black}
+  \colorlet{myred}{red!65!black}
+  \tikzstyle{mydashed}=[xcol,dashed,line width=0.25,dash pattern=on 2.2pt off 2.2pt]
+  \tikzstyle{axis}=[->,thick] %line width=0.6
+  \tikzstyle{ell}=[{Latex[length=3.3,width=2.2]}-{Latex[length=3.3,width=2.2]},line width=0.3]
+  \tikzstyle{dx}=[-{Latex[length=3.3,width=2.2]},darkblue,line width=0.3]
+  \tikzstyle{ground}=[preaction={fill,top color=black!10,bottom color=black!5,shading angle=20},
+                      fill,pattern=north east lines,draw=none,minimum width=0.3,minimum height=0.6]
+  \tikzstyle{mass}=[line width=0.6,red!30!black,fill=red!40!black!10,rounded corners=1,
+                    top color=red!40!black!20,bottom color=red!40!black!10,shading angle=20]
+  \tikzstyle{spring}=[line width=0.8,blue!7!black!80,snake=coil,segment amplitude=5,segment length=5,line cap=round]
+  \tikzset{>=latex} % for LaTeX arrow head
+  \tikzstyle{force}=[->,myred,very thick,line cap=round]
+  \def\tick#1#2{\draw[thick] (#1)++(#2:0.1) --++ (#2-180:0.2)}
+
+  \begin{tikzpicture}[scale=2]
+    \def\H{1}    % wall height
+    \def\T{0.3}  % wall thickness
+    \def\W{2.6}  % ground length
+    \def\D{0.25} % ground depth
+    \def\h{0.6}  % mass height
+    \def\w{0.7}  % mass width
+    \def\x{1.6}  % mass x position
+    \draw[spring] (0,\h/2) --++ (\x/2,0);
+    \draw[ground] (0,0) |-++ (-\T,\H) |-++ (\T+\W,-\H-\D) -- (\W,0) -- cycle;
+    \draw (0,\H) -- (0,0) -- (\W,0);
+    \draw[mass] (\x/2+0.5,0) rectangle++ (\w,\h) node[midway] {$m$};
+    \draw[mass] (\x/2,0) rectangle++ (0.05,\h);
+    \draw[-stealth] (\x/2+0.5,\h+0.2) -- (\x/2,\h+0.2) node[midway,above] {$\vec v_i$};
+  \end{tikzpicture}
+  \caption{Arresto di un carrello tramite freno a molla}
+  \label{fig:arresto_carrello_freno_molla}
+\end{figure}
+
+\noindent
+Si determini, allora, la costante di elasticità della molla $k$ affinché il modulo dell'accelerazione sia al massimo $a_{max}=5g$.\\
+Naturalmente, se tale costante è troppo elevata, la molla si comporterà come un muro, mentre se è troppo bassa non sarà sufficiente a rallentare in tempo la corsa del mezzo.\\
+Sa la molla è troppo dura, la decelerazione sarà molto forte e rapida, mentre se è troppo morbida, la sua decelerazione non sarà sufficiente ad evitare l'impatto; è chiaro che l'accelerazione sarà massima nel punto di massima compressione, mentre sarà nulla prima del punto di contatto e crescerà in modo lineare secondo la legge di Hooke:
 
 \vspace{2em}
 \noindent
@@ -3725,7 +3852,7 @@ invece si ottiene che
 Applicando infine il teorema lavoro-energia cinetica si ottiene che
 \[- \frac{1}{2}k \cdot x_{max}^2 = - \frac{1}{2}m v_i^2 \longrightarrow x_{max} = \sqrt{\frac{m}{k}} \cdot v_i\]
 Ecco che avendo isolato $x_{max}$ si può scrivere che
-\[a_{max} = - \frac{k}{m} x_{max} \longrightarrow a_{max} = \sqrt{\frac{k}{m}} \cdot v_i\]
+\[a_{max} = \left \vert \frac{k}{m} x_{max} \right \vert \longrightarrow a_{max} = \sqrt{\frac{k}{m}} \cdot v_i\]
 Ma sapendo che $a_{max}=5g$, si può facilmente isolare $k$, ottenendo:
 \[k \leq \frac{a_{max}^2}{v_{i}^2} \cdot m = \frac{25 g^2}{v_{i}^2} \cdot m\]
 
@@ -3734,7 +3861,7 @@ Ma sapendo che $a_{max}=5g$, si può facilmente isolare $k$, ottenendo:
 Naturalmente la forza di gravità è una forza costante, per cui il lavoro che essa compie dipende unicamente dalla posizione iniziale e finale scelta.\\
 Allora, applicando la formula per il calcolo del lavoro compiuto da una forza costante si ottiene
 \[W=\int_i^f \vec F \cdot d \vec r = -mg \cdot (y_f - y_i)\]
-pertanto il laovor compiuto dalla forza di gravità è
+pertanto il lavoro compiuto dalla forza di gravità è
 \[\boxed{W=-mg \cdot (y_f - y_i)}\]
 
 \vspace{1em}
@@ -3748,7 +3875,7 @@ Ecco allora che la velocità finale di un corpo che viene lasciato cadere da una
 \vspace{1em}
 \noindent
 \textbf{Osservazione}: Si osservi che il lavoro compiuto da una forza può essere sia positivo o negativo (se la forza è diretta nello stesso verso dello spostamento, oppure no).\\
-Una forza che non compie mai lavoro è il campo magnetico: ciò significa che il campo magnetico non può mai accelerare delle particelle; per farlo è necessario impiegare un campo elettrico.\\
+Una forza che non compie mai lavoro è il campo magnetico (in quanto nell'equazione di Lorents, la forza è ortogonale alla velocità, e quindi al vettore spostamento): ciò significa che il campo magnetico non può mai accelerare delle particelle; per farlo è necessario impiegare un campo elettrico.\\
 Ovviamente il lavoro è l'integrale della forza per lo spostamento, per cui rappresenta l'area della parte di piano sottesa al grafico della forza in funzione dello spostamento.
 
 \vspace{1em}
@@ -3764,28 +3891,35 @@ Di seguito si espone la definzione di \textbf{forza conservativa}:
 \begin{tabularx}{\textwidth}{@{}|P|@{}}
     \hline
     {\textbf{FORZA CONSERVATIVA}}\\
-    \parbox{\linewidth}{Una forza si definisce \textbf{conservativa} se
+    \parbox{\linewidth}{Una forza $\vec F$ si definisce \textbf{conservativa} se
     \[\boxed{\int_i^f \vec F \cdot d \vec r}\]
-    è \textbf{indipendente dal percorso}. Analogamente si ha che
+    è \textbf{indipendente dal percorso}. Analogamente si ha che il lavoro compiuto da una forza $\vec F$ conservativa su un \textbf{percorso chiuso è nullo}
     \[\boxed{\oint \vec F \cdot d \vec r = 0}\]
     che corrisponde a dire che
     \[\boxed{\int_i^f \vec F \cdot d \vec r + \int_f^i \vec F \cdot d \vec r = 0}\]
-    In altri termini, si potrebbe dire che una funzione è definita conservativa se esiste una funzione $\mathcal{U}$ tale che
+    In altri termini, si potrebbe dire che una forza è definita conservativa se esiste una funzione $\mathcal{U}$ tale che
     \[\boxed{\vec F = \nabla \mathcal{U}}\]
     Ove per $\nabla \mathcal{U}$ è da intendersi il \textbf{gradiente} di $\mathcal{U}$, ossia la derivata coalcolata in tutte le direzioni:
-    \[\nabla \mathcal{U} = \frac{\nabla \mathcal{U}}{\nabla x} \cdot \hat{i} + \frac{\nabla \mathcal{U}}{\nabla y} \cdot \hat{j} + \frac{\nabla \mathcal{U}}{\nabla z} \cdot \hat{k}\]
+    \[\nabla \mathcal{U} = \frac{d \mathcal{U}}{d x} \cdot \hat{i} + \frac{d \mathcal{U}}{d y} \cdot \hat{j} + \frac{d \mathcal{U}}{d z} \cdot \hat{k}\]
     \vspace{-1mm}}\\
     \hline
 \end{tabularx}
 
 \vspace{1em}
 \noindent
-\textbf{Osservazione}: Si osservi che la funzione $\mathcal{U}$ impiiegata nella definizione prende il nome di \textbf{energia potenziale}.
+\textbf{Osservazione}: Si osservi che la funzione $\mathcal{U}$ impiegata nella definizione prende il nome di \textbf{energia potenziale}.
 
 \vspace{1em}
 \noindent
-\textbf{Esempio}: Si osservi che un esempio molto semplice di \textbf{forza non-conservativa} è l'attrito, in quanto il lavoro compiuto da tale forza dipende necessariamente dal percorso, essendo la forza d'attrito è sempre opposta allo spostamento. Pertanto si ottiene che:
-\[\oint F_k \cdot d \vec{r} = \int_i^f F_k \cdot d \vec r + \int_f^i F_k \cdot d \vec r = 2 F_k \cdot \int_i^f d \vec r\]
+\textbf{Esempio}: Si osservi che un esempio molto semplice di \textbf{forza non-conservativa} è l'attrito, in quanto il lavoro compiuto da tale forza dipende necessariamente dal percorso, essendo la forza d'attrito sempre opposta allo spostamento. Pertanto si ottiene che:
+\[W_k = \int_i^f F_k \cdot d \vec r = \int_i^f -\mu_k m g \cdot d \vec r = -\mu_k m g \cdot s\]
+in cui $s$ è la lunghezza del percorso.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che Richard Feynman, parlando di fisica fondamentale delle particelle, ha affermato che:\\\\
+\quotes{\emph{Abbiamo speso un tempo considerevole per discutere le forze conservative; che cosa diremo delle forze non conservative? Approfondiremo l'argomento più di quanto non si faccia solitamente, e stabiliremo che non esistono forze non conservative! In realtà, tutte le forze fondamentali nella natura appaiono conservative. Questa non è una conseguenza delle leggi di Newton. Infatti, per quanto ne sapeva Newton, le forze avrebbero potuto essere non conservative, come apparentemente è l'attrito. Quando diciamo che l'attrito apparentemente lo è, usiamo un punto di vista moderno, essendo stato scoperto che tutte le forze elementari, le forze fra le particelle a livello fondamentale, sono conservative.}}\\
+\hspace{10em} Richard Feynman
 
 
 \newpage

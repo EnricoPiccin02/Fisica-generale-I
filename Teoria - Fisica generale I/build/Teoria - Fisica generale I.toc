@@ -52,13 +52,13 @@
 \contentsline {subsection}{\numberline {6.3}Teorema lavoro-energia cinetica}{60}{}%
 \contentsline {subsection}{\numberline {6.4}Lavoro compiuto da una forza variabile}{63}{}%
 \contentsline {subsection}{\numberline {6.5}Lavoro compiuto dalla forza di gravità}{65}{}%
-\contentsline {subsection}{\numberline {6.6}Forze conservative}{65}{}%
-\contentsline {subsection}{\numberline {6.7}Forza conservativa}{67}{}%
-\contentsline {subsubsection}{\numberline {6.7.1}Energia potenziale gravitazionale}{68}{}%
-\contentsline {subsubsection}{\numberline {6.7.2}Energia potenziale elastica}{68}{}%
-\contentsline {subsection}{\numberline {6.8}Potenza}{68}{}%
-\contentsline {section}{\numberline {7}Oscillazioni}{70}{}%
-\contentsline {section}{\numberline {8}Solidi e fluidi}{71}{}%
-\contentsline {section}{\numberline {9}Temperatura e calore}{72}{}%
-\contentsline {section}{\numberline {10}Il primo principio della termodinamica}{73}{}%
-\contentsline {section}{\numberline {11}Il secondo principio della termodinamica}{74}{}%
+\contentsline {subsection}{\numberline {6.6}Forze conservative}{66}{}%
+\contentsline {subsection}{\numberline {6.7}Forza conservativa}{68}{}%
+\contentsline {subsubsection}{\numberline {6.7.1}Energia potenziale gravitazionale}{69}{}%
+\contentsline {subsubsection}{\numberline {6.7.2}Energia potenziale elastica}{69}{}%
+\contentsline {subsection}{\numberline {6.8}Potenza}{69}{}%
+\contentsline {section}{\numberline {7}Oscillazioni}{71}{}%
+\contentsline {section}{\numberline {8}Solidi e fluidi}{72}{}%
+\contentsline {section}{\numberline {9}Temperatura e calore}{73}{}%
+\contentsline {section}{\numberline {10}Il primo principio della termodinamica}{74}{}%
+\contentsline {section}{\numberline {11}Il secondo principio della termodinamica}{75}{}%
