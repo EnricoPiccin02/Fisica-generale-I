@@ -3417,11 +3417,13 @@ Taluna è la formula che si può adattare a qualsiasi scenario al fine di calcol
   22 Marzo 2022
 \end{center}
 \section{Energia}
+L'energia è la grandezza fisica che misura la capacità di un corpo o di un sistema fisico di compiere lavoro, a prescindere dal fatto che tale lavoro sia o possa essere effettivamente svolto.\\
+Di seguito si espongono diverse forme di energia e ne viene analizzata nel dettaglio il significato fisico.
 
 \vspace{1em}
 \subsection{Energia cinetica}
-L'\textbf{energia cinetica} (originariamente chiamata \emph{vis viva}) venne teorizzata da Leibniz e da Decartes: il primo asseriva che l'energia cinetica era direttamente proporzionale alla massa e al quadrato della velocità, mentre il secondo considerava soltanto la massa e la velocità e non il suo quadrato.\\
-Grazie a Thomas Young, tale concetto prese il nome di \textbf{energia} ed infine Coriolis gli attribuì il nome di \textbf{energia cinetica}:
+L'\textbf{energia cinetica} (originariamente chiamata \emph{vis viva}) venne teorizzata da Leibniz e da Decartes: il primo asseriva che l'energia cinetica era direttamente proporzionale alla massa e al quadrato della velocità (ovvero $m v^2$), mentre il secondo considerava soltanto la massa e la velocità e non il suo quadrato (ovvero $m v$, che prende il nome di \emph{quantità di moto}).\\
+Grazie a Thomas Young, il concetto fisico teorizzato da Leibniz prese il nome di \textbf{energia} ed infine Gustave Gasparre Coriolis gli attribuì il nome di \textbf{energia cinetica}, definita come segue:
 
 % Tabella per le definizione di concetti, etc...
 \vspace{1em}
@@ -3434,26 +3436,67 @@ Grazie a Thomas Young, tale concetto prese il nome di \textbf{energia} ed infine
     {\textbf{ENERGIA CINETICA}}\\
     \parbox{\linewidth}{L'\textbf{energia cinetica} viene calcolata come segue:
     \[\boxed{K=\frac{1}{2}mv^2}\]
-    per quanto riguarda un solo punto materiale. Se, invece, si considera un agglomerato di punti materiali, allora
+    per quanto riguarda un solo punto materiale di massa $m$. Se, invece, si considera un agglomerato di punti materiali, allora, essendo l'\textbf{energia additiva}, si ottiene
     \[\boxed{K=\frac{1}{2} \sum_{i} m_i \cdot v_i^2}\]
-    Naturalmente, l'energia cinetica è uno scalare (non può avare una direzione), in cui $v^2=\vert \vec v \vert^2 = \vec v \cdot \vec v $.\vspace{3mm}}\\
+    Naturalmente, l'energia cinetica è uno scalare (non può avere una direzione), in cui $v^2=\vert \vec v \vert^2 = \vec v \cdot \vec v $.\vspace{3mm}}\\
     \hline
 \end{tabularx}
 
-\vspace{1em}
+\vspace{2em}
 \noindent
-\textbf{Esempio}: Si consideri una macchina di $m=1000$ kg e avente una velocità di $50$ km/h. Allora l'energia cinetica si calcola come segue:
-\[K=\frac{1}{2} \cdot 1000 \text{ kg} \cdot \left( \frac{50}{3.6} \text{ m/s} \right)^2 = 96.5 \text{ kJ}\]
+\textbf{Esempio}: Si consideri una macchina di massa $m=1000$ kg e avente una velocità di $v_1=50$ km/h. Allora l'energia cinetica si calcola come segue:
+\[K_1=\frac{1}{2}m v_1^2 = \frac{1}{2} \cdot 1000 \text{ kg} \cdot \left( \frac{50}{3.6} \text{ m/s} \right)^2 = 96.5 \text{ kJ}\]
 in cui
 \[\boxed{1 \text{ J} = \frac{\text{kg m}^2}{\text{s}^2}}\]
-Mentre se la velocità della vettura è $60$ km/h allora l'energia cinetica della macchina diventa:
-\[K=\frac{1}{2} \cdot 1000 \text{ kg} \cdot \left( \frac{60}{3.6} \text{ m/s} \right)^2 = 139 \text{ kJ}\]
-che significa che l'aumento di soli $10$ km/h comporta un aumento del $50\%$ dell'energia e, quindi, della dissipazione di energia in calore in caso di frenata.
+Mentre se la velocità della vettura è $v_2=60$ km/h allora l'energia cinetica della macchina diventa:
+\[K_2=\frac{1}{2}m v_2^2 = \frac{1}{2} \cdot 1000 \text{ kg} \cdot \left( \frac{60}{3.6} \text{ m/s} \right)^2 = 139 \text{ kJ}\]
+che significa che l'aumento di velocità di soli $10$ km/h comporta un aumento del $50\%$ dell'energia e, quindi, della dissipazione di energia in calore in caso di frenata (aumento dello spazio di frenata).
 
 \newpage
 \noindent
 \subsection{Lavoro}
-Di seguito si espone la definizione di \textbf{lavoro}
+Di seguito si espone la definizione di \textbf{lavoro}, basandosi sulla Figura \ref{fig:lavoro_compiuto_molla_non_parallela_spostamento}:
+
+\begin{figure}[H]
+  \colorlet{myred}{red!65!black}
+  \colorlet{mydarkblue}{blue!30!black}
+  \colorlet{xcol}{blue!70!black}
+  \colorlet{vcol}{green!70!black}
+  \colorlet{acol}{red!50!blue!80!black!80}
+  \tikzstyle{ground}=[preaction={fill,top color=black!10,bottom color=black!5,shading angle=20},
+                      fill,pattern=north east lines,draw=none,minimum width=0.3,minimum height=0.6]
+  \tikzstyle{mass}=[line width=0.6,red!30!black,fill=red!40!black!10,rounded corners=1,
+                    top color=red!40!black!20,bottom color=red!40!black!10,shading angle=20]
+  \tikzstyle{vector}=[->,very thick,xcol,line cap=round]
+  \tikzstyle{force}=[->,myred,thick,line cap=round]
+  \tikzstyle{Fproj}=[force,myred!40]
+  \tikzstyle{mydashed}=[dash pattern=on 2pt off 2pt]
+  \tikzstyle{smallarrow}=[{Latex[length=2,width=2]}-{Latex[length=2,width=2]}]
+  \def\tick#1#2{\draw[thick] (#1) ++ (#2:0.1) --++ (#2-180:0.2)}
+
+  \centering
+  \begin{tikzpicture}[scale=2]
+    \def\W{2.7}  % ground width
+    \def\D{0.2}  % ground depth
+    \def\h{0.8}  % mass height
+    \def\w{1.0}  % mass width
+    \def\F{1.1}  % force magnitude
+    \def\ang{30} % angle force
+    \coordinate (F0) at (0.4*\w,0.85*\h);
+    \coordinate (Fx) at ($(F0)+({\F*cos(\ang)},0)$);
+    \coordinate (F)  at ($(F0)+(\ang:\F)$);
+    \draw[ground] (-0.3*\W,0) rectangle++ (\W,-\D);
+    \draw (-0.3*\W,0) --++ (\W,0);
+    \draw[mass] (-\w/2,0) rectangle++ (\w,\h) node[midway] {$m$};
+    \draw[force,xcol] (\w/2,0.15*\h) --++ (0.4*\W,0) node[midway,above=0] {$\vb*{\Delta r}$};
+    \draw[dashed,myred!80!black!60] (Fx) -- (F);
+    \draw[Fproj] (F0) -- (Fx) node[above=1,right=0] {$F\cos\theta$}; %\vu{x}
+    \draw[force] (F0) -- (F)  node[above=1,right=-1] {$\vbF$};
+    \draw pic["$\theta$",draw=black,angle radius=14,angle eccentricity=1.4] {angle=Fx--F0--F};
+  \end{tikzpicture}
+  \caption{Lavoro compiuto da una forza non parallela allo spostamento}
+  \label{fig:lavoro_compiuto_molla_non_parallela_spostamento}
+\end{figure}
 
 % Tabella per le definizione di concetti, etc...
 \vspace{1em}
@@ -3464,18 +3507,19 @@ Di seguito si espone la definizione di \textbf{lavoro}
 \begin{tabularx}{\textwidth}{@{}|P|@{}}
     \hline
     {\textbf{LAVORO}}\\
-    \parbox{\linewidth}{Quando una forza $\vec F$ viene applicata su un corpo e produce uno spostamento $\Delta \vec s$, allora si ha che la forza ha compiuto un lavoro, calcolato come
+    \parbox{\linewidth}{Quando una forza $\vec F$ viene applicata su un corpo e produce uno spostamento $\Delta \vec r$, allora si ha che la forza ha compiuto un lavoro, calcolato come
     \[\boxed{W = \vec F \cdot \Delta \vec r \cdot \cos(\theta)}\]
     che significa che
     \begin{itemize}
       \item Se $\vec F$ è parallelo a $\Delta \vec r$, allora il lavoro è massimo.
-      \item Se $\vec F$ è perpendicolare a $\Delta \vec r$, allora il lavoro è nullo.
-      \item Se $\vec F$ presenta verso opposto rispetto a $\Delta \vec r$, allora il lavoro è negativo (si ha sottrazione di energia al sistema).
+      \item Se $\vec F$ è perpendicolare a $\Delta \vec r$, allora il lavoro è nullo (come nel moto circolare uniforme).
+      \item Se $\vec F$ presenta verso opposto rispetto a $\Delta \vec r$, allora il lavoro è negativo (si ha sottrazione di energia al sistema, come per l'attrito).
     \end{itemize}
-    Naturalmente, nel caso in cui vi siano più forze agenti sul sistema, ciascuna delle quali produce uno spostamento si ottiene che
-    \[W_{TOT} = \vec F_1 \cdot \Delta \vec r_1 + \vec F_2 \cdot \Delta \vec r_2 + ... = \sum_{i} F_i \cdot \Delta \vec r_i\]
-    infine se il corpo non ruota e non si deforma, tutti gli spostamenti sono uguali, ovvero $\Delta \vec r_1 = \Delta \vec r_2 = ... + \Delta \vec r_n$.
-     \vspace{3mm}}\\
+    Naturalmente, nel caso in cui vi siano più forze agenti sul sistema, ciascuna delle quali produce uno spostamento, si ottiene che
+    \[W_{tot} = \vec F_1 \cdot \Delta \vec r_1 + \vec F_2 \cdot \Delta \vec r_2 + ... = \sum_{i} F_i \cdot \Delta \vec r_i\]
+    Infine, se il corpo non ruota e non si deforma, tutti gli spostamenti sono uguali, ovvero $\Delta \vec r_1 = \Delta \vec r_2 = ... + \Delta \vec r_n$, e quindi il lavoro totale sarà dato solo dal prodotto scalare tra la somma delle forze e il singolo spostamento:
+    \[W_{tot} = \sum_{i} F_i \cdot \Delta \vec r\]
+    \vspace{-1mm}}\\
     \hline
 \end{tabularx}
 
@@ -3493,7 +3537,7 @@ Ma se ambo i membri si moltiplicano per $\frac{1}{2}m$ si ottiene
 \[\frac{1}{2} m v^2 - \frac{1}{2} m v_0^2 = ma \cdot (x-x_0)\]
 che corrisponde a
 \[K - K_0 = F \cdot (x-x_0) \longrightarrow \Delta K = F \cdot \Delta x \longrightarrow \Delta K = W\]
-ovvero si è ottenuto il \textbf{lavoro compiuto sul sistema da una forza esterna (trasferimento di energia verso (o da) il sistema)}. In altre parole, quando una forza viene applicata su un sistema, si assiste ad un trasferimento di energia.\\
+ovvero si è ottenuto il \textbf{lavoro compiuto sul sistema da una forza esterna (trasferimento di energia verso (o da) il sistema)}. In altre parole, quando una forza viene applicata su un sistema, si assiste ad un trasferimento di energia (come quando una forza applicata ad un corpo ne aumenta la velocità, la forza ha compiuto un lavoro sul sistema che si è tramutato in aumento di energia cinetica).\\
 Più in generale, è possibile affermare dalla seconda legge della dinamica applicata ad un punto materiale di massa $m$ che
 \[\sum \vec F = m \cdot \vec a\]
 considerando, ora, uno \textbf{spostamento infinitesimale} $d \vec r$ (che è da interpretarsi come $\Delta \vec r \rightarrow 0$), si può calcolare il \textbf{lavoro infinitesimale} compiuto dalla forza sul punto materiale per determinare tale spostamento:
@@ -3522,7 +3566,7 @@ Si osservi che tale risultato non è equivalente al teorema di \textbf{conservaz
 È significativo osservare che il lavoro totale $W_{tot}$ così calcolato non corrisponde al \quotes{lavoro} in senso termodinamico. In questo caso si ha che
 \[W_{tot} = \Delta K\]
 da cui si può capire come il lavoro di una \textbf{forza costante} si possa calcolare come segue:
-\[W = \int_i^f \vec F \cdot d \vec r = \vec F \cdot (\vec r_f - \vec r_i) = \vec F \cdot \vec l\]
+\[\boxed{W = \int_i^f \vec F \cdot d \vec r = \vec F \cdot (\vec r_f - \vec r_i) = \vec F \cdot \vec l}\]
 in cui $\vec l$ indica lo \textbf{spostamento totale}, il quale non dipende assolutamente dal percorso compiuto.
 
 \vspace{1em}
@@ -3543,11 +3587,13 @@ e com'era da aspettarsi, lo spazio di frenata aumenta con il quadrato della velo
 Naturalmente, dalla legge di gravitazione universale si ottiene che
 \[\vec F = - G \cdot \frac{m_t \cdot m}{(R_t + h)^2} \cdot \hat{j}\]
 Allora per il calcolo del lavoro si può procedere come segue:
-\[W=\int \vec F \cdot d \vec r = \int -G \cdot \frac{m_t \cdot m}{(R_t + h)^2}\]
+\[W=\int \vec F \cdot d \vec r = \int -G \cdot \frac{m_t \cdot m}{(R_t + h)^2} \cdot dh\]
 Naturalmente, in questo caso, la forza non è costante, per cui bisogna calcolare l'integrale, posto $h'=R_t+h$
-\[W=\int \vec F \cdot d \vec r = \int -G \cdot \frac{m_t \cdot m}{(R_t + h)^2} \cdot dh = \int_{R_t}^{R_t+h} - \frac{G m_t m}{{h'}^2} = G m_t m \cdot \left(\frac{1}{R_t+h}-\frac{1}{R_t}\right)\]
+\[W=\int \vec F \cdot d \vec r = \int -G \cdot \frac{m_t \cdot m}{(R_t + h)^2} \cdot dh = \int_{R_t}^{R_t+h} - \frac{G m_t m}{{h'}^2} \cdot dh' = G m_t m \cdot \left(\frac{1}{R_t+h}-\frac{1}{R_t}\right)\]
 in cui si ottiene che
-\[\Delta K = 0 - \frac{1}{2}m \cdot v_i^2 = W = \frac{}{}\]
+\[\Delta K = W_{tot} \longrightarrow 0 - \frac{1}{2}m \cdot v_i^2 = G m_t m \cdot \left(\frac{1}{R_t+h}-\frac{1}{R_t}\right)\]
+in cui, isolando $h$ si ottiene
+\[h = \frac{1}{2} \cdot \frac{R_t^2 \cdot v_i^2}{G m_t} \cdot \left(1 - \frac{1}{2} \cdot \frac{R_t \cdot v_i^2}{G m_t} \right)^{-1} \longrightarrow h = \frac{1}{2} \cdot \frac{v_i^2}{g} \cdot \left(1 - \frac{1}{2} \cdot \frac{v_i^2}{g R_t} \right)^{-1}\]
 
 \newpage
 \noindent
@@ -3860,7 +3906,7 @@ in cui è da considerare $W_{tot}=W_m+W_r$, i quali sono uguali e oppposti. Ovvi
 e sono entrambi uguali a $W=F \cdot d$. Naturalmente, in questo caso, si ottiene che la potenza cercata è proprio:
 \[P=\frac{d}{dt}W_m=\frac{d}{dt}F \cdot d = f \cdot v\]
 che è un risultato fondamentale:
-\[\boxed{P=\vec v \cdot \vec v}\]
+\[\boxed{P=\vec F \cdot \vec v}\]
 Dai dati del problema si ha che tale potenza, ovvero $P=F \cdot v = 16 \text{ hp}$.\\
 Se la macchina deve affrontare una salita di $10^\circ$, allora la forza peso deve essere scomposta nelle sue due componenti, e non viene cancellata totalmente dalla forza normale; tuttavia, si ha sempre che:
 \[\sum \vec F = 0 = \vec F_r + \vec F_N + \vec F_t + \vec F\]
