@@ -3918,24 +3918,24 @@ in cui $s$ è la lunghezza del percorso.
 \vspace{1em}
 \noindent
 \textbf{Osservazione}: Si osservi che Richard Feynman, parlando di fisica fondamentale delle particelle, ha affermato che:\\\\
-\quotes{\emph{Abbiamo speso un tempo considerevole per discutere le forze conservative; che cosa diremo delle forze non conservative? Approfondiremo l'argomento più di quanto non si faccia solitamente, e stabiliremo che non esistono forze non conservative! In realtà, tutte le forze fondamentali nella natura appaiono conservative. Questa non è una conseguenza delle leggi di Newton. Infatti, per quanto ne sapeva Newton, le forze avrebbero potuto essere non conservative, come apparentemente è l'attrito. Quando diciamo che l'attrito apparentemente lo è, usiamo un punto di vista moderno, essendo stato scoperto che tutte le forze elementari, le forze fra le particelle a livello fondamentale, sono conservative.}}\\
-\hspace{10em} Richard Feynman
-
+\quotes{\emph{Abbiamo speso un tempo considerevole per discutere le forze conservative; che cosa diremo delle forze non conservative? Approfondiremo l'argomento più di quanto non si faccia solitamente, e stabiliremo che non esistono forze non conservative! In realtà, tutte le forze fondamentali nella natura appaiono conservative. Questa non è una conseguenza delle leggi di Newton. Infatti, per quanto ne sapeva Newton, le forze avrebbero potuto essere non conservative, come apparentemente è l'attrito. Quando diciamo che l'attrito apparentemente lo è, usiamo un punto di vista moderno, essendo stato scoperto che tutte le forze elementari, le forze fra le particelle a livello fondamentale, sono conservative.}}\\\\
+\hspace{10em} Richard Feynman\\\\
+Per cui le forze microscopiche sono conservative, ma quando si considera un assieme, la seconda legge della termodinamica stabilirà che deve esserci calore dissipato: pertanto, anche se tutti i meccanismi fondamentali sono conservativi, vi deve essere una aumento di \textbf{entropia}. Si conclude, quindi, che il problema delle forze dissipative (e quindi non conservative), come l'attrito, è un problema prettamente termodinamico.
 
 \newpage
 \noindent
 \begin{center}
   24 Marzo 2022
 \end{center}
-Il lavoro viene definito come l'integrale del prodotto tra la forza applicata e lo spostamento ottenuto: naturalmente il lavoro può essere positivo o negativo e il laovoro può essere eseguito da qualsiasi forza.\\
-Le forze conservative sono forze per le quali il lavoro non dipende dal percorso e, quindi, è possibile applicare il principio di conservazione dell'energia cinetica. Esempi di forze conservative sono:
+Il lavoro viene definito come l'integrale del prodotto tra la forza applicata e lo spostamento ottenuto: naturalmente il lavoro può essere positivo o negativo e può essere eseguito da qualsiasi forza.\\
+Le forze conservative sono forze per le quali il lavoro non dipende dal percorso e, quindi, è possibile applicare il principio di conservazione dell'energia (in altre parole, le forze conservative sono forze capaci di immagazzinare dell'energia potenziale, potenziale per svolgere un lavoro). Esempi di forze conservative sono:
 \begin{itemize}
   \item Gravità;
   \item Forza elastica (non sempre);
   \item Forza elettrica;
   \item etc.
 \end{itemize}
-Mentre forze non conservative sono:
+Mentre forze non conservative (e quindi dissipative) sono:
 \begin{itemize}
   \item Attrito;
   \item Resistenza dell'aria;
@@ -3944,7 +3944,7 @@ Mentre forze non conservative sono:
 \end{itemize}
 
 \vspace{1em}
-\subsection{Forza conservativa}
+\subsection{Energia potenziale}
 Di seguito si espone la definizione di \textbf{energia potenziale}:
 
 % Tabella per le definizione di concetti, etc...
@@ -3958,39 +3958,34 @@ Di seguito si espone la definizione di \textbf{energia potenziale}:
     {\textbf{ENERGIA POTENZIALE}}\\
     \parbox{\linewidth}{Data una forza conservativa $\vec F$, è noto che il lavoro compiuto da tale forza è
     \[W_{i,f}=\int_{i}^f \vec F \cdot d \vec r\]
-    e dipende solamente dai vettori posizione $\vec r_i$ e $\vec r_f$. Tale integrale, riscritto sottoforma di energia potenziale è
+    il quale, essendo $\vec F$ conservativa, dipende solamente dai vettori posizione iniziale $\vec r_i$ e finale $\vec r_f$. Naturalmente, però, essendo $\vec F$ conservativa, essa può essere definita come il gradiente di una funzione $\mathcal{U}$, ovvero $\vec F = \nabla \mathcal{U}$, per cui eseguendo l'integrale indefinito di $\vec F$, si ottiene solamente l'energia potenziale $\mathcal{U}$, che deve essere valutata da una posizione finale ad una iniziale, come mostrato di seguito:
     \[W_{i,f} = \left(-\mathcal{U}(\vec r_f)\right) - \left(-\mathcal{U}(\vec r_i)\right)\]
     In altre parole si ha che
     \[\boxed{\mathcal{U}(\vec r) = - \int \vec F \cdot d \vec r + c}\]
-    in cui $c=$ costante. Pertanto da ciò segue che
-    \[W_{i,f}=-\Delta \mathcal{U}_{i,f}\]
-    per cui il lavoro compiuto da $i$ a $f$ è uguale all'opposto della differenza di energia potenziale.
-    \vspace{3mm}}\\
+    in cui $c=$ costante. Da ciò segue che
+    \[\boxed{W_{i,f}=-\Delta \mathcal{U}_{i,f}}\]
+    per cui il lavoro compiuto da $i$ a $f$ è uguale all'opposto della differenza di energia potenziale.\vspace{3mm}}\\
     \hline
 \end{tabularx}
 
-\vspace{1em}
+\vspace{2em}
 \noindent
 \textbf{Osservazione}: Si osservi che ogni qualvolta vi è una forza conservativa vi è energia potenziale.\\
-L'energia potenziale, più in generale, può essere interpretata come un modo di immagazzinare energia per essere successivamente impiegata per compiere un lavoro (si parla di \quotes{potenziale di compiere un lavoro})
+L'energia potenziale, più in generale, può essere interpretata come un modo di immagazzinare energia per essere successivamente impiegata per compiere un lavoro (si parla di \quotes{potenziale di compiere un lavoro}).
 
 \vspace{1em}
 \subsubsection{Energia potenziale gravitazionale}
-Per quanto concerne la forza di gravità, è noto che $\vec F_t = mg \cdot \hat{j}$ e $d \vec r = dy \cdot \hat{j}$, per cui l'energia potenziale gravitazionale diviene
+Per quanto concerne la forza di gravità, è noto che $\vec F_t = - mg \cdot \hat{j}$ e $d \vec r = dy \cdot \hat{j}$, per cui l'energia potenziale gravitazionale diviene
 \[\mathcal{U}(y)=-\int(-mg \cdot dy) = mg \cdot y + c\]
 Per cui l'energia potenziale gravitazionale si calcola come segue:
 \[\boxed{\mathcal{U}(h)=mgh}\]
 
 \vspace{1em}
 \subsubsection{Energia potenziale elastica}
-Per quanto concerne la forza elastica, è noto che $\vec F_t \cdot d \vec r = -k x dx$, da cui:
-
-\[\mathcal{U}(x) = -\int - k x dx = \frac{1}{2}k \cdot x^2 + c\]
-... continua ...\\
-$mg \cdot \hat{j}$ e $d \vec r = dy \cdot \hat{j}$, per cui l'energia potenziale gravitazionale diviene
-\[\mathcal{U}(y)=-\int(-mg \cdot dy) = mg \cdot y + c\]
-Per cui l'energia potenziale gravitazionale si calcola come segue:
-\[\boxed{\mathcal{U}(h)=mgh}\]
+Per quanto concerne la forza elastica, è noto che $\vec F \cdot d \vec r = -k x \cdot dx$, da cui:
+\[\mathcal{U}(x) = -\int - k x \cdot dx = \frac{1}{2}k \cdot x^2 + c\]
+Per cui l'energia potenziale elastica si calcola come segue:
+\[\boxed{\mathcal{U}(x)=\frac{1}{2}k x^2}\]
 
 \vspace{1em}
 \noindent
@@ -4013,32 +4008,71 @@ Di seguito si espone la definizione di \textbf{potenza}:
     \parbox{\linewidth}{La \textbf{potenza} viene definita come
     \[\boxed{P=\frac{dW}{dt}}\]
     ovverosia la quantità di energia trasferita per unità di tempo. L'unità di misura è, naturalmente, il \textbf{Watt}, per cui
-    \[1 \text{ W} = 1 \frac{\text{J}}{\text{s}}\]
+    \[\boxed{1 \text{ W} = 1 \frac{\text{J}}{\text{s}}}\]
     mentre per l'unità di energia $1 \text{ kWh}$ è da considerarsi
-    \[1 \text{ kWh} = 1000 \text{ W} \cdot 3600 \text{ s} = 3.6 \text{ MJ}\]
-    \vspace{-1mm}}\\
+    \[\boxed{1 \text{ kWh} = 1000 \text{ W} \cdot 3600 \text{ s} = 3.6 \text{ MJ}}\]
+    \vspace{-3mm}}\\
     \hline
 \end{tabularx}
 
 \vspace{1em}
 \noindent
-\textbf{Esempio}: Se si considera un lavoro di $3.6 \text{ TJ}$, allora tale lavoro corrisponde ad una potenza di $25 \text{ GWh}$. Se si considera il flusso massimo di una turbina pari a $130 \text{ m}^3/\text{s}$, allora la potenza massima diviene:
+\textbf{Esempio}: Se si considera un lavoro di $90 \text{ TJ}$, allora tale lavoro corrisponde ad una potenza di $25 \text{ GWh}$. Se si considera il flusso massimo di una turbina pari a $130 \text{ m}^3/\text{s}$, allora la potenza massima diviene:
 \[P=\frac{dW}{dt}=\frac{d\mathcal{U}}{dt}=\frac{d}{dt}(mgh)=\frac{dm}{dt} gh = \rho \cdot \frac{dV}{dt} gh = 1.4 \text{ MW}\]
 
 \vspace{1em}
 \noindent
-\textbf{Esercizio}: Si consideri una macchina di $10^3 \text{ kg}$ che necessita una potenza di $16 \text{ hp}$ per andare ad una velocità costante di $80 \text{ km/h}$. Si determini, allora, la potenza necessaria per salire una pendenza di $10^\circ$.\\
-Naturalmente le forze in gioco sono la forza di gravità, la forza normale, la forza di attrito e la forza di trazione.\\
+\textbf{Esercizio}: Si consideri una macchina di $10^3 \text{ kg}$ che necessita una potenza di $16 \text{ hp}$ per andare ad una velocità costante di $80 \text{ km/h}$. Si determini, allora, la potenza necessaria per salire una pendenza di $10^\circ$.
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1]
+    \draw (-1.8,0) -- ++(6.2,0);
+    \foreach \i in {-20,-18,...,40} {
+      \draw (\i / 10,-0.3) -- (\i / 10 + 0.3,0);
+    }
+    \node[minimum size=0.5cm,circle,draw] (circle) at (0.5,0.25){};
+    \node[minimum size=0.5cm,circle,draw] (circle) at (1.5,0.25){};
+    \draw (0.25,0.25) -- ++(-0.3,0) -- ++(0,0.5) -- ++(0.5,0) -- ++(0.3,0.3) -- ++(0.8,0) -- ++(0.3,-0.3) -- ++(0.5,0) -- ++(0,-0.5) -- ++(-0.6,0);
+
+    \draw [-stealth] (2,2) -- node[midway, above]{$\vec{v}$} (3,2) ;
+    \draw [-stealth] (0.85,0) -- node[midway, left]{$\vec{F}_N$} (0.85,3) ;
+    \draw [-stealth] (1.15,0.65) node[circ]{} -- ++(0,-3) node [midway, below right] {$\vec{F}_{t}$};
+    \draw [-stealth, red] (2,0.5) node[circ]{} -- ++(2,0) node [midway, above right] {$\vec{F}$};
+    \draw [-stealth, red] (0.5,0) node[circ]{} -- ++(-2,0) node [midway, above left] {$\vec{F}_{r}$};
+  \end{tikzpicture}
+  \caption{Vettura a velocità costante su una strada orizzontale}
+  \label{fig:vettura_velocita_costante_strada_orizzontale}
+\end{figure}
+
+\noindent
+Naturalmente le forze in gioco sono la forza di gravità, la forza normale, la forza di attrito e la forza di trazione:
+
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1]
+    \draw [-stealth] (0,0) node[circ]{} -- ++(0,1) node [at end, right] {$\vec{F}_N$};
+    \draw [-stealth] (0,0) -- ++(0,-1) node [midway, right] {$\vec{F}_{t}$};
+    \draw [-stealth] (0,0) -- ++(-1,0) node [midway, above] {$\vec{F}_{r}$};
+    \draw [-stealth] (0,0) -- ++(1,0) node [midway, above] {$\vec{F}$};
+  \end{tikzpicture}
+  \caption{Diagramma a corpo libero di una vettura a velocità costante su una strada orizzontale}
+  \label{fig:diagramma_corpo_libero_vettura_velocita_costante_strada_orizzontale}
+\end{figure}
+
+\noindent
 Giacché la velocità è costante, l'accelerazione della vettura è nulla, per cui
 \[\sum \vec F = 0\]
-Da ciò si evince
+Da ciò si evince la forza di trazione $\vec F$ e la forza di resistenza $\vec F_r$ sono uguali ed opposte, per cui:
 \[\vec F = \vec F_r\]
 Applicando il teorema lavoro-energia cinetica, si ha che
-\[W_{tot}=\Delta K\]
+\[W_{tot}=\Delta K=0\]
 in cui è da considerare $W_{tot}=W_m+W_r$, i quali sono uguali e oppposti. Ovviamente si ha che
-\[W_m = \int \vec f \cdot d \vec r \hspace{1em} \text{e} \hspace{1em} W_r = \int \vec F_r \cdot d \vec r\]
+\[W_m = \int \vec F \cdot d \vec r \hspace{1em} \text{e} \hspace{1em} W_r = \int \vec F_r \cdot d \vec r\]
 e sono entrambi uguali a $W=F \cdot d$. Naturalmente, in questo caso, si ottiene che la potenza cercata è proprio:
-\[P=\frac{d}{dt}W_m=\frac{d}{dt}F \cdot d = f \cdot v\]
+\[P=\frac{d}{dt}W_m=\frac{d}{dt}F \cdot d = F \cdot v\]
 che è un risultato fondamentale:
 \[\boxed{P=\vec F \cdot \vec v}\]
 Dai dati del problema si ha che tale potenza, ovvero $P=F \cdot v = 16 \text{ hp}$.\\
@@ -4046,24 +4080,28 @@ Se la macchina deve affrontare una salita di $10^\circ$, allora la forza peso de
 \[\sum \vec F = 0 = \vec F_r + \vec F_N + \vec F_t + \vec F\]
 Ruotando il sistema di $10^\circ$ si ottiene che, scomponendo l'equazione nelle sue due componenti:
 \begin{align*}
-    \hat{j}:F_N - F_t \cdot \cos(\theta) = 0
-    \hat{j}:F - F_r  - F_t \cdot \sin(\theta) = 0
+    \hat{j}:F_N - F_t \cdot \cos(\theta) = 0\\
+    \hat{i}:F - F_r  - F_t \cdot \sin(\theta) = 0
 \end{align*}
 Volendo cercare la potenza della mattina necessaria per affrontare la salita, si deve procedere al calcolo seguente:
 \[P=F \cdot v=(F_r + F_t \cdot \sin(\theta)) \cdot v\]
 Ma volendo calcolare $F_r \cdot v$, si può impiegare il risultato precedente, sapendo che $F_r \cdot v = 16 \text{ hp}$. Da ciò si evince che:
-\[P=F_r \cdot v + mg \cdot \sin(\theta) \cdot v = 16 \text{ hp} + \frac{27.8 \text{ kW}}{743 \text{ W/hp}} = 67 \text{ hp}\]
+\[P=F_r \cdot v + mg \cdot \sin(\theta) \cdot v = 16 \text{ hp} + \frac{37.8 \text{ kW}}{743 \text{ W/hp}} = 67 \text{ hp}\]
 In cui, ovviamente, $mg \cdot \sin(\theta) \cdot v$ è il tasso di cambio della propria velocità in energia potenziale.
 
 \vspace{1em}
 \noindent
 \textbf{Esercizio}: Si calcoli la velocità di un motorino elettrico avente una potenza di $3000 \text{ W}$ in salita avente una pendenza del $10^\circ$, in cui la massa complessiva del sistema è di $200 \text{ kg}$ (trascurando la resistenza dell'aria).\\
-Naturalmente, giacché $v$ è costante, significa che non vi è accelerazione $a=0$. Da ciò si ha che $f=mg \cdot \sin(\theta)$, mentre la potenza cercata è
+Naturalmente, giacché $v$ è costante, significa che non vi è accelerazione ($\vec a=0$). Da ciò si ha che la forza di trazione del motorino è $F=mg \cdot \sin(\theta)$, mentre la potenza cercata è
 \[P = mg \cdot \sin(\theta) \cdot v = F \cdot v = \frac{d}{dt} \left(\mathcal{U}(y)\right) = mg \cdot \frac{dy}{dt}\]
 Da cui si evince che la velocità del sistema cercata è proprio data dal rapporto seguente:
 \[v = \frac{P}{mg \cdot \sin(\theta)} = 55 \text{ km/h}\]
 
-
+\newpage
+\noindent
+\begin{center}
+  28 Marzo 2022
+\end{center}
 
 
 
