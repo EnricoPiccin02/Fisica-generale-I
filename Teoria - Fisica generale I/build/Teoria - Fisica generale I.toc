@@ -57,8 +57,9 @@
 \contentsline {subsubsection}{\numberline {6.7.1}Energia potenziale gravitazionale}{69}{}%
 \contentsline {subsubsection}{\numberline {6.7.2}Energia potenziale elastica}{69}{}%
 \contentsline {subsection}{\numberline {6.8}Potenza}{69}{}%
-\contentsline {section}{\numberline {7}Oscillazioni}{73}{}%
-\contentsline {section}{\numberline {8}Solidi e fluidi}{74}{}%
-\contentsline {section}{\numberline {9}Temperatura e calore}{75}{}%
-\contentsline {section}{\numberline {10}Il primo principio della termodinamica}{76}{}%
-\contentsline {section}{\numberline {11}Il secondo principio della termodinamica}{77}{}%
+\contentsline {subsection}{\numberline {6.9}Conservazione dell'energia}{73}{}%
+\contentsline {section}{\numberline {7}Oscillazioni}{75}{}%
+\contentsline {section}{\numberline {8}Solidi e fluidi}{76}{}%
+\contentsline {section}{\numberline {9}Temperatura e calore}{77}{}%
+\contentsline {section}{\numberline {10}Il primo principio della termodinamica}{78}{}%
+\contentsline {section}{\numberline {11}Il secondo principio della termodinamica}{79}{}%

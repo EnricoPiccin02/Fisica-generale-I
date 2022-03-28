@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.27)  28 MAR 2022 08:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.27)  28 MAR 2022 10:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -748,25 +748,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 3919--3924
 
  []
 
-[67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] (build/Teoria - Fisica generale I.aux)
+[67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] (build/Teoria - Fisica generale I.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 46454 strings out of 480445
- 1222052 string characters out of 5892391
- 1893289 words of memory out of 5000000
- 63106 multiletter control sequences out of 15000+600000
+ 46504 strings out of 480445
+ 1223115 string characters out of 5892391
+ 1893290 words of memory out of 5000000
+ 63156 multiletter control sequences out of 15000+600000
  424297 words of font info for 103 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  128i,28n,130p,775b,2417s stack positions out of 5000i,500n,10000p,200000b,80000s
  </Users/enricopiccin/Library/texlive/2021basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/c
 mextra/cmmib7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "build/Teoria - Fisica generale I.pdf" (77 pages, 486086 bytes).
+Output written on "build/Teoria - Fisica generale I.pdf" (79 pages, 499145 bytes).
 PDF statistics:
- 351 PDF objects out of 1000 (max. 8388607)
- 243 compressed objects within 3 object streams
+ 358 PDF objects out of 1000 (max. 8388607)
+ 248 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
