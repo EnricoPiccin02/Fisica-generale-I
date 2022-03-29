@@ -4102,24 +4102,71 @@ Da cui si evince che la velocità del sistema cercata è proprio data dal rappor
 \begin{center}
   28 Marzo 2022
 \end{center}
-\textbf{Esercizio}: Si consideri una massa $m=500$ g che viene lasciato cadere da un'altezza $h=60$ cm su un ripiano collegato ad una molla di costante elastica $k=120$ v/m. Si determini, allora, la lunghezza $l$ di compressione massima della molla fino a quando l'assieme blocco-piattaforma si ferma.\\
+\textbf{Esercizio}: Si consideri una massa $m=500$ g che viene lasciato cadere da un'altezza $h=60$ cm su un ripiano collegato ad una molla di costante elastica $k=120$ N/m.
+
+\begin{figure}[H]
+  \centering
+  \colorlet{xcol}{blue!70!black}
+  \colorlet{darkblue}{blue!40!black}
+  \colorlet{myred}{red!65!black}
+  \tikzstyle{mydashed}=[xcol,dashed,line width=0.25,dash pattern=on 2.2pt off 2.2pt]
+  \tikzstyle{axis}=[->,thick] %line width=0.6
+  \tikzstyle{ell}=[{Latex[length=3.3,width=2.2]}-{Latex[length=3.3,width=2.2]},line width=0.3]
+  \tikzstyle{dx}=[-{Latex[length=3.3,width=2.2]},darkblue,line width=0.3]
+  \tikzstyle{ground}=[preaction={fill,top color=black!10,bottom color=black!5,shading angle=20},
+                      fill,pattern=north east lines,draw=none,minimum width=0.3,minimum height=0.6]
+  \tikzstyle{mass}=[line width=0.6,red!30!black,fill=red!40!black!10,rounded corners=1,
+                    top color=red!40!black!20,bottom color=red!40!black!10,shading angle=20]
+  \tikzstyle{spring}=[line width=0.8,blue!7!black!80,snake=coil,segment amplitude=5,segment length=5,line cap=round]
+  \tikzset{>=latex} % for LaTeX arrow head
+  \tikzstyle{force}=[->,myred,very thick,line cap=round]
+  \def\tick#1#2{\draw[thick] (#1)++(#2:0.1) --++ (#2-180:0.2)}
+
+  \begin{tikzpicture}[scale=2]
+    \def\H{1}    % wall height
+    \def\T{0.3}  % wall thickness
+    \def\W{2.6}  % ground length
+    \def\D{0.25} % ground depth
+    \def\h{0.6}  % mass height
+    \def\w{0.7}  % mass width
+    \def\x{1.6}  % mass x position
+    \draw[spring] (\x/2,0) --++ (0,\h);
+    \draw[ground] (0,0) |-++ (-\T,\H+1.5) |-++ (\T+\W,-\H-\D-1.5) -- (\W,0) -- cycle;
+    \draw (0,\H+1.5) -- (0,0) -- (\W,0);
+
+    \draw[mass] (\x/4,\h+1) rectangle++ (\w,\h) node[midway] {$m$};
+    \draw[mass] (\x/4,\h) rectangle++ (\x/2,0.05);
+
+    \draw[stealth-stealth] (\x,\h/2+0.5) -- ++(0,1) node[midway, right]{$60$ cm};
+    \draw[stealth-stealth] (\x+0.75,\h/2) -- ++(0,1.5) node[midway, right]{$l$};
+  \end{tikzpicture}
+  \caption{Massa lasciata cadere su una molla}
+  \label{fig:massa_lasciata_cadere_molla}
+\end{figure}
+
+\noindent
+Si determini, allora, la lunghezza $l$ di compressione massima della molla fino a quando l'assieme blocco-piattaforma si ferma.\\
 Al fine di risolvere tale problema è utile richiamare il teorema lavoro-energia cinetica: naturalmente si ha che il lavoro totale compiuto sul sistema è pari alla variazione di energia cinetica:
-\[W_{tot} = \Delta K = \frac{1}{2}m \cdot (v_f^2 - v_i^2)\]
-ma essendo la velocità iniziale e finale del blocco nulle, si deduce che il lavoro totale compiuto sul sistema è nullo. Le unice forze che compiono lavoro, in questo caso ipotetico, sono la forza di gravità e la forza elastica di richiamo della molla: ciò significa che il lavoro compiuto da ambedue le forze è uguale, ma opposto, da cui:
+\[W_{tot} = \Delta K = \frac{1}{2}m \cdot \left(v_f^2 - v_i^2\right)\]
+ma essendo la velocità iniziale e finale del blocco nulle, si deduce che il lavoro totale compiuto sul sistema è nullo. Le uniche forze che compiono lavoro, in questo caso ipotetico, sono la forza di gravità e la forza elastica di richiamo della molla; ciò significa che il lavoro compiuto da ambedue le forze è uguale, ma opposto, da cui:
 \[w_{tot}=0=W_g+W_m=mgl-\frac{1}{2}k \cdot (l-d)^2\]
 Da ciò si evince che:
 \[-\frac{1}{2}kl^2 + (kd+mg) \cdot l - \frac{1}{2}kd^2=0\]
 e volendo isolare $l^2$ si ottiene:
 \[l^2 - 2 \cdot \left(\frac{mg}{k} + d\right) \cdot l + d^2=0\]
-Naturalmente tale equazione presenterà due soluzioni, ma in questo caso deve chiedere $l>d$:
+Naturalmente tale equazione presenterà due soluzioni, ma in questo caso si deve chiedere che $l>d$, per cui:
 \[l_{1,2}=\frac{\dfrac{mg}{k}+l \pm \sqrt{4 \cdot \left(\dfrac{mg}{k} + d\right)^2 - 4d^2}}{2}\]
-per cui si ottiene che
-\[l = \frac{mg}{k} \cdot \left(1+\sqrt{1+\frac{2kd}{mg}}+d\right) = 86.6 \text{ cm}\]
+ma l'unica soluzione che ha significato è
+\[l = \frac{mg}{k} \cdot \left(1+\sqrt{1+\frac{2kd}{mg}}\right)+d = 86.6 \text{ cm}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che l'altra soluzione dell'equazione corrisponde non al caso in cui la molla è compressa, ma quando la molla è stesa.
 
 \newpage
 \noindent
 \subsection{Conservazione dell'energia}
-L'energia può essere interpretata come un fluido, la quale si traforma in una forma o in un'altra, ma conservando sempre la propria quantità.
+L'energia può essere interpretata come un fluido, la quale si traforma in una forma o in un'altra, ma conservando sempre la propria quantità. Tale concetto viene condensato dal \textbf{teorema di conservazione dell'energia} esposto di seguito:
 
 % Tabella per le definizione di concetti, etc...
 \vspace{1em}
@@ -4130,25 +4177,23 @@ L'energia può essere interpretata come un fluido, la quale si traforma in una f
 \begin{tabularx}{\textwidth}{@{}|P|@{}}
     \hline
     {\textbf{CONSERVAZIONE DELL'ENERGIA}}\\
-    \parbox{\linewidth}{Quando si impiega il teorema di conservazione dell'energia, è sempre fondamentale specificare il \textbf{sistema} su cui si sta lavorando, distinguendolo con l'\textbf{ambiente esterno}: tra il sistema e l'ambiente può esserci scambio (o trasferimento) di energia (in ambo le direzioni) oppure no: nel secondo caso si può applicare il \textbf{teorema di conservazione dell'energia}:
-    \[\boxed{E_{\text{sistema}}=\underbrace{K+\mathcal{U}}_\text{energia meccanica}+U}\]
-    in cui $K$ è l'\textbf{energia cinetica}, $\mathcal{U}$ è l'\textbf{energia potenziale}, mentre $U$ prende il nome di \textbf{energia interna}.\\
-    Tuttavia, in \textbf{meccanica}, si ignora totalmente l'energia del sistema, e si preferisce considerare solamente l'energia meccanica $K+\mathcal{U}$.\\
+    \parbox{\linewidth}{Quando si impiega il teorema di conservazione dell'energia, è sempre fondamentale specificare il \textbf{sistema} su cui si sta lavorando, distinguendolo con l'\textbf{ambiente esterno}: tra il sistema e l'ambiente può esserci scambio (o trasferimento) di energia (in ambo le direzioni) oppure no; nel secondo caso si può applicare il \textbf{teorema di conservazione dell'energia} sul sistema considerato:
+    \[\boxed{E_{\text{sistema}}=K+\mathcal{U}+U}\]
+    in cui $K$ è l'\textbf{energia cinetica}, $\mathcal{U}$ è l'\textbf{energia potenziale}, mentre $U$ prende il nome di \textbf{energia interna}. Tuttavia, in \textbf{meccanica}, si ignora totalmente l'energia del sistema, e si preferisce considerare solamente l'\textbf{energia meccanica} $E_m=K+\mathcal{U}$.\\
     Se si ha conservazione dell'energia meccanica, si ottiene che
-    \[\Delta E_{\text{sistema}}=0=\sum\text{trasferimenti}=\text{lavoro}+\text{calore}\]
-    Esempi di sistema possono essere costituiti da
+    \[\boxed{\Delta E_{\text{sistema}}=0=\sum\text{trasferimenti}=\text{lavoro}+\text{calore}}\]
+    per cui su un sistema chiuso è possibile modificare l'energia del sistema compiendo lavoro su di esso, oppure tramite scambi di calore. Esempi di sistema possono essere costituiti da
     \begin{itemize}
       \item un corpo solo;
       \item due (o più corpi) che interagiscono;
       \item un corpo deformabile;
-      \item una regione dello spazio;
+      \item una regione dello spazio (in questo caso si può avere non solo scambi d energia, ma anche di materia);
       \item etc.
     \end{itemize}
-    in cui tali sistemi possono essere \textbf{aperti}, \textbf{chiusi} o \textbf{isolati}.\\
+    in cui tali sistemi possono essere \textbf{aperti} (per cui si ha scambio sia di energia che di materia), \textbf{chiusi} (in cui si ha scambio solamente di energia) o \textbf{isolati} (in cui non si ha nè scambio di energia nè di materia).\\
     Più limitatamente all'energia meccanica, il teorema di conservazione dell'energia meccanica afferma che
-    \[\Delta E_{\text{sistema}}=\Delta K + \Delta \mathcal{U}=W_{\text{sistema}}\]
-    ove $W_{\text{sistema}}$ è da intendersi il lavoro totale compiuto dal sistema.
-    \vspace{3mm}}\\
+    \[\boxed{\Delta E_{\text{sistema}}=\Delta K + \Delta \mathcal{U}=W_{\text{sistema}}}\]
+    ove $W_{\text{sistema}}$ è da intendersi il lavoro totale compiuto sul sistema.\vspace{3mm}}\\
     \hline
 \end{tabularx}
 
@@ -4159,11 +4204,11 @@ L'energia può essere interpretata come un fluido, la quale si traforma in una f
 \vspace{1em}
 \noindent
 \textbf{Osservazione}: Si osservi che l'energia cinetica non può mai essere negativa, mentre l'energia potenziale è totalmente arbitraria: ciò che è fondamentale da valutare è la variazione di energia potenziale.\\
-Inoltre, l'energia totale di un sistema può cambiare se una forza esterna compie lavoro sul sistema: lavoro totale compiuto sul sistema è uguale al cambio in energia totale del sistema.
+Inoltre, l'energia totale di un sistema può cambiare se una forza esterna compie lavoro sul sistema: il lavoro totale compiuto sul sistema è uguale alla variazione in energia totale del sistema.
 
 \vspace{1em}
 \noindent
-\textbf{Esercizio}: Se si considera una biglia poggiata su una molla in compressione, nello stadio iniziale vi sarà solamente energia potenziale elastica, che poi si tramuterà in energia cinetica ed energia potenziale gravitazionale, fino a quando la biglia raggiungerà il suo punto di massima altezza, in cui la totalità dell'energia del sistema è data soltanto dalla componente potenziale gravitazionale.
+\textbf{Esercizio}: Se si considera una biglia poggiata su una molla in compressione: nello stadio iniziale vi sarà solamente energia potenziale elastica, che poi si tramuterà in energia cinetica ed energia potenziale gravitazionale, fino a quando la biglia raggiungerà il suo punto di massima altezza, in cui la totalità dell'energia del sistema è data soltanto dalla componente potenziale gravitazionale.
 
 \vspace{1em}
 \noindent
@@ -4171,7 +4216,7 @@ Inoltre, l'energia totale di un sistema può cambiare se una forza esterna compi
 \[\mathcal{U} = - \int \vec F \cdot d \vec r\]
 per cui si può scrivere che
 \[\boxed{F_x = - \frac{d \mathcal{U}}{dx}}\]
-ovvero la forza $F$ corrisponde all'opposto della pendenza del grafico forza potenziale spostamento:
+ovvero la forza $F$ corrisponde all'opposto della pendenza del grafico energia potenziale-spostamento:
 
 \vspace{2em}
 \noindent
@@ -4187,23 +4232,29 @@ ovvero la forza $F$ corrisponde all'opposto della pendenza del grafico forza pot
           ylabel = {\(\mathcal{U}\)},
           legend pos=outer north east,
           ymajorgrids=true,
+          ymin=-5,
           xmajorgrids=true,
           grid style=dashed,
         ]
 
         \addplot [
-          domain=-2:10,
+          domain=-2:12,
           samples=100,
           color=red,
         ]
-        {(x-3)^2+20};
+        {(x-5)^2+20};
+        \draw (axis cs:5,20) node[circ]{} node[above=0.5cm]{$F=0$};
+        \draw (axis cs:8,29) node[circ]{} node[below=0.5cm]{$\vec F$};
+        \draw (axis cs:2,29) node[circ]{} node[below=0.5cm]{$\vec F$};
+        \draw[-stealth, red, very thick] (axis cs:1,15) -- (axis cs:3,15);
+        \draw[-stealth, red, very thick] (axis cs:9,15) -- (axis cs:7,15);
         \end{axis}
     \end{tikzpicture}
   }
 \end{tabularx}
 
 \noindent
-Questo è un sistema che viene definito \textbf{stabile}, in quanto ad ogni spostamento vi è una forza che permette di bilanciare il sistema, portandolo in una condizione di equilibrio.\\
+Questo è un sistema che viene definito \textbf{stabile}, in quanto ad ogni spostamento positivo (o negativo) vi è una forza di richiamo negativa (o positiva, rispettivamente) che permette di bilanciare il sistema, portandolo in una condizione di equilibrio.\\
 Analogamente, un sistema è \textbf{instabile} quando ad ogni spostamento viene associata una forza che sbilancia ancora di più il sistema nella direzione dello spostamento:
 
 \vspace{2em}
@@ -4219,17 +4270,26 @@ Analogamente, un sistema è \textbf{instabile} quando ad ogni spostamento viene 
           xlabel = \(x\),
           ylabel = {\(\mathcal{U}\)},
           legend pos=outer north east,
+          ymin=-5,
+          ymax=18,
+          xmin=-2,
+          xmax=12,
           ymajorgrids=true,
           xmajorgrids=true,
           grid style=dashed,
         ]
 
         \addplot [
-          domain=-2:10,
+          domain=-2:12,
           samples=100,
           color=red,
         ]
-        {-(x-3)^2+12};
+        {-(x-5)^2+12};
+        \draw (axis cs:5,12) node[circ]{} node[above=0.5cm]{$F=0$};
+        \draw (axis cs:8,3) node[circ]{} node[above=1.5cm]{$\vec F$};
+        \draw (axis cs:2,3) node[circ]{} node[above=1.5cm]{$\vec F$};
+        \draw[-stealth, red, very thick] (axis cs:3,12) -- (axis cs:1,12);
+        \draw[-stealth, red, very thick] (axis cs:7,12) -- (axis cs:9,12);
         \end{axis}
     \end{tikzpicture}
   }
@@ -4237,12 +4297,12 @@ Analogamente, un sistema è \textbf{instabile} quando ad ogni spostamento viene 
 
 \noindent
 Non da ultimo devono essere citati sistemi molto più complessi, in cui vi può essere la combinazione di più configurazioni stabili e instabili, valutabili tramite la derivata seconda, ovvero:
-\[\frac{d^2 \mathcal{U}}{dx} > 0 \longrightarrow \text{sistema stabile} \hspace{1em} \text{e} \hspace{1em} \frac{d^2 \mathcal{U}}{dx} < 0 \longrightarrow \text{sistema instabile}\]
+\[\frac{d^2 \mathcal{U}}{dx^2} > 0 \longrightarrow \text{sistema stabile} \hspace{1em} \text{e} \hspace{1em} \frac{d^2 \mathcal{U}}{dx^2} < 0 \longrightarrow \text{sistema instabile}\]
 
 \vspace{1em}
 \noindent
 \textbf{Osservazione}: Si osservi che l'energia potenziale gravitazione può essere interpretata come
-\[\mathcal{U}(r) = - G \cdot \frac{m_1 \cdot m_2}{r}\]
+\[\boxed{\mathcal{U}(r) = - G \cdot \frac{m_1 \cdot m_2}{r}}\]
 che graficamente corrisponde ad un'iperbole equilatera sul quarto quadrante.
 
 \newpage
@@ -4251,7 +4311,7 @@ che graficamente corrisponde ad un'iperbole equilatera sul quarto quadrante.
   29 Marzo 2022
 \end{center}
 A proposito dell'energia potenziale gravitazione, è nota la formula seguente, in quanto deriva dall'integrale della forza di attrazione gravitazionale per la distanza:
-\[\mathcal{U}(r) = - G \cdot \frac{m_1 \cdot m_2}{r}\]
+\[\boxed{\mathcal{U}(r) = - G \cdot \frac{m_1 \cdot m_2}{r}}\]
 Che presenta un grafico sull'asse della distanza che rappresenta un'iperbole equilatera
 
 \vspace{2em}
@@ -4274,7 +4334,7 @@ Che presenta un grafico sull'asse della distanza che rappresenta un'iperbole equ
         ]
 
         \addplot [
-          domain=0:10,
+          domain=0:3,
           samples=100,
           color=red,
         ]
@@ -4357,7 +4417,7 @@ per cui, volendo isolare $v_0$ si ottiene che
 Volendo determninare la tensione del filo nella posizione più bassa, sarà sufficiente imporre che la somma della forza di tensione e della componente nel piano della forza peso devono essere pari alla forca centripeta nel punto più bassso, da cui:
 \[F_{tx} + F_T = F_c \longrightarrow F_T + F_{tx} = -m \cdot \frac{v_0^2}{L}\]
 essendo diretta verso il centro della circonferenza. Da ciò è immediato capire che
-\[F_T = -m \cdot \frac{v_0^2}{L} - mg \cdot \sin(\theta) = -6 mg \cdod \sin(\theta)\]
+\[F_T = -m \cdot \frac{v_0^2}{L} - mg \cdot \sin(\theta) = -6 mg \cdot \sin(\theta)\]
 
 
 
