@@ -4245,6 +4245,120 @@ Non da ultimo devono essere citati sistemi molto più complessi, in cui vi può 
 \[\mathcal{U}(r) = - G \cdot \frac{m_1 \cdot m_2}{r}\]
 che graficamente corrisponde ad un'iperbole equilatera sul quarto quadrante.
 
+\newpage
+\noindent
+\begin{center}
+  29 Marzo 2022
+\end{center}
+A proposito dell'energia potenziale gravitazione, è nota la formula seguente, in quanto deriva dall'integrale della forza di attrazione gravitazionale per la distanza:
+\[\mathcal{U}(r) = - G \cdot \frac{m_1 \cdot m_2}{r}\]
+Che presenta un grafico sull'asse della distanza che rappresenta un'iperbole equilatera
+
+\vspace{2em}
+\noindent
+\rowcolors{1}{white}{white}
+\begin{tabularx}{\textwidth}{P}
+  {
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          grid=both,
+          axis lines = middle,
+          xlabel = \(r\),
+          ylabel = {\(\mathcal{U}\)},
+          legend pos=outer north east,
+          ymax = 4,
+          ymajorgrids=true,
+          xmajorgrids=true,
+          grid style=dashed,
+        ]
+
+        \addplot [
+          domain=0:10,
+          samples=100,
+          color=red,
+        ]
+        {- 1/x};
+        \end{axis}
+    \end{tikzpicture}
+  }
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che in base alla formula di cui sopra, l'energia potenziale gravitazionale è sempre negativa (anche se sarebbe possibile aggiungere a tale calcolo una costante $c$ di integrazione).
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: L'energia meccanica totale di un satellite in orbita attorno alla terra è data dalla somma di due componenti: l'energia cinetica e l'energia potenziale
+\[E_{tot} = K+\mathcal{U}=\frac{1}{2}mv^2 - G \cdot \frac{m_t \cdot m}{r}\]
+Tuttavia, in tali sistemi, si assiste ad un minimo scambio di energia (a causa delle radiazioni), per cui con sufficiente precisione è possibile affermare che si ha conservazione di energia, ovvero
+\[\Delta E = 0 \longrightarrow K+\mathcal{U}=\text{costante}\]
+Se il satellite si allontasse eccessivamente dalla terra, incrementando la propria energia cinetica e riducento la propria energia potenziale, non starebbe più in orbita attorno alla terna.\\
+Pertanto, è possibile definire il concetto di \emph{$E:=$energia di legame}, per cui se $E < 0$ si ha la condizione per avere un'orbita attorno alla terra.\\
+Naturalmente, l'energia potenziale dipende solamente dal parametro $r$, per cui più $r$ aummenta, più l'energia potenziale diminuisce, mentre se $r$ tende a $0$, allora l'energia potenziale assume il suo massimo valore.\\
+Disegnando l'energia potenziale in tre dimensioni, è possibile visualizzare le linee equipotenziali che permettono di descrivere le possibili orbite di due pianeti.
+
+\vspace{1em}
+\subsection{Felocità di fuga}
+È noto che la velocità di fuga si ha quando l'energia di legame è pari a $0$, ossia $E=0$: taluna è la condizione che permette al satellite di fuggire dalla sua orbita, ossia di uscire dal campo gravitazionale, ovvero:
+\[\frac{1}{2}m v^2 = G \cdot \frac{m_t \cdot m}{r}\]
+in cui $v$ è proprio la velocità di fuga, per cui
+\[\boxed{v_{\text{fuga}} = \sqrt{\frac{2G \cdot m_t}{r}}}\]
+e dipende naturalmente da $r$: se la distanza è molto elevata, è chiaro che l'energia potenziale gravitazionale sarà inferiore e quindi la velocità di fuga sarà inferiore.\\
+Nel caso della terra, allora, volendo calcolare la velocità di fuga sulla superficie della terra si ottiene:
+\[v_{\text{fuga}} = \sqrt{\frac{2G \cdot m_t}{R_t}} = \sqrt{2} \cdot \sqrt{g \cdot R_t} \cong 11 000 \text{ m/s} \cong 40 000 \text{ km/h}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Quando si considera un sistema stabile, partendo con una certa energia cinetica, converte molteplici volte tale energia in energia potenziale e viceversa; se vi è dissipazione, ovviamente, parte dell'energia viene dispersa ad ogni oscillazione fino a quando non si raggiunge la configurazione stabile di equilibrio.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri una molla verticale sulla quale è attaccata una massa. Naturalmente, l'energia potenziale del sistema in funzione di $y$ è data da
+\[\mathcal{U}(y) = mg y + \frac{1}{2} k y^2\]
+e per conoscere il minimo valore di energia potenziale (corrispondente proprio al punto di equilibrio nel grafico di una parabola con concavità rivolta verso l'alto), è sufficiente derivare tale espressione e porre la condizione che la derivata sia nulla:
+\[\frac{d}{dy} \mathcal{U(y)} = mg + ky \longrightarrow y = \frac{mg}{k}\]
+che è il medesimo risultato che sarebbe stato ottenuto ragionando con la $2^a$ legge della dinamica.\\
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio $\boldsymbol{1}$}: Il raggio dell'orbita di Marte è $1.52$ volte quello dell'orbita terrestre. Utilizzando la terza legge di Keplero si determini il periodo della rivoluzione di Marte in anni.
+
+\vspace{1em}
+\noindent
+La terza legge di Keplero afferma che il quadrato del periodo di rivoluzione di un pianeta attorno al sole è proporizionale al cubo della distanza tra i due:
+\[T^2 \propto R^3\]
+Ma naturalmente si ha che la costante di proporizionalità sarà
+\[\frac{T^2}{R^3} = \text{costante}\]
+e tale costante dipende solamente dalla massa del sole, per cui è la stessa per tutti i pianeti, pertanto si ha che
+\[\frac{T_t^2}{R_t^3} = \frac{T_m^2}{R_m^3}\]
+ma sapendo che $R_m=1.52 R_t$ è facile isolare $T_m$, ottenendo
+\[T_m = T_t \cdot \left(\frac{R_m}{R_t}\right)^{\frac{3}{2}} = T_t \cdot (1.52)^{\frac{3}{2}}=1.87 \text{ anni}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio $\boldsymbol{2}$}: Si supponga che il disco da hockey abbia una velocità di modulo $v_0$ nella posizione più bassa.\\
+Si determini il valore minimo $v_0$ che consente al disco di completare il suo percorso circolare.
+
+\vspace{1em}
+\noindent
+Naturalmente la tensione del filo nel punto più alto è nulla. Per cui, affinché si abbia un moto circolare, è necessario che la componente diretta nel piano della forza di gravità sia la forza centripeta necessaria affinché la massa compia un moto circolare uniforme.\\
+Pertanto appare evindente come si debba imporre che
+\[F_{tx} = mg \cdot \sin(\theta) = m \cdot \frac{v^2}{r}\]
+da cui si evince come la velocità nel punto più in alto sia
+\[v = \sqrt{rg \cdot \sin(\theta)}\]
+E per determinare $v_0$ è sufficiente applicare il teorema di conservazione dell'energia, da cui
+\[K_i + \mathcal{U}_i = K_f + \mathcal{U}_f\]
+e volendo determinare $K_f$, ossia l'energia cinetica al termine della rotazione della massa nel punto più basso si ottiene:
+\[K_f = K_i + \mathcal{U}_i - \mathcal{U}_f \longrightarrow \frac{1}{2} m v_0^2 = \frac{1}{2} m v^2 + mg \cdot (2L \cdot \sin(\theta))\]
+per cui, volendo isolare $v_0$ si ottiene che
+\[v_0 = \sqrt{5L g \cdot \sin(\theta)}\]
+Volendo determninare la tensione del filo nella posizione più bassa, sarà sufficiente imporre che la somma della forza di tensione e della componente nel piano della forza peso devono essere pari alla forca centripeta nel punto più bassso, da cui:
+\[F_{tx} + F_T = F_c \longrightarrow F_T + F_{tx} = -m \cdot \frac{v_0^2}{L}\]
+essendo diretta verso il centro della circonferenza. Da ciò è immediato capire che
+\[F_T = -m \cdot \frac{v_0^2}{L} - mg \cdot \sin(\theta) = -6 mg \cdod \sin(\theta)\]
+
 
 
 \newpage
