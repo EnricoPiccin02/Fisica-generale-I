@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1648583552 "Teoria - Fisica generale I.tex" "build/Teoria - Fisica generale I.pdf" "Teoria - Fisica generale I" 1648583561
+["pdflatex"] 1648631526 "Teoria - Fisica generale I.tex" "build/Teoria - Fisica generale I.pdf" "Teoria - Fisica generale I" 1648631535
   "/Users/enricopiccin/Library/texlive/2021basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk" 1643364959 11524 2df7d3388477aff28c2fab5169faa2c5 ""
   "/usr/local/texlive/2021basic/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm" 1136768653 1536 06717a2b50de47d4087ac0e6cd759455 ""
   "/usr/local/texlive/2021basic/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -276,9 +276,9 @@
   "/usr/local/texlive/2021basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1616691443 79187 72c3adcacc8085f6390cf80c64ac00e5 ""
   "/usr/local/texlive/2021basic/texmf-var/web2c/pdftex/pdflatex.fmt" 1643302228 2057433 28863b3cbca3a1e9d798e67601f03c47 ""
   "/usr/local/texlive/2021basic/texmf.cnf" 1616691442 628 e23d78b1be89c53495d66eec94d2300d ""
-  "Teoria - Fisica generale I.tex" 1648583552 223498 989b69f8930ea243fa60d278a257d447 ""
-  "build/Teoria - Fisica generale I.aux" 1648583560 17148 037ba1d49b2ff3ac212f5a3c337fbab8 "pdflatex"
-  "build/Teoria - Fisica generale I.toc" 1648583560 4622 302a95c44f58b8adb2a5de485693f11a "pdflatex"
+  "Teoria - Fisica generale I.tex" 1648631526 229839 f83684e63028fa834fb9473ef237a575 ""
+  "build/Teoria - Fisica generale I.aux" 1648631535 17148 d32c747bc504970baca089918a217207 "pdflatex"
+  "build/Teoria - Fisica generale I.toc" 1648631535 4622 ee271e9fe67e5932426a56e6bd45daa7 "pdflatex"
   (generated)
   "build/Teoria - Fisica generale I.aux"
   "build/Teoria - Fisica generale I.log"

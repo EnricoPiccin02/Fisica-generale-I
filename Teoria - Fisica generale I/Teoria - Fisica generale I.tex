@@ -4419,6 +4419,75 @@ Volendo determninare la tensione del filo nella posizione più bassa, sarà suff
 essendo diretta verso il centro della circonferenza. Da ciò è immediato capire che
 \[F_T = -m \cdot \frac{v_0^2}{L} - mg \cdot \sin(\theta) = -6 mg \cdot \sin(\theta)\]
 
+\newpage
+\noindent
+\begin{center}
+  30 Marzo 2022
+\end{center}
+\textbf{Esercizio $\boldsymbol{1}$}: Naturalmente, se si devono percorrere $200$ km ad una velocità di $120$ km/h oppure ad una velocità di $135$ km/h, si ha una variazione di tempo impiegato pari a:
+\[\Delta t = \frac{200 \text{ km}}{120 \text{ km/h}} - \frac{200 \text{ km}}{135 \text{ km/h}} = 11 \text{ minuti}\]
+L'aumento percentuale dal lavoro compiuto dal motore per viaggiare a due diverse velocità, considerando solamente la resistenza dell'aria, è dato semplicemente dal rapporto del quadrato delle due velocità.\\
+Infatti è noto che la forza di resistenza dell'aria è proporzionale al quadrato della velocità, da cui:
+\[F_r \propto v^2 \longrightarrow F_r = \beta \cdot v^2 \hspace{1em} \text{ in cui } \hspace{1em} \beta=\frac{1}{2}AC_d\rho\]
+Pertanto, il lavoro compiuto dalla forza di resistenza è dato da:
+\[W = \int \vec F \cdot d \vec r = - F_r \cdot d\]
+e per calcolare l'aumento relativo percentuale è da considerare il rapporto seguente:
+\[\frac{\vert W_{135} \vert - \vert W_{120} \vert}{\vert W_{120} \vert} \cdot 100 = \frac{(135 \text{ km/h})^2 - (120 \text{ km/h})^2}{(120 \text{ km/h})^2} \cdot 100 = 26.7 \%\]
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio $\boldsymbol{2}$}: La forza compiuta da una corda bungee segue una funzione non-lineare con la sua estensione:
+\[F(x) = k_1 \cdot x + k_2 \cdot x^3\]
+dove $x$ è la lunghezza di estensione della corda, mentre $k_1=-204$ N/m e $k_3 = 0.233 \text{ N/m}^3$.\\
+Si determini, allora, quanto lavoro è necessario (cioé quanto lavoro deve compiere una forza esterna) per estendere la corda di $15$ m, come segue:
+\[W_{c} = \int_0^{15} \vec F \cdot d x =  \int_0^{15} \left(k_1 \cdot x + k_2 \cdot x^3 \right) \cdot d x = \left[\frac{1}{2}k_1x^2 + \frac{1}{4}k_2 x^4 \right]_0^15 \cong 20 \text{ kJ}\]
+Inoltre, se $15$ m è l'estensione massima per un'operazione sicura del bungee, si determini la massa massima che può avere una persona che salta legata a questa corda, trascurando la resistenza dell'aria.\\
+Naturalmente, essendo in assenza di attriti, è possibile applicare il \textbf{teorema di conservazione dell'energia meccanica}, ovvero:
+\[E_i = E_f \longrightarrow K_i + \mathcal{U}_{gi} + \mathcal{U}_{e\i} = K_f + \mathcal{U}_{gf} + \mathcal{U}_{ef}\]
+Ma naturalmente l'energia iniziale del sistema è pari a $0$, mentre l'energia potenziale gravitazionale finale è negativa e l'energia potenziale elastica finale è naturamente data dall'opposto del lavoro calcolato in precedenza, da cui:
+\[0 = -mgh + W_c \longrightarrow m = \frac{W_c}{gh} = 136 \text{ kg}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio $\boldsymbol{3}$}: Una cassetta portautensili con massa $15$ kg è ferma sul ripiano orizzontale liscio di un autocarro. Quand l'autocarrio si mette in modo da fermo con un'accelerazione di $2.5 \text{ m/s}^2$, la cassetta scivola con un coefficiente di attrito cinetico pari a $0.20$.\\
+Essa parte dalla quiete nella parte anteriore del pianale e scivola finché non urta contro la sponta posteriore del pianale e scivola finché non urta contro la sponda posteriore del pianale lungo $2.0$ m. Si calcoli, allora, il lavoro compiuto dalla forza di attrito sulla cassetta durante la fase di moto.\\
+Naturalmente è ovvio calcolare la forza di attrito come segue:
+\[F_k = F_N \cdot \mu_k = mg \cdot \mu_k\]
+Il lavoro della forza di attrito, in tale sistema di riferimento, è positivo, in quanto bisogna considerare lo spostamento della cassetta sull'autocarro, per cui bisogna scomporre il moto in quello dell'autocarro e in quello della cassetta, da cui:
+\begin{flalign*}
+  x_a(t) & = \frac{1}{2}at^2\\
+  x_c(t) & = \frac{1}{2} \frac{F_k}{m} \cdot t^2 + l = \frac{1}{2} \mu_k \cdot g \cdot t^2 + l\\
+\end{flalign*}
+La condizione di risoluzione prevede di determinare l'istante di tempo nel quale le due posizioni saranno identiche, prendendo come punto di riferimento la sponda dell'autocarro. Allora si ha che
+\[x_a(t_1) = x_c(t1) \longrightarrow \frac{1}{2} a t_1^2 = l + \frac{1}{2} \mu_k g t_1^2 \longrightarrow t_1 = \sqrt{\frac{2l}{1 - \mu_k \cdot g}}\]
+per cui, ora, ovviamente, è facile ottenere la distanza $d$ compiuta dalla cassetta nel moto considerato.\\
+Tale distanza è semplicemente data da
+\[d=x_c(t_1)-l=\frac{1}{2}a \left(\frac{2l}{a - \mu_k \cdot g}\right) - l=\frac{l \mu_k g}{a - \mu_k \cdot g}\]
+Per cui ora, il lavoro compiuto dalla forza di attrito sulla distanza $d$ è:
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio $\boldsymbol{4}$}: Un bambino sta seduto in cima a un serbatoio cilindrico di raggio $R$. La superficie è molto liscia e il bambino compincia a scivolare con attrito tracurabile. Si determini il valoer dell'angolo in corrispondenza del quale il bambino si stacca dalla superficie cilindrica.\\
+Bisogna, quindi, determinare l'angolo $\theta$ tale $F_N=0$. Naturalmente, è possibile applicare a tale problema la seconda legge della dinamica, per cui
+\[m \cdot \vec a = \vec F_N + \vec F_t\]
+È utile, in tal senso, impiegare due nuovi versori: $\hat r$ in direzione radiale rispetto alla circonferenza, e $\hat \theta$, in direzione angolare rispetto al sistema. Da ciò si evince che:
+\[\vec a = a_r \cdot \hat{r} + a_\theta \cdot \hat{\theta}\]
+Pertanto, la componente radiale dell'accelerazione si calcola come segue:
+\[m \cdot a_r = m \cdot \vec a \cdot \hat{r} = \vec F_N \cdot \hat{r} + \vec{F_t} \cdot \hat{r} = F_n - mg \cdot \cos(\theta)\]
+Ma è noto che nel moto circolare uniforme, l'accelerazione entripeta, e quindi in questo caso radiale, è data
+\[a_r = - \frac{v^2}{R}\]
+Pertanto è possibile ottenere l'equazione seguente:
+\[-m \cdot \frac{v^2}{R} = F_n - mg \cdot \cos(\theta)\]
+Al fine di isolare $v$ è sufficiente applicare il teorema di conservazione dell'energia, per cui si ottiene che:
+\[E_i = E_f \longrightarrow K_i + \mathcal{U}_{i} = K_f + \mathcal{U}_f \longrightarrow K_f = \mathcal{U}_i - \mathcal{U}_f \longrightarrow \frac{1}{2}mv_f^2 = mgh\]
+in cui è facile ottenere $h=R-R \cdot \cos(\theta)$. Da ciò si evince come
+\[v^2 = 2g R \cdot (1-\cos(\theta))\]
+Per cui ora è facile isolare l'angolo $\theta$ cercato, operando come segue:
+\[2g R \cdot (1-\cos(\theta))=gR \cdot \cos(\theta) - \frac{F_N \cdot R}{m}\]
+Per cui si ottiene come
+\[\cos(\theta) = \frac{2}{3} \longrightarrow \theta=48^\circ\]
+
+
 
 
 \newpage
