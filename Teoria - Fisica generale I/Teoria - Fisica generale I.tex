@@ -4312,7 +4312,8 @@ che graficamente corrisponde ad un'iperbole equilatera sul quarto quadrante.
 \end{center}
 A proposito dell'energia potenziale gravitazione, è nota la formula seguente, in quanto deriva dall'integrale della forza di attrazione gravitazionale per la distanza:
 \[\boxed{\mathcal{U}(r) = - G \cdot \frac{m_1 \cdot m_2}{r}}\]
-Che presenta un grafico sull'asse della distanza che rappresenta un'iperbole equilatera
+Che presenta un grafico sull'asse della distanza che rappresenta un'iperbole equilatera: infatti, due masse inizialmente a riposo presentano una certa energia potenziale, la quale, a mano a mano che le due masse si avvicinano per attrazione gravitazionale, diminuisce fino ad annullarsi, trasformandosi progressivamente in energia cinetica. Nella realtà, le masse sono sempre in movimento, con una certa velocità, e progressivamente le due masse (che sono fra di loro simili) entrano in orbita una attorno all'altra rispetto al loro centro di massa.\\
+Di seguito si espone il grafico iperbolico dell'energia potenziale gravitazionale:
 
 \vspace{2em}
 \noindent
@@ -4352,34 +4353,121 @@ Che presenta un grafico sull'asse della distanza che rappresenta un'iperbole equ
 \noindent
 \textbf{Esempio}: L'energia meccanica totale di un satellite in orbita attorno alla terra è data dalla somma di due componenti: l'energia cinetica e l'energia potenziale
 \[E_{tot} = K+\mathcal{U}=\frac{1}{2}mv^2 - G \cdot \frac{m_t \cdot m}{r}\]
-Tuttavia, in tali sistemi, si assiste ad un minimo scambio di energia (a causa delle radiazioni), per cui con sufficiente precisione è possibile affermare che si ha conservazione di energia, ovvero
+in cui $m$ è la massa del satellite. Inoltre, in tali sistemi nello spazio, si assiste ad un minimo scambio di energia (a causa delle radiazioni), per cui con sufficiente precisione è possibile affermare che si ha conservazione di energia, ovvero
 \[\Delta E = 0 \longrightarrow K+\mathcal{U}=\text{costante}\]
-Se il satellite si allontasse eccessivamente dalla terra, incrementando la propria energia cinetica e riducento la propria energia potenziale, non starebbe più in orbita attorno alla terna.\\
-Pertanto, è possibile definire il concetto di \emph{$E:=$energia di legame}, per cui se $E < 0$ si ha la condizione per avere un'orbita attorno alla terra.\\
-Naturalmente, l'energia potenziale dipende solamente dal parametro $r$, per cui più $r$ aummenta, più l'energia potenziale diminuisce, mentre se $r$ tende a $0$, allora l'energia potenziale assume il suo massimo valore.\\
-Disegnando l'energia potenziale in tre dimensioni, è possibile visualizzare le linee equipotenziali che permettono di descrivere le possibili orbite di due pianeti.
+Per comprendere la condizione di orbita di un satellite, è opportuno studiare i possibili valori di $E$
+\begin{itemize}
+  \item se $E$ è \textbf{positivo}, allontanando progressivamente il satellite dalla terra, l'energia potenziale $\mathcal{U}$ diminuisce progressivamente, tendendo a $0$, mentre l'energia cinetica aumenta (dovendo essere $E>0$), e quindi il satellite si allontanerebbe eccessivamente dalla terra, incrementando la propria energia cinetica e riducento la propria energia potenziale, non potendo più trovarsi in orbita attorno alla terna.\\
+  Pertanto $E$ non può essere positivo, in quanto ciò significherebbe che il satellite presenta troppa energia e non può stare in orbita attorno alla terra.
+  \item se $E$ è \textbf{negativo}, invece, allora il satellite, ad una certa distanza dalla terra, diminuirebbe la propria energia cinetica, senza mai annullarla totalmente, però, in quanto essa è sempre tangenziale all'orbita e consente al satellite di compiere tale moto di rivoluzione.
+\end{itemize}
+Pertanto, è possibile definire il concetto di \emph{$E:=$energia di legame}, per cui se $E < 0$ si ha la condizione per avere un'orbita attorno alla terra. Ovviamente sussiste anche il caso limite in cui $E=0$, per cui l'energia cinetica del satellite eguaglia quella potenziale gravitazinale: ciò significa che il satellite presenta la velocità sufficiente (appunto, la \textbf{velocità di fuga}) da poter uscire dal campo gravitazionale terrestre.
 
 \vspace{1em}
-\subsection{Felocità di fuga}
+\noindent
+\textbf{Osservazione}: Naturalmente, l'energia potenziale dipende solamente dal parametro $r$, per cui più $r$ aummenta, più l'energia potenziale diminuisce, mentre se $r$ tende a $0$, allora l'energia potenziale assume il suo massimo valore.\\
+Disegnando l'energia potenziale in tre dimensioni, è possibile visualizzare le \textbf{linee equipotenziali} che permettono di descrivere le possibili orbite di due pianeti attorno al proprio centro di massa: ovviamente tale linee sono delle circonferenze che permettono di visualizzare tutti punti alla medesima distanza.
+
+\vspace{2em}
+\noindent
+\rowcolors{1}{white}{white}
+\begin{tabularx}{\textwidth}{P}
+  {
+      \centering
+      \begin{tikzpicture}[scale=1.5]
+        \begin{axis}
+        \addplot3[
+          color=red,
+          very thick,
+          surf
+        ]
+        {-(1 / x^2 + 1 / y^2)};
+        \end{axis}
+    \end{tikzpicture}
+  }
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+Ovviamente se un massa ruota seguendo una di tali linee quipotenziali, in piena conservazione dell'energia, rimarrà a compiere tale moto perpetuo, in maniera identica.\\
+Tuttavia, a causa delle cosidette \textbf{forze di marea}, ciò non si verifica, in quando deformazioni del corpo in rotazione comportano dispersione di energia cinetica e quindi un allontanamento dei corpi.\\
+Il punto in cui si è più distanti dal centro è il punto in cui si ha il massimo dell'energia potenziale (ossia il più grande valore negativo), e quindi l'energia cinetica dovrà avere il suo valore minimo: infatti il satellite si muove molto lentamente tanto più è lontano dal centro; Viceversa si verificherà quando la massa si trova molto vicina al centro di rotazione.
+
+\vspace{1em}
+\subsection{Velocità di fuga}
 È noto che la velocità di fuga si ha quando l'energia di legame è pari a $0$, ossia $E=0$: taluna è la condizione che permette al satellite di fuggire dalla sua orbita, ossia di uscire dal campo gravitazionale, ovvero:
-\[\frac{1}{2}m v^2 = G \cdot \frac{m_t \cdot m}{r}\]
+\[E=0=K+\mathcal{U} \longrightarrow K=-\mathcal{U} \longrightarrow \frac{1}{2}m v^2 = G \cdot \frac{m_t \cdot m}{r}\]
 in cui $v$ è proprio la velocità di fuga, per cui
 \[\boxed{v_{\text{fuga}} = \sqrt{\frac{2G \cdot m_t}{r}}}\]
 e dipende naturalmente da $r$: se la distanza è molto elevata, è chiaro che l'energia potenziale gravitazionale sarà inferiore e quindi la velocità di fuga sarà inferiore.\\
 Nel caso della terra, allora, volendo calcolare la velocità di fuga sulla superficie della terra si ottiene:
 \[v_{\text{fuga}} = \sqrt{\frac{2G \cdot m_t}{R_t}} = \sqrt{2} \cdot \sqrt{g \cdot R_t} \cong 11 000 \text{ m/s} \cong 40 000 \text{ km/h}\]
+ossia pari a $\sqrt{2}$ volte la velocità necessaria per stabilire un'orbita attorno alla terra con raggio esattamente pari a quello della terra: un proiettile sulla superficie della terra avente tale velocità può effettivamente uscire dal campo gravitazionale terrestre senza mai farvi più ritorno.
 
 \vspace{1em}
 \noindent
-\textbf{Osservazione}: Quando si considera un sistema stabile, partendo con una certa energia cinetica, converte molteplici volte tale energia in energia potenziale e viceversa; se vi è dissipazione, ovviamente, parte dell'energia viene dispersa ad ogni oscillazione fino a quando non si raggiunge la configurazione stabile di equilibrio.
+\textbf{Osservazione}: Quando si considera un sistema stabile, partendo con una certa energia cinetica, tale sistema converte molteplici volte tale energia in energia potenziale e viceversa; se vi è dissipazione, ovviamente, parte dell'energia viene dispersa (viene dissipata in calore) ad ogni oscillazione fino a quando l'energia totale del sistema descresce a tal punto che che si raggiunge la configurazione stabile di equilibrio, ovvero l'energia potenziale minima.
 
 \vspace{1em}
 \noindent
-\textbf{Esempio}: Si consideri una molla verticale sulla quale è attaccata una massa. Naturalmente, l'energia potenziale del sistema in funzione di $y$ è data da
+\textbf{Esempio}: Si consideri una molla verticale sulla quale è attaccata una massa:
+
+\begin{figure}[H]
+  \centering
+  \colorlet{xcol}{blue!70!black}
+  \colorlet{darkblue}{blue!40!black}
+  \colorlet{myred}{red!65!black}
+  \tikzstyle{mydashed}=[xcol,dashed,line width=0.25,dash pattern=on 2.2pt off 2.2pt]
+  \tikzstyle{axis}=[->,thick] %line width=0.6
+  \tikzstyle{ell}=[{Latex[length=3.3,width=2.2]}-{Latex[length=3.3,width=2.2]},line width=0.3]
+  \tikzstyle{dx}=[-{Latex[length=3.3,width=2.2]},darkblue,line width=0.3]
+  \tikzstyle{ground}=[preaction={fill,top color=black!10,bottom color=black!5,shading angle=20},
+                      fill,pattern=north east lines,draw=none,minimum width=0.3,minimum height=0.6]
+  \tikzstyle{mass}=[line width=0.6,red!30!black,fill=red!40!black!10,rounded corners=1,
+                    top color=red!40!black!20,bottom color=red!40!black!10,shading angle=20]
+  \tikzstyle{spring}=[line width=0.8,blue!7!black!80,snake=coil,segment amplitude=5,segment length=5,line cap=round]
+  \tikzset{>=latex} % for LaTeX arrow head
+  \tikzstyle{force}=[->,myred,very thick,line cap=round]
+  \def\tick#1#2{\draw[thick] (#1)++(#2:0.1) --++ (#2-180:0.2)}
+
+  \begin{tikzpicture}[scale=2]
+    \def\H{0.25}     % ceiling height
+    \def\W{2.6}      % ceiling width
+    \def\h{0.7}      % mass height
+    \def\w{0.6}      % mass width
+    \def\l{0.5*\y}   % rest length without weight
+    \def\dl{0.7*\y}  % rest length with weight
+    \def\y{2.4}      % mass y position
+    \def\xy{0.38*\W} % mass y position
+    \def\F{0.8}      % force magnitude
+    \draw[spring,segment length=7.2] (0,0) -- (0,-\y);
+    \draw[ground] (-\W/2,0) rectangle++ (\W,\H);
+    \draw (-\W/2,0) --++ (\W,0);
+    \draw[axis] (-\xy,0) --++ (0,-\y-0.7*\h) node[left] {$y$};
+    \draw[axis] ( \xy,0) --++ (0,-\y-0.7*\h) node[right] {$y'$};
+    \draw[mydashed] (-\xy,-\l) --++ (2.3*\xy,0);
+    \draw[mydashed] (-\xy,-\dl) --++ (2*\xy,0);
+    \draw[mydashed] (-0.46*\W,-\y) --++ (0.92*\W,0);
+    \tick{-\xy,-\l}{0} node[left] {$0$};
+    \tick{-\xy,-\dl}{0} node[left] {$y_0$};
+    \tick{ \xy,-\dl}{180} node[right] {$0$};
+    \draw[mass] (-\w/2,-\y) rectangle++ (\w,-\h) node[midway] {$m$};
+    \draw[force] (0.4*\w,-\y-0.3*\h) --++ (0,1.6*\F) node[pos=0.9,right=0] {$\vb{F}$};
+    \draw[force] (0.3*\w,-\y-0.7*\h) --++ (0,-\F) node[above right=0] {$m\vb{g}$};
+    \draw[ell] (0.45*\W,0) --++ (0,-\l) node[midway,right=-2] {$\ell_0$};
+    %\draw[ell] (-0.4*\W,-0.75*\y) --++ (0,-0.25*\y) node[midway,left=1] {$y_0$};
+  \end{tikzpicture}
+  \caption{Fisica di una molla verticale}
+  \label{fig:fisica_molla_verticale}
+\end{figure}
+
+\noindent
+Naturalmente, l'energia potenziale del sistema in funzione di $y$ è data da
 \[\mathcal{U}(y) = mg y + \frac{1}{2} k y^2\]
 e per conoscere il minimo valore di energia potenziale (corrispondente proprio al punto di equilibrio nel grafico di una parabola con concavità rivolta verso l'alto), è sufficiente derivare tale espressione e porre la condizione che la derivata sia nulla:
-\[\frac{d}{dy} \mathcal{U(y)} = mg + ky \longrightarrow y = \frac{mg}{k}\]
-che è il medesimo risultato che sarebbe stato ottenuto ragionando con la $2^a$ legge della dinamica.\\
+\[\frac{d}{dy} \mathcal{U}(y) = mg + ky \longrightarrow y = \frac{mg}{k}\]
+che è il medesimo risultato che sarebbe stato ottenuto ragionando con la $2^a$ legge della dinamica, imponendo che la forza peso e la forza elastica siano uguali, ma opposte (giacché la massa è immobile, quindi con $\vec a = 0$):
+\[mg=ky \longrightarrow y = \frac{mg}{k}\]
 
 \vspace{1em}
 \noindent

@@ -58,9 +58,9 @@
 \contentsline {subsubsection}{\numberline {6.7.2}Energia potenziale elastica}{69}{}%
 \contentsline {subsection}{\numberline {6.8}Potenza}{69}{}%
 \contentsline {subsection}{\numberline {6.9}Conservazione dell'energia}{73}{}%
-\contentsline {subsection}{\numberline {6.10}Felocità di fuga}{75}{}%
-\contentsline {section}{\numberline {7}Oscillazioni}{80}{}%
-\contentsline {section}{\numberline {8}Solidi e fluidi}{81}{}%
-\contentsline {section}{\numberline {9}Temperatura e calore}{82}{}%
-\contentsline {section}{\numberline {10}Il primo principio della termodinamica}{83}{}%
-\contentsline {section}{\numberline {11}Il secondo principio della termodinamica}{84}{}%
+\contentsline {subsection}{\numberline {6.10}Velocità di fuga}{76}{}%
+\contentsline {section}{\numberline {7}Oscillazioni}{81}{}%
+\contentsline {section}{\numberline {8}Solidi e fluidi}{82}{}%
+\contentsline {section}{\numberline {9}Temperatura e calore}{83}{}%
+\contentsline {section}{\numberline {10}Il primo principio della termodinamica}{84}{}%
+\contentsline {section}{\numberline {11}Il secondo principio della termodinamica}{85}{}%
