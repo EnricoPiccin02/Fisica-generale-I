@@ -59,8 +59,21 @@
 \contentsline {subsection}{\numberline {6.8}Potenza}{69}{}%
 \contentsline {subsection}{\numberline {6.9}Conservazione dell'energia}{73}{}%
 \contentsline {subsection}{\numberline {6.10}Velocità di fuga}{76}{}%
-\contentsline {section}{\numberline {7}Oscillazioni}{81}{}%
-\contentsline {section}{\numberline {8}Solidi e fluidi}{82}{}%
-\contentsline {section}{\numberline {9}Temperatura e calore}{83}{}%
-\contentsline {section}{\numberline {10}Il primo principio della termodinamica}{84}{}%
-\contentsline {section}{\numberline {11}Il secondo principio della termodinamica}{85}{}%
+\contentsline {section}{\numberline {7}Equilibrio}{82}{}%
+\contentsline {subsection}{\numberline {7.1}Centro di massa}{82}{}%
+\contentsline {subsection}{\numberline {7.2}Moto del centro di massa}{85}{}%
+\contentsline {subsection}{\numberline {7.3}Dinamica del centro di massa}{85}{}%
+\contentsline {subsection}{\numberline {7.4}Conservazione della quantità di moto}{86}{}%
+\contentsline {subsection}{\numberline {7.5}Seconda legge di Newton reinterpretata}{87}{}%
+\contentsline {subsection}{\numberline {7.6}Impulso}{89}{}%
+\contentsline {subsection}{\numberline {7.7}Urti}{89}{}%
+\contentsline {subsubsection}{\numberline {7.7.1}Urti tra due corpi}{91}{}%
+\contentsline {subsubsection}{\numberline {7.7.2}Urti elastici}{92}{}%
+\contentsline {subsection}{\numberline {7.8}Urto in 1D - Elastico}{92}{}%
+\contentsline {subsection}{\numberline {7.9}Urto in 1D - Anelastico}{93}{}%
+\contentsline {subsection}{\numberline {7.10}Urti - Riepilogo}{93}{}%
+\contentsline {section}{\numberline {8}Oscillazioni}{94}{}%
+\contentsline {section}{\numberline {9}Solidi e fluidi}{95}{}%
+\contentsline {section}{\numberline {10}Temperatura e calore}{96}{}%
+\contentsline {section}{\numberline {11}Il primo principio della termodinamica}{97}{}%
+\contentsline {section}{\numberline {12}Il secondo principio della termodinamica}{98}{}%
