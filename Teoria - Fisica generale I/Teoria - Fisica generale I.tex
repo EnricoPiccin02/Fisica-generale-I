@@ -4580,27 +4580,84 @@ Per cui si ottiene come
 \begin{center}
   4 Aprile 2022
 \end{center}
-\textbf{Osservazione}: Si consideri un blocco di massa $m=500$ g, appoggiato su un piano rimovibile. Il blocco è sospeso con una molla di costante $k=50$ N/m inizialmente a riposo. Il piano viene spostato seguendo due scenari diversi:
+\textbf{Osservazione}: Si consideri un blocco di massa $m=500$ g, appoggiato su un piano rimovibile. Il blocco è sospeso con una molla di costante $k=50$ N/m inizialmente a riposo, mostrata di seguito:
+
+\begin{figure}[H]
+  \centering
+  \colorlet{xcol}{blue!70!black}
+  \colorlet{darkblue}{blue!40!black}
+  \colorlet{myred}{red!65!black}
+  \tikzstyle{mydashed}=[xcol,dashed,line width=0.25,dash pattern=on 2.2pt off 2.2pt]
+  \tikzstyle{axis}=[->,thick] %line width=0.6
+  \tikzstyle{ell}=[{Latex[length=3.3,width=2.2]}-{Latex[length=3.3,width=2.2]},line width=0.3]
+  \tikzstyle{dx}=[-{Latex[length=3.3,width=2.2]},darkblue,line width=0.3]
+  \tikzstyle{ground}=[preaction={fill,top color=black!10,bottom color=black!5,shading angle=20},
+                      fill,pattern=north east lines,draw=none,minimum width=0.3,minimum height=0.6]
+  \tikzstyle{mass}=[line width=0.6,red!30!black,fill=red!40!black!10,rounded corners=1,
+                    top color=red!40!black!20,bottom color=red!40!black!10,shading angle=20]
+  \tikzstyle{spring}=[line width=0.8,blue!7!black!80,snake=coil,segment amplitude=5,segment length=5,line cap=round]
+  \tikzset{>=latex} % for LaTeX arrow head
+  \tikzstyle{force}=[->,myred,very thick,line cap=round]
+  \def\tick#1#2{\draw[thick] (#1)++(#2:0.1) --++ (#2-180:0.2)}
+
+  \begin{tikzpicture}[scale=2]
+    \def\H{0.25}     % ceiling height
+    \def\W{2.6}      % ceiling width
+    \def\h{0.7}      % mass height
+    \def\w{0.6}      % mass width
+    \def\l{0.5*\y}   % rest length without weight
+    \def\dl{0.7*\y}  % rest length with weight
+    \def\y{2.4}      % mass y position
+    \def\xy{0.38*\W} % mass y position
+    \def\F{0.8}      % force magnitude
+    \draw[spring,segment length=7.2] (0,0) -- (0,-\y);
+    \draw[ground] (-\W/2,0) rectangle++ (\W,\H);
+    \draw (-\W/2,0) --++ (\W,0);
+    \draw[axis] (-\xy,0) --++ (0,-\y-0.7*\h) node[left] {$y$};
+    \draw[axis] ( \xy,0) --++ (0,-\y-0.7*\h) node[right] {$y'$};
+    \draw[mydashed] (-\xy,-\l) --++ (2.3*\xy,0);
+    \draw[mydashed] (-\xy,-\dl) --++ (2*\xy,0);
+    \draw[mydashed] (-0.46*\W,-\y) --++ (0.92*\W,0);
+    \tick{-\xy,-\l}{0} node[left] {$0$};
+    \tick{-\xy,-\dl}{0} node[left] {$y_0$};
+    \tick{ \xy,-\dl}{180} node[right] {$0$};
+    \draw[mass] (-\w/2,-\y) rectangle++ (\w,-\h) node[midway] {$m$};
+    \draw[mass] (-\w,-\y-\h-0.05) rectangle++ (2*\w,0.05);
+    \draw[force] (0.4*\w,-\y-0.3*\h) --++ (0,1.6*\F) node[pos=0.9,right=0] {$\vb{F}$};
+    \draw[force] (0.3*\w,-\y-0.7*\h) --++ (0,-\F) node[above right=0] {$m\vb{g}$};
+    \draw[ell] (0.45*\W,0) --++ (0,-\l) node[midway,right=-2] {$\ell_0$};
+    %\draw[ell] (-0.4*\W,-0.75*\y) --++ (0,-0.25*\y) node[midway,left=1] {$y_0$};
+  \end{tikzpicture}
+  \caption{Fisica di una molla verticale}
+  \label{fig:fisica_molla_verticale}
+\end{figure}
+
+ Il piano viene spostato seguendo due scenari diversi:
 \begin{enumerate}
   \item il piano è spostato lentamente verso il basso finché il blocco si stacca dal piano e rimane immobile sospeso alla molla molla.
   \item il piano è rimosso velocemente, in modo da non impedire il moto del blocco.
 \end{enumerate}
 Solamente nel secondo caso si ha conservazione dell'energia, giacché non si ha nessun intervento di una forza esterna.\\
-Per determinare l'estensione della molla nel primo scenario, è sufficiente considerare il diagramma a corpo libero delle forze, che all'equilibrio si ottiene che:
-\[-k\Delta y = - mg \longrightarrow \Delta y = \frac{mg}{k} = \frac{0.50 \text{ kg} \cdot 9.8 \text{ m/s}^2}{50 \text{ N/m}} = 9.8 \text{ cm}\]
+Per determinare l'estensione della molla nel primo scenario, è sufficiente considerare il diagramma a corpo libero delle forze nella condizione di equilibrio, per cui la forza elastica eguaglia quella gravitazionale, ottenendo
+\[-k \Delta y = - mg \longrightarrow \Delta y = \frac{mg}{k} = \frac{0.50 \text{ kg} \cdot 9.8 \text{ m/s}^2}{50 \text{ N/m}} = 9.8 \text{ cm}\]
 Per determinare l'estensione massima della molla nel secondo caso, siccome si ha conservazione dell'energia meccanica, ossia $\Delta E=0$, per cui
 \[E_i = E_f \longrightarrow K_i + \mathcal{U}_i = K_f + \mathcal{U}_f\]
-Ma naturalmente l'energia cinetica iniziale e finale è nulla, così come l'energia potenziale iniziale.\\
+Ma naturalmente l'energia cinetica iniziale e finale è nulla, così come l'energia potenziale iniziale (data dalla somma di energia potenziale elastica e gravitazionale, fissando lo zero di riferimento in corrispondenza della posizione di equilibrio iniziale della molla).\\
 Mentre l'energia potenziale finale è data dalla somma di energia potenziale gravitazionale ed energia potenziale elastica, da cui:
-\[\mathcal{U}_{mf}=-\mathcal{U}_{gl} \longrightarrow \frac{1}{2}k h = m g h \longrightarrow h = 2 \cdot \frac{mg}{k} \cong 20 \text{ cm}\]
-Se, invece, si considerano, al posto di una molla, due molle, è molto utile considerare il punto di collegamento tra la prima e la seconda molla come un punto materiale di massa nulla. Ciò permette di affermare che
-\[\vec F_{m1} + \vec F_{m2} = 0 \longrightarrow k \cdot l_1 - k \cdot l_2 = 0 \longrightarrow l_1 = l_2\]
-Applicando la $3^a$ legge di Newton, si ha che ovviamente che
-\[\vec F_t + \vec F_{m2} = m \vec a \longrightarrow mg = k l_2 \longrightarrow l_2 = \frac{mg}{k}\]
-per cui l'estensione totale finale è $l_1 + l_2 = 2 \cdot \dfrac{mg}{k} = \dfrac{mg}{\dfrac{k}{2}}$, ossia equivalente ad un'unica molla avente costante di elasticità dimezzata.\\
-Nel caso in cui le due molle da considerare siano in parallelo, allora è come se si considerasse una molla con costante di elasitcià doppia, da cui
-\[\vec F_t + \vec F_{m1} + \vec F_{m2} = m \cdot \vec a\]
-per cui l'estensione sarà data da:
+\[\mathcal{U}_{m,f}=-\mathcal{U}_{g,l} \longrightarrow \frac{1}{2}k h^2 = m g h \longrightarrow h = 2 \cdot \frac{mg}{k} \cong 20 \text{ cm}\]
+che è esattamente il doppio del risultato ottenuto in precedenza; ciò non sorprende in quanto lasciare cadere una massa attaccata ad una molla, senza intervento di forze esterne, comporta l'innesco di un moto oscillatorio tale che i due estremi di oscillazione siano proprio a distanza doppia dal punto di equilibrio.\\
+Se, invece, si considerano, al posto di una molla, due molle, è molto utile considerare il punto di collegamento tra la prima e la seconda molla come un punto materiale di massa nulla, sul quale agiscono due forze uguali ed opposte; infatti, se si considera il punto di connessione tra le due molle, su di esso agisce la forza della prima molla verso l'alto e la forza della seconda molla verso il basso, ottenendo:
+\[\vec F_{m_1} + \vec F_{m_2} = m \vec a\]
+ma essendo la massa nulla, indipendentemente dall'istante di tempo, le due forze devono essere sempre uguali ed opposte:
+\[\vec F_{m_1} + \vec F_{m_2} = 0 \longrightarrow k \cdot l_1 - k \cdot l_2 = 0 \longrightarrow l_1 = l_2\]
+Applicando la $3^a$ legge di Newton, poi, si capisce immediatamente come la forza $\vec F_{m_2}$ che agisce sul punto materiale sia esattamente uguale e contraria alla forza che si contrappone alla forza peso della massa, per cui:
+\[\vec F_t + \vec F_{m_2} = m \vec a \longrightarrow mg = k \cdot l_2 \longrightarrow l_2 = \frac{mg}{k}\]
+per cui l'estensione totale finale è
+\[l_1 + l_2 = 2 \cdot \dfrac{mg}{k} = \dfrac{mg}{\dfrac{k}{2}}\]
+ossia equivalente ad un'unica molla avente costante di elasticità dimezzata.\\
+Nel caso in cui le due molle da considerare siano in parallelo, allora è come se si considerasse una molla con costante di elasitcià doppia; a partire dall'equazione seguente
+\[\vec F_t + \vec F_{m_1} + \vec F_{m_2} = m \vec a\]
+si evince come l'estensione sarà data da:
 \[l=\frac{mg}{2k}\]
 
 \vspace{1em}
@@ -4611,14 +4668,14 @@ mentre se le molle sono poste in parallelo, allora la costante elastica della mo
 \[\boxed{k_{\text{parallelo}}=k_1+k_2+k_3+...+k_n}\]
 
 \newpage
-\section{Equilibrio}
+\section{Moto dei sistemi}
 Fino a questo momento, ogni corpo è sempre stato approssimato ad un punto materiale; tuttavia, i \textbf{corpi reali} presentano
 \begin{itemize}
   \item una \textbf{distribuzione di massa};
   \item più \textbf{punti di applicazione delle forze};
   \item delle \textbf{forze interne} (tra le parti del medesimo corpo).
 \end{itemize}
-Ciò che, naturalmente, presenta un importante significato fisico è considerare èiù masse insieme e le forze che si applicano su ogni elemento di massa, considerando un \textbf{sistema di masse}.
+Ciò che, naturalmente, presenta un importante significato fisico è considerare più masse insieme e le forze che si applicano su ogni elemento di massa, andando così a studiare un \textbf{sistema di masse}.
 
 \vspace{1em}
 \subsection{Centro di massa}
@@ -4633,10 +4690,10 @@ Di seguito si espone il significato fisico di \textbf{centro di massa}:
 \begin{tabularx}{\textwidth}{@{}|P|@{}}
     \hline
     {\textbf{CENTRO DI MASSA}}\\
-    \parbox{\linewidth}{Il \textbf{centro di massa} è un vettore posizione che viene definito come una media pesata dei vettori posizione di ogni massa:
-    \[\boxed{\vec r_{CM} = \frac{\displaystyle{\sum_i m_i \cdot \vec r_i}}{\displaystyle{\sum_i m_i}}}\]
-    ovvero il rapporto tra il vettore posizione di ogni massa e la massa totale del sistema, ovvero
-    \[\vec r_{CM} = \sum_i \frac{m_i}{M} \cdot \vec r_i\]
+    \parbox{\linewidth}{Il \textbf{centro di massa} è un vettore posizione che viene definito come una \textbf{media pesata dei vettori posizione di ogni massa} (tale per cui si può considereare come se tutta la massa sia concetrata in tale punto):
+    \[\boxed{\vec r_{\text{CM}} = \frac{\displaystyle{\sum_i m_i \cdot \vec r_i}}{\displaystyle{\sum_i m_i}}}\]
+    quindi, essendo $M=\displaystyle{\sum_i m_i}$, il vettore posizione del centro di massa è il rapporto tra il vettore posizione di ogni massa e la massa totale del sistema, ovvero
+    \[\boxed{\vec r_{\text{CM}} = \sum_i \frac{m_i}{M} \cdot \vec r_i}\]
     \vspace{-1mm}}\\
     \hline
 \end{tabularx}
@@ -4653,7 +4710,7 @@ Di seguito si espone il significato fisico di \textbf{centro di massa}:
     \draw [-stealth] (start) -- (m_1) node[midway, below left]{$\vec r_1$};
     \draw [-stealth] (start) -- (m_2) node[midway, below right]{$\vec r_2$};
     \draw [dashed] (m_1) -- coordinate[midway](mid) (m_2);
-    \draw [-stealth, thick] (0,0) -- (mid) node[midway, above left]{$\vec r_{CM}$};
+    \draw [-stealth, thick] (0,0) -- (mid) node[midway, above left]{$\vec r_{\text{CM}}$};
   \end{tikzpicture}
   \caption{Centro di massa tra due masse}
   \label{fig:centro_di_massa}
@@ -4662,23 +4719,23 @@ Di seguito si espone il significato fisico di \textbf{centro di massa}:
 \vspace{1em}
 \noindent
 In cui, ovviamente, si ha che
-\[\vec r_{CM} = \frac{m_1 \cdot \vec r_1 + m_2 \cdot \vec r_2}{m_1 + m_2}\]
+\[\vec r_{\text{CM}} = \frac{m_1 \cdot \vec r_1 + m_2 \cdot \vec r_2}{m_1 + m_2}\]
 in cui è facile capire come, a seconda dell'entità delle due masse $m_1$ e $m_2$, si possono formulare le seguenti osservazioni:
 \begin{itemize}
-  \item se $m_1 >> m_2$, allora $\vec r_{CM} \to \vec r_1$
-  \item se $m_1 << m_2$, allora $\vec r_{CM} \to \vec r_2$
+  \item se $m_1 >> m_2$, allora $\vec r_{\text{CM}} \to \vec r_1$
+  \item se $m_1 << m_2$, allora $\vec r_{\text{CM}} \to \vec r_2$
 \end{itemize}
 
 \vspace{1em}
 \noindent
-Ovviamente, gli oggetti reali sono costituiti da un sistema continuo di punti materiali costituente un corpo esteso, per cui è necessario fornire una definizione di centro di massa anche per i corpi estesi, da cui
-\[\boxed{\vec r_{CM} = \sum_{i} \frac{\Delta m_i}{M} \cdot \vec r_i = \frac{1}{M} \cdot \int \vec r_i \cdot dm}\]
-Tuttavia, impiegando il concetto di \textbf{densità}, ossia la massa per unità di volume
+Ovviamente, gli oggetti reali, ossia i corpi estesi, sono costituiti da un sistema continuo di punti materiali, per cui è necessario fornire una definizione di centro di massa anche per i corpi estesi, da cui
+\[\boxed{\vec r_{\text{CM}} = \sum_{i} \frac{\Delta m_i}{M} \cdot \vec r_i = \frac{1}{M} \cdot \int \vec r \cdot dm}\]
+in cui si sommano i contributi di ogni porzione di massa $\Delta m$ tendente all'infinitesimale $\Delta m \to dm$. Inoltre, impiegando il concetto di \textbf{densità}, ossia la massa per unità di volume
 \[\rho = \frac{m}{V} \hspace{1em} \text{ossia} \hspace{1em} \rho = \frac{dm}{dV}\]
-essa può essere anche definita in funzione dello spazio $\rho(\vec r)$, ossia una \textbf{densità variabile} nello spazio. Da ciò si evince che
-\[\rho = \rho = \frac{dm}{dV} \longrightarrow dm = \rho \cdot dV\]
+essa può essere anche definita in funzione dello spazio, ottenendo $\rho(\vec r)$, ossia una \textbf{densità variabile} nello spazio. Da ciò si evince che
+\[\rho = \frac{dm}{dV} \longrightarrow dm = \rho \cdot dV\]
 Avendo a disposizione tale concetto si ottiene che il calcolo del centro di massa diviene
-\[\boxed{\vec r_{CM} = \frac{1}{M} \cdot \int \vec r \cdot \rho(\vec r) \cdot dV}\]
+\[\boxed{\vec r_{\text{CM}} = \frac{1}{M} \cdot \int \vec r \cdot \rho(\vec r) \cdot dV}\]
 da cui si può evincere come
 \[M=\int \rho(\vec r) \cdot dV\]
 
@@ -4705,7 +4762,6 @@ da cui si può evincere come
     \coordinate (CM) at (0,0);
     \draw[->,thick] (-\xmax,0) -- (\xmax,0) coordinate (X) node[below] {$x$};
     \draw[thick] (0,0.1) -- (0,-0.1) node[below=0.8,scale=0.9] {$\dfrac{l}{2}$};
-    \draw[<->] (M1)++(0,-0.6) --++ (1.4*\xmax,0) node[midway,fill=white,inner sep=1] {$l$};
     \fill[myred!80!black] (CM) circle(0.08) node[above=0.3] {CM};
   \end{tikzpicture}
   \caption{Centro di massa di una bacchetta}
@@ -4715,18 +4771,52 @@ da cui si può evincere come
 \vspace{1em}
 \noindent
 Infatti si ha che
-\[\vec r_{CM} = \frac{1}{M} \cdot \int \vec r \cdot \rho(\vec r) \cdot dV\]
-Essendo questa una equazione vettoriale, è possibile considerarne la sola componente orizzontale (supponendo che la bacchetta sia così fine che il suo spessore è trascurabile), ottenendo
-\[x_{CM}=\frac{1}{M} \cdot \int x \cdot \rho(\vec r) \cdot dV\]
-Definendo con $A$ l'area della sezione trasversale della bacchetta e considerando una porzione $\Delta x$ di bacchetta, è ovvio che il volume di tale porzione sarà dato da $\Delta V = \Delta x \cdot A$ (in quanto il volume di tutta la bacchetta è $V=l \cdot A$). Inoltre, essendo la densità uniforme, si ha che $\rho = \frac{M}{V}$, ma per quanto appena osservato si evince che:
+\[\vec r_{\text{CM}} = \frac{1}{M} \cdot \int \vec r \cdot \rho(\vec r) \cdot dV\]
+Essendo questa una equazione vettoriale, è possibile considerarne la sola componente orizzontale (supponendo che la bacchetta sia così fine che il suo spessore sia trascurabile), ottenendo
+\[x_{\text{CM}}=\frac{1}{M} \cdot \int x \cdot \rho(\vec r) \cdot dV\]
+Definendo con $A$ l'area della sezione trasversale della bacchetta e considerando una porzione $\Delta x$ di bacchetta, è ovvio che il volume di tale porzione sarà dato da $\Delta V = \Delta x \cdot A$ (in quanto il volume di tutta la bacchetta è $V=l \cdot A$). Inoltre, \textbf{essendo la densità uniforme}, si ha che $\rho = \frac{M}{V}$, ma per quanto appena osservato si evince che:
 \[\rho \cdot \Delta V = \frac{M}{lA} \cdot \Delta x \cdot A = \frac{M}{l} \cdot \Delta x\]
-in cui $\frac{M}{l}$ prende il nome di \textbf{densità lineare}. Considerando una porzoine infinitesimale di bacchetta, si ottiene che
-\[x_{CM} = \frac{1}{M} \cdot \int x \cdot \frac{M}{l} dx = \frac{1}{l} \int_0^l x \cdot dx = \frac{1}{l} \cdot \left(\frac{1}{2}l^2\right) = \frac{l}{2}\]
-come ci si aspettava: tale risultato è totalmente indipendente dal sistema di coordinate assunto.
+in cui $\frac{M}{l}$ prende il nome di \textbf{densità lineare}. Considerando una porzione infinitesimale di bacchetta, si ottiene che
+\[\rho(\vec r) \cdot dV = \frac{M}{l} dx\]
+per cui l'integrale visto in partenza diviene
+\[x_{\text{CM}} = \frac{1}{M} \cdot \int x \cdot \rho(\vec r) \cdot dV = \frac{1}{M} \cdot \int x \cdot \frac{M}{l} dx = \frac{1}{l} \cdot \int_0^l x \cdot dx = \frac{1}{l} \cdot \left(\frac{1}{2}l^2\right) = \frac{l}{2}\]
+come ci si aspettava; si osservi, inoltre, come tale risultato sia totalmente indipendente dal sistema di coordinate assunto.
 
 \vspace{1em}
 \noindent
-\textbf{Osservazione}: Si consideri una distribuzione di masse (approssimate a dei punti materiali) non necesariamente uniforme
+\textbf{Osservazione}: Si consideri una distribuzione di masse (approssimate a dei punti materiali) non necesariamente uniforme (per esempio, potrebbe accadere che vi sia uno squilibrio di distribuzione di masse tra due parti distinte di uno stesso corpo); allora, è possibile calcolare il centro di massa di differenti parti dello stesso corpo e poi sommarle fra loro, ovvero
+\[\vec r_{\text{CM}} = \sum_i \frac{m_i}{M} \cdot \vec r_i = \sum_{i \in A} \frac{m_i}{M} \cdot \vec r_i + \sum_{i \in B} \frac{m_i}{M} \cdot \vec r_i\]
+ma essendo, ovviamente
+\[M_{A} = \sum_{i \in A} m_i \hspace{1em} \text{e} \hspace{1em} M_{B} = \sum_{i \in B} m_i\]
+si può scrivere che
+\[\vec r_{\text{CM}} = \sum_{i \in A} \frac{m_i}{M} \cdot \vec r_i + \sum_{i \in B} \frac{m_i}{M} \cdot \vec r_i = \frac{1}{M} \cdot M_A \cdot \underbrace{\sum_i \frac{m_i}{M_A} \cdot \vec r_i}_{\vec r_{\text{CM}_A}} + \frac{1}{M} \cdot M_B \cdot \underbrace{\sum_i \frac{m_i}{M_B} \cdot \vec r_i}_{\vec r_{\text{CM}_B}}\]
+pertanto si ottiene che, essendo $M=M_A+M_B$:
+\[\boxed{\vec r_{\text{CM}} = \frac{M_A \cdot \vec r_{\text{CM}_A} + M_B \cdot \vec r_{\text{CM}_A}}{M}}\]
+ciò singifica che se si riesce a calcolare il centro di massa di singoli elementi individuali di un sistema, allora il centro di massa del sistema non è altro che la media pesata, rispetto alle masse di ciascuno, di tali centri di massa.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri un disco di densità uniforme con un buco di forma circolare adiacente alla circonferenza esterna, mostrato di seguito:
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \node[circle,draw,fill=blue!25,minimum width=4cm](c1) at (0,0){};
+    \node[circle,draw,fill=white,minimum width=2cm]  (c2) at (3,0){};
+  \end{tikzpicture}
+  \caption{Disco con foro circolare}
+  \label{fig:disco_foro_circolare}
+\end{figure}
+
+\noindent
+Al fine di determinare il centro di massa di tale oggetto, si dovrebbe procedere a calcolare l'integrale della figura, andando ad escludere, ovviamente, i punti del foro.\\
+Tuttavia, con il risultato precedentemente ottenuto diviene molto più semplice; è ovvio che il centro di massa di una circonferenza è collocato nel centro della stessa, per semplice simmetria, si può considerare il concetto di massa negativa, per cui il centro di massa del disco forato si può ottenere come differenza pesata del centro di massa del disco pieno meno il centro di massa del foro, avente, appunto, massa negativa.\\
+Ovviamente, il centro di massa del disco forato sarà collocato sull'asse passante per i due centri dei due cerchi raffigurati in Figura \ref{fig:disco_foro_circolare}, per cui è sufficiente considerare solamente la componente $x$ del centro massa
+\[x_{\text{CM}} = \frac{M_D \cdot x_{\text{CM}_D} + M_F \cdot x_{\text{CM}_F}}{M_D+M_F}\]
+in cui, per quanto detto, $M_F<0$. Pertanto, se $x_{\text{CM}_D}=0$ e $x_{\text{CM}_F}=\frac{R}{2}$ (ponendo il raggio del disco più grande pari a $R$) e la densità $\rho$ è uniforme, si ha che
+\[M_D=\rho \cdot V = \rho \cdot \pi R^2 \cdot h \hspace{1em} \text{e} \hspace{1em} M_F=-\rho \cdot V = -\frac{1}{4} \cdot \rho \cdot \pi R^2 \cdot h\]
+ciò significa che
+\[x_{\text{CM}} = \frac{0 \cdot M_D + \dfrac{R}{2} \cdot M_F}{M_D+M_F} = \frac{R}{2} \cdot \frac{M_D}{M_D+M_F} = -\frac{R}{2} \cdot \frac{\displaystyle{\frac{1}{4} \rho \cdot \pi R^2 \cdot h}}{\displaystyle{\frac{3}{4} \rho \cdot \pi R^2 \cdot h}} = -\frac{R}{6}\]
 
 \newpage
 \noindent
@@ -4806,18 +4896,18 @@ Ecco che in questo caso è facile capire il centro di masssa di ciascuna delle f
   \item Centro di massa \textcolor{orange!25}{arancione}: $r_a=(2,4.5)$;
 \end{itemize}
 Inoltre, sapendo che $m_b=4$, $m_r=8$ e $m_a=2$, si possono facilmente determinare le coordinate del centro di massa:
-\[x_{CM}=\frac{x_1 \cdot m_1 + x_2 \cdot m_2 + x_3 \cdot m_3}{m_1+m_2+m_3} = \frac{4 \cdot 3 + 8 \cdot 0.5 + 2 \cdot 2}{4+8+2}=\frac{20}{14}\cong 1.4\]
+\[x_{\text{CM}}=\frac{x_1 \cdot m_1 + x_2 \cdot m_2 + x_3 \cdot m_3}{m_1+m_2+m_3} = \frac{4 \cdot 3 + 8 \cdot 0.5 + 2 \cdot 2}{4+8+2}=\frac{20}{14}\cong 1.4\]
 e
-\[y_{CM}=\frac{y_1 \cdot m_1 + y_2 \cdot m_2 + y_3 \cdot m_3}{m_1+m_2+m_3} = \frac{4 \cdot 7.5 + 8 \cdot 4 + 2 \cdot 4.5}{4+8+2}=\frac{71}{14}\cong 5\]
+\[y_{\text{CM}}=\frac{y_1 \cdot m_1 + y_2 \cdot m_2 + y_3 \cdot m_3}{m_1+m_2+m_3} = \frac{4 \cdot 7.5 + 8 \cdot 4 + 2 \cdot 4.5}{4+8+2}=\frac{71}{14}\cong 5\]
 
 \vspace{1em}
 \subsection{Moto del centro di massa}
 Volendo descrivere il moto del centro di massa, si considera la definizione dello stesso, ovvero
-\[\vec{r_{CM}} = \frac{\displaystyle{\sum_{i} \vec r_i \cdot m_1}}{M}\]
+\[\vec{r_{\text{CM}}} = \frac{\displaystyle{\sum_{i} \vec r_i \cdot m_1}}{M}\]
 e volendo conoscere la velocità del centro di massa, è sufficiente considerare la derivata rispetto al tempo di tale vettore, considerando:
-\[\vec v_{CM} = \frac{1}{M} \cdot \frac{d}{dt} \sum_i \vec r_i \cdot m_i = \frac{1}{M} \cdot \sum_i m_i \cdot \vec v_i\]
+\[\vec v_{\text{CM}} = \frac{1}{M} \cdot \frac{d}{dt} \sum_i \vec r_i \cdot m_i = \frac{1}{M} \cdot \sum_i m_i \cdot \vec v_i\]
 ovvero la media pesata delle velocità di ciascuna massa. Analogamente per l'accelerazione si ottiene
-\[\vec a_{CM} = \frac{1}{M} \cdot \frac{d}{dt} \sum_i \vec r_i \cdot m_i = \frac{1}{M} \cdot \sum_i m_i \cdot \vec a_i\]
+\[\vec a_{\text{CM}} = \frac{1}{M} \cdot \frac{d}{dt} \sum_i \vec r_i \cdot m_i = \frac{1}{M} \cdot \sum_i m_i \cdot \vec a_i\]
 ovvero la media pesata delle accelerazioni di ciascuna massa.
 
 \vspace{1em}
@@ -4840,17 +4930,17 @@ Ciò permette di considerare che:
 \vspace{1em}
 \noindent
 \textbf{Osservazione}: Si osservi, allora, che volendo determinare l'accelerazione del centro di massa si ottiene
-\[\vec a_{CM} = \frac{1}{M} \cdot \sum_i m_i \cdot \vec a_i = \frac{1}{M} \cdot \sum_i \left( \vec F_{\text{ext},i} + \sum_i \vec F_{j,i} \right) = \frac{1}{M} \cdot \left(\sum_i \vec F_{\text{ext},i} + \sum_i \sum_j \vec F_{i,j}\right)\]
+\[\vec a_{\text{CM}} = \frac{1}{M} \cdot \sum_i m_i \cdot \vec a_i = \frac{1}{M} \cdot \sum_i \left( \vec F_{\text{ext},i} + \sum_i \vec F_{j,i} \right) = \frac{1}{M} \cdot \left(\sum_i \vec F_{\text{ext},i} + \sum_i \sum_j \vec F_{i,j}\right)\]
 Ma applicando la $3^a$ legge della dinamica, è immmediato osservare come:
 \[\sum_i \sum_j \vec F_{i,j} = \vec F_{1,2} + \vec F_{3,1} + \vec F_{4,1} + ... + \vec F_{1,2} + \vec F_{3,2} + \vec F_{4,2} + ... = 0\]
 Ma tale somma, naturalmente, è nulla in quanto $F_{i,j}=-F_{j,i}, \forall i \neq j$, per cui si ha che
-\[\boxed{M \cdot \vec a_{CM} = \sum_i \vec F_{\text{ext},i}}\]
+\[\boxed{M \cdot \vec a_{\text{CM}} = \sum_i \vec F_{\text{ext},i}}\]
 che permette di concludere come la fisica applicata fino a questo momento per un punto materiale è la stessa per il centro di massa, in quanto quest'ultimo segue la $2^a$ legge della dinamica come se fosse un punto materiale: il moto del centro di massa dipende solamente dalle forze esterne... continua ...
 
 \vspace{1em}
 \noindent
 \textbf{Osservazione}: Nel caso di un corpo che viene lanciato in aria e lasciato cadere, trascurando l'attrito dell'aria, si ha che:
-\[\vec F_{\text{ext}} = M \cdot \vec a_{CM} = M \cdot \vec g = \sum_{i} m_i \cdot \vec g\]
+\[\vec F_{\text{ext}} = M \cdot \vec a_{\text{CM}} = M \cdot \vec g = \sum_{i} m_i \cdot \vec g\]
 Inoltre, se la somma delle forze esterne è nulla, ossia $\vec F_{\text{ext}}=0$, allora ciò significa che l'accelerazione del centro di massa è nulla ($\vec a = 0$) e quindi la velocità $\vec v = $ costante.
 
 \vspace{1em}
@@ -4879,20 +4969,20 @@ che può riguardare tanto la derivata della velocità nel tempo quanto la deriva
   7 Aprile 2022
 \end{center}
 Com'è noto, il centro di massa è così definito:
-\[\vec r_{CM} = \frac{1}{M} \cdot \sum_i \vec r \cdot m_i = \int \vec r \cdot g(\vec r) \cdot dV\]
+\[\vec r_{\text{CM}} = \frac{1}{M} \cdot \sum_i \vec r \cdot m_i = \int \vec r \cdot g(\vec r) \cdot dV\]
 Naturamente, derivando nel tempo tale quantità si ottiene
-\[\vec v_{CM} = \frac{1}{M} \cdot \sum_i \vec v_i \cdot m_i\]
+\[\vec v_{\text{CM}} = \frac{1}{M} \cdot \sum_i \vec v_i \cdot m_i\]
 e derivando nuovamente
-\[\vec a_{CM} = \frac{1}{M} \cdot \sum_i \vec a_i \cdot m_i\]
+\[\vec a_{\text{CM}} = \frac{1}{M} \cdot \sum_i \vec a_i \cdot m_i\]
 Inoltre, è noto che la dinamica del centro di massa è totalmente indipendente dalle fforze interne, ovvero:
-\[M \cdot \vec a_{CM} = \sum F_{\text{ext}}\]
+\[M \cdot \vec a_{\text{CM}} = \sum F_{\text{ext}}\]
 Inoltre, interpretando anche la seconda equazione come segue:
-\[M \cdot \vec v_{CM} = \sum_i m_i \cdot \vec v_i\]
+\[M \cdot \vec v_{\text{CM}} = \sum_i m_i \cdot \vec v_i\]
 in cui, essendo $\vec p = m \cdot \vec v$ la \textbf{quantità di moto}, si ha che:
-\[\vec p_{CM} = \sum_i \vec p_i\]
+\[\vec p_{\text{CM}} = \sum_i \vec p_i\]
 Pertanto, se
 \[\sum \vec F_{\text{ext}} = 0\]
-allora si ha che la quantità di moto si conserva, ovvero $\vec p_{CM}$ costante: tale concetto prende il nome di \textbf{conservazione della qantità di moto}.
+allora si ha che la quantità di moto si conserva, ovvero $\vec p_{\text{CM}}$ costante: tale concetto prende il nome di \textbf{conservazione della qantità di moto}.
 
 \vspace{1em}
 \noindent
@@ -5127,9 +5217,9 @@ Si considerino due corpi che collidono, come mostrato di seguito:
 \noindent
 La massa $m_1$ presenta velocità iniziale $\vec V_1$, mentre la massa $m_2$ si muove a velocità $\vec V_2$. Taluno è un problema generale che viene studiato tramite un sistema di riferimento esterno, di un osservatore.\\
 Questo sistema di riferimento, tuttavia, non risulta essere pratico nello studio, per cui si può adottare un sistema di riferimento inerziale che prende in considerazione il centro di massa del sistema, la cui velocità, ovviamente, è data da
-\[\vec v_{CM} = \frac{1}{M} \cdot \sum_i m_i \cdot \vec v_i = \frac{m_1 \cdot \vec V_1 + m_2 \cdot \vec V_2}{m_1+m_2} = \frac{\vec P_1 + \vec P_2}{m_1+m_2}=\frac{\vec P_{tot}}{m_{tot}}\]
-Pertanto, se ora si considera il sistema di riferimento dato dal centro di massa, il quale si sposta con velocità $\vec v_{CM}$; ora, con tale nuovo sistema di riferimento, le velocità delle due masse diviene
-\[\vec v_1 = \vec V_1 - \vec v_{CM} \hspace{1em} \text{e} \hspace{1em} \vec v_2 = \vec V_2 - \vec v_{CM}\]
+\[\vec v_{\text{CM}} = \frac{1}{M} \cdot \sum_i m_i \cdot \vec v_i = \frac{m_1 \cdot \vec V_1 + m_2 \cdot \vec V_2}{m_1+m_2} = \frac{\vec P_1 + \vec P_2}{m_1+m_2}=\frac{\vec P_{tot}}{m_{tot}}\]
+Pertanto, se ora si considera il sistema di riferimento dato dal centro di massa, il quale si sposta con velocità $\vec v_{\text{CM}}$; ora, con tale nuovo sistema di riferimento, le velocità delle due masse diviene
+\[\vec v_1 = \vec V_1 - \vec v_{\text{CM}} \hspace{1em} \text{e} \hspace{1em} \vec v_2 = \vec V_2 - \vec v_{\text{CM}}\]
 cosicchè si ha che $\vec p_{tot}=0$. Ciò è fondamentale, infatti, dal momento che la durata dell'urto è pressoché infinitesima, la quantità di moto totale si consderva, per cui $\vec p_{tot,i} = \vec p_{tot,f} = 0$; ciò significa che se $\vec p_{tot} = 0$, allora $\vec p_1 = - \vec p_2$, ma non che le velocità delle due masse siano uguali e opposte: infatti, le due masse potrebbero essere diverse, per cui anche le loro velocità sarebbero proporzionate.\\
 Applicando la conservazione della quantità di moto, si evince come
 \[\boxed{\vec p_{tot,i} = \vec p_{tot,f} = 0 = \vec p_{1,f} + p_{2,f}}\]
@@ -5183,11 +5273,13 @@ Nel caso di urto in $1D$, si può presentare solamente la situazione seguente:
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}
-    \draw[thick,-stealth,blue] (0,0) node[circ, blue]{} -- ++(2,0) node[midway,below]{$\vec p_{1,i}$} (5,0) node[circ]{} -- ++(-2,0) node[midway,below]{$\vec p_{2,i}$};
+    \draw[thick,-stealth,blue] (0,0) node[circ]{} -- ++(2,0) node[midway,below]{$\vec p_{1,i}$};
+    \draw[thick,-stealth,blue] (5,0) node[circ]{} -- ++(-2,0) node[midway,below]{$\vec p_{2,i}$};
   \end{tikzpicture}
-  \hspace{1em}
+  \hspace{3em}
   \begin{tikzpicture}
-    \draw[thick,-stealth,green] (2,0) node[circ]{} -- ++(-2,0) node[midway,below]{$\vec p_{1,f}$} (3,0) node[circ]{} -- ++(2,0) node[midway,below]{$\vec p_{2,f}$};
+    \draw[thick,-stealth,red] (2,0) node[circ]{} -- ++(-2,0) node[midway,below]{$\vec p_{1,f}$};
+    \draw[thick,-stealth,red] (3,0) node[circ]{} -- ++(2,0) node[midway,below]{$\vec p_{2,f}$};
   \end{tikzpicture}
   \caption{Urto elastico in 1D}
   \label{fig:urto_elastico_1D}
@@ -5197,7 +5289,7 @@ Nel caso di urto in $1D$, si può presentare solamente la situazione seguente:
 \noindent
 In cui, ovviamente, si ha che ... continua ...\\
 Passando ad un nuovo sistema di riferimento e non più a quello del centro di massa si ottiene che
-\[V_{1,f} = v_{1,f} + v_{CM} = -v_{1,i} + v_{CM} = - \left(V_{1,i} - v_{CM}\right) + v_{CM} = -V_{1,i} + 2 v_{CM}\]
+\[V_{1,f} = v_{1,f} + v_{\text{CM}} = -v_{1,i} + v_{\text{CM}} = - \left(V_{1,i} - v_{\text{CM}}\right) + v_{\text{CM}} = -V_{1,i} + 2 v_{\text{CM}}\]
 e sapendo come determinare la velocità del centro di massa si ottiene che:
 \[\boxed{V_{1,f} = \frac{2 m_2}{m_1 + m_2} V_{2,i} + \frac{m_1-m_2}{m_1+m_2} V_{1,i}}\]
 Da cui si può evincere come, nel caso in cui $m_1=m_2$, allora $V_{i,f}=V_{2,i}$ (ovvero le due masse si scambiano la velocità con l'urto).\\
@@ -5211,15 +5303,16 @@ mentre la massa $m_2$ assume due volte la velocità della prima massa, sottratta
 Nel caso di un urto parzialmente anelastico non si ha conservazione dell'energia cinetica, mentre se si ha un urto completamente anelastico le due masse interagenti rimangono attaccate l'una all'altra.\\
 Ovviamente, anche in questi due casi, si ha che $\vec p_{1,i} = -\vec p_{2,i}$, così come $\vec p_{1,f} = - \vec p_{2,f}$.\\
 Naturalmente, se si considera un sistema di riferimento differente dal centro di massa, si ottiene
-\[\boxed{V_{1,f} = V_{2,f} = v_{CM} = \frac{m_1 \cdot V_1 + m_2 \cdot v_2}{m_1 + m_2}}\]
+\[\boxed{V_{1,f} = V_{2,f} = v_{\text{CM}} = \frac{m_1 \cdot V_1 + m_2 \cdot v_2}{m_1 + m_2}}\]
 
 \vspace{1em}
 \subsection{Urti - Riepilogo}
 \begin{itemize}
-  \item Nello studio degli urti, la conservazione della quantità di moto si applica sempre, per cui, in un qualsiasi sistema di riferimento:
+  \item Nello studio degli urti, \textbf{la conservazione della quantità di moto si applica sempre}, per cui, in un qualsiasi sistema di riferimento:
   \[\boxed{\vec P_{tot, i} = \vec P_{tot, f}}\]
   mentre nel sistema di riferimento del centro di massa si ha
   \[\boxed{\vec p_{1,i} = - \vec p_{2,i}} \hspace{1em} \text{e} \hspace{1em} \boxed{\vec p_{1,f} = - \vec p_{2,f}}\]
+  in quanto la quantità di moto iniziale e finale è sempre nulla.
 
   \item Nel caso di un urto elastico, si ha conservazione dell'energia cinetica
   \[\boxed{K_i=K_f}\]
@@ -5228,8 +5321,395 @@ Naturalmente, se si considera un sistema di riferimento differente dal centro di
   \[\boxed{\vert p_{1,i} \vert = \vert p_{1,f} \vert = \vert p_{2,i} \vert = \vert p_{2,f} \vert}\]
 
   \item Nel caso di un urto completamente anelastico, la velocità finale è quella del centro di massa, ovvero
-  \[\boxed{V_{1,f} = V_{2,f} = v_{CM} = \frac{m_1 \cdot V_1 + m_2 \cdot v_2}{m_1 + m_2}}\]
+  \[\boxed{V_{1,f} = V_{2,f} = v_{\text{CM}} = \frac{m_1 \cdot V_1 + m_2 \cdot v_2}{m_1 + m_2}}\]
 \end{itemize}
+
+\newpage
+\noindent
+\begin{center}
+  12 Aprile 2022
+\end{center}
+\textbf{Esercizio}: Si consideri un carrello posizionato sulla sommità di una rampa avente altezza $h$. Quando viene lasciato cadere, da fermo, acquista velocità così come la rampa. Si determini la velocità della rampa.\\
+Naturalmente a tale problema si applica la conservazione della quantità di moto, per cui
+\[\vec p_i = \vec p_f\]
+ed esplicitando la quantità di moto iniziale e finale si ottiene:
+\[\vec p_i=\vec p_{cart,i} + \vec p_{ramp,i} = 0 + 0 = \vec 0\]
+\[\vec p_f = \vec p_{cart,f} + \vec p_{ramp,f} = \vec v_c \cdot m + \vec v_r \cdot M = 0\]
+ma siccome $\vec p_{cart,f} = - \vec p_{r,f}$ si ottiene che $\vec v_{cart} \cdot m = - \vec v_{ramp} \cdot M$.\\
+Applicando il principio di conservazione dell'energia meccanica, si ottiene anche che
+\[E_i=E_f \longrightarrow E_i=K_{cart,i}+K_{ramp,i} + \mathcal{U}_i = mgh\]
+mentre
+\[E_f = K_{cart,f} + K_{ramp,f} + \mathcal{U}_f = \frac{1}{2}m v_{cart}^2 + \frac{1}{2}M v_{ramp}^2\]
+volendo determinare $v_{ramp}$ si ottiene, applicando la conservazione dell'energia meccanica e il fatto che $\vec v_{cart} = \frac{M \vec v_{ramp}}{m}$
+\[mgh=\frac{1}{2}m v_{cart}^2 + \frac{1}{2}M v_{ramp}^2 \longrightarrow mgh=\frac{1}{2}m \left(\frac{M \vec v_{ramp}}{m}\right)^2 + \frac{1}{2}M v_{ramp}^2 \longrightarrow v_{ramp} = \sqrt{\frac{2mh}{\displaystyle{M \cdot \left(1 + \frac{M}{m}\right)}}}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio}: Si consideri l'urto seguente
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \node[circle,draw,minimum width=1cm](a1) at (0,0){};
+    \node[circle,draw,minimum width=1cm](b1) at (2.5,0){};
+    \node[circle,draw,minimum width=1cm](c1) at (2.5,1.5){};
+    \draw (b1.120) -- (c1.240) (b1.60) -- (c1.300);
+    \draw (0,0) node[]{$m$} (2.5,0) node[]{$m$} (2.5,1.5) node[]{$m$};
+    \draw[-stealth] (0.5,0) -- ++(1,0) node[midway,above]{$2v$};
+  \end{tikzpicture}
+  \hspace{5em}
+  \begin{tikzpicture}
+    \node[circle,draw,minimum width=1cm](a2) at (0.5,0){};
+    \node[circle,draw,minimum width=1cm](b2) at (3,0){};
+    \node[circle,draw,minimum width=1cm](c2) at (2.5,1.5){};
+    \draw (b2.60) -- (c2.320) (b2.130) -- (c2.260);
+    \draw (0.5,0) node[]{$m$} (3,0) node[]{$m$} (2.5,1.5) node[]{$m$};
+    \draw[-stealth] (2.75,0.75) -- ++(1,0) node[midway,above]{$v$};
+    \draw [-stealth] (c2) [out=210, in=170] to (b2);
+    \draw (1.7,0.5) node[]{$\omega$};
+  \end{tikzpicture}
+  \caption{Esempio di urto}
+  \label{esempio_di_urto_2}
+\end{figure}
+Essendo un urto, si può applicare la conservazione della quantità di moto, per cui
+\[\vec p_i = \vec p_f \longrightarrow 2 m v_i = \frac{m v_{1,f} + m v_{2,f}}{2m}\]
+Per verificare se si conserva l'energia cinetica si consieri:
+\[K_i=\frac{1}{2}m \cdot (2v)^2\]
+mentre l'energia cinetica finale è data dal centro di massa, ovvero:
+\[\vec v_{\text{CM}} = \frac{m v_{1,f} + m v_{2,f}}{2m} = v \longrightarrow \frac{v_{1,f}}{2} = v \longrightarrow \vec v_{1,f} = 2v\]
+per cui l'energia cinetica finale è data unicamente dal contributo della prima massa, da cui:
+\[K_f=\frac{1}{2}m (2v)^2\]
+per cui il moto considerato è elastico.
+
+\vspace{1em}
+\subsection{Moto dei razzi}
+Il moto dei razzi ha radici storiche molto profonde; un esempio di fallimento nella progettazione di un razzo riguarda l'esperimento di Gottard:\\\\
+\quotes{Come un metodo per inviare un proiettile verso Ia parte pia alta, persino Ia parte le pia alta, dell'atmosfera terrestre, il razzo a carica multipla del Prof. Goddard 6 un dispositivo practicabile e quindi promettente.
+(...) dopo che it razzo ha lasciato Ia nostra aria ed ha iniziato davvero it suo viaggio pia lungo, it suo vuolo non sarebbe ne accelerato ne mantenuto dall'esplosione delle cariche che potrebbe avere ancora. Affermare che lo sarebbe 6 negare una legge fondamentale della dinamica, e solo it dottor Einstein e la sua dozzina prescelta, pochi e capaci, sono autorizzati a farlo.
+Che it Prof. Goddard (...) non conosca la relazione tra azione e reazione, e della necessity di avere qualcosa di meglio di un vuoto contro cui reagire — dire questo sarebbe assurdo.}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Naturalmente, applicando la seconda legge di Newton generalizza, si ha che
+\[\vec F_{\text{ext}} = \frac{d\vec p}{dt}\]
+che, naturalmente, può anche essere interpretata come:
+\[\vec F_{\text{ext}} = \frac{\vec p_f - \vec p_i}{\Delta t}\]
+in cui, ovviamente, $\vec p_i = m \cdot \vec v_r$, in cui $m$ è la massa totale iniziale del razzo e $\vec v_r$ è la velocità iniziale del razzo. Invece, la quantità di moto finale è $\vec p_f = \left(m - \Delta m\right) \cdot \left(\vec v_r + \\Delta \vec v_r\right) + \Delta m \cdot \left(\vec v_g + \vec v_r\right)$, in quanto il razzo ha perso una quantità $\Delta m$ di gas e, quindi, ha diminuito la propria massa e aumentato la propria velocità; inoltre è necessario anche considerare la quantità di moto della quantità $\Delta m$ di gas che viene espulso dal razzo stesso, la cui velocità, relativa al razzo, è proprio $\vec v_g + \vec v_r$. La semplificazione porta a
+\[\vec p_f = \left(m - \Delta m\right) \cdot \left(\vec v_r + \Delta \vec v_r\right) + \Delta m \cdot \left(\vec v_g + \vec v_r\right) = m\vec v_r - \Delta m \vec v_r + m \Delta \vec v_r - \Delta m \Delta \vec v_r + \Delta m \vec v_g + \Delta m \vec v_r\]
+In altre parole si ottiene
+\[=\frac{1}{\Delta t} \cdot \left(m \Delta \vec v_r + \Delta m \vec v_g - \Delta m \Delta \vec v_r\right)\]
+Ma siccome le variazioni considerate sono infinitesimali, allora $\Delta m \Delta \vec v_r \to 0$, da cui
+\[\vec p_f = m \cdot \frac{\Delta \vec v_r}{\Delta t} + \vec v_g \cdot \frac{\Delta m}{\Delta t}\]
+Considerando un tempo infinitesimale, ossia $\lim_{\Delta t \to 0}$, si ottiene che
+\[\frac{\Delta \vec v_r}{\Delta t} \longrightarrow \frac{d \vec v_r}{dt} = \vec a_r \hspace{1em} \text{e} \hspace{1em} \frac{\Delta m}{\Delta t} \longrightarrow \frac{dm}{dt}\]
+Ecco, quindi, che si è ottenuto:
+\[\boxed{\vec F_{\text{ext}} = m \vec a_r + \vec v_g \cdot \frac{dm}{dt}}\]
+in cui $\vec v_g \cdot \dfrac{dm}{dt}$ è proprio la \textbf{spinta del razzo}.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Naturalmente, nello spazio, si ha che $\vec F_{\text{ext}}=0$, per cui l'equazione di cui sopra diviene:
+\[m \vec a_r = - \vec v_g \cdot \frac{dm}{dt}\]
+Per quanto riguarda la componente orizzontale, riscrivendo l'accelerazione secondo la definizione si ottiene:
+\[m \cdot \frac{dv}{dt} =- v_g \cdot \frac{dm}{dt} \longrightarrow \frac{dv}{dt} = - \frac{v_g}{m} \cdot \frac{dm}{dt}\]
+Naturalmente taluna è una equazione differenizale; ma sapendo che
+\[\frac{d}{dt} \log(m(t)) = \frac{1}{m} \frac{dm}{dt}\]
+si può facilmente evincere come
+\[\frac{dv}{dt}=-v_g \frac{d}{dt} \log(m(t)) \longrightarrow v_f-v_i =-v_g \cdot \left[\log(m_f) - \log(m_i)\right]\]
+che permette di ottenere
+\[\boxed{v_f-v_i=\Delta v=-v_g \log \left(\frac{m_f}{m_i}\right)}\]
+che prende il nome di \textbf{equazione di Ciolkovsky}. È facile campire come, essendo
+\[\frac{m_f}{m_i} < 1 \longrightarrow \log \left(\frac{m_f}{m_i}\right) < 0\]
+ma essendo precedeuto da un segno $-$, si ottiene un aumento di velocità, ovviamente.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: È anche possibile considerare la velocità in funzione del tempo, ovvero
+\[v(t)=v_i-v_g \log \left(\frac{m(t)}{m_i}\right)\]
+che, graficamente, corrisponde a:
+
+\vspace{2em}
+\noindent
+\rowcolors{1}{white}{white}
+\begin{tabularx}{\textwidth}{P}
+  {
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          grid=both,
+          axis lines = middle,
+          xlabel = \(t\),
+          ylabel = {\(v(t)\)},
+          legend pos=outer north east,
+          ymajorgrids=true,
+          xmajorgrids=true,
+          grid style=dashed,
+        ]
+
+        \addplot [
+          domain=-2:100,
+          samples=100,
+          color=red,
+        ]
+        {50-2*ln((4-0.1*x)/4)};
+        \end{axis}
+    \end{tikzpicture}
+  }
+\end{tabularx}
+
+\newpage
+\noindent
+\begin{center}
+  13 Aprile 2022
+\end{center}
+Per la risoluzione di un problema fisico, è fondamentale compiere i passi seguenti:
+\begin{enumerate}
+  \item \textbf{Visualizzazione}
+  \begin{enumerate}
+    \item Creare un'immagine mentale del problema
+    \item Identificare i concetti che possono essere utili
+    \item Riformulare la domanda a parole più chiare,
+  \end{enumerate}
+  \item \textbf{Descrizione}
+  \item \textbf{Pianificazione}
+  \begin{enumerate}
+    \item Trasferire i concetti in forma matematica
+    \item È possibile partire dalla soluzione e lavorare all'indietro
+  \end{enumerate}
+  \item \textbf{Valutazione della soluzione}
+  \item \textbf{Modificazione del piano risolutore}
+\end{enumerate}
+...continua...\\
+
+\vspace{1em}
+\section{Moto e dinamica dei corpi rigidi}
+Di seguito si fornisce la definizione di \textbf{corpo rigido}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{CORPO RIGIDO}}\\
+    \parbox{\linewidth}{Un corpo rigido è un corpo la cui \textbf{forma} e \textbf{dimensione} permangono fissi.\\
+    In altre parole, le \textbf{posizioni relative} tra le parti del corpo sono \textbf{fisse}.\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Ovviamente, la definizione di corpo rigido è relativa e fortemente limitata a dei problemi specifici, in quanto la deformazione di un corpo può avvenire sempre, ma con gradi diversi.
+
+\vspace{1em}
+\subsection{Corpi rigidi - Cinematica}
+
+\vspace{1em}
+\subsubsection{Traslazione}
+Naturalmente, in una traslazione di un corpo rigido, tutte le parti del corpo subiscono lo \textbf{stesso spostamento} (altrimenti si avrebbe deformazione) e, quindi, presentano la \textbf{medesima velocità}: ciò significa che sono sufficienti solamente $3$ parametri per descrivere una traslazione, ossia $(x,y,z)$.
+
+\vspace{1em}
+\subsubsection{Rotazione}
+Per quanto concerne la rotazione di un corpo rigido, è necessario nuovamente specificare $3$ parametri, come
+\begin{itemize}
+  \item 3 angoli;
+  \item l'asse di rotazione più l'angolo.
+\end{itemize}
+Già approssimando un corpo ad un punto materiale, si era osservato come se un punto compie un moto rotatorio di raggio $r$ e descrivendo un angolo $\theta$, allora, chiamando $s$ la lunghezza dell'arco descritto da un punto compiendo uno spostamente angolare a distanza $r$ dall'asse, si interpreta langolo $\theta$ descritto come
+\[\boxed{\theta=\frac{s}{R}}\]
+che viene naturalmente espresso in \textbf{radianti}. Inoltre $\theta$ non è solo un angolo, ma è anche una \quotes{\textbf{coordinata angolare}} che permette di esprimere
+\begin{itemize}
+  \item \textbf{velocità angolare}: $\dfrac{d\theta}{dt}=\omega$
+  \item \textbf{accelerazione angolare}: $\dfrac{d\omega}{dt}=\dfrac{d^2\theta}{dt^2}=\alpha$
+\end{itemize}
+come nel caso di un accelerazione angolare costante, calcolata come
+\[\boxed{\theta(t)=\theta_0+\omega t + \frac{1}{2}\alpha t^2}\]
+che ricorda esattamente un la cinematica di un moto uniformemente accelerato (infatti, in questo caso, si una un \textbf{memento angolare costante}).\\
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Nel caso di un moto rotatorio, è fondamentale considerare l'attrito (che è un attrito statico, non essendoci moto relativo tra le superifici di contatto).\\
+Inoltre, se un corpo rotola con velocità $\vec v$, allora ciò significa che si può definire una funzione spostamento nel tempo:
+\begin{flalign*}
+  x(t) & := \text{ posizione del centro del cerchio in funzione del tempo}\\
+  \theta(t) & := \text{ rapporto fra lo spostamento traslatorio orizzontale e il raggio della circonferenza}
+\end{flalign*}
+Si osservi, infatti, che nel caso di piccoli spostamenti, l'arco descritto da una circonferenza $\Delta s$ può essere approssimato allo spostamento orizzontale $\Delta x$, per cui
+\[\Delta \theta = \frac{\Delta s}{r} \cong \frac{\Delta x}{r}\]
+Ciò, allora, porta alla seguente approssimazione:
+\[\boxed{\theta(t) = \theta_0 + \frac{x(t)}{r}}\]
+sempre ponendo che $v=\omega r$.
+
+\vspace{1em}
+\subsubsection{Rototraslazione}
+Talvolta si parla anche di \textbf{rototraslazione}, ovvero un moto che è sia rotatorio che traslatorio, per la cui descrizione sono fondamentali $6$ parametri.
+
+\vspace{1em}
+\subsection{Corpi rigidi - Dinamica}
+Partendo dal presuppposto che un corpo rigido è approssimabile tramite il modello di un corpo esteso, ossia un \textbf{assieme di punti materiale con distanze relative fisse}.\\
+L'applicazione del centro di massa ad un assieme di punti permette di scrivere la legge:
+\[\boxed{\vec F_{\text{tex}} = M \cdot \vec a_{\text{CM}}}\]
+che è una proprietà totalemente generale e, quindi, include anche il caso dei corpi rigidi. Ciò permette di affermare che la risultate delle forze esterne, anche se ciascuna presenta un punto di applicazione diverso, si comporta come se fosse un unica forza che agisce sul centro di massa, come se fosse un punto materiale.
+
+\begin{corollary}
+  Naturalmente, se non vi sono forze esterne applicate al corpo esteso
+  \[\boxed{\vec F_{\text{ext}} = 0 \longrightarrow \vec a_{\text{CM}} = 0}\]
+  ossia l'accelerazione del centro di massa è nulla: ciò significa che il corpo si sposta a velocità costante. Tuttavia, ciò non significa che non vi sia accelerazione, in quanto un corpo può anche ruotare con un'\textbf{accelerazione angolare non nulla}.
+\end{corollary}
+
+\vspace{1em}
+\noindent
+\subsubsection{Corpi rigidi - Energia cinetica}
+Si consideri un sistema di punti materiali (ovvero un insieme di punti le cui velocità e masse possono essere diverse fra di loro); naturalmente, l'energia cinetica totale del sistema è
+\[K=\frac{1}{2}\sum_i m_i v_i^2\]
+mentre la velocità del centro di massa si calcola come
+\[\vec v_{\text{CM}}=\frac{1}{M} \sum_i m_i \vec v_i\]
+e volendo spostarsi nel sistema di riferimento del centro di massa, si calcoli la velocità relativa al centro di massa come:
+\[\vec v_i = \vec v_{\text{CM}} + \vec v_i'\]
+Allora, ricalcolando nuovamente l'energia cinetica totale, si ottiene
+\[K=\frac{1}{2}\sum_i m_i \cdot \left(\vec v_{\text{CM}} + \vec v_{i}'\right)^2=\frac{1}{2}\sum_i m_i \cdot \left(\vec v_{\text{CM}} + \vec v_{i}'\right) \cdot \left(\vec v_{\text{CM}} + \vec v_{i}'\right) = \frac{1}{2}\sum_i m_i \cdot \left(\vec v_{\text{CM}}^2 + \vec v_{i}'^2 + 2 \vec v_{\text{CM}} \cdot \vec v_i'\right)\]
+che permette di ottenere
+\[K=\frac{1}{2}M v_{\text{CM}}^2 + \frac{1}{2}\sum_i m_i v_i'^2 + \vec v_{\text{CM}} \cdot \hspace{-4em} \underbrace{\sum_i m_i \cdot \vec v_i}_{0 \text{ perché } \vec p_{tot} \text{ nel centro di massa}}\]
+per cui si ottiene il seguente risultato generale (che non dipende dal fatto che si parli di corpi rigidi o meno)
+\[\boxed{K_{tot}=K_{\text{CM}}+K_{\text{rel}}}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che, nel caso di un corpo rigido,
+\[\boxed{K_{tot}=K_{\text{CM}}+K_{\text{rot}}}\]
+in cui $K_{\text{rot}}$ prende il nome di \textbf{energia cinetica di rotazione}. Al fine di determinare tale energia, si consideri una massa $m$ che ruota con velocità angolare $\omega$ descrivendo una circonferenza di raggio $r$. Da ciò segue che l'energia cinetica del corpo è, ovviamente:
+\[K=\frac{1}{2}mv^2=\frac{1}{2m(\omega r)^2=\frac{1}{2}m\omega^2r^2}\]
+Se, invece, si considera un assieme di punti, il risultato generale diviene:
+\[K=\frac{1}{2} \sum_i m_i v_i^2 = \frac{1}{2} \sum_i m_i (\omega r_i)^2 = \frac{1}{2} \omega^2 \underbrace{\sum_i m_i r_i^2}_{I}\]
+in cui
+\[\boxed{I=\sum_i m_i r_i^2}\]
+prende il nome di \textbf{momento di inerzia}. Ecco che sulla base di tale definizione è possibile definire l'energia cinetica totale di un corpo rigido come
+\[\boxed{k_{tot} = K_{\text{CM}} + K_{\text{rot}} = \frac{1}{2}M v_{\text{CM}}^2 + \frac{1}{2}I \omega^2}\]
+in cui $I$ è il momento di interzia attorno ad un asse che passa per il centro della massa (sempre ricordando come $v=\omega r$).\\
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che se si considerano due piani inclinati identici, sul primo del quale vi è una massa quadrata $m$ e sul secondo una sfera $m$, allora, se entrambi partono da un'altezza $h$ e si spostano senza attrito, applicando la conservazione dell'energia meccanica, si ottiene:
+\begin{enumerate}
+  \item $\displaystyle{\frac{1}{2}m v_f^2 = mgh}$
+  \item $\displaystyle{\frac{1}{2}m v_f^2 + \frac{1}{2} I \frac{v^2}{r^2} = mgh}$
+\end{enumerate}
+In cui è evidente come la velocità finale della prima massa sarà maggiore della seconda (e quindi arriva prima), in quanto nel secondo caso parte dell'energia potenziale viene \quotes{persa o spesa} per effettuare la rotazione.
+
+\vspace{1em}
+\subsection{Momento di inerzia}
+La definizione generale di \textbf{momento di inerzia} è
+\[I=\sum_i m_i r_i^2\]
+ma se si considera un corpo continuo si ottiene
+\[I=\int r^2 \cdot dm\]
+e se la densità è data si ha
+\[I=\int r^2 \cdot \rho(\vec r) \cdot dV\]
+che, in ognuno di talui tre casi, è interpretabile come \textbf{la resistenza di un corpo al cambiamento di velocità angolare} (che è molto simile alla definizione della massa inerziale).\\
+Tuttavia, la definizione del momento di inerzia dipende dalla \textbf{posizione} e dall'\textbf{orientazione} dell'asse di rotazione (su uno stesso corpo, ad assi di rotazione differenti corrispondono momenti di interzia differenti: più la massa è distante dall'asse di rotazione, maggiore sarà il suo momento di inerzia).
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Naturalmente, nel caso di un punto materiale di massa $m$, a distanza $r$ dall'asse di rotazione, si ha che il suo momento di inerzia è calcolabile come:
+\[I_{\text{punto}}= m r^2\]
+se, invece, si considerano due punti di massa $\frac{m}{2}$ a distanza $r$ dall'asse di rotazione, si ha che
+\[I_{2 \text{ punti}} = \frac{m}{2}r^2 + \frac{m}{2}r^2 = mr^2\]
+Più in generale, considerando $n$ punti di massa $\frac{m}{n}$ a distanza $r$ dal centro si avrà che
+\[I_{n \text{ punti}} = \sum_{i=1}^n \frac{m}{n} r^2 = m r^2\]
+e si va al limite si ottiene sempre che
+\[I_{\infty \text{ punti}} = \sum_{i=1}^\infty \frac{m}{n} r^2 = m r^2\]
+ed è possibile calcolare il momento di inerzia anche per altri corpi:
+\begin{itemize}
+  \item Sfera piena: $\displaystyle{I=\frac{2}{5} m r^2}$;
+  \item Sfera cava: $\displaystyle{I=\frac{2}{3} m r^2}$;
+  \item Cilindro: $\displaystyle{I=\frac{2}{5} m r^2}$;
+\end{itemize}
+
+\newpage
+\noindent
+\begin{center}
+  21 Aprile 2022
+\end{center}
+La formulazione per l'energia cinetica del moto di rotazione si calcola considerando il momento di inerzia, il quale dipede dall'asse di rotazione del corpo stesso (in quanto il momento di inerzia si calcola in base alla distanza dei contributi di massa dall'asse di rotazione). È stato osservato, inoltre, quale sia il momento di inerzia di un anello che, come si può facilmente intuire, è lo stesso di un anello cavo.\\
+Al fine di determinare il periodo di rotazione sapendo la velocità angolare $\omega$, è possibile impiegare la definizione e isolare $T$ come segue
+\[\omega=\frac{2\pi}{T} \longrightarrow T=\frac{2\pi}{\omega}\]
+Se si considera un'accelerazione angolare costante $\alpha$ e una velocità angolare iniziale $\omega$, allora il tempo impiegato per arrestarsi è
+\[t=\frac{\omega}{\alpha}\]
+Se si considera la definizione di energia cinetica di rotazione e di velocità angolare, si ha che
+\[K=\frac{1}{2}I \omega^2 \longrightarrow K=\frac{1}{2} I \frac{4\pi^2}{T^2} \longrightarrow T=\sqrt{\frac{2\pi^2 I}{K}}\]
+e sapendo che $I=m r^2$, avendo due masse $m$ a distanza $d$ l'una dall'altra, si ottiene
+\[I=2m \left(\frac{d}{2}\right)^2 \longrightarrow \frac{1}{2}md^2\]
+per cui si ha:
+\[T=\sqrt{\frac{2\pi^2 I}{K}}=\sqrt{\frac{\pi^2 m d^2}{K}} = \pi\]
+essendo tutte le misure unitarie.
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio}: Un blocco di massa $m$ è attacato ad un filo di massa trascurabile, che è avvolto intorno a un ciclindro omogeneo di massa $M$ e raggio $R_0$. Il cilindro è libero di girare, con attrito trascurabile, intorno a un asse orizzontale fisso passante per il suo centro. Dopo che il blocco è sceso di un tratto verticale $h$ a partire dalla quiete, si determini la velocità lineare del centro del blocco e la velocità angolare del cilindro rispetto al suo asse di rotazione.\\
+Immediatamente è possibile applicare la conservazione dell'energia meccanica del sistema cilindro-blocco: le energie coinvolte sono l'energia cinetica (anche di rotazione) e l'energia potenziale, per cui
+\[E_i=E_f \longrightarrow K_i+\mathcal{U}_i=K_f+\mathcal{U}_f\]
+ma siccome il sistema, inizialmente, parte dalla quiete, l'energia cinetica iniziale è nulla. Per cui si ha
+\[K_f=\mathcal{U}_i-\mathcal{U}_f\]
+Ovviamente, la variazione di energia cinetica è $\Delta \mathcal{U}=mgh$, mentre l'energia cinetica finale è data dalla somma dell'energia cinetica del blocco di massa $m$ e la velocità angolare del cilindro, per cui:
+\[\frac{1}{2}mv^2 + \frac{1}{2}I\omega^2 = mgh\]
+ma siccome $v$ e $\omega$ sono legate fra di loro dalla relazione
+\[\omega=\frac{v}{R_0}\]
+per cui si ottiene che
+\[v^2 \cdot \left(1 + \frac{I}{m \cdot R_0^2}\right) = 2gh\]
+e sapendo che il cilindro è omogeneo, allora
+\[I=\frac{1}{2} M R_0^2\]
+per cui la velocità lineare del centro del blocco si ottiene:
+\[v = \sqrt{\frac{2gh}{1 + \dfrac{2M}{m}}}\]
+e volendo conoscere la velocità angolare del cilindro, è sufficiente dividere $v$ per $R_0$.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri un oggetto rotondo si massa $m$ e raggio $R$ che rotola giù da un piano inclinato, partendo da un'altezza $h$ nello stato di quiete. Allora, considerando l'attrito trascurabile, si può applicare la consdervazione dell'energia meccanica, per cui
+\[mgh=\frac{1}{2}mv^2 + \frac{1}{2}I\omega^2\]
+ma siccome si parla sempre di rotolamento, è nota la relazione
+\[\omega=\frac{v}{R}\]
+da cui si ha che
+\[\boxed{v=\sqrt{\frac{2gh}{1 + \dfrac{I}{mR^2}}}}\]
+E sapendo come determinare il momento di inerzia $I$ di diversi oggetti, si ha che:
+\begin{itemize}
+  \item Sfera piena: $I=\frac{2}{5}mR^2 \longrightarrow v=\sqrt{2gh} \cdot \sqrt{\frac{5}{7}}$
+  \item Sfera cava: $I=\frac{2}{3}mR^2 \longrightarrow v=\sqrt{2gh} \cdot \sqrt{\frac{3}{5}}$
+\end{itemize}
+Pertanto, la velocità di movimento di un corpo in rotolamento non dipende dalla sua massa, dalla sua dimensione, dal raggio, etc., ma solamente dalla sua distribuzione di massa (ovvero dalla forma dell'oggetto, ossia se è un cilindro, una sfera, etc.)
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Pertanto, due cilindri, di raggio diverso e massa diversa, ma con densità uniforme, si muoveranno alla stessa velocità.\\
+Si considerino, poi, due biglie identiche che sono posizionate su due rotaie a distanze diverse: allora, la biglia che si posiziona sulle rotaie più ravvicinate fra di loro si muove a velocità maggiore, in quanto il raggio di rotazione della sfera rispetto al punto di contatto con le rotaie è molto maggiore rispetto ad una biglia poggiata sulle rotaie a distanza maggiore. Ecco che allora la velocità alla quale si muovono le due biglie si calcola come segue:
+\[\boxed{v=\sqrt{\frac{2gh}{1 + \dfrac{I}{m r'^2}}}}\]
+in cui più $r' \to R$ (ossia più le rotaie sono vicine tra loro), più la velocità aumenta, ma se $r' \to 0$ (ovvero più le rotaie si allontanano), allora la velocità di traslazione diminuisce a scapito di quella di rotazione.
+
+\vspace{1em}
+\subsection{Teorema degli assi paralleli}
+Si consideri una massa informe, il cui centro di massa, a distanza $d$ dall'asse di rotazione, ruota a velocità angolare $\omega$. Allora, per quanto già visto, si ha
+\[K_{\text{tot}} = K_{\text{rot}} + K_{\text{CM}} = \frac{1}{2}I_{\text{CM}} + \frac{1}{2}M v_{\text{CM}}^2\]
+per cui si ottiene che
+\[K_{\text{tot}}=\frac{1}{2} \left(\right)\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri una porta di forma rettangolare (di dimensioni $l,h,s$) avente una distribuzione uniforme. Allora il momento di inerzia del suo centro di massa si calcola come
+\[I_{\text{CM}}=\int r^2 \cdot dm = \int r^2 \rho dV = \int r^2 \frac{M}{l \cdot h \cdot s} \cdot dv\]
+A questo punto, siccome il centro di massa si trova in posizione $\frac{l}{2}$ e siccome $dV = dx \cdot hs$, è facile determinare
+\[I_{\text{CM}}=\int_{-\frac{l}{2}}^{\frac{l}{2}} x^2 \frac{M}{l \cdot s \cdot h} \cdot h \cdot s \cdot dx = \frac{M}{l} \cdot \int_{-\frac{l}{2}}^{\frac{l}{2}} x^2 \cdot dx = \frac{M}{l} \cdot \left[\frac{x^3}{3}\right]_{-\frac{l}{2}}^{\frac{l}{2}} = \frac{1}{12}Ml^2\]
+che è un risultato molto più generale che per una porta, ma per un qualsiasi oggetto a parallelepipedo (ovviamente considerando sempre come asse di rotazione passante per il centro di massa).\\
+Tuttavia, una porta non ruota attorno al proprio centro di massa, ma attorno ad uno dei lati, per cui ora è possibile applicare il teorema degli assi paralleli e considerare la distanza del centro di massa da uno dei lati come $\frac{l}{2}$, ottenendo
+\[I=I_{\text{CM}}+M \cdot \left(\frac{l}{2}\right)^2=\frac{1}{12}Ml^2+\frac{1}{4}Ml^2=\frac{1}{3}Ml^2\]
+per cui è evidente come sia più facile far ruotare una porta attorno al proprio centro di massa invece che attorno ad uno dei lati.
+
+\vspace{1em}
+\subsection{Prodotto vettoriale}
+È noto che dati due vettori $\vec{A}$ e $\vec{B}$ aventi un angolo $\theta$ compreso tra i due, allora il prodotto vettoriale tra $\vec A$ e $\vec B$ è $\vec C = \vec A \times \vec B$, per cui $\vert \vec C \vert = \vert \vec A \vert \cdot \vert \vec B \vert \cdot \sin(\theta)$, in cui $\vec C \perp \vec A$ e $\vec C \perp \vec B$ e il suo verso è dato dalla regola della mano destra.\\
+Non solo, ma era anche noto come il vettore velocità potesse essere descritto anche come prodotto vettoriale tra il vettore $\vec \omega$ e $\vec r$, per cui $\vec v = \vec \omega \times \vec r$. È molto conveniente, infatti, descrivere il versore dell'asse di rotazione del vettore $\vec \omega$ come
+\[\frac{\vec \omega}{\vert \vec \omega \vert}\]
+e allo stesso modo, per l'accelerazione angolare $\vec \alpha$ si ha che il suo asse è
+\[\frac{\vec \alpha}{\vert \vec \alpha \vert}\]
+Inoltre, se l'asse è fisso si ha che $\vert a \parallel \vec \omega$ e se $\vec \alpha$ è costante, allora $\vec \omega = \vec \omega_0 + \vec \alpha \cdot t$.
 
 
 
