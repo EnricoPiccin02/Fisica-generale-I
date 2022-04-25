@@ -4854,7 +4854,6 @@ ciò significa che
   \label{fig:calcolo_centro_massa_figura}
 \end{figure}
 
-\vspace{1em}
 \noindent
 Al fine di calcolarne il centro di massa, è utilie scomporre la stessa in tre oggetti di cui è facile determinare il centro di massa, come mostrato di seguito:
 
@@ -4903,8 +4902,8 @@ e
 \vspace{1em}
 \subsection{Moto del centro di massa}
 Volendo descrivere il moto del centro di massa, si considera la definizione dello stesso, ovvero
-\[\vec{r_{\text{CM}}} = \frac{\displaystyle{\sum_{i} \vec r_i \cdot m_1}}{M}\]
-e volendo conoscere la velocità del centro di massa, è sufficiente considerare la derivata rispetto al tempo di tale vettore, considerando:
+\[\vec{r_{\text{CM}}} = \frac{\displaystyle{\sum_{i} \vec r_i \cdot m_i}}{M}\]
+e volendo conoscere la velocità del centro di massa, è sufficiente considerare la derivata rispetto al tempo di tale vettore, ottenendo:
 \[\vec v_{\text{CM}} = \frac{1}{M} \cdot \frac{d}{dt} \sum_i \vec r_i \cdot m_i = \frac{1}{M} \cdot \sum_i m_i \cdot \vec v_i\]
 ovvero la media pesata delle velocità di ciascuna massa. Analogamente per l'accelerazione si ottiene
 \[\vec a_{\text{CM}} = \frac{1}{M} \cdot \frac{d}{dt} \sum_i \vec r_i \cdot m_i = \frac{1}{M} \cdot \sum_i m_i \cdot \vec a_i\]
@@ -4912,56 +4911,77 @@ ovvero la media pesata delle accelerazioni di ciascuna massa.
 
 \vspace{1em}
 \subsection{Dinamica del centro di massa}
-Si consideri un punto materiale all'interno di un assieme; allora, per la seconda legge di Newton si ha che
-\[m_i \cdot \vec a_i = \sum_i \vec F_i = \vec F_{ai} + \vec F_{bi} + \vec F_{ci} + ...\]
+Si consideri un punto materiale $i$ all'interno di un assieme; allora, per la seconda legge di Newton, la forza che agisce su tale punto è la risultante delle forze applicate sul punto stesso, ovvero
+\[m_i \cdot \vec a_i = \sum_i \vec F_i = \vec F_{a,i} + \vec F_{b,i} + \vec F_{c,i} + ...\]
 A tal proposito, diviene utile effettuare una significativa distinzione tra \textbf{forze interne al sistema} e \textbf{forze esterne al sistema}:
 \begin{itemize}
   \item Le forze esterne al sistema si denotano con
   \[\vec F_{\text{ext},i}\]
   ovvero la risultante di tutte le forze esterne che si applicano sulla massa $m_i$ (approssimata ad un punto materiale);
 
-  \item Le forze interne al sistema, invece, dal momento che originano da un altro punto del sistema, si denotano con
+  \item Le forze interne al sistema, invece, dal momento che originano da altri punti del sistema, si denotano con
   \[\vec F_{j,i}\]
   ovvero la forza causata dal punto $j$ sul punto $i$, ossia la massa $m_i$ (approssimata ad un punto materiale);
 \end{itemize}
 Ciò permette di considerare che:
-\[\boxed{m_i \cdot \vec a_i = \vec F_{\text{ext},i} + \sum_i \vec F_{j,i}}\]
+\[\boxed{m_i \cdot \vec a_i = \vec F_{\text{ext},i} + \sum_j \vec F_{j,i}}\]
 
 \vspace{1em}
 \noindent
+\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
 \textbf{Osservazione}: Si osservi, allora, che volendo determinare l'accelerazione del centro di massa si ottiene
-\[\vec a_{\text{CM}} = \frac{1}{M} \cdot \sum_i m_i \cdot \vec a_i = \frac{1}{M} \cdot \sum_i \left( \vec F_{\text{ext},i} + \sum_i \vec F_{j,i} \right) = \frac{1}{M} \cdot \left(\sum_i \vec F_{\text{ext},i} + \sum_i \sum_j \vec F_{i,j}\right)\]
+\[\vec a_{\text{CM}} = \frac{1}{M} \cdot \sum_i m_i \cdot \vec a_i = \frac{1}{M} \cdot \sum_i \left( \vec F_{\text{ext},i} + \sum_j \vec F_{j,i} \right) = \frac{1}{M} \cdot \left(\sum_i \vec F_{\text{ext},i} + \sum_i \sum_j \vec F_{i,j}\right)\]
 Ma applicando la $3^a$ legge della dinamica, è immmediato osservare come:
-\[\sum_i \sum_j \vec F_{i,j} = \vec F_{1,2} + \vec F_{3,1} + \vec F_{4,1} + ... + \vec F_{1,2} + \vec F_{3,2} + \vec F_{4,2} + ... = 0\]
-Ma tale somma, naturalmente, è nulla in quanto $F_{i,j}=-F_{j,i}, \forall i \neq j$, per cui si ha che
+\begin{equation*}
+  \sum_i \sum_j \vec F_{i,j} = \tikzmark{a} \vec F_{2,1} + \vec F_{3,1} + \vec F_{4,1} + ... + \vec F_{1,2} \tikzmark{b} + \vec F_{3,2} + \vec F_{4,2} + ... = 0
+  \begin{tikzpicture}[overlay,remember picture,out=315,in=225,distance=0.7cm]
+      \draw[<->,blue,shorten >=3pt,shorten <=3pt] (a.east) to node[midway,below](n){opposti} (b.west);
+  \end{tikzpicture}
+\end{equation*}
+Pertanto, essendo tale somma nulla, in quanto $F_{i,j}=-F_{j,i}, \forall i \neq j$, si ottiene semplicemente che
 \[\boxed{M \cdot \vec a_{\text{CM}} = \sum_i \vec F_{\text{ext},i}}\]
-che permette di concludere come la fisica applicata fino a questo momento per un punto materiale è la stessa per il centro di massa, in quanto quest'ultimo segue la $2^a$ legge della dinamica come se fosse un punto materiale: il moto del centro di massa dipende solamente dalle forze esterne... continua ...
+ovvero la forza risultante applicata al centro di massa di un corpo dipende unicamente dalle forze esterne e non da quelle interne: ciò giustifica perfettamente l'approssimazione di un corpo ad un punto materiale (\textbf{se questo è il centro di massa} del corpo stesso) in quanto il centro di massa segue la medesima fisica, ovvero segue la $2^a$ legge della dinamica come se fosse un punto materiale; in altre parole, \textbf{il moto del centro di massa è determinato solamente dalle forze esterne ed è indipendente dal moto relativo delle singole masse}.
 
 \vspace{1em}
 \noindent
 \textbf{Osservazione}: Nel caso di un corpo che viene lanciato in aria e lasciato cadere, trascurando l'attrito dell'aria, si ha che:
 \[\vec F_{\text{ext}} = M \cdot \vec a_{\text{CM}} = M \cdot \vec g = \sum_{i} m_i \cdot \vec g\]
-Inoltre, se la somma delle forze esterne è nulla, ossia $\vec F_{\text{ext}}=0$, allora ciò significa che l'accelerazione del centro di massa è nulla ($\vec a = 0$) e quindi la velocità $\vec v = $ costante.
+Inoltre, se la somma delle forze esterne è nulla, ossia $\vec F_{\text{ext}}=0$, allora ciò significa che l'accelerazione del centro di massa è nulla ($\vec a_{\text{CM}} = 0$) e quindi la velocità $\vec v_{\text{CM}} = $ costante (per cui se si considera un sistema inizialmente fermo e poi avente una certa accelerazione che non dipende da forze esterne, come nel caso di una molla, il centro di massa continua a rimanere lo stesso, nella medesima posizione).
 
 \vspace{1em}
 \subsection{Conservazione della quantità di moto}
-È noto che
-\[\vec F_{\text{ext}} = 0 = \sum_i m_1 \cdot \vec a_i = \sum_i m_i \cdot \frac{d}{dt} \cdot \vec v_i = \frac{d}{dt} \cdot \sum_i m_i \vec v_i\]
-Pertanto si ha che
-\[\frac{d}{dt} \sum_i m_i \cdot \vec v_i = 0 \longrightarrow \sum_i m_i \cdot v_i = \text{ costante}\]
-Ciò porta a definire il concetto di \textbf{quantità di moto}:
-\[\boxed{\vec p = m \cdot \vec v}\]
-per cui se la risultante delle forze su un sistema è nulla, allora la quantità di moto del sistema si conserva.
+Di seguito si espone il \textbf{principio di consdervazione della quantità di moto}:
 
+% Tabella per le definizione di concetti, etc...
 \vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
 \noindent
-\textbf{Osservazione}: La $2^a$ legge di Newton può essere, quindi, reinterpretata alla luce della definizione di quantità di moto, in quanto
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{CONSERVAZIONE DELLA QUANTITÀ DI MOTO}}\\
+    \parbox{\linewidth}{Dal momento che
+    \[\vec F_{\text{ext}} = 0 = \sum_i m_i \cdot \vec a_i = \sum_i m_i \cdot \frac{d}{dt} \cdot \vec v_i = \frac{d}{dt} \cdot \sum_i m_i \cdot \vec v_i\]
+    Pertanto, siccome la derivata nel tempo della quantità considerata è nulla, allora tale quantità viene conservata, ovvero
+    \[\frac{d}{dt} \sum_i m_i \cdot \vec v_i = 0 \longrightarrow \sum_i m_i \cdot v_i = \text{ costante}\]
+    Ciò porta a definire il concetto di \textbf{quantità di moto} (dall'inglese \emph{momentum}):
+    \[\boxed{\vec p = m \cdot \vec v}\]
+    per cui se la \textbf{risultante delle forze su un sistema è nulla}, allora la \textbf{quantità di moto del sistema si conserva}.\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\newpage
+\noindent
+\textbf{Osservazione}: La $2^a$ legge di Newton, originariamente come il fisico l'aveva definita, recitava:\\
+\quotes{\emph{Il cambiamento di moto è proporzionale alla forza mmotrice impressa, ed avviene lungo la linea retta secondo la quale la forza è stata impressa.}}
+in cui è evidente come Newton non parlasse espressamene di accelerazione proporzionale alla forza motrice impressa, ma proprio di \emph{cambiamento di moto}, intendendo, più propriamente, la derivata nel tempo della quantità di moto. Ecco che allora la $2^a$ legge di Newton può essere, reinterpretata alla luce della definizione di quantità di moto come segue
 \[\boxed{\Delta \vec p \propto \vec F}\]
-pertanto si ha
+che ha perfettamente senso in quanto è noto che
 \[\vec F = m \vec a = \frac{d}{dt} \vec p\]
 per cui la $2^a$ legge della dinamica diviene
 \[\boxed{F=\frac{d\vec p}{dt}}\]
-che può riguardare tanto la derivata della velocità nel tempo quanto la derivata della massa nel tempo.
+che può riguardare tanto la \textbf{derivata della velocità} nel tempo quanto la \textbf{derivata della massa} nel tempo (come nel caso del moto dei razzi): ciò garantisce una maggiore generalizzazione del secondo principio della dinamica.
 
 \newpage
 \noindent
