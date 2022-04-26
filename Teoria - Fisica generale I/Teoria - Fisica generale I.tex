@@ -1537,7 +1537,7 @@ Ma non solo, è possibile anche calcolare la derivata nel tempo e considerare, q
 \[\vec{v}_{PA} = \vec{v}_{PB} + \vec{v}_{BA}\]
 che corrisponde proprio al caso analizzato per la barca: la differenza tra i due sistemi di osservazione è proprio il moto della barca. Un caso ancora più importante è quello che prevede $\vec{v}_{BA}$ \textbf{costante}, per cui i due sistemi non si muovono l'uno rispetto all'altro e misurare l'accelerazione nell'uno o nell'altro non cambia, in quanto sarà la stessa. Derivando nuovamente nel tempo, infatti, si ottiene
 \[\vec{a}_{PA} = \vec{a}_{PB} + \vec{a}_{BA}\]
-ma essendo $\vec{v}_{BA}$ costante, ovviamente $\vec{a}_{BA} = 0$. Questo è il caso di un \textbf{sistema di riferimento inerziale}, ovvero di un sistema di riferimento che può muoversi ad una certa velocità, ma non può accelerare. Naturalmente l'accelerazione del sistema ierziale non è relativa, non è da definirsi rispetto ad un altro sistema di riferimento come in questo caso, ma necessita di una definizione molto più rigorosa fornita tramite le leggi della dinamica di Newton. Questo ragionamento, naturamente, si applica sia ad un caso in 2D, ma anche in 3D.
+ma essendo $\vec{v}_{BA}$ costante, ovviamente $\vec{a}_{BA} = 0$. Questo è il caso di un \textbf{sistema di riferimento inerziale}, ovvero di un sistema di riferimento che può muoversi ad una certa velocità, ma non può accelerare. Naturalmente l'accelerazione del sistema ierziale non è relativa, non è da definirsi rispetto ad un altro sistema di riferimento come in questo caso, ma necessita di una definizione molto più rigorosa fornita tramite le leggi della dinamica di Newton. Questo ragionamento, naturalmente, si applica sia ad un caso in 2D, ma anche in 3D.
 
 \vspace{1em}
 \noindent
@@ -4532,7 +4532,7 @@ Si determini, allora, quanto lavoro è necessario (cioé quanto lavoro deve comp
 Inoltre, se $15$ m è l'estensione massima per un'operazione sicura del bungee, si determini la massa massima che può avere una persona che salta legata a questa corda, trascurando la resistenza dell'aria.\\
 Naturalmente, essendo in assenza di attriti, è possibile applicare il \textbf{teorema di conservazione dell'energia meccanica}, ovvero:
 \[E_i = E_f \longrightarrow K_i + \mathcal{U}_{gi} + \mathcal{U}_{e\i} = K_f + \mathcal{U}_{gf} + \mathcal{U}_{ef}\]
-Ma naturalmente l'energia iniziale del sistema è pari a $0$, mentre l'energia potenziale gravitazionale finale è negativa e l'energia potenziale elastica finale è naturamente data dall'opposto del lavoro calcolato in precedenza, da cui:
+Ma naturalmente l'energia iniziale del sistema è pari a $0$, mentre l'energia potenziale gravitazionale finale è negativa e l'energia potenziale elastica finale è naturalmente data dall'opposto del lavoro calcolato in precedenza, da cui:
 \[0 = -mgh + W_c \longrightarrow m = \frac{W_c}{gh} = 136 \text{ kg}\]
 
 \vspace{1em}
@@ -4655,7 +4655,7 @@ Applicando la $3^a$ legge di Newton, poi, si capisce immediatamente come la forz
 per cui l'estensione totale finale è
 \[l_1 + l_2 = 2 \cdot \dfrac{mg}{k} = \dfrac{mg}{\dfrac{k}{2}}\]
 ossia equivalente ad un'unica molla avente costante di elasticità dimezzata.\\
-Nel caso in cui le due molle da considerare siano in parallelo, allora è come se si considerasse una molla con costante di elasitcià doppia; a partire dall'equazione seguente
+Nel caso in cui le due molle da considerare siano in parallelo, allora è come se si considerasse una molla con costante di elasticità doppia; a partire dall'equazione seguente
 \[\vec F_t + \vec F_{m_1} + \vec F_{m_2} = m \vec a\]
 si evince come l'estensione sarà data da:
 \[l=\frac{mg}{2k}\]
@@ -4973,8 +4973,8 @@ Di seguito si espone il \textbf{principio di consdervazione della quantità di m
 
 \newpage
 \noindent
-\textbf{Osservazione}: La $2^a$ legge di Newton, originariamente come il fisico l'aveva definita, recitava:\\
-\quotes{\emph{Il cambiamento di moto è proporzionale alla forza mmotrice impressa, ed avviene lungo la linea retta secondo la quale la forza è stata impressa.}}
+\textbf{Osservazione}: La $2^a$ legge di Newton, originariamente come il fisico l'aveva definita, recitava:\\\\
+\quotes{\emph{Il cambiamento di moto è proporzionale alla forza mmotrice impressa, ed avviene lungo la linea retta secondo la quale la forza è stata impressa.}}\\\\
 in cui è evidente come Newton non parlasse espressamene di accelerazione proporzionale alla forza motrice impressa, ma proprio di \emph{cambiamento di moto}, intendendo, più propriamente, la derivata nel tempo della quantità di moto. Ecco che allora la $2^a$ legge di Newton può essere, reinterpretata alla luce della definizione di quantità di moto come segue
 \[\boxed{\Delta \vec p \propto \vec F}\]
 che ha perfettamente senso in quanto è noto che
@@ -4990,87 +4990,169 @@ che può riguardare tanto la \textbf{derivata della velocità} nel tempo quanto 
 \end{center}
 Com'è noto, il centro di massa è così definito:
 \[\vec r_{\text{CM}} = \frac{1}{M} \cdot \sum_i \vec r \cdot m_i = \int \vec r \cdot g(\vec r) \cdot dV\]
-Naturamente, derivando nel tempo tale quantità si ottiene
+Naturalmente, derivando nel tempo tale quantità si ottiene
 \[\vec v_{\text{CM}} = \frac{1}{M} \cdot \sum_i \vec v_i \cdot m_i\]
 e derivando nuovamente
 \[\vec a_{\text{CM}} = \frac{1}{M} \cdot \sum_i \vec a_i \cdot m_i\]
-Inoltre, è noto che la dinamica del centro di massa è totalmente indipendente dalle fforze interne, ovvero:
+Inoltre, è noto che la dinamica del centro di massa è totalmente indipendente dalle forze interne, ovvero:
 \[M \cdot \vec a_{\text{CM}} = \sum F_{\text{ext}}\]
 Inoltre, interpretando anche la seconda equazione come segue:
 \[M \cdot \vec v_{\text{CM}} = \sum_i m_i \cdot \vec v_i\]
 in cui, essendo $\vec p = m \cdot \vec v$ la \textbf{quantità di moto}, si ha che:
-\[\vec p_{\text{CM}} = \sum_i \vec p_i\]
+\[\boxed{\vec p_{\text{CM}} = \sum_i \vec p_i}\]
 Pertanto, se
 \[\sum \vec F_{\text{ext}} = 0\]
-allora si ha che la quantità di moto si conserva, ovvero $\vec p_{\text{CM}}$ costante: tale concetto prende il nome di \textbf{conservazione della qantità di moto}.
+allora si ha che la quantità di moto del centro di massa si conserva, ovvero $\vec p_{\text{CM}}$ è costante: tale risultato prende il nome di \textbf{conservazione della qantità di moto}.
 
 \vspace{1em}
 \noindent
-\textbf{Osservazione}: Si osservi che considerando la Luna e il suo moto di rivoluzione attorno alla Terra, giacché sulla Luna agisce la forza di attrazione gravitazionale, essa non conserva la sua quantità di moto; tuttavia, se si considera il sistema Terra-Luna, allora la forza di gravità è una forza interna, per cui il centro di massa conserva la propria quantità di moto e quindi si muove a velocità costante.
+\textbf{Osservazione}: Si osservi che considerando solamente la Luna e il suo moto di rivoluzione attorno alla Terra, giacché sulla Luna agisce la forza di attrazione gravitazionale, essa non conserva la sua quantità di moto; tuttavia, se si considera il sistema Terra-Luna (ingnorando anche il Sole), allora la forza di gravità è una forza interna, per cui il centro di massa conserva la propria quantità di moto e quindi si muove a velocità costante.
 
 \vspace{1em}
 \subsection{Seconda legge di Newton reinterpretata}
-Si considerino due masse $m_A=m$ e $m_B=3m$ collegate fra di loro da una molla.
+Si considerino due masse $m_A=m$ e $m_B=3m$ collegate fra di loro da una molla:
 
+\begin{figure}[H]
+  \centering
+  \colorlet{xcol}{blue!70!black}
+  \colorlet{darkblue}{blue!40!black}
+  \colorlet{myred}{red!65!black}
+  \tikzstyle{mydashed}=[xcol,dashed,line width=0.25,dash pattern=on 2.2pt off 2.2pt]
+  \tikzstyle{axis}=[->,thick] %line width=0.6
+  \tikzstyle{ell}=[{Latex[length=3.3,width=2.2]}-{Latex[length=3.3,width=2.2]},line width=0.3]
+  \tikzstyle{dx}=[-{Latex[length=3.3,width=2.2]},darkblue,line width=0.3]
+  \tikzstyle{ground}=[preaction={fill,top color=black!10,bottom color=black!5,shading angle=20},
+                      fill,pattern=north east lines,draw=none,minimum width=0.3,minimum height=0.6]
+  \tikzstyle{mass}=[line width=0.6,red!30!black,fill=red!40!black!10,rounded corners=1,
+                    top color=red!40!black!20,bottom color=red!40!black!10,shading angle=20]
+  \tikzstyle{spring}=[line width=0.8,blue!7!black!80,snake=coil,segment amplitude=5,segment length=5,line cap=round]
+  \tikzset{>=latex} % for LaTeX arrow head
+  \tikzstyle{force}=[->,myred,very thick,line cap=round]
+  \def\tick#1#2{\draw[thick] (#1)++(#2:0.1) --++ (#2-180:0.2)}
 
-\vspace{1em}
+  \begin{tikzpicture}[scale=2]
+    \def\H{1}    % wall height
+    \def\T{0.3}  % wall thickness
+    \def\W{2.6}  % ground length
+    \def\D{0.25} % ground depth
+    \def\h{0.6}  % mass height
+    \def\w{0.7}  % mass width
+    \def\x{1.6}  % mass x position
+    \draw[spring] (\x/2+0.5+\w,\h/2) --++ (\x/2,0);
+    %\draw[ground] (0,0) |-++ (-\T,\H) |-++ (\T+\W,-\H-\D) -- (\W,0) -- cycle;
+    %\draw (0,\H) -- (0,0) -- (\W,0);
+    \draw[mass] (\x/2+0.5,0)  rectangle++ (\w,\h) node[midway] {$m$};
+    \draw[mass] (\x+\w+0.5,0) rectangle++ (\w,\h) node[midway] {$3m$};
+    \draw[-stealth] (\x/2+0.5,\h/2) -- ++(-0.5,0);
+    \draw[-stealth] (\x+2*\w+0.5,\h/2) -- ++(0.5,0);
+    \draw[-stealth] (\w,-\h/2) -- ++(5*\w,0);
+    \draw (\x/2+\w/2+0.5,-\h/4) -- ++(0,-\h/2) node[below]{$x_A$};
+    \draw (\x+3*\w/2+0.5,-\h/4) -- ++(0,-\h/2) node[below]{$x_B$};
+  \end{tikzpicture}
+  \caption{Masse collegate da una molla}
+  \label{fig:masse_collegate_molla}
+\end{figure}
+
 \noindent
-Inizialmente, la molla compressa è a riposo, per cui
-\[\vec p_i=0\]
-Successivamente, la molla, estendendosi, innesca il moto delle due masse, ma la quantità di moto rimane la stessa (ovvero $\vec p_f=\vec p_i=0$), dal momento che su tale sistema non agiscono forze esterne (o meglio, la risultante delle forze esterne impresse, forza di gravità e forza normale, è nulla)
+Inizialmente, la molla compressa è a riposo, per cui la quantità di moto iniziale è nulla
+\[\vec p_{i}=0\]
+Successivamente, la molla, estendendosi, innesca il moto delle due masse, ma la quantità di moto rimane la stessa, ovvero
+\[\vec p_f=\vec p_i=0\]
+dal momento che su tale sistema non agiscono forze esterne (o meglio, la risultante delle forze esterne impresse, forza di gravità e forza normale, è nulla)
 \[\sum \vec F_{\text{ext}} = 0\]
 Pertanto, a qualsiasi istante di tempo $t$ si ha che
-\[\vec p = 0 \vec p_A + \vec p_B = m_A \cdot \vec v_A + m_B \cdot \vec v_B = m \cdot \vec v_A + 3m \cdot \vec v_B \longrightarrow \vec v_A =-3 \vec v_B\]
+\[\vec p = 0 = \vec p_A + \vec p_B = m_A \cdot \vec v_A + m_B \cdot \vec v_B = m \cdot \vec v_A + 3m \cdot \vec v_B \longrightarrow \vec v_A =-3 \vec v_B\]
 
 \vspace{1em}
 \noindent
-\textbf{Esercizio}: Un nucleo di radio $(^{226}\text{Ra})$ inizialmente a riposo si decompone in un nucleo di radon $(^{222}\text{Rn})$ e una particella alfa (nucleo di $(^{4}\text{He})$). Se l'energia cinetica della particella alfa è di $6.72 \times 10^{-13}$J, si determini quali sono il modulo della velocità di rinculo dell'atomo di radono e la sua energia cinetica.\\
-Applicando il principio di conservazione della quantità di moto, si ha che $\vec p_i = \vec p_f=0$, dal momento che
+\textbf{Esercizio}: Un nucleo di radio $(^{226}\text{Ra})$ inizialmente a riposo si decompone in un nucleo di radon $(^{222}\text{Rn})$ e una particella alfa (nucleo di $^{4}\text{He}$). Se l'energia cinetica della particella alfa è di $6.72 \times 10^{-13}$ J, si determini quali sono il modulo della velocità di rinculo dell'atomo di radon e la sua energia cinetica.\\
+Essendo il sistema inizialmente a riposo è evidente come la quantità di moto iniziale sia nulla, ovvero $\vec p_i = 0$; applicando, poi, il principio di conservazione della quantità di moto, si ha che $\vec p_i = \vec p_f=0$, dal momento che
 \[\sum F_{\text{ext}}=0\]
 Ma dai dati del problema è evidente come
 \[\vec p_f=\vec p_{\text{Rn}} + \vec p_{\alpha}=0 \longrightarrow \vec p_{\text{Rn}} = - \vec p_\alpha\]
 Inoltre, è noto che
-\[K_\alpha = \frac{1}{2}m_\alpha^2=\frac{1}{2}\frac{1}{m_\alpha}p_\alpha^2\]
-Dovendo determinare la quantità di moto $\vec p_\alpha$ si ottiene che
-\[\left \vert \vec p_\alpha \right \vert = \sqrt{2 m_\alpha \cdot K_\alpha} = \left \vert \vec p_{\text{Rm}} \right \vert\]
-ottenendo
+\[K_\alpha = \frac{1}{2}m_\alpha v_\alpha^2 = \frac{1}{2}\frac{1}{m_\alpha} p_\alpha^2\]
+Dovendo determinare la quantità di moto $p_\alpha$ si ottiene che
+\[\left \vert p_\alpha \right \vert = \sqrt{2 m_\alpha K_\alpha} = \left \vert p_{\text{Rm}} \right \vert\]
+per cui
 \[v_{\text{Rn}}=\frac{p_{\text{Rn}}}{m_{\text{Rn}}} = \frac{1}{m_{\text{Rn}}} \cdot \sqrt{2 m_\alpha K_\alpha}\]
-e per determinare l'energia cinetica si esegue
-\[K_{\text{Rn}} = \frac{m_\alpha}{m_{\text{Rn}}} \cdot K_\alpha\]
+e per determinare l'energia cinetica si esegue il calcolo seguente
+\[K_{\text{Rn}} = \frac{1}{2}m_{\text{Rn}} \cdot \left( \frac{1}{m_{\text{Rn}}} \cdot \sqrt{2 m_\alpha K_\alpha} \right)^2 = \frac{m_\alpha}{m_{\text{Rn}}} \cdot K_\alpha\]
 che è un risultato fondamentale da considerare, in quanto è stato ottenuto senza sapere nel dettaglio ciò che è successo tra l'istante iniziale e l'istante finale presi in esame.
 
 \vspace{1em}
 \noindent
 \textbf{Esercizio}: Una ragazza di massa $45$ kg si tuffa da una barca di massa $1000$ kg, allontanandosi da essa con una velocità orizzontale di $5.2$ m/s. Ammettendo che la barca fosse inizialmente in quiete e libera di muoversi nell'acqua, si determini con quale velocità essa si mette in movimento.\\
-Dal momento che la quantità di moto è un vettore, si può cosniderare solamente la conservazione in una direzione (come nel caso della caduta libera, in cui si ha conservazione nel movimento orizzontale, ma non verticale, a causa della forza di gravità), ossia quella orizzontale, che è ciò che interessa nel caso descritto; infatti, si ha che:
+Dal momento che la quantità di moto è un vettore, si può considerare solamente la conservazione in una direzione (come nel caso della caduta libera, in cui si ha conservazione nel movimento orizzontale, ma non verticale, a causa della forza di gravità), a differenza dell'energia, che o si conserva o non si conserva. Ciò che è utile in questo caso è considerare la consdervazione della quantità di moto orizzontale, per cui:
 \[\vec p_i=0 \hspace{1em} \text{e} \hspace{1em} \vec p_f=\vec p_r + \vec p_b=0\]
-Dal momento che $p_{ix}=p_{fx}=0$ si può facilmente capire come $p_{rx}=-p_{bx} \longrightarrow m_r v_{rx} = -m_{b} v_{bx}$. Dal momento che in questo caso viene fornita una \textbf{velocità relativa}, ossia la velocità misurata da un sistema di riferimento in cui uno dei due corpi è a riposo
+ovvero la quantità di moto finale è data dalla somma della quantità di moto della ragazza e della barca. Dal momento che $p_{i_x}=p_{f_x}=0$ si può facilmente capire come
+\[p_{r_x}=-p_{b_x} \longrightarrow m_r v_{r_x} = -m_{b} v_{b_x}\]
+In questo caso, però, viene fornita una \textbf{velocità relativa}, ossia la velocità misurata da un sistema di riferimento in cui uno dei due corpi è a riposo, ovvero, in generale
 \[\boxed{\vec v_{\text{rel}} = \vec v_B - \vec v_A}\]
 si può considerare $\vec v_{\text{rel}} = \vec v_r - \vec v_b$, da cui si evince come
 \[
   \left\{
   \rowcolors{1}{white}{white}
   \begin{array}{l}
-    m_r v_{rA} = -m_b v_{bx}\\
+    m_r v_{r_x} = -m_b v_{b_x}\\
     \vec v_{\text{rel}} = \vec v_r - \vec v_b
   \end{array}
   \right.
 \]
-Da cui si evince come $v_{rx}=-\frac{m_b}{m_r} \cdot v_{bx}$ e impiegando tale risultato si ottiene che la velocità relativa diviene
-\[v_{\text{rel}} = -\frac{m_b}{m_r} \cdot v_{bx} - v_{bx} = -v_{bx} \cdot \left(1+\frac{m_b}{m_r}\right)\]
+Da cui si evince come $v_{r_x}=-\dfrac{m_b}{m_r} \cdot v_{b_x}$ e impiegando tale risultato si ottiene che la velocità relativa diviene
+\[v_{\text{rel}_x} = -\frac{m_b}{m_r} \cdot v_{b_x} - v_{b_x} = -v_{b_x} \cdot \left(1+\frac{m_b}{m_r}\right)\]
 Pertanto, ora, si possono determinare sia la velocità della barca che quella della ragazza:
-\[v_{bx}=-\frac{v_{\text{rel}}}{\displaystyle{\left(1-\dfrac{m_b}{m_r}\right)}}\]
-\[v_{rx}=\frac{v_{\text{rel}}}{\displaystyle{\left(1-\dfrac{m_b}{m_r}\right)}}\]
+\[v_{b_x}=-\frac{v_{\text{rel}_x} \cdot m_r}{m_r+m_b} \hspace{1em} \text{e} \hspace{1em} v_{r_x}=\frac{v_{\text{rel}_x} \cdot m_b}{m_r+m_b}\]
 
 \vspace{1em}
 \subsection{Impulso}
-Si consideri un uovo lasciato cadere prima su un materasso e poi su un piano rigido: nel primo caso l'uovo si rompre, mentre nel secondo si rompe, nonostante la quantità di moto iniziale e finale nei due casi sia la stessa, ovvero $0$; la ragione fisica di tale fenomeno sta nel concetto di \textbf{impulso}: nel primo caso la forza che rallenta la caduta del corpo agisce in un tempo superiore rispetto al primo.\\
+Si consideri un uovo lasciato cadere prima su un materasso e poi su un piano rigido: nel primo caso l'uovo non si rompre, mentre nel secondo si rompe, nonostante la quantità di moto iniziale e finale (prima e dopo l'impatto) nei due casi sia la stessa; la ragione fisica di tale fenomeno sta nel concetto di \textbf{impulso}: nel primo caso la forza che rallenta la caduta del corpo agisce in un tempo superiore rispetto al secondo caso.\\
 Infatti, dalla seconda legge di Newton generalizzata si ha che:
 \[\vec F = \frac{d \vec p}{dt}\]
 Procedendo all'integrazione di ambo le parti si ottiene che:
-\[\int \vec F \cdot dt = \int \frac{d \vec p}{dt} \cdot dt = \left[\vec p\right]_i^f = \vec p_f - \vec p_i = \Delta \vec p\]
-Ciò permette di capire come la variazione della quantità di moto sia proprio l'area sottesa al grafico forza-tempo: nonostante nei due casi l'area sia la stessa, il picco della forza è necessariamente maggiore nel secondo caso che nel primo.\\
-È stato, così facendo, definito implicitamente il concetto di impulso:
+\[\int \vec F \cdot dt = \int \frac{d \vec p}{dt} \cdot dt = \vec p_f - \vec p_i = \Delta \vec p\]
+Ciò permette di capire come la variazione della quantità di moto sia proprio l'area sottesa al grafico forza-tempo: nonostante nei due casi l'area sia la stessa, il picco della forza è necessariamente maggiore nel secondo caso che nel primo:
+
+\vspace{2em}
+\noindent
+\rowcolors{1}{white}{white}
+\begin{tabularx}{\textwidth}{P}
+  {
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          grid=both,
+          axis lines = middle,
+          xlabel = \(t\),
+          ylabel = {\(F\)},
+          legend pos=outer north east,
+          ymajorgrids=true,
+          xmajorgrids=true,
+          grid style=dashed,
+          ymin=0,
+        ]
+      \addplot[
+        domain=0:15,
+        samples=100,
+        color=orange,
+      ]
+      {-0.2*(x-5)^2+2};
+      \addlegendentry{Uovo su materasso}
+      \addplot[
+        domain=0:15,
+        samples=100,
+        color=violet,
+      ]
+      {-2*(x-3)^2+5};
+      \addlegendentry{Uovo su pavimento}
+      \end{axis}
+      \end{tikzpicture}
+    }
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+È stato, così facendo, definito implicitamente il \textbf{concetto di impulso}:
 \[\boxed{\vec j = \Delta \vec p = \int \vec F \cdot dt}\]
 
 \vspace{1em}
@@ -5119,7 +5201,7 @@ Il concetto di urto risulta fondamentale nello studio e nella comprensione della
     \draw[dashed] (0,0) -- (M');
     \draw[->,thick] (0,-\ymax) -- (0,\ymax) node[left] {$y$};
     \draw[->,thick] (-\xmax,0) -- (\xmax,0) coordinate (X) node[below] {$x$};
-    \draw[velocity] (M')++(\ang:0.3*\w) --++ (\ang:1.3*\v) node[above right=-3] {$\vb{v}'$};
+    \draw[velocity] (M')++(\ang:0.3*\w) --++ (\ang:1.3*\v) node[above right=0] {$\vb{v}'$};
     \draw[mass]
       (M1')++(\w/2,\h/2) -|++ (-\w,-\h) --++ (\w,0) coordinate (I0)
       to[out=100,in=-100]++(-0.05*\w,0.3*\h) coordinate (I1)
@@ -5148,16 +5230,55 @@ Il concetto di urto risulta fondamentale nello studio e nella comprensione della
 \noindent
 \textbf{Osservazione}: Si osservi che, dal momento che gli urti avvengono in un intervallo di tempo pressoché infinitesimo, si può considerare che sul sistema non agiscano forze esterne.\\
 Quindi, dal momento che il \textbf{tempo di interazione} è estremamente corto rispetto all'effetto delle forze esterne, negli urti la \textbf{quantità di moto è sempre conservata}.\\
-Alla luce ci ciò, si distinguono tre categorie di urto:
+Alla luce di ciò, si distinguono tre categorie di urto:
 \begin{enumerate}
   \item \textbf{Urto elastico}: in cui si ha \textbf{conservazione dell'energia cinetica};
-  \item \textbf{Urto anelastico}: i corpi interagenti rimangono attaccati dopo la collisione, per cui presenteranno la \textbf{stessa velocità finale};
+  \item \textbf{Urto anelastico}: i corpi interagenti rimangono attaccati dopo la collisione, per cui presenteranno la \textbf{stessa velocità finale} (si potrebbe dire che tutta l'energia viene dispersa in questo caso);
   \item \textbf{Urto parzialmente anelastico}: in tale urto (una via di mezzo tra i precedenti) parte dell'energia è dispersa;
 \end{enumerate}
 
 \vspace{1em}
 \noindent
-\textbf{Osservazione}: Naturalmente, si può cambiare la quantità di moto di una particcella mentre la sua energia cinetica rimane la stessa: infatti, la quantità di moto è un vettore, per cui anche cambiando la direzione della velocità, pur mantenendo inalterato il suo modulo, si ha cambiamento di quantità di moto, ma non di energia cinetica; tuttavia, non può essere il contrario.
+\textbf{Osservazione $\boldsymbol{1}$}: Per lo studio degli urti, è fondamentale collocarsi nel centro di massa del sistema: infatti, il risultato precedentemente trovato afferma che se la risultante delle forze esterne è nulla, allora l'accelerazione del centro di massa è nulla, e quindi esso si muove a velocità costante: adottando tale sistema di riferimento, siccome il centro di massa non si muove né prima né dopo l'urto, la quantità di moto (essendo conservata per ipotesi) del sistema prima e dopo l'urto è sempre nulla.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione $\boldsymbol{2}$}: Naturalmente, si può cambiare la quantità di moto di una particcella mentre la sua energia cinetica rimane la stessa: infatti, la quantità di moto è un vettore, per cui anche cambiando la direzione della velocità, pur mantenendo inalterato il suo modulo, si ha cambiamento di quantità di moto, ma non di energia cinetica; tuttavia, non può essere il contrario.\\
+Ovviamente, affinché un urto sia definibile elastico, giacché la quantità di moto, negli urti, si conserva sempre, bisogna dimostrare che l'energia cinetica si conserva, ossia essa permane la stessa prima e dopo l'urto.
+
+\newpage
+\noindent
+\textbf{Esercizio}: Si consideri l'urto seguente
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \node[circle,draw,minimum width=1cm](a1) at (0,0){};
+    \node[circle,draw,minimum width=1cm](b1) at (2.5,0){};
+    \draw (0,0) node[]{$m$} (2.5,0) node[]{$2m$};
+    \draw[-stealth] (0.5,0) -- ++(1,0) node[midway,above]{$3v$};
+    \draw (1.25,-1) node[]{PRIMA};
+    \draw ([xshift=5mm,yshift=5mm]current bounding box.north east) rectangle ([xshift=-5mm,yshift=-5mm]current bounding box.south west);
+  \end{tikzpicture}
+  \hspace{5em}
+  \begin{tikzpicture}
+    \node[circle,draw,minimum width=1cm](a1) at (0,0){};
+    \node[circle,draw,minimum width=1cm](b1) at (2.5,0){};
+    \draw (0,0) node[]{$m$} (2.5,0) node[]{$2m$};
+    \draw[-stealth] (-0.5,0) -- ++(-1,0) node[midway,above]{$v$};
+    \draw[-stealth] (3,0) -- ++(1,0) node[midway,above]{$2$};
+    \draw (1.25,-1) node[]{DOPO};
+    \draw ([xshift=5mm,yshift=5mm]current bounding box.north east) rectangle ([xshift=-5mm,yshift=-5mm]current bounding box.south west);
+  \end{tikzpicture}
+  \caption{Esempio di urto}
+  \label{esempio_di_urto_1}
+\end{figure}
+
+\noindent
+Al fine di verificare la natura di tale urto, è sufficiente determinare la velocità della della massa $2m$ dopo l'urto. Applicando la conservazione della quantità di moto, è facile capire come:
+\[p_{i_x} = p_{f_x} \longrightarrow 3mv = -mv + 2m \cdot x \longrightarrow x = \frac{4mv}{2m} = 2v\]
+Alla luce di ciò, appare evidente come
+\[K_i=K_f \longrightarrow \frac{9}{2}mv^2 = \frac{1}{2}m v^2 + 4 mv^2\]
+per cui l'urto è elastico.
 
 \newpage
 \noindent
@@ -5172,8 +5293,7 @@ Si considerino due corpi che collidono, come mostrato di seguito:
   \colorlet{vcol}{green!60!black}
   \colorlet{myred}{red!65!black}
   \colorlet{acol}{red!50!blue!80!black!80}
-  \tikzstyle{mass}=[line width=0.6,red!30!black,fill=red!40!black!10,rounded corners=1,
-                    top color=red!40!black!20,bottom color=red!40!black!10,shading angle=20]
+  \tikzstyle{mass}=[line width=0.6,red!30!black,fill=red!40!black!10,rounded corners=1,top color=red!40!black!20,bottom color=red!40!black!10,shading angle=20]
   \tikzstyle{ground}=[preaction={fill,top color=blue!50!black!10,bottom color=blue!50!black!5,shading angle=20},
                       fill,pattern color=blue!20!black,pattern=north east lines,draw=none,minimum width=0.3,minimum height=0.6]
   \tikzstyle{velocity}=[->,vcol,very thick,line cap=round]
@@ -5209,7 +5329,7 @@ Si considerino due corpi che collidono, come mostrato di seguito:
     \draw[dashed] (0,0) -- (M');
     \draw[->,thick] (0,-\ymax) -- (0,\ymax) node[left] {$y$};
     \draw[->,thick] (-\xmax,0) -- (\xmax,0) coordinate (X) node[below] {$x$};
-    \draw[velocity] (M')++(\ang:0.3*\w) --++ (\ang:1.3*\v) node[above right=-3] {$\vb{v}'$};
+    \draw[velocity] (M')++(\ang:0.3*\w) --++ (\ang:1.3*\v) node[above right=0] {$\vb{v}'$};
     \draw[mass]
       (M1')++(\w/2,\h/2) -|++ (-\w,-\h) --++ (\w,0) coordinate (I0)
       to[out=100,in=-100]++(-0.05*\w,0.3*\h) coordinate (I1)
@@ -5729,7 +5849,159 @@ Non solo, ma era anche noto come il vettore velocità potesse essere descritto a
 \[\frac{\vec \omega}{\vert \vec \omega \vert}\]
 e allo stesso modo, per l'accelerazione angolare $\vec \alpha$ si ha che il suo asse è
 \[\frac{\vec \alpha}{\vert \vec \alpha \vert}\]
-Inoltre, se l'asse è fisso si ha che $\vert a \parallel \vec \omega$ e se $\vec \alpha$ è costante, allora $\vec \omega = \vec \omega_0 + \vec \alpha \cdot t$.
+Inoltre, se l'asse è fisso si ha che $\vec a \parallel \vec \omega$ e se $\vec \alpha$ è costante, allora $\vec \omega = \vec \omega_0 + \vec \alpha \cdot t$.
+
+\newpage
+\noindent
+\begin{center}
+  26 Aprile 2022
+\end{center}
+Il teorema degli assi paralleli è fondamentale al fine di determinare il momento di inerzia attorno ad un asse che non passa per il centro di massa: per farlo è sufficiente sommare a tale momento di inerzia il prodotto tra la massa e il quadrato della distanza tra la l'asse considerato e quello passante per il centro di massa.\\
+A proposito dell'azione di aprire una porta, si può riflettere in merito a che cosa può influire sulla facilità o meno di compiere tale atto, ovviamente determinabile in funzione del momento di inerzia e della distribuzione di massa:
+\begin{itemize}
+  \item più grande è la massa, più difficile è aprire la porta;
+  \item più grande è la distanza dell'asse di rotazione dall'asse passante per il centro di massa, più difficile è aprire la porta;
+  \item se la distribuzione di massa è favorevole, ovvero se vi è più massa concentrata in prossimità dell'asse di rotazione, allora sarà più facile aprire la porta.
+  \item se la forza applicata non è parallela allo spostamento, essa dovrà essere maggiore per aprire la porta.
+\end{itemize}
+
+\vspace{1em}
+\subsection{Momento di forza}
+Di seguito si espone la definizione di \textbf{momento di forza}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{MOMENTO DI FORZA}}\\
+    \parbox{\linewidth}{Il \textbf{momento di forza} viene definito come il prodotto vettoriale tra il vettore punto di applicazione e il vettore forza, ovvero
+    \[\boxed{\vec \tau = \vec r \times \vec F}\]
+    e per determinare il modulo di tale momento è sufficiente calcolare
+    \[\vert \vec \tau \vert = \vert \vec r \vert \cdot \vert \vec F \vert \cdot \sin(\theta) = r \cdot (F \cdot \sin(\theta)) = (r \cdot \sin(\theta)) \cdot F\]
+    ove $\theta$ è l'angolo compreso tra il vettore $\vec r$ e il vettore $\vec F$ (ovviamente $\theta$ dovrà essere misurato facendo coincidere il punto applicazione dei due vettori).\\
+    In altre parole il modulo del momento di forza è dato dal prodotto tra la distanza dall'asse e la componente perpendicare della forza (ovvero $r \cdot (F \cdot \sin(\theta))$).\\
+    O ancora, il modulo del momento di forza è dato dal prodotto tra la forza e il braccio, ossia la distanza del vettore forza dal punto di applicazione del vettore $\vec r$, chiamato \textbf{braccio} (ovvero $(r \cdot \sin(\theta)) \cdot F$, in cui $(r \cdot \sin(\theta))$ prende il nome di braccio).
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione $\boldsymbol{1}$}: Si consideri la seguente rappresentazione tridimensionale del momento di forza:
+\[raffigurazione\]
+Allora, giacché è noto che è possibile scomporre $\vec F$ nelle sue componenti \emph{radiale} e \emph{angolare}
+\[\vec F = F_r \cdot \hat{r} + F_{\theta} \cdot \hat{\theta}\]
+si può semplicemente calcolare il momento di forza come
+\[\vec \tau = \vec r \times \vec F = r \cdot F \sin(\theta) \cdot \hat{k} = \tau_z \cdot \hat{k} = r \cdot F_\theta \cdot \hat{k}\]
+Applicando, inoltre, la seconda legge della dinamica, si evince facilmente come
+\[F_\theta=m a_\theta=mr\alpha\]
+e, quindi,
+\[\tau_z=r F_\theta=m r^2 \alpha\]
+ciò permette di capire come $\tau$ produca un'\textbf{accelerazione angolare}.\\
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione $\boldsymbol{2}$}: Se ora si consiera un corpo rigido, al fine di determinare il momento di forza totale è necessario sommare i contributi di tutte le forze applicate al corpo rigido, per cui
+\[\tau_z=\sum_i \left(\vec r_i \times \vec F_i\right) = \sum_{i} r_i \cdot F_{i,\theta}\]
+ma siccome in un corpo rigido tutti i punti presentano la stessa accelerazione angolare è facile capire come
+\[\sum_{i} r_i \cdot F_{i,\theta} = \sum_{i} r_i \cdot m_i r_i \alpha = \sum_{i} r_i^2 m_i \alpha = I \alpha\]
+per cui si ottiene che
+\[\boxed{\vec \tau = I \vec \alpha}\]
+che è un esatto analogo della seconda legge della dinamica $\vec F = m \vec a$.
+
+\vspace{1em}
+\noindent
+\textbf{Attenzione}: Si osservi che la legge $\vec \tau = I \vec \alpha$ è valida e applicabile solamente se
+\[\left\{
+    \begin{array}{l}
+      \text{asse è fisso}\\
+      \text{oppure}\\
+      \text{asse passa per il centro di massa}
+    \end{array}
+\right.\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri il cilindro seguente:
+\[raffigurazione\]
+e si determini l'accelerazione della massa $m$. Naturalmente, sulla massa $m$ vi sono due forze applicate, ossia la forza peso $\vec F_t$ e la forza di tensione $\vec F_T$, mentre sul cilindro vi è applicata una forza di tensione che produce una rotazione dello stesso.\\
+Naturalmente, dalla seconda legge di Newton applicata al blocco $m$, si evince come
+\[ma = -mg + F_T\]
+mentre per quanto riguarda il cilindro si ha che
+\[\tau = I \alpha \longrightarrow F_T \cdot R_0 = \frac{1}{2}M R_0^2 \cdot \left(-\frac{a}{R_0}\right) \longrightarrow F_T = -\frac{1}{2}M a\]
+A questo punto, pertanto, è possibile ottenere come
+\[ma = -mg + F_T \longrightarrow ma=-mg+\frac{1}{2}Ma \longrightarrow ma-\frac{1}{2}Ma=-mg \longrightarrow a \cdot \left(m-\frac{1}{2}M\right)=-mg\]
+pertanto si ottiene come
+\[a=-\frac{mg}{\displaystyle{\left(m-\frac{1}{2}M\right)}}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: ... continua ... con al derivazione dell'accelerazione angolare.
+
+\vspace{1em}
+\subsubsection{Momento di forza dovuto alla gravità}
+Si consideri un corpo il cui asse di rotazione non coincide con il centro di massa; allora, considerando una generica una massa $m_i$ che compone il corpo rigido, su di esso agisce una forza peso $\vec f_{t,i}$ che presenta un punto di applicazione posizionato in $\vec r_i$.\\
+Allora è ovvio, per quanto detto, che
+\[\vec \tau = \sum_i \vec r_i \times \vec F_{t,i} = \sum_i \vec r_i \times (-\hat{j} \cdot m_i g) = -g \cdot \sum_i m_i \vec r_i \times \hat{j}\]
+Ma naturalmente si ha che
+\[\vec r_i \times \hat{j} = x_i \cdot (\hat{i} \times \hat{j}) + y_i \cdot (\hat{j} \times \hat{j}) + z_i \cdot (\hat{k} \times \hat{j}) = x_i \hat{k} + 0 - z_i \hat{i}\]
+pertanto si ottiene che
+\[-g \cdot \sum_i m_i \vec r_i \times \hat{j} = -g \cdot \sum_i m_i \left(x_i \hat{k} - z_i \hat{i}\right) = -g \cdot \left(\sum_i m_i x_i\right) \hat{k} + g \cdot \left(\sum_i m_i z_i\right) \hat{j}\]
+ma ricordando che
+\[\frac{\displaystyle{\sum_i m_i x_i}}{\displaystyle{\sum_i m_i}} = x_{\text{CM}} \hspace{1em} \text{e} \hspace{1em} \frac{\displaystyle{\sum_i m_i z_i}}{\displaystyle{\sum_i m_i}} = z_{\text{CM}}\]
+per cui si ottiene che
+\[-g \cdot \left(\sum_i m_i x_i\right) \hat{k} + g \cdot \left(\sum_i m_i z_i\right) \hat{j} = -g M x_{\text{CM}} \hat{k} + g M z_{\text{CM}} \hat{i}\]
+ovvero
+\[\boxed{\tau=\vec r_{\text{CM}} \times \left(- \hat{j} M g\right) = \vec r_{\text{CM}} \times \vec F_{t}}\]
+per cui il \textbf{momento di forza dovuto alla gravità è uguale al momento di forza applicato solo sul centro di massa}.
+
+\vspace{1em}
+\subsection{Baricentro}
+Di seguito si espone la definizione del concetto di \textbf{baricentro}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{CENTRO DI GRAVITÀ}}\\
+    \parbox{\linewidth}{La definizione di \textbf{baricentro} coincide con quella di \emph{centro di massa}, anche definito \textbf{centro di gravità}.
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Esempio $\boldsymbol{1}$}: Si consideri un oggetto sospeso ad una parete con l'asse di rotazione non allineato con il centro di massa:
+\[raffigurazione\]
+allora, in questo caso, si ha un momento di forza dovuto alla forza peso, determinabile come
+\[\vec \tau = \vec r_{\text{CM}} \times \vec F_{t} \neq 0\]
+Si ha equilibrio solamente quanto il \textbf{centro di massa} è allineato alla verticale passante per il perno. Per tale ragione è sufficiente considerare due misure per determinare il centro di massa: dati due piani passanti uno per il perno e contenente la verticele al perno e uno orizzontale all'oggetto, si determina facilmente il baricentro.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio $\boldsymbol{2}$}: Si consideri un'asta di lunghezza $L$ che, inizalmente verticale, viene inclinata con un angolo $\theta$. Naturalmente si ha che il momento di forza dovuto alla forza di gravità è
+\[\vec \tau = \vec r \times \vec F = r F_t \sin(\theta)\]
+ma è noto che la distanza del centro di massa è pari a $\frac{L}{2}$; inoltre, è noto che
+\[\tau=I \alpha = \frac{1}{3}mL^2 \cdot \alpha\]
+per cui alla fine è immediato determinare l'accelerazione angolare $\alpha$ come segue
+\[\frac{L}{2}mg \sin(\theta)=\frac{1}{3} mL^2 \alpha \longrightarrow \alpha = \frac{3}{2}\frac{g}{L} \sin(\theta)\]
+Se ora si volesse calcolare l'accelerazione lineare $a$ nel punto più alto si ottiene:
+\[\alpha L = \frac{3}{2}g \sin(\theta)\]
+e ciò significa che ad un certo angolo si avrà che $a > g$, per cui l'intera struttura in caduta potrebbe rompersi.
+
+\vspace{1em}
+\subsection{Ribaltamento}
+Si consideri un oggetto posizionato su un piano inclinato di un angolo $\theta$ e avente un centro di massa CM posizionato in corrispondenza di $\vec r_{\text{CM}}$. Ovviamente, su tale oggetto agisce la forza peso, la forza normale e la forza di attrito statico; facilmente si può trovare che
+\[F_N=F_t \cdot \cos(\theta) \hspace{1em} \text{e} \hspace{1em} F_s=F_t \cdot \sin(\theta)\]
+
 
 
 

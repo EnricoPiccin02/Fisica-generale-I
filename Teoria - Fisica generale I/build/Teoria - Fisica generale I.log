@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.27)  25 APR 2022 21:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.27)  26 APR 2022 11:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -763,17 +763,27 @@ NOTE: coordinate (0Y0.0e0],5Y0.0e0]) has been dropped because it is unbounded (i
 
 LaTeX Warning: Command \i invalid in math mode on input line 4534.
 
-[79] [80] [81] [82] [83] [84] [85] [86] [87] [88] [89] [90] [91] [92] [93] [94] [95] [96] [97]
-Overfull \hbox (9.88734pt too wide) detected at line 5364
+[79] [80] [81] [82] [83] [84] [85] [86] [87] [88] [89]
+Underfull \hbox (badness 10000) in paragraph at lines 4975--4979
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4975--4979
+
+ []
+
+[90] [91] [92] [93] [94] [95] [96] [97] [98]
+Overfull \hbox (9.88734pt too wide) detected at line 5484
 \OML/cmm/m/it/10 mgh \OT1/cmr/m/n/10 = []\OML/cmm/m/it/10 mv[] \OT1/cmr/m/n/10 + []\OML/cmm/m/it/10 Mv[] [][]\OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 mgh \OT1/cmr/m/n/10 = []\OML/cmm/m/it/10 m [][] \OT1/cmr/m/n/10 + []\OML/cmm/m/it/10 Mv[] [][]\OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 v[] \OT1/cmr/m/n/10 = []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5405--5409
+Underfull \hbox (badness 10000) in paragraph at lines 5525--5529
 
  []
 
-[98] [99]
+[99] [100]
 NOTE: coordinate (1Y4.0242284e1],3Y0.0e0]) has been dropped because it is unbounded (in y). (see also unbounded coords=jump). 
 NOTE: coordinate (1Y4.1272583e1],3Y0.0e0]) has been dropped because it is unbounded (in y). (see also unbounded coords=jump). 
 NOTE: coordinate (1Y4.2302882e1],3Y0.0e0]) has been dropped because it is unbounded (in y). (see also unbounded coords=jump). 
@@ -833,41 +843,46 @@ NOTE: coordinate (1Y9.690875e1],3Y0.0e0]) has been dropped because it is unbound
 NOTE: coordinate (1Y9.7939049e1],3Y0.0e0]) has been dropped because it is unbounded (in y). (see also unbounded coords=jump). 
 NOTE: coordinate (1Y9.8969348e1],3Y0.0e0]) has been dropped because it is unbounded (in y). (see also unbounded coords=jump). 
 NOTE: coordinate (1Y9.9999648e1],3Y0.0e0]) has been dropped because it is unbounded (in y). (see also unbounded coords=jump). 
-[100]
-Underfull \hbox (badness 10000) in paragraph at lines 5501--5502
-
- []
-
 [101]
-Underfull \hbox (badness 10000) in paragraph at lines 5547--5549
+Underfull \hbox (badness 10000) in paragraph at lines 5621--5622
 
  []
 
 [102]
-Underfull \hbox (badness 10000) in paragraph at lines 5608--5610
+Underfull \hbox (badness 10000) in paragraph at lines 5667--5669
 
  []
 
-[103] [104] [105] [106] [107] [108] [109] [110] [111] [112] (build/Teoria - Fisica generale I.aux)
+[103]
+Underfull \hbox (badness 10000) in paragraph at lines 5728--5730
+
+ []
+
+[104] [105] [106] [107] [108]
+Underfull \hbox (badness 10000) in paragraph at lines 5903--5905
+
+ []
+
+[109] [110] [111] [112] [113] [114] [115] [116] [117] (build/Teoria - Fisica generale I.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 46850 strings out of 480445
- 1229869 string characters out of 5892391
- 2294995 words of memory out of 5000000
- 63500 multiletter control sequences out of 15000+600000
+ 46900 strings out of 480445
+ 1230908 string characters out of 5892391
+ 2295015 words of memory out of 5000000
+ 63550 multiletter control sequences out of 15000+600000
  425354 words of font info for 106 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  128i,28n,130p,775b,2417s stack positions out of 5000i,500n,10000p,200000b,80000s
  </Users/enricopiccin/Library/texlive/2021basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmmib10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/symbols/m
 sbm10.pfb>
-Output written on "build/Teoria - Fisica generale I.pdf" (112 pages, 666363 bytes).
+Output written on "build/Teoria - Fisica generale I.pdf" (117 pages, 685581 bytes).
 PDF statistics:
- 476 PDF objects out of 1000 (max. 8388607)
- 329 compressed objects within 4 object streams
+ 492 PDF objects out of 1000 (max. 8388607)
+ 340 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

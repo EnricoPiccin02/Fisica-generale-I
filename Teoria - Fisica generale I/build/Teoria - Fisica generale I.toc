@@ -66,25 +66,29 @@
 \contentsline {subsection}{\numberline {7.4}Conservazione della quantità di moto}{89}{}%
 \contentsline {subsection}{\numberline {7.5}Seconda legge di Newton reinterpretata}{91}{}%
 \contentsline {subsection}{\numberline {7.6}Impulso}{93}{}%
-\contentsline {subsection}{\numberline {7.7}Urti}{93}{}%
-\contentsline {subsubsection}{\numberline {7.7.1}Urti tra due corpi}{95}{}%
-\contentsline {subsubsection}{\numberline {7.7.2}Urti elastici}{96}{}%
-\contentsline {subsection}{\numberline {7.8}Urto in 1D - Elastico}{96}{}%
-\contentsline {subsection}{\numberline {7.9}Urto in 1D - Anelastico}{97}{}%
-\contentsline {subsection}{\numberline {7.10}Urti - Riepilogo}{97}{}%
-\contentsline {subsection}{\numberline {7.11}Moto dei razzi}{99}{}%
-\contentsline {section}{\numberline {8}Moto e dinamica dei corpi rigidi}{101}{}%
-\contentsline {subsection}{\numberline {8.1}Corpi rigidi - Cinematica}{101}{}%
-\contentsline {subsubsection}{\numberline {8.1.1}Traslazione}{101}{}%
-\contentsline {subsubsection}{\numberline {8.1.2}Rotazione}{101}{}%
-\contentsline {subsubsection}{\numberline {8.1.3}Rototraslazione}{102}{}%
-\contentsline {subsection}{\numberline {8.2}Corpi rigidi - Dinamica}{102}{}%
-\contentsline {subsubsection}{\numberline {8.2.1}Corpi rigidi - Energia cinetica}{103}{}%
-\contentsline {subsection}{\numberline {8.3}Momento di inerzia}{104}{}%
-\contentsline {subsection}{\numberline {8.4}Teorema degli assi paralleli}{106}{}%
-\contentsline {subsection}{\numberline {8.5}Prodotto vettoriale}{107}{}%
-\contentsline {section}{\numberline {9}Oscillazioni}{108}{}%
-\contentsline {section}{\numberline {10}Solidi e fluidi}{109}{}%
-\contentsline {section}{\numberline {11}Temperatura e calore}{110}{}%
-\contentsline {section}{\numberline {12}Il primo principio della termodinamica}{111}{}%
-\contentsline {section}{\numberline {13}Il secondo principio della termodinamica}{112}{}%
+\contentsline {subsection}{\numberline {7.7}Urti}{94}{}%
+\contentsline {subsubsection}{\numberline {7.7.1}Urti tra due corpi}{96}{}%
+\contentsline {subsubsection}{\numberline {7.7.2}Urti elastici}{97}{}%
+\contentsline {subsection}{\numberline {7.8}Urto in 1D - Elastico}{97}{}%
+\contentsline {subsection}{\numberline {7.9}Urto in 1D - Anelastico}{98}{}%
+\contentsline {subsection}{\numberline {7.10}Urti - Riepilogo}{98}{}%
+\contentsline {subsection}{\numberline {7.11}Moto dei razzi}{100}{}%
+\contentsline {section}{\numberline {8}Moto e dinamica dei corpi rigidi}{102}{}%
+\contentsline {subsection}{\numberline {8.1}Corpi rigidi - Cinematica}{102}{}%
+\contentsline {subsubsection}{\numberline {8.1.1}Traslazione}{102}{}%
+\contentsline {subsubsection}{\numberline {8.1.2}Rotazione}{102}{}%
+\contentsline {subsubsection}{\numberline {8.1.3}Rototraslazione}{103}{}%
+\contentsline {subsection}{\numberline {8.2}Corpi rigidi - Dinamica}{103}{}%
+\contentsline {subsubsection}{\numberline {8.2.1}Corpi rigidi - Energia cinetica}{104}{}%
+\contentsline {subsection}{\numberline {8.3}Momento di inerzia}{105}{}%
+\contentsline {subsection}{\numberline {8.4}Teorema degli assi paralleli}{107}{}%
+\contentsline {subsection}{\numberline {8.5}Prodotto vettoriale}{108}{}%
+\contentsline {subsection}{\numberline {8.6}Momento di forza}{109}{}%
+\contentsline {subsubsection}{\numberline {8.6.1}Momento di forza dovuto alla gravità}{111}{}%
+\contentsline {subsection}{\numberline {8.7}Baricentro}{111}{}%
+\contentsline {subsection}{\numberline {8.8}Ribaltamento}{112}{}%
+\contentsline {section}{\numberline {9}Oscillazioni}{113}{}%
+\contentsline {section}{\numberline {10}Solidi e fluidi}{114}{}%
+\contentsline {section}{\numberline {11}Temperatura e calore}{115}{}%
+\contentsline {section}{\numberline {12}Il primo principio della termodinamica}{116}{}%
+\contentsline {section}{\numberline {13}Il secondo principio della termodinamica}{117}{}%
