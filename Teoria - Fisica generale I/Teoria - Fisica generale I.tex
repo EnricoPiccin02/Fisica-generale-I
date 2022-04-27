@@ -5002,7 +5002,7 @@ in cui, essendo $\vec p = m \cdot \vec v$ la \textbf{quantità di moto}, si ha c
 \[\boxed{\vec p_{\text{CM}} = \sum_i \vec p_i}\]
 Pertanto, se
 \[\sum \vec F_{\text{ext}} = 0\]
-allora si ha che la quantità di moto del centro di massa si conserva, ovvero $\vec p_{\text{CM}}$ è costante: tale risultato prende il nome di \textbf{conservazione della qantità di moto}.
+allora si ha che la quantità di moto del centro di massa si conserva, ovvero $\vec p_{\text{CM}}$ è costante: tale risultato prende il nome di \textbf{conservazione della quantità di moto}.
 
 \vspace{1em}
 \noindent
@@ -5484,15 +5484,20 @@ Ovviamente, anche in questi due casi, si ha che $\vec p_{1,i} = -\vec p_{2,i}$, 
 Naturalmente a tale problema si applica la conservazione della quantità di moto, per cui
 \[\vec p_i = \vec p_f\]
 ed esplicitando la quantità di moto iniziale e finale si ottiene:
-\[\vec p_i=\vec p_{cart,i} + \vec p_{ramp,i} = 0 + 0 = \vec 0\]
-\[\vec p_f = \vec p_{cart,f} + \vec p_{ramp,f} = \vec v_c \cdot m + \vec v_r \cdot M = 0\]
-ma siccome $\vec p_{cart,f} = - \vec p_{r,f}$ si ottiene che $\vec v_{cart} \cdot m = - \vec v_{ramp} \cdot M$.\\
+\begin{flalign*}
+  \vec p_i &=\vec p_{\text{cart},i} + \vec p_{\text{ramp},i} = 0 + 0 = \vec 0\\
+  \vec p_f &= \vec p_{\text{cart},f} + \vec p_{\text{ramp},f} = \vec v_c \cdot m + \vec v_r \cdot M = 0
+\end{flalign*}
+ma siccome $\vec p_{\text{cart},f} = - \vec p_{\text{ramp},f}$ si ottiene che
+\[\vec v_{cart} \cdot m = - \vec v_{\text{ramp}} \cdot M \longrightarrow \vec v_{cart} = - M \cdot \frac{\vec v_{\text{ramp}}}{m}\]
 Applicando il principio di conservazione dell'energia meccanica, si ottiene anche che
-\[E_i=E_f \longrightarrow E_i=K_{cart,i}+K_{ramp,i} + \mathcal{U}_i = mgh\]
+\[E_i=E_f \longrightarrow E_i=K_{\text{cart},i}+K_{\text{ramp},i} + \mathcal{U}_i = mgh\]
 mentre
-\[E_f = K_{cart,f} + K_{ramp,f} + \mathcal{U}_f = \frac{1}{2}m v_{cart}^2 + \frac{1}{2}M v_{ramp}^2\]
-volendo determinare $v_{ramp}$ si ottiene, applicando la conservazione dell'energia meccanica e il fatto che $\vec v_{cart} = \frac{M \vec v_{ramp}}{m}$
-\[mgh=\frac{1}{2}m v_{cart}^2 + \frac{1}{2}M v_{ramp}^2 \longrightarrow mgh=\frac{1}{2}m \left(\frac{M \vec v_{ramp}}{m}\right)^2 + \frac{1}{2}M v_{ramp}^2 \longrightarrow v_{ramp} = \sqrt{\frac{2mh}{\displaystyle{M \cdot \left(1 + \frac{M}{m}\right)}}}\]
+\[E_f = K_{\text{cart},f} + K_{\text{ramp},f} + \mathcal{U}_f = \frac{1}{2}m v_{cart}^2 + \frac{1}{2}M v_{\text{ramp}}^2\]
+volendo determinare $v_{\text{ramp}}$ si ottiene, applicando la conservazione dell'energia meccanica e il fatto che $v_{\text{cart}} = M \cdot \frac{v_{\text{ramp}}}{m}$
+\[mgh=\frac{1}{2}m v_{\text{cart}}^2 + \frac{1}{2}M v_{\text{ramp}}^2 \longrightarrow mgh=\frac{1}{2}m \left(M \cdot \frac{v_{\text{ramp}}}{m}\right)^2 + \frac{1}{2}M v_{\text{ramp}}^2\]
+Ciò permette di pervenire facilmente al risultato seguente:
+\[v_{\text{ramp}} = \sqrt{\frac{2mgh}{\displaystyle{M \cdot \left(1 + \frac{M}{m}\right)}}}\]
 
 \vspace{1em}
 \noindent
@@ -5506,6 +5511,8 @@ volendo determinare $v_{ramp}$ si ottiene, applicando la conservazione dell'ener
     \draw (b1.120) -- (c1.240) (b1.60) -- (c1.300);
     \draw (0,0) node[]{$m$} (2.5,0) node[]{$m$} (2.5,1.5) node[]{$m$};
     \draw[-stealth] (0.5,0) -- ++(1,0) node[midway,above]{$2v$};
+    \draw (1.25,-1) node[]{PRIMA};
+    \draw ([xshift=5mm,yshift=5mm]current bounding box.north east) rectangle ([xshift=-5mm,yshift=-5mm]current bounding box.south west);
   \end{tikzpicture}
   \hspace{5em}
   \begin{tikzpicture}
@@ -5517,57 +5524,90 @@ volendo determinare $v_{ramp}$ si ottiene, applicando la conservazione dell'ener
     \draw[-stealth] (2.75,0.75) -- ++(1,0) node[midway,above]{$v$};
     \draw [-stealth] (c2) [out=210, in=170] to (b2);
     \draw (1.7,0.5) node[]{$\omega$};
+    \draw (1.75,-1) node[]{DOPO};
+    \draw ([xshift=5mm,yshift=5mm]current bounding box.north east) rectangle ([xshift=-5mm,yshift=-5mm]current bounding box.south west);
   \end{tikzpicture}
   \caption{Esempio di urto}
   \label{esempio_di_urto_2}
 \end{figure}
+
+\noindent
 Essendo un urto, si può applicare la conservazione della quantità di moto, per cui
 \[\vec p_i = \vec p_f \longrightarrow 2 m v_i = \frac{m v_{1,f} + m v_{2,f}}{2m}\]
-Per verificare se si conserva l'energia cinetica si consieri:
+Per verificare se si conserva l'energia cinetica si consideri:
 \[K_i=\frac{1}{2}m \cdot (2v)^2\]
-mentre l'energia cinetica finale è data dal centro di massa, ovvero:
-\[\vec v_{\text{CM}} = \frac{m v_{1,f} + m v_{2,f}}{2m} = v \longrightarrow \frac{v_{1,f}}{2} = v \longrightarrow \vec v_{1,f} = 2v\]
+mentre l'energia cinetica finale è data solamente dal contributo delle due masse collegate fra loro e può essere calcolata ricavando le velocità delle singole masse proprio dall'informazione fornita dal problema che $\vec v_{\text{CM}}=v$, per cui
+\[\vec v_{\text{CM}} = \frac{m v_{1,f} + m v_{2,f}}{2m}\]
+ma siccome delle due masse fra di loro collegate, solamente quella più in basso si muove (considerando l'istante appena dopo l'urto), è facile capire come
+\[\vec v_{\text{CM}} = \vec v_{\text{CM}} = v \longrightarrow \frac{v_{1,f}}{2} = v \longrightarrow \vec v_{1,f} = 2v\]
 per cui l'energia cinetica finale è data unicamente dal contributo della prima massa, da cui:
 \[K_f=\frac{1}{2}m (2v)^2\]
-per cui il moto considerato è elastico.
+per cui l'urto considerato è elastico.
 
 \vspace{1em}
 \subsection{Moto dei razzi}
 Il moto dei razzi ha radici storiche molto profonde; un esempio di fallimento nella progettazione di un razzo riguarda l'esperimento di Gottard:\\\\
-\quotes{Come un metodo per inviare un proiettile verso Ia parte pia alta, persino Ia parte le pia alta, dell'atmosfera terrestre, il razzo a carica multipla del Prof. Goddard 6 un dispositivo practicabile e quindi promettente.
-(...) dopo che it razzo ha lasciato Ia nostra aria ed ha iniziato davvero it suo viaggio pia lungo, it suo vuolo non sarebbe ne accelerato ne mantenuto dall'esplosione delle cariche che potrebbe avere ancora. Affermare che lo sarebbe 6 negare una legge fondamentale della dinamica, e solo it dottor Einstein e la sua dozzina prescelta, pochi e capaci, sono autorizzati a farlo.
-Che it Prof. Goddard (...) non conosca la relazione tra azione e reazione, e della necessity di avere qualcosa di meglio di un vuoto contro cui reagire — dire questo sarebbe assurdo.}
+\quotes{Come un metodo per inviare un proiettile verso la parte pia alta, persino la parte le pia alta, dell'atmosfera terrestre, il razzo a carica multipla del Prof. Goddard è un dispositivo praticabile e quindi promettente.\\
+(...) dopo che it razzo ha lasciato la nostra aria ed ha iniziato davvero il suo viaggio più lungo, il suo vuolo non sarebbe né accelerato né mantenuto dall'esplosione delle cariche avrebbe potuto ancora avere. Affermare che lo sarebbe è negare una legge fondamentale della dinamica, e solo il Dott. Einstein e la sua dozzina prescelta, pochi e capaci, sono autorizzati a farlo.\\
+Che it Prof. Goddard (...) non conosca la relazione tra azione e reazione, e della necessità di avere qualcosa di meglio di un vuoto contro cui reagire — dire questo sarebbe assurdo.}
 
 \vspace{1em}
 \noindent
-\textbf{Osservazione}: Naturalmente, applicando la seconda legge di Newton generalizza, si ha che
+\textbf{Osservazione}: Al fine di analizzare il moto dei razzi, è necessario considerarne il modello seguente:
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \draw[fill=cyan!30] (0,0) arc [start angle=200, delta angle=-110, radius=1cm] -- ++(0,-1) coordinate(a) -- (0,0);
+    \draw[fill=yellow!30] (a) -- ++(2,0) -- ++(0,4) -- ([xshift=1cm,yshift=6cm]a) -- ([yshift=4cm]a)-- ++(0,-4);
+    \draw[fill=cyan!30] ([xshift=2cm]a) ++(0,1) arc [start angle=90, delta angle=-110, radius=1cm] -- ([xshift=2cm]a) -- ([xshift=2cm]a);
+    \node[minimum size=0.8cm,circle,draw,red] (circle) at ([xshift=1cm,yshift=3cm]a){};
+    \node[minimum size=0.6cm,circle,draw,fill=blue!25] (oblo) at ([xshift=1cm,yshift=3cm]a){};
+    \draw[-stealth] ([xshift=1cm,yshift=6cm]a) -- ++(0,1) node[midway,right]{$\vec v_r$};
+    \draw[-stealth] ([xshift=1cm]a) -- ++(0,-1) node[midway,right]{$\vec v_g$};
+  \end{tikzpicture}
+  \caption{Modello di un razzo}
+  \label{fig:modello_razzo}
+\end{figure}
+
+\noindent
+Naturalmente il razzo si muove ad una velocità $\vec v_r$ e, come risultato della combusitone del carburante, viene emessa posteriormente anche una massa $\Delta m$ di gas che, a causa dell'elevata temperatura, presenta delle molecole che si muovono ad un'elevata velocità $\vec v_g$; ovviamente è fondamentale osservare come la velocità $\vec v_g$ delle molecole di gas sia relativa al razzo e non all'osservatore.\\
+A tale contesto si applica la seconda legge di Newton generalizzata, per cui si ha che
 \[\vec F_{\text{ext}} = \frac{d\vec p}{dt}\]
 che, naturalmente, può anche essere interpretata come:
 \[\vec F_{\text{ext}} = \frac{\vec p_f - \vec p_i}{\Delta t}\]
-in cui, ovviamente, $\vec p_i = m \cdot \vec v_r$, in cui $m$ è la massa totale iniziale del razzo e $\vec v_r$ è la velocità iniziale del razzo. Invece, la quantità di moto finale è $\vec p_f = \left(m - \Delta m\right) \cdot \left(\vec v_r + \\Delta \vec v_r\right) + \Delta m \cdot \left(\vec v_g + \vec v_r\right)$, in quanto il razzo ha perso una quantità $\Delta m$ di gas e, quindi, ha diminuito la propria massa e aumentato la propria velocità; inoltre è necessario anche considerare la quantità di moto della quantità $\Delta m$ di gas che viene espulso dal razzo stesso, la cui velocità, relativa al razzo, è proprio $\vec v_g + \vec v_r$. La semplificazione porta a
+La quantità di moto iniziale del razzo è
+\[\vec p_i = m \cdot \vec v_r\]
+in cui $m$ è la massa totale iniziale del razzo e $\vec v_r$ è la velocità iniziale dello stesso. Invece, la quantità di moto finale, dopo un intervallo di tempo $\Delta t$ è
+\[\vec p_f = \left(m - \Delta m\right) \cdot \left(\vec v_r + \Delta \vec v_r\right) + \Delta m \cdot \left(\vec v_g + \vec v_r\right)\]
+in quanto il razzo ha perso una quantità $\Delta m$ di gas e, quindi, ha diminuito la propria massa di $\Delta m$ e aumentato la propria velocità di $\Delta v$; inoltre è necessario anche considerare la quantità di moto della quantità $\Delta m$ di gas che viene espulso dal razzo stesso, la cui velocità, relativa al razzo, è proprio $\vec v_g + \vec v_r$ (sempre interpretando l'intero sistema dal punto di vista di un osservatore esterno). La semplificazione porta a
 \[\vec p_f = \left(m - \Delta m\right) \cdot \left(\vec v_r + \Delta \vec v_r\right) + \Delta m \cdot \left(\vec v_g + \vec v_r\right) = m\vec v_r - \Delta m \vec v_r + m \Delta \vec v_r - \Delta m \Delta \vec v_r + \Delta m \vec v_g + \Delta m \vec v_r\]
-In altre parole si ottiene
-\[=\frac{1}{\Delta t} \cdot \left(m \Delta \vec v_r + \Delta m \vec v_g - \Delta m \Delta \vec v_r\right)\]
-Ma siccome le variazioni considerate sono infinitesimali, allora $\Delta m \Delta \vec v_r \to 0$, da cui
-\[\vec p_f = m \cdot \frac{\Delta \vec v_r}{\Delta t} + \vec v_g \cdot \frac{\Delta m}{\Delta t}\]
-Considerando un tempo infinitesimale, ossia $\lim_{\Delta t \to 0}$, si ottiene che
+in cui, ovviamente, $\Delta m \Delta \vec v_r \to 0$, in quanto due quantità infinitesime moltiplicate fra loro. In altre parole si ottiene
+\[\vec p_f = m \vec v_r + m \Delta v_r + \Delta m \vec v_g\]
+per cui, ritornando alla seconda legge della dinamica generalizzata, si ottiene
+\[\vec F_{\text{ext}} = \frac{\vec p_f - \vec p_i}{\Delta t}=\frac{1}{\Delta t} \cdot \left(m \Delta \vec v_r + \Delta m \vec v_g - \Delta m \Delta \vec v_r\right)\]
+Ma siccome, per quanto detto, le variazioni considerate sono infinitesimali, allora $\Delta m \Delta \vec v_r \to 0$, da cui
+\[\vec F_{\text{ext}} = m \cdot \frac{\Delta \vec v_r}{\Delta t} + \vec v_g \cdot \frac{\Delta m}{\Delta t}\]
+Considerando un tempo infinitesimale, ossia $\displaystyle{\lim \Delta t \to 0}$, si ottiene che
 \[\frac{\Delta \vec v_r}{\Delta t} \longrightarrow \frac{d \vec v_r}{dt} = \vec a_r \hspace{1em} \text{e} \hspace{1em} \frac{\Delta m}{\Delta t} \longrightarrow \frac{dm}{dt}\]
 Ecco, quindi, che si è ottenuto:
 \[\boxed{\vec F_{\text{ext}} = m \vec a_r + \vec v_g \cdot \frac{dm}{dt}}\]
-in cui $\vec v_g \cdot \dfrac{dm}{dt}$ è proprio la \textbf{spinta del razzo}.
+in cui $\vec v_g \cdot \dfrac{dm}{dt}$ è proprio la \textbf{spinta del razzo}: questo è proprio il meccanismo di funzionamento di un razzo, in quanto se il gas viene espulso e aquista una certa velocità, allora anche il razzo deve accelerare per garantire la conservaizone della quantità di moto.
 
 \vspace{1em}
 \noindent
 \textbf{Esempio}: Naturalmente, nello spazio, si ha che $\vec F_{\text{ext}}=0$, per cui l'equazione di cui sopra diviene:
-\[m \vec a_r = - \vec v_g \cdot \frac{dm}{dt}\]
-Per quanto riguarda la componente orizzontale, riscrivendo l'accelerazione secondo la definizione si ottiene:
+\[\boxed{m \vec a_r = - \vec v_g \cdot \frac{dm}{dt}}\]
+che è un'equazione che ha senso, in quanto al decremento della massa del razzo corrisponde un aumento della velocità dello stesso. Per quanto riguarda la componente orizzontale, riscrivendo l'accelerazione secondo la definizione si ottiene:
 \[m \cdot \frac{dv}{dt} =- v_g \cdot \frac{dm}{dt} \longrightarrow \frac{dv}{dt} = - \frac{v_g}{m} \cdot \frac{dm}{dt}\]
 Naturalmente taluna è una equazione differenizale; ma sapendo che
 \[\frac{d}{dt} \log(m(t)) = \frac{1}{m} \frac{dm}{dt}\]
 si può facilmente evincere come
-\[\frac{dv}{dt}=-v_g \frac{d}{dt} \log(m(t)) \longrightarrow v_f-v_i =-v_g \cdot \left[\log(m_f) - \log(m_i)\right]\]
+\[\frac{dv}{dt}=-v_g \cdot \frac{d}{dt} \log(m(t))\]
+e integrando, ora, rispetto al tempo, si ottiene che
+\[v_f-v_i =-v_g \cdot \left[\log(m_f) - \log(m_i)\right]\]
 che permette di ottenere
-\[\boxed{v_f-v_i=\Delta v=-v_g \log \left(\frac{m_f}{m_i}\right)}\]
+\[\boxed{v_f-v_i=\Delta v=-v_g \cdot \log \left(\frac{m_f}{m_i}\right)}\]
 che prende il nome di \textbf{equazione di Ciolkovsky}. È facile campire come, essendo
 \[\frac{m_f}{m_i} < 1 \longrightarrow \log \left(\frac{m_f}{m_i}\right) < 0\]
 ma essendo precedeuto da un segno $-$, si ottiene un aumento di velocità, ovviamente.
@@ -5929,9 +5969,9 @@ che è un esatto analogo della seconda legge della dinamica $\vec F = m \vec a$.
 \textbf{Attenzione}: Si osservi che la legge $\vec \tau = I \vec \alpha$ è valida e applicabile solamente se
 \[\left\{
     \begin{array}{l}
-      \text{asse è fisso}\\
+      \textbf{asse è fisso}\\
       \text{oppure}\\
-      \text{asse passa per il centro di massa}
+      \textbf{asse passa per il centro di massa}
     \end{array}
 \right.\]
 
@@ -6012,6 +6052,168 @@ e ciò significa che ad un certo angolo si avrà che $a > g$, per cui l'intera s
 \subsection{Ribaltamento}
 Si consideri un oggetto posizionato su un piano inclinato di un angolo $\theta$ e avente un centro di massa CM posizionato in corrispondenza di $\vec r_{\text{CM}}$. Ovviamente, su tale oggetto agisce la forza peso, la forza normale e la forza di attrito statico; facilmente si può trovare che
 \[F_N=F_t \cdot \cos(\theta) \hspace{1em} \text{e} \hspace{1em} F_s=F_t \cdot \sin(\theta)\]
+
+\newpage
+\noindent
+\begin{center}
+  27 Aprile 2022
+\end{center}
+Ovviamente quando si considera un oggetto posizionato su un piano inclinato, la condizione di ribaltamento prevede che il centro di massa dell'oggetto sia perfettamente allineata con il perno di rotazione.\\
+Chiamata $b$ la distanza tra il perno e il piede della perpendicolare al piano inclinato passante per il centro di massa, la condizione di stabilità prevede semplicemente che
+\[\boxed{\tan(\theta) < \frac{b}{y_{\text{CM}}}}\]
+per cui per aumentare la stabilità è sufficiente abbassare il baricentro o aumentare la base di appoggio, in modo tale da rendere il rapporto più grande possibile.
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio}: Dal lato passeggiero, una Jeep si ribalta se è inclinata più di $41^\circ$. La velocità non deve superare per evitare di ribaltarsi in una curva di raggio $R=100$ m.\\
+Al fine di risolvere tale problema, è utile passare ad un sistema di riferimento inerziale, in cui si può considerare la forza apparente centrifuga (se, invece, si considerasse un sistema di riferimento inerziale vi sarebbero troppi contributi da considerare e, siccome, si sta considerando un sistema che accelera, l'asse non è fisso, per cui non si può applicare la condizione $\vec \tau = I \vec \alpha$).\\
+Se si passa ad un sistema di riferimento non inerziale, allora si ha solo la forza apparente $\vec F_a$ e la forza peso $\vec F_t$, per cui
+\[\vec F_{\text{tot}} = \vec F_a + \vec F_t\]
+Pertanto, la condizione di stabilità è che
+\[\tan(\theta) < \frac{F_a}{F_t}\]
+Naturalmente è noto che la forza apparente è una forza centrifuga, calcolabile come segue
+\[f_a=\frac{mv^2}{R} \longrightarrow \tan(\theta)=\frac{v^2}{Rg}\]
+Peranto, la velocità che non deve essere superata è
+\[\boxed{v=\sqrt{Rg\tan(\theta)}}\]
+
+\vspace{1em}
+\subsection{Leve e ingranaggi}
+Il concetto di momento di forza si applica perfettamente a quello di leva. Affinché l'intero sistema costituito da una leva sia in equilibrio, si deve verificare la condizione seguente
+\[\sum \vec \tau = 0\]
+ovvero si deve avere che
+\[\vec \tau_1 + \vec \tau_2 = -F_1 L_1 + F_2 L_2 = 0 \longrightarrow F_1 L_1 = F_2 L_2\]
+Ottenendo, semplicemente, la condizione seguente
+\[\boxed{F_1=F_2 \cdot \frac{L_2}{L_1}}\]
+Nel caso degli ingranaggi, è sufficiente considerare il punto di contatto nel quale $\vec F_1 = - \vec F_2$, per cui si ottiene che
+\[\tau_1 = r_1 F_1 \hspace{1em} \text{e} \hspace{1em} \tau_2 = r_2 F_2\]
+per cui si ottiene semplicemente che
+\[\boxed{\frac{\tau_1}{\tau_2}=\frac{r_1}{r_2} \longrightarrow \tau_1=\tau_2 \cdot \frac{r_1}{r_2}}\]
+ciò significa che applicando un piccolo momento di forza sulla ruota più grande, questo verrà applificato di un fattore $\frac{r_2}{r_1}$ sulla ruota più piccola (oppure verrà ridotto, nel caso contrario).
+... continua ...
+
+\vspace{1em}
+\subsection{Potenza}
+Com'è noto nel caso di forze e lavoro che la potenza era data dalla variazione del lavoro nel tempo, per cui
+\[\boxed{P=\frac{dW}{dt}}\]
+ma essendo $dW=\vec F \cdot d \vec r$ e $d \vec r = \vec v dt$ è facile capire come $dW=\vec F \cdot \vec v dt$, per cui, analogamente
+\[\boxed{P=\vec F \vec v}\]
+Pertanto, siccome è noto che
+\[dr = R d\theta = R \omega dt\]
+è facile evincere come
+\[F dr = F R \omega dt = dW \longrightarrow P=FR \omega\]
+ma essendo $FR=\tau$, si perviene facilmente al risultato seguente
+\[\boxed{P=\vec \tau \cdot \vec \omega}\]
+
+
+\vspace{1em}
+\subsection{Momento angolare}
+Di seguito si espone la definzione di \textbf{momento angolare}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{MOMENTO ANGOLARE}}\\
+    \parbox{\linewidth}{Il \textbf{momento angolare} di un punto materiale viene definito come il prodotto vettoriale tra il vettore posizione e il vettore quantità di moto, ovvero
+    \[\boxed{\vec l = \vec r \times \vec p}\]
+    in cui è ovvio come $\vec r$ dipende dall'origine scelta. Il momento angolare può essere sempre calcolato sia che vi sia o meno rotazione e può essere calcolato prendendo come punto di riferimento qualsiasi punto.
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che nel caso di un moto circolare, la quantità di moto è $\vec p = m \vec v$, per cui il momento angolare è
+\[\vec l = \vec r \times m \vec v = mR^2 \vec \omega\]
+essendo $v=\omega R$ e $\vert \vec r \vert = R$.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio $boldsymbol{1}$}: Il momento angolare della terra che ruota attorno al Sole è, ovviamente, per quanto appena trovato
+\[l=mR^2 \omega = m_t \cdot d_{t-s}^2 \cdot \frac{2\pi}{T} = 2.7 \times 10^{40} \frac{\text{kg m}^2}{\text{s}}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio $boldsymbol{2}$}: Il momento angolare di un elettrone in orbita intorno ad un protone (come l'idrogeno) è sempre dato da
+\[l=m R^2 \omega=\frac{h}{2\pi}=\hbar= 1.05 \times 10^{-34} \frac{\text{kg m}^2}{\text{s}}\]
+in cui ovviamente è possibile determinare
+\[R=\sqrt{\frac{\hbar}{m \omega}}=\sqrt{\frac{\hbar T}{2\pi m}}=5.4 \times 10^{-14} \text{ m} = 0.5 \text{\AA}\]
+
+\vspace{1em}
+\subsection{Momento angolare e dinamica}
+Per quanto concerne un punto materiale si ha che
+\[\frac{d}{dt} \vec l = \frac{d}{dt}(\vec r \times \vec p) = \frac{d \vec r}{dt} \times \vec p + \vec r \times \frac{d \vec p}{dt} = \vec v \times m \vec v + \vec r \times \vec F\]
+ma è ovvio come $\vec v \times m \vec v = 0$, mentre $\vec r \times \vec F = \tau$, per cui si ottiene come
+\[\frac{d \vec l}{dt}=\vec tau\]
+
+\vspace{1em}
+\subsection{Equazioni cardianli della meccanica}
+Dato un sistema di punti materiali, è possibile calcolare il momento angolare totale di tale sistema, ovver
+\[\vec L = \sum_i \vec l_i\]
+calcolando la derivata nel tempo di tale quantità, è facile capire come si ottenga la seguente quantità
+\[\frac{d \vec L}{dt} = \sum_i \frac{\vec l_i}{dt} = \sum_i \vec \tau_i\]
+ma applicando nuovamente la $3^\text{a}$ legge di Newton, si ottiene che la somma di tutti i momenti di forza interni si cancellano, per cui
+\[\frac{d \vec L}{dt} = \sum \vec \tau_{\text{ext}}\]
+Ecco che sono state ottenute le due equazioni cardinali della dinamica
+\[\boxed{\frac{d \vec L}{dt} = \sum \vec \tau_{\text{ext}}} \hspace{1em} \text{e} \hspace{1em} \boxed{\frac{d \vec p}{dt} = \sum \vec F_{\text{ext}}}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: È nota, ovviamente, a la relazione seguente
+\[\vec r \overset{\dfrac{d}{dt}}{\longrightarrow} \vec v \overset{\dfrac{d}{dt}}{\longrightarrow} \vec a\]
+e, inoltre, si ha
+\begin{itemize}
+  \item $m \vec v = \vec p$
+  \item $m \vec a = \vec F$
+  \item $\frac{d \vec p}{dt} = \vec F$
+  \item $\vec F \cdot \vec v = P$
+  \item ... continua ...
+\end{itemize}
+
+
+\vspace{1em}
+\subsection{Equilibrio statico di un corpo rigido}
+È noto, ovviamente, che quando si ha
+\[\sum \vec F_{\text{ext}} = 0\]
+si ha la conservazione della quantità di moto e, conseguentemente, il centro di massa si muove a velocità costante.\\
+Ora, però, è anche noto che se
+\[\sum \vec \tau_{\text{ext}} = 0\]
+allora il momento angolare è conservato e, quindi, la velocità angolare è costante.\\
+Ciò significa che un corpo a riposo, con queste due condizioni, permane nel suo stato di quiete. Pertanto, le condizioni di equilibrio per l'equilibrio statico sono
+\[\boxed{\sum \vec F = 0} \hspace{1em} \text{e} \hspace{1em} \boxed{\sum \vec \tau = 0}\]
+e tale condizione può essere valutata scegliendo arbitrariamente qualsiasi punto di riferimento.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si consideri un albero di natale sul quale agisce, naturalmente, la forza peso $\vec F_t$, e due forze di sostegno $\vec F_1$ e $\vec F_2$ aventi braccio $\vec r_1$ e $\vec r_2$ dal centro di massa.\\
+Naturalmente, affinché si abbia equilibrio statico deve essere che
+\begin{flalign*}
+  \displaystyle{\sum \vec F = 0} & \longrightarrow \vec F_1 + \vec F_2 + \vec F_t = 0 \longrightarrow F_1 + F_2 = mg\\
+  \displaystyle{\sum \vec \tau = 0} & \longrightarrow \vec r_1 \times \vec F_1 + \vec r_2 \times \vec F_2 = 0 \longrightarrow x_1 F_1 - x_2 F_2 = 0 \longrightarrow \frac{F_1}{F_2} = \frac{x_2}{x_1}
+\end{flalign*}
+Al fine di determinare $F_1$ e $F_2$ è sufficiente scrivere, impiegando la seconda equazione
+\[F_1=F_2 \frac{x_2}{x_1}\]
+mentre dalla prima equazione appare veidente come
+\[F_2 \cdot \left(\frac{x_2}{x_1}+1\right) = mg\]
+per cui, in conclusione, si ha che
+\[F_2 = \frac{mg}{1 + \dfrac{x_2}{x_1}} \hspace{1em} \text{e} \hspace{1em} F_1 = \frac{mg}{1 + \dfrac{x_1}{x_2}}\]
+
+\vspace{1em}
+\subsection{Orbita e spin}
+Dato un corpo sul quale vengono messi in evidenza il centro di massa e un punto diverso dal centro di massa, in posizione $\vec r_i$ e $\vec r_{\text{CM}}$, è ovviamente possibile determinare
+\[\vec r_i = \vec r_{\text{CM}} + \vec r_{\text{rel}}\]
+e se ora si calcola il momento angolare, si ottiene che
+\[\vec l_i = \vec r_i \times \vec p_i = \vec r_{\text{CM}} \times \vec p_i + \vec r_{\text{rel}} \times \vec p_i\]
+Se ora si prende in considerazione l'intera totalità di tutti i punti costituenti il corpo si ottiene
+\[\vec L = \sum_i \vec l_i = \vec r_{\text{CM}} \times \underbrace{\sum_i \vec p_i}_{\vec p_{\text{CM}}} + \sum_i \vec r_{\text{rel}} \times \vec p_i\]
+per cui è possibile dividere il momento angolare totale in \textbf{momento angolare orbitale} $\vec L_o$ e \textbf{spin} $\vec L_s$, come illustrato di seguito
+\[\vec L = \underbrace{\vec r_{\text{CM}} \times \vec p_{\text{CM}}}_{\vec L_o = \text{orbitale}} + \underbrace{\sum_{i} \vec r_{\text{rel}} \times \vec p_i}_{\vec L_s = \text{spin}}\]
+per cui si ottiene la relazione fondamentale
+\[\boxed{\vec L = \vec L_o + \vec L_s}\]
 
 
 
