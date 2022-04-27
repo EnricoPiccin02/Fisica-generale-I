@@ -3517,9 +3517,9 @@ Di seguito si espone la definizione di \textbf{lavoro}, basandosi sulla Figura \
       \item Se $\vec F$ presenta verso opposto rispetto a $\Delta \vec r$, allora il lavoro è negativo (si ha sottrazione di energia al sistema, come per l'attrito).
     \end{itemize}
     Naturalmente, nel caso in cui vi siano più forze agenti sul sistema, ciascuna delle quali produce uno spostamento, si ottiene che
-    \[W_{tot} = \vec F_1 \cdot \Delta \vec r_1 + \vec F_2 \cdot \Delta \vec r_2 + ... = \sum_{i} F_i \cdot \Delta \vec r_i\]
+    \[W_{\text{tot}} = \vec F_1 \cdot \Delta \vec r_1 + \vec F_2 \cdot \Delta \vec r_2 + ... = \sum_{i} F_i \cdot \Delta \vec r_i\]
     Infine, se il corpo non ruota e non si deforma, tutti gli spostamenti sono uguali, ovvero $\Delta \vec r_1 = \Delta \vec r_2 = ... + \Delta \vec r_n$, e quindi il lavoro totale sarà dato solo dal prodotto scalare tra la somma delle forze e il singolo spostamento:
-    \[W_{tot} = \sum_{i} F_i \cdot \Delta \vec r\]
+    \[W_{\text{tot}} = \sum_{i} F_i \cdot \Delta \vec r\]
     \vspace{-1mm}}\\
     \hline
 \end{tabularx}
@@ -3554,9 +3554,9 @@ Alla luce di tale risultato si può quindi scrivere
 ovvero
 \[\boxed{dW = \frac{1}{2}m \cdot \frac{d}{dt} (\vec v)^2}\]
 Avendo ottenuto la formula per il calcolo del lavoro infinitesimale $dW$, è possibile eseguire una somma infinita di tali contributi per determinare il lavoro compiuto per effettuare uno spostamento maggiore, come mostrato di seguito:
-\[W_{tot} = \int_i^f dW = \int_{t_i}^{t_f} \left(\sum \vec F\right) \cdot d \vec{r} = \int_{t_i}^{t_f} \frac{1}{2}m \cdot \frac{d}{dt} (\vec v)^2 \cdot dt = \frac{1}{2}m \cdot \left(v_f^2 - v_i^2\right)\]
+\[W_{\text{tot}} = \int_i^f dW = \int_{t_i}^{t_f} \left(\sum \vec F\right) \cdot d \vec{r} = \int_{t_i}^{t_f} \frac{1}{2}m \cdot \frac{d}{dt} (\vec v)^2 \cdot dt = \frac{1}{2}m \cdot \left(v_f^2 - v_i^2\right)\]
 per cui la formula finale ottenuta è proprio quanto ci si aspettava:
-\[\boxed{W_{tot} = \frac{1}{2}m \cdot \left(v_f^2 - v_i^2\right)}\]
+\[\boxed{W_{\text{tot}} = \frac{1}{2}m \cdot \left(v_f^2 - v_i^2\right)}\]
 
 \vspace{1em}
 \noindent
@@ -3564,8 +3564,8 @@ per cui la formula finale ottenuta è proprio quanto ci si aspettava:
 \[F = m \vec a\]
 e si applica ai punti materiali (ma non ad un sistema più complesso).\\
 Si osservi che tale risultato non è equivalente al teorema di \textbf{conservazione dell'energia}, anche se fornisce risultati uguali in importanti casi.\\
-È significativo osservare che il lavoro totale $W_{tot}$ così calcolato non corrisponde al \quotes{lavoro} in senso termodinamico. In questo caso si ha che
-\[W_{tot} = \Delta K\]
+È significativo osservare che il lavoro totale $W_{\text{tot}}$ così calcolato non corrisponde al \quotes{lavoro} in senso termodinamico. In questo caso si ha che
+\[W_{\text{tot}} = \Delta K\]
 da cui si può capire come il lavoro di una \textbf{forza costante} si possa calcolare come segue:
 \[\boxed{W = \int_i^f \vec F \cdot d \vec r = \vec F \cdot (\vec r_f - \vec r_i) = \vec F \cdot \vec l}\]
 in cui $\vec l$ indica lo \textbf{spostamento totale}, il quale non dipende assolutamente dal percorso compiuto.
@@ -3592,7 +3592,7 @@ Allora per il calcolo del lavoro si può procedere come segue:
 Naturalmente, in questo caso, la forza non è costante, per cui bisogna calcolare l'integrale, posto $h'=R_t+h$
 \[W=\int \vec F \cdot d \vec r = \int -G \cdot \frac{m_t \cdot m}{(R_t + h)^2} \cdot dh = \int_{R_t}^{R_t+h} - \frac{G m_t m}{{h'}^2} \cdot dh' = G m_t m \cdot \left(\frac{1}{R_t+h}-\frac{1}{R_t}\right)\]
 in cui si ottiene che
-\[\Delta K = W_{tot} \longrightarrow 0 - \frac{1}{2}m \cdot v_i^2 = G m_t m \cdot \left(\frac{1}{R_t+h}-\frac{1}{R_t}\right)\]
+\[\Delta K = W_{\text{tot}} \longrightarrow 0 - \frac{1}{2}m \cdot v_i^2 = G m_t m \cdot \left(\frac{1}{R_t+h}-\frac{1}{R_t}\right)\]
 in cui, isolando $h$ si ottiene
 \[h = \frac{1}{2} \cdot \frac{R_t^2 \cdot v_i^2}{G m_t} \cdot \left(1 - \frac{1}{2} \cdot \frac{R_t \cdot v_i^2}{G m_t} \right)^{-1} \longrightarrow h = \frac{1}{2} \cdot \frac{v_i^2}{g} \cdot \left(1 - \frac{1}{2} \cdot \frac{v_i^2}{g R_t} \right)^{-1}\]
 in cui appare evidente come l'altezza dipenda dal quadrato della velocità; inoltre se il secondo termine si annulla, con una velocità sufficiente, essendo valutato il regiproco, l'altezza diviene idealmente infinita e quindi il proiettile esce dall'orbita terrestre.
@@ -4068,8 +4068,8 @@ Giacché la velocità è costante, l'accelerazione della vettura è nulla, per c
 Da ciò si evince la forza di trazione $\vec F$ e la forza di resistenza $\vec F_r$ sono uguali ed opposte, per cui:
 \[\vec F = \vec F_r\]
 Applicando il teorema lavoro-energia cinetica, si ha che
-\[W_{tot}=\Delta K=0\]
-in cui è da considerare $W_{tot}=W_m+W_r$, i quali sono uguali e oppposti. Ovviamente si ha che
+\[W_{\text{tot}}=\Delta K=0\]
+in cui è da considerare $W_{\text{tot}}=W_m+W_r$, i quali sono uguali e oppposti. Ovviamente si ha che
 \[W_m = \int \vec F \cdot d \vec r \hspace{1em} \text{e} \hspace{1em} W_r = \int \vec F_r \cdot d \vec r\]
 e sono entrambi uguali a $W=F \cdot d$. Naturalmente, in questo caso, si ottiene che la potenza cercata è proprio:
 \[P=\frac{d}{dt}W_m=\frac{d}{dt}F \cdot d = F \cdot v\]
@@ -4147,9 +4147,9 @@ Da cui si evince che la velocità del sistema cercata è proprio data dal rappor
 \noindent
 Si determini, allora, la lunghezza $l$ di compressione massima della molla fino a quando l'assieme blocco-piattaforma si ferma.\\
 Al fine di risolvere tale problema è utile richiamare il teorema lavoro-energia cinetica: naturalmente si ha che il lavoro totale compiuto sul sistema è pari alla variazione di energia cinetica:
-\[W_{tot} = \Delta K = \frac{1}{2}m \cdot \left(v_f^2 - v_i^2\right)\]
+\[W_{\text{tot}} = \Delta K = \frac{1}{2}m \cdot \left(v_f^2 - v_i^2\right)\]
 ma essendo la velocità iniziale e finale del blocco nulle, si deduce che il lavoro totale compiuto sul sistema è nullo. Le uniche forze che compiono lavoro, in questo caso ipotetico, sono la forza di gravità e la forza elastica di richiamo della molla; ciò significa che il lavoro compiuto da ambedue le forze è uguale, ma opposto, da cui:
-\[w_{tot}=0=W_g+W_m=mgl-\frac{1}{2}k \cdot (l-d)^2\]
+\[w_{\text{tot}}=0=W_g+W_m=mgl-\frac{1}{2}k \cdot (l-d)^2\]
 Da ciò si evince che:
 \[-\frac{1}{2}kl^2 + (kd+mg) \cdot l - \frac{1}{2}kd^2=0\]
 e volendo isolare $l^2$ si ottiene:
@@ -4352,7 +4352,7 @@ Di seguito si espone il grafico iperbolico dell'energia potenziale gravitazional
 \vspace{1em}
 \noindent
 \textbf{Esempio}: L'energia meccanica totale di un satellite in orbita attorno alla terra è data dalla somma di due componenti: l'energia cinetica e l'energia potenziale
-\[E_{tot} = K+\mathcal{U}=\frac{1}{2}mv^2 - G \cdot \frac{m_t \cdot m}{r}\]
+\[E_{\text{tot}} = K+\mathcal{U}=\frac{1}{2}mv^2 - G \cdot \frac{m_t \cdot m}{r}\]
 in cui $m$ è la massa del satellite. Inoltre, in tali sistemi nello spazio, si assiste ad un minimo scambio di energia (a causa delle radiazioni), per cui con sufficiente precisione è possibile affermare che si ha conservazione di energia, ovvero
 \[\Delta E = 0 \longrightarrow K+\mathcal{U}=\text{costante}\]
 Per comprendere la condizione di orbita di un satellite, è opportuno studiare i possibili valori di $E$
@@ -5265,7 +5265,7 @@ Ovviamente, affinché un urto sia definibile elastico, giacché la quantità di 
     \node[circle,draw,minimum width=1cm](b1) at (2.5,0){};
     \draw (0,0) node[]{$m$} (2.5,0) node[]{$2m$};
     \draw[-stealth] (-0.5,0) -- ++(-1,0) node[midway,above]{$v$};
-    \draw[-stealth] (3,0) -- ++(1,0) node[midway,above]{$2$};
+    \draw[-stealth] (3,0) -- ++(1,0) node[midway,above]{$?$};
     \draw (1.25,-1) node[]{DOPO};
     \draw ([xshift=5mm,yshift=5mm]current bounding box.north east) rectangle ([xshift=-5mm,yshift=-5mm]current bounding box.south west);
   \end{tikzpicture}
@@ -5355,26 +5355,35 @@ Si considerino due corpi che collidono, come mostrato di seguito:
 \end{figure}
 
 \noindent
-La massa $m_1$ presenta velocità iniziale $\vec V_1$, mentre la massa $m_2$ si muove a velocità $\vec V_2$. Taluno è un problema generale che viene studiato tramite un sistema di riferimento esterno, di un osservatore.\\
+Allora, in questo caso, la massa $m_1$ presenta velocità iniziale $\vec V_1$, mentre la massa $m_2$ si muove a velocità $\vec V_2$: taluno è un problema generale che viene studiato tramite un sistema di riferimento esterno, di un osservatore.\\
 Questo sistema di riferimento, tuttavia, non risulta essere pratico nello studio, per cui si può adottare un sistema di riferimento inerziale che prende in considerazione il centro di massa del sistema, la cui velocità, ovviamente, è data da
-\[\vec v_{\text{CM}} = \frac{1}{M} \cdot \sum_i m_i \cdot \vec v_i = \frac{m_1 \cdot \vec V_1 + m_2 \cdot \vec V_2}{m_1+m_2} = \frac{\vec P_1 + \vec P_2}{m_1+m_2}=\frac{\vec P_{tot}}{m_{tot}}\]
-Pertanto, se ora si considera il sistema di riferimento dato dal centro di massa, il quale si sposta con velocità $\vec v_{\text{CM}}$; ora, con tale nuovo sistema di riferimento, le velocità delle due masse diviene
-\[\vec v_1 = \vec V_1 - \vec v_{\text{CM}} \hspace{1em} \text{e} \hspace{1em} \vec v_2 = \vec V_2 - \vec v_{\text{CM}}\]
-cosicchè si ha che $\vec p_{tot}=0$. Ciò è fondamentale, infatti, dal momento che la durata dell'urto è pressoché infinitesima, la quantità di moto totale si consderva, per cui $\vec p_{tot,i} = \vec p_{tot,f} = 0$; ciò significa che se $\vec p_{tot} = 0$, allora $\vec p_1 = - \vec p_2$, ma non che le velocità delle due masse siano uguali e opposte: infatti, le due masse potrebbero essere diverse, per cui anche le loro velocità sarebbero proporzionate.\\
+\[\vec v_{\text{CM}} = \frac{1}{M} \cdot \sum_i m_i \cdot \vec v_i = \frac{m_1 \cdot \vec V_1 + m_2 \cdot \vec V_2}{m_1+m_2} = \frac{\vec P_1 + \vec P_2}{m_1+m_2}=\frac{\vec P_{\text{tot}}}{m_{\text{tot}}}\]
+Pertanto, se ora si considera il sistema di riferimento dato dal centro di massa, il quale si sposta con velocità $\vec v_{\text{CM}}$, le velocità delle due masse vengono così ricalcolate
+\[\boxed{\vec v_1 = \vec V_1 - \vec v_{\text{CM}}} \hspace{1em} \text{e} \hspace{1em} \boxed{\vec v_2 = \vec V_2 - \vec v_{\text{CM}}}\]
+cosicchè si ha che $\vec p_{\text{tot}}=0$, infatti:
+\[\vec p_{\text{tot}}=m_1 \vec v_1 + m_2 \vec v_2 = m_1 \vec V_1 - m_1 \vec v_{\text{CM}} + m_2 \vec V_2 - m_2 \vec v_{\text{CM}}\]
+È sufficiente, ora, calcolare il minimo comune denominatore e si ottiene
+\[\vec p_{\text{tot}} = \frac{m_1^2 \vec V_1 + m_1m_2 \vec V_2 + m_1m_2 \vec V_1 + m_2^2 \vec V_2}{m_1+m_2} - \frac{m_1^2 \vec V_1 + m_1m_2 \vec V_2 + m_1m_2 \vec V_1 + m_2^2 \vec V_2}{m_1+m_2} = 0\]
+Tale risultato è fondamentale: infatti, siccome la durata dell'urto è pressoché infinitesima, la quantità di moto totale si conserva, per cui $\vec p_{\text{tot},i} = \vec p_{\text{tot},f} = 0$.\\
+Ciò significa che nel sistema di riferimento centro massa, per qualsiasi tipologia di urto
+\[\boxed{\vec p_{\text{tot}} = 0 \longrightarrow \vec p_1 = - \vec p_2}\]
+ovvero le quantità di moto delle due masse che si urtano sono uguali ed opposte; tuttavia ciò non equivale a dire che le velocità delle due masse siano uguali e opposte: infatti, le due masse potrebbero essere diverse, per cui anche le loro velocità sarebbero proporzionate.\\
 Applicando la conservazione della quantità di moto, si evince come
-\[\boxed{\vec p_{tot,i} = \vec p_{tot,f} = 0 = \vec p_{1,f} + p_{2,f}}\]
-ciò è valido per qualsiasi urto. Tuttavia, se ora si considera l'energia cinetica, si ottiene che
+\[\boxed{\vec p_{\text{tot},i} = \vec p_{1,i} + \vec p_{2,i} = 0 = \vec p_{\text{tot},f} = \vec p_{1,f} + \vec p_{2,f}}\]
+che è una proprietà, per quanto già esposto, valida per qualsiasi urto. Tuttavia, se ora si considera l'energia cinetica, si ottiene che
 \[K_i = \frac{1}{2}m_1v_{1,i}^2 + \frac{1}{2}m_2v_{2,i}^2 = \frac{1}{2m_1} p_{1,i}^2 + \frac{1}{2m_2} p_{2,i}^2\]
-ma essendo le quantità di moto delle due particelle \textbf{uguali in modulo}, allora è immediato evincere come
+in quanto è sempre verificata l'identità seguente
+\[\boxed{K=\frac{1}{2}mv^2=\frac{p^2}{2m}}\]
+Ma essendo le quantità di moto delle due particelle \textbf{uguali in modulo} (ovvero $\vert p_{1,i} \vert = \vert p_{2,i} \vert$), allora anche i loro quadrati saranno uguali, per cui
 \[\frac{1}{2m_1} p_{1,i}^2 + \frac{1}{2m_2} p_{2,i}^2 = p_{1,i}^2 \cdot \left(\frac{1}{2m_1} + \frac{1}{2m_2}\right)\]
 Analogamente, per quanto concerne l'energia cinetica finale si ottiene che
-\[K_f = \frac{1}{2m_1} p_{1,f}^2 + \frac{1}{2m_2} p_{2,f}^2 = p_{i,f}^2 \cdot \left(\frac{1}{2m_1} + \frac{1}{2m_1}\right)\]
-Ciò, tuttavia, non significa che l'energia cinetica si conserva sempre (è possibile che vi sia dispersione di energia, ma anche un'aggiunta di energia, come nel caso di un'esplosione).
+\[K_f = \frac{1}{2m_1} p_{1,f}^2 + \frac{1}{2m_2} p_{2,f}^2 = p_{1,f}^2 \cdot \left(\frac{1}{2m_1} + \frac{1}{2m_2}\right)\]
+Ciò, tuttavia, non significa che l'energia cinetica si conserva sempre (è possibile che vi sia dispersione di energia, ma anche un'aggiunta di energia, come nel caso di un'esplosione, che è comunque una forza interna che non produce un'accelerazione del centro di massa che, quindi, permane suo moto a velocità costante $\vec v_{\text{CM}}$ e garantisce sempre la conservazione della quantità di moto).
 
 \vspace{1em}
 \subsubsection{Urti elastici}
 Nel caso di urti elastici, si ha \textbf{conservazione di energia cinetica} oltre che di quantità di moto, per cui
-\[K_i = p_{1,i}^2 \cdot \left(\frac{1}{2m_1} + \frac{1}{2m_2}\right) = K_f = p_{i,f}^2 \cdot \left(\frac{1}{2m_1} + \frac{1}{2m_1}\right) \longrightarrow \vert p_i \vert = \vert p_f \vert\]
+\[K_i = p_{1,i}^2 \cdot \left(\frac{1}{2m_1} + \frac{1}{2m_2}\right) = K_f = p_{1,f}^2 \cdot \left(\frac{1}{2m_1} + \frac{1}{2m_2}\right) \longrightarrow \vert p_i \vert = \vert p_f \vert\]
 Ciò significa che
 \[\boxed{\vert v_{1,i} \vert = \frac{\vert p_i \vert}{m_1} = \frac{\vert p_f \vert}{m_1} = \vert v_{1,f} \vert} \hspace{1em} \text{e} \hspace{1em} \boxed{\vert v_{2,i} \vert = \frac{\vert p_i \vert}{m_2} = \frac{\vert p_f \vert}{m_2} = \vert v_{2,f} \vert}\]
 
@@ -5385,7 +5394,7 @@ Ciò significa che
 \begin{table}[H]
   \begin{tabularx}{\textwidth}{|P|P|}
     \hline
-    \cellcolor{blue!25}\textbf{Conservazione dell'energia} & \cellcolor{green!25}\textbf{Conservazione della quantità di moto}\\
+    \cellcolor{blue!25}\textbf{Conservazione dell'energia cinetica} & \cellcolor{green!25}\textbf{Conservazione della quantità di moto}\\
     \hline
     \cellcolor{blue!25}$\vert v_{1,i} \vert = \vert v_{1,f} \vert$ & \cellcolor{green!25}$\vert p_{1,i} \vert = \vert p_{1,f} \vert$\\
     \hline
@@ -5397,18 +5406,21 @@ Ciò significa che
 \end{table}
 
 \noindent
-Ovviamente, per tutti gli urti è possibile affermare che
+Ovviamente, considerando come sistema di riferimento il centro massa, per tutti gli urti è possibile affermare che
 \[\vec p_{1,i} = - \vec p_{2,i} \hspace{1em} \text{e} \hspace{1em} \vec p_{1,f} = - \vec p_{2,f}\]
 in forza della conservazione della quantità di moto.\\
 Tuttavia, solamente nel caso degli urti elastici si ha che
-\[\vert p_{1,i} \vert = \vert p_{2,i} \vert \hspace{1em} \text{e} \hspace{1em} \vert p_{1,f} \vert = \vert p_{2,f} \vert\]
+\[\vert p_{1,i} \vert = \vert p_{1,f} \vert \hspace{1em} \text{e} \hspace{1em} \vert p_{2,i} \vert = \vert p_{2,f} \vert\]
 in forza della conservazione dell'energia cinetica.\\
-Non solo, ma siccome le velocità delle due particelle è nella stessa direzione, ma in verso opposto, si può affermare che
-\[\vert \vec v_{1,i} - \vec v_{2,i} \vert = \vert v_{1,i} \vert + \vert v_{2,i} \vert = \vert v_{1,i} \vert + \vert v_{2,f} \vert = \vert \vec v_{1,f} - \vec v_{2,f} \vert\]
+Non solo, ma siccome le velocità inziali e finali delle due particelle presentano la stessa direzione, ma verso opposto (in quanto è noto che, nel centro di riferimento centro massa, $\vec p_{1,i} = - \vec p_{2,i}$ e $\vec p_{1,f} = - \vec p_{2,f}$), si può affermare, in generale che
+\[\vert \vec v_{\text{rel}} \vert = \vert \vec v_{1,i} - \vec v_{2,i} \vert = \vert v_{1,i} \vert + \vert v_{2,i} \vert\]
+ma sapendo che anche l'energia cinetica è conservata, si può scrivere che
+\[\vert \vec v_{\text{rel}} \vert =  \vert v_{1,f} \vert + \vert v_{2,f} \vert = \vert \vec v_{1,f} - \vec v_{2,f} \vert\]
+e tale risultato diviene generale, valido per gli urti elastici indipendentemente dal sistema di riferimento adottato (ricordando come si ottengono $\vec v_1$ e $\vec v_2$ da $\vec V_1$ e da $\vec V_2$): il modulo della velocità relativa di avvicinamento è uguale al modulo della velocità relativa di separazione.
 
 \vspace{1em}
 \subsection{Urto in 1D - Elastico}
-Nel caso di urto in $1D$, si può presentare solamente la situazione seguente:
+Nel caso di urto in 1D, si può presentare solamente la situazione seguente:
 
 \begin{figure}[H]
   \centering
@@ -5425,31 +5437,30 @@ Nel caso di urto in $1D$, si può presentare solamente la situazione seguente:
   \label{fig:urto_elastico_1D}
 \end{figure}
 
-\vspace{1em}
 \noindent
-In cui, ovviamente, si ha che ... continua ...\\
-Passando ad un nuovo sistema di riferimento e non più a quello del centro di massa si ottiene che
+In cui, ovviamente, i vettori quantità di moto iniziali (così come quelli finali) delle due masse sono uguali ed opposti, proprietà sempre vera per qualsiasi urto osservato dal sistema di riferimento centro massa. Ma nel caso di urto elastico si ha anche che per ogni massa la quantità di moto iniziale e finale è uguale in modulo; ciò significa che, essendo in 1D, deve essere necessariamente che
+\[\vec p_{1,i} = - \vec p_{1,f} \hspace{1em} \text{e} \hspace{1em} \vec p_{2,i} = - \vec p_{2,f} \hspace{1em} \longrightarrow \hspace{1em} \vec v_{1,i} = - \vec v_{1,f} \hspace{1em} \text{e} \hspace{1em} \vec v_{2,i} = - \vec v_{2,f}\]
+Passando, però, ad un nuovo sistema di riferimento e non più a quello del centro di massa, si ottiene che
 \[V_{1,f} = v_{1,f} + v_{\text{CM}} = -v_{1,i} + v_{\text{CM}} = - \left(V_{1,i} - v_{\text{CM}}\right) + v_{\text{CM}} = -V_{1,i} + 2 v_{\text{CM}}\]
 e sapendo come determinare la velocità del centro di massa si ottiene che:
 \[\boxed{V_{1,f} = \frac{2 m_2}{m_1 + m_2} V_{2,i} + \frac{m_1-m_2}{m_1+m_2} V_{1,i}}\]
-Da cui si può evincere come, nel caso in cui $m_1=m_2$, allora $V_{i,f}=V_{2,i}$ (ovvero le due masse si scambiano la velocità con l'urto).\\
+Da cui si può evincere come, nel caso in cui $m_1=m_2$, allora $V_{1,f}=V_{2,i}$ (ovvero le due masse si scambiano la velocità con l'urto).\\
 Invece, nel caso in cui $m_1 \to +\infty$, allora si ha che la sua velocità finale è identica a quella iniziale:
 \[V_{1,f} = \frac{2 m_2}{m_1 + m_2} V_{2,i} + \frac{m_1-m_2}{m_1+m_2} V_{1,i} = V_{1,i}\]
 mentre la massa $m_2$ assume due volte la velocità della prima massa, sottratta alla propria velocità iniziale:
-\[V_{2,f} = \frac{2 m_1}{m_1 + m_2} V_{2,i} + \frac{m_2-m_1}{m_1+m_2} V_{2,i} = 2 V_{1,i} - V_{2,i}\]
+\[V_{2,f} = \frac{2 m_1}{m_1 + m_2} V_{1,i} + \frac{m_2-m_1}{m_1+m_2} V_{2,i} = 2 V_{1,i} - V_{2,i}\]
 
-\vspace{1em}
+\newpage
 \subsection{Urto in 1D - Anelastico}
-Nel caso di un urto parzialmente anelastico non si ha conservazione dell'energia cinetica, mentre se si ha un urto completamente anelastico le due masse interagenti rimangono attaccate l'una all'altra.\\
-Ovviamente, anche in questi due casi, si ha che $\vec p_{1,i} = -\vec p_{2,i}$, così come $\vec p_{1,f} = - \vec p_{2,f}$.\\
-Naturalmente, se si considera un sistema di riferimento differente dal centro di massa, si ottiene
-\[\boxed{V_{1,f} = V_{2,f} = v_{\text{CM}} = \frac{m_1 \cdot V_1 + m_2 \cdot v_2}{m_1 + m_2}}\]
+Nel caso di un urto parzialmente anelastico non si ha conservazione dell'energia cinetica, mentre se si ha un urto completamente anelastico le due masse interagenti rimangono attaccate l'una all'altra: ciò significa che se si ossserva tale urto attraverso il sistema di riferimento centro di massa, le due masse iniziale presentano una quantità di moto non nulla e dopo l'urto, rimanendo attaccate l'una all'altra, presenteranno quantità di moto pari a $0$.\\
+Ovviamente, anche in questi due casi, si ha che $\vec p_{1,i} = -\vec p_{2,i}$, così come $\vec p_{1,f} = - \vec p_{2,f}$. Parlando di urto completamente anelastico, siccome le due masse rimangono attaccate l'una all'altra, considerando il sistema di riferimento centro massa è ovvio che $\vec p_{1,f} = \vec p_{2,f} = 0$, mentre se si considera un sistema di riferimento differente dal centro di massa, si ottiene
+\[\boxed{V_{1,f} = V_{2,f} = v_{\text{CM}} = \frac{m_1 \cdot V_{1,i} + m_2 \cdot V_{2,i}}{m_1 + m_2}}\]
 
 \vspace{1em}
 \subsection{Urti - Riepilogo}
 \begin{itemize}
   \item Nello studio degli urti, \textbf{la conservazione della quantità di moto si applica sempre}, per cui, in un qualsiasi sistema di riferimento:
-  \[\boxed{\vec P_{tot, i} = \vec P_{tot, f}}\]
+  \[\boxed{\vec P_{\text{tot}, i} = \vec P_{\text{tot}, f}}\]
   mentre nel sistema di riferimento del centro di massa si ha
   \[\boxed{\vec p_{1,i} = - \vec p_{2,i}} \hspace{1em} \text{e} \hspace{1em} \boxed{\vec p_{1,f} = - \vec p_{2,f}}\]
   in quanto la quantità di moto iniziale e finale è sempre nulla.
@@ -5461,7 +5472,7 @@ Naturalmente, se si considera un sistema di riferimento differente dal centro di
   \[\boxed{\vert p_{1,i} \vert = \vert p_{1,f} \vert = \vert p_{2,i} \vert = \vert p_{2,f} \vert}\]
 
   \item Nel caso di un urto completamente anelastico, la velocità finale è quella del centro di massa, ovvero
-  \[\boxed{V_{1,f} = V_{2,f} = v_{\text{CM}} = \frac{m_1 \cdot V_1 + m_2 \cdot v_2}{m_1 + m_2}}\]
+  \[\boxed{V_{1,f} = V_{2,f} = v_{\text{CM}} = \frac{m_1 \cdot V_{1,i} + m_2 \cdot V_{2,i}}{m_1 + m_2}}\]
 \end{itemize}
 
 \newpage
@@ -5710,14 +5721,14 @@ e volendo spostarsi nel sistema di riferimento del centro di massa, si calcoli l
 Allora, ricalcolando nuovamente l'energia cinetica totale, si ottiene
 \[K=\frac{1}{2}\sum_i m_i \cdot \left(\vec v_{\text{CM}} + \vec v_{i}'\right)^2=\frac{1}{2}\sum_i m_i \cdot \left(\vec v_{\text{CM}} + \vec v_{i}'\right) \cdot \left(\vec v_{\text{CM}} + \vec v_{i}'\right) = \frac{1}{2}\sum_i m_i \cdot \left(\vec v_{\text{CM}}^2 + \vec v_{i}'^2 + 2 \vec v_{\text{CM}} \cdot \vec v_i'\right)\]
 che permette di ottenere
-\[K=\frac{1}{2}M v_{\text{CM}}^2 + \frac{1}{2}\sum_i m_i v_i'^2 + \vec v_{\text{CM}} \cdot \hspace{-4em} \underbrace{\sum_i m_i \cdot \vec v_i}_{0 \text{ perché } \vec p_{tot} \text{ nel centro di massa}}\]
+\[K=\frac{1}{2}M v_{\text{CM}}^2 + \frac{1}{2}\sum_i m_i v_i'^2 + \vec v_{\text{CM}} \cdot \hspace{-4em} \underbrace{\sum_i m_i \cdot \vec v_i}_{0 \text{ perché } \vec p_{\text{tot}} \text{ nel centro di massa}}\]
 per cui si ottiene il seguente risultato generale (che non dipende dal fatto che si parli di corpi rigidi o meno)
-\[\boxed{K_{tot}=K_{\text{CM}}+K_{\text{rel}}}\]
+\[\boxed{K_{\text{tot}}=K_{\text{CM}}+K_{\text{rel}}}\]
 
 \vspace{1em}
 \noindent
 \textbf{Osservazione}: Si osservi che, nel caso di un corpo rigido,
-\[\boxed{K_{tot}=K_{\text{CM}}+K_{\text{rot}}}\]
+\[\boxed{K_{\text{tot}}=K_{\text{CM}}+K_{\text{rot}}}\]
 in cui $K_{\text{rot}}$ prende il nome di \textbf{energia cinetica di rotazione}. Al fine di determinare tale energia, si consideri una massa $m$ che ruota con velocità angolare $\omega$ descrivendo una circonferenza di raggio $r$. Da ciò segue che l'energia cinetica del corpo è, ovviamente:
 \[K=\frac{1}{2}mv^2=\frac{1}{2m(\omega r)^2=\frac{1}{2}m\omega^2r^2}\]
 Se, invece, si considera un assieme di punti, il risultato generale diviene:
@@ -5725,7 +5736,7 @@ Se, invece, si considera un assieme di punti, il risultato generale diviene:
 in cui
 \[\boxed{I=\sum_i m_i r_i^2}\]
 prende il nome di \textbf{momento di inerzia}. Ecco che sulla base di tale definizione è possibile definire l'energia cinetica totale di un corpo rigido come
-\[\boxed{k_{tot} = K_{\text{CM}} + K_{\text{rot}} = \frac{1}{2}M v_{\text{CM}}^2 + \frac{1}{2}I \omega^2}\]
+\[\boxed{k_{\text{tot}} = K_{\text{CM}} + K_{\text{rot}} = \frac{1}{2}M v_{\text{CM}}^2 + \frac{1}{2}I \omega^2}\]
 in cui $I$ è il momento di interzia attorno ad un asse che passa per il centro della massa (sempre ricordando come $v=\omega r$).\\
 
 \vspace{1em}

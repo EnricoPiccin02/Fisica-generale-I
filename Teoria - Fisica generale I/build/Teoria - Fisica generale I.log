@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.27)  26 APR 2022 11:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.27)  27 APR 2022 08:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -773,17 +773,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 4975--4979
 
  []
 
-[90] [91] [92] [93] [94] [95] [96] [97] [98]
-Overfull \hbox (9.88734pt too wide) detected at line 5484
+[90] [91] [92] [93] [94] [95] [96] [97] [98] [99]
+Overfull \hbox (9.88734pt too wide) detected at line 5495
 \OML/cmm/m/it/10 mgh \OT1/cmr/m/n/10 = []\OML/cmm/m/it/10 mv[] \OT1/cmr/m/n/10 + []\OML/cmm/m/it/10 Mv[] [][]\OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 mgh \OT1/cmr/m/n/10 = []\OML/cmm/m/it/10 m [][] \OT1/cmr/m/n/10 + []\OML/cmm/m/it/10 Mv[] [][]\OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 v[] \OT1/cmr/m/n/10 = []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5525--5529
+Underfull \hbox (badness 10000) in paragraph at lines 5536--5540
 
  []
 
-[99] [100]
+[100] [101]
 NOTE: coordinate (1Y4.0242284e1],3Y0.0e0]) has been dropped because it is unbounded (in y). (see also unbounded coords=jump). 
 NOTE: coordinate (1Y4.1272583e1],3Y0.0e0]) has been dropped because it is unbounded (in y). (see also unbounded coords=jump). 
 NOTE: coordinate (1Y4.2302882e1],3Y0.0e0]) has been dropped because it is unbounded (in y). (see also unbounded coords=jump). 
@@ -843,27 +843,27 @@ NOTE: coordinate (1Y9.690875e1],3Y0.0e0]) has been dropped because it is unbound
 NOTE: coordinate (1Y9.7939049e1],3Y0.0e0]) has been dropped because it is unbounded (in y). (see also unbounded coords=jump). 
 NOTE: coordinate (1Y9.8969348e1],3Y0.0e0]) has been dropped because it is unbounded (in y). (see also unbounded coords=jump). 
 NOTE: coordinate (1Y9.9999648e1],3Y0.0e0]) has been dropped because it is unbounded (in y). (see also unbounded coords=jump). 
-[101]
-Underfull \hbox (badness 10000) in paragraph at lines 5621--5622
-
- []
-
 [102]
-Underfull \hbox (badness 10000) in paragraph at lines 5667--5669
+Underfull \hbox (badness 10000) in paragraph at lines 5632--5633
 
  []
 
 [103]
-Underfull \hbox (badness 10000) in paragraph at lines 5728--5730
+Underfull \hbox (badness 10000) in paragraph at lines 5678--5680
 
  []
 
-[104] [105] [106] [107] [108]
-Underfull \hbox (badness 10000) in paragraph at lines 5903--5905
+[104]
+Underfull \hbox (badness 10000) in paragraph at lines 5739--5741
 
  []
 
-[109] [110] [111] [112] [113] [114] [115] [116] [117] (build/Teoria - Fisica generale I.aux)
+[105] [106] [107] [108] [109]
+Underfull \hbox (badness 10000) in paragraph at lines 5914--5916
+
+ []
+
+[110] [111] [112] [113] [114] [115] [116] [117] [118] (build/Teoria - Fisica generale I.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -871,7 +871,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  46900 strings out of 480445
  1230908 string characters out of 5892391
- 2295015 words of memory out of 5000000
+ 2295016 words of memory out of 5000000
  63550 multiletter control sequences out of 15000+600000
  425354 words of font info for 106 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
@@ -879,10 +879,10 @@ Here is how much of TeX's memory you used:
  </Users/enricopiccin/Library/texlive/2021basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmmib10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/symbols/m
 sbm10.pfb>
-Output written on "build/Teoria - Fisica generale I.pdf" (117 pages, 685581 bytes).
+Output written on "build/Teoria - Fisica generale I.pdf" (118 pages, 688823 bytes).
 PDF statistics:
- 492 PDF objects out of 1000 (max. 8388607)
- 340 compressed objects within 4 object streams
+ 495 PDF objects out of 1000 (max. 8388607)
+ 342 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
