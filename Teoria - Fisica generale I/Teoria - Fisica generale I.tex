@@ -5608,7 +5608,7 @@ e integrando, ora, rispetto al tempo, si ottiene che
 \[v_f-v_i =-v_g \cdot \left[\log(m_f) - \log(m_i)\right]\]
 che permette di ottenere
 \[\boxed{v_f-v_i=\Delta v=-v_g \cdot \log \left(\frac{m_f}{m_i}\right)}\]
-che prende il nome di \textbf{equazione di Ciolkovsky}. È facile campire come, essendo
+che prende il nome di \textbf{equazione di Ciolkovsky}. È facile capire come, ovviamente, essendo $m_f < m_i$ (a causa della perdita di carburante), si ottiene
 \[\frac{m_f}{m_i} < 1 \longrightarrow \log \left(\frac{m_f}{m_i}\right) < 0\]
 ma essendo precedeuto da un segno $-$, si ottiene un aumento di velocità, ovviamente.
 
@@ -5656,20 +5656,41 @@ Per la risoluzione di un problema fisico, è fondamentale compiere i passi segue
 \begin{enumerate}
   \item \textbf{Visualizzazione}
   \begin{enumerate}
-    \item Creare un'immagine mentale del problema
-    \item Identificare i concetti che possono essere utili
-    \item Riformulare la domanda a parole più chiare,
+    \item Creare un'immagine mentale del problema;
+    \item Identificare i concetti che possono essere utili;
+    \item Riformulare la domanda a parole più chiare, ed in termini che possono essere calcolati.
   \end{enumerate}
   \item \textbf{Descrizione}
+  \begin{enumerate}
+    \item Realizzare diagrammi, inclusi diagrammi di corpi liberi;
+    \item Scegliere un sistema di coordinate appropriato;
+    \item Definire le quantità che sono importanti nel problema;
+    \item Identificare la quantità da determinare per fornire la soluzione al problema.
+  \end{enumerate}
   \item \textbf{Pianificazione}
   \begin{enumerate}
-    \item Trasferire i concetti in forma matematica
-    \item È possibile partire dalla soluzione e lavorare all'indietro
+    \item Trasferire i concetti in forma matematica;
+    \item È possibile partire dalla soluzione e lavorare all'indietro, oppure costruire un percorso risolutivo da ciò che è noto a ciò che si vuole determinare.
+  \end{enumerate}
+  \item \textbf{Esecuzione}
+  \begin{enumerate}
+    \item Risolvere i sistemi di equazioni;
+    \item Verificare le unità;
+    \item Sostituire i valori numerici alle variabili in gioco.
   \end{enumerate}
   \item \textbf{Valutazione della soluzione}
+  \begin{enumerate}
+    \item Verificare se la soluzione risponde alla domanda del problema;
+    \item Validare il risultato testando i casi limite;
+    \item Valutare la ragionevolezza del risultato;
+    \item Valutare la completezza del risultato.
+  \end{enumerate}
   \item \textbf{Modificazione del piano risolutore}
+  \begin{enumerate}
+    \item Per correggere il piano risolutore si può adottare una strategia diferente;
+    \item È possibile cambiare il sistema di coordinate o il sistema di riferimento.
+  \end{enumerate}
 \end{enumerate}
-...continua...\\
 
 \vspace{1em}
 \section{Moto e dinamica dei corpi rigidi}
@@ -5684,8 +5705,7 @@ Di seguito si fornisce la definizione di \textbf{corpo rigido}:
 \begin{tabularx}{\textwidth}{@{}|P|@{}}
     \hline
     {\textbf{CORPO RIGIDO}}\\
-    \parbox{\linewidth}{Un corpo rigido è un corpo la cui \textbf{forma} e \textbf{dimensione} permangono fissi.\\
-    In altre parole, le \textbf{posizioni relative} tra le parti del corpo sono \textbf{fisse}.\vspace{3mm}}\\
+    \parbox{\linewidth}{Un corpo rigido è un corpo la cui \textbf{forma} e \textbf{dimensione} permangono fissi. In altre parole, le \textbf{posizioni relative} tra le parti del corpo sono \textbf{fisse}.\vspace{3mm}}\\
     \hline
 \end{tabularx}
 
@@ -5695,42 +5715,125 @@ Di seguito si fornisce la definizione di \textbf{corpo rigido}:
 
 \vspace{1em}
 \subsection{Corpi rigidi - Cinematica}
+La cinematica di un corpo rigido è lo studio e la descrizione del movimento di un corpo, il quale può avvenire con modalità differenti.
 
 \vspace{1em}
 \subsubsection{Traslazione}
-Naturalmente, in una traslazione di un corpo rigido, tutte le parti del corpo subiscono lo \textbf{stesso spostamento} (altrimenti si avrebbe deformazione) e, quindi, presentano la \textbf{medesima velocità}: ciò significa che sono sufficienti solamente $3$ parametri per descrivere una traslazione, ossia $(x,y,z)$.
+Naturalmente, in una traslazione di un corpo rigido, tutte le parti del corpo subiscono lo \textbf{stesso spostamento} $\Delta \vec r$ (altrimenti si avrebbe deformazione) e, quindi, presentano la \textbf{medesima velocità} $\vec v$: ciò significa che sono sufficienti solamente $3$ parametri per descrivere una traslazione, ossia $(x,y,z)$.
 
 \vspace{1em}
 \subsubsection{Rotazione}
 Per quanto concerne la rotazione di un corpo rigido, è necessario nuovamente specificare $3$ parametri, come
 \begin{itemize}
-  \item 3 angoli;
-  \item l'asse di rotazione più l'angolo.
+  \item 3 angoli, uno per ciascun asse ($x$,$y$,$z$);
+  \item 2 parametri per l'asse di rotazione (in quanto l'asse è un versore di lunghezza unitaria) più un angolo di rotazione attorno all'asse.
 \end{itemize}
-Già approssimando un corpo ad un punto materiale, si era osservato come se un punto compie un moto rotatorio di raggio $r$ e descrivendo un angolo $\theta$, allora, chiamando $s$ la lunghezza dell'arco descritto da un punto compiendo uno spostamente angolare a distanza $r$ dall'asse, si interpreta langolo $\theta$ descritto come
+Approssimando un corpo ad un punto materiale, si osservi che se esso compie uno spostamento angolare di raggio $R$, descrivendo un angolo $\theta$ e un arco di lunghezza $s$, come mostrato di seguito
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1.5]
+    \draw (0,0) node[circ]{};
+    \draw[-stealth] (0,0) -- ++(2.5,0) node[at end, below right]{$x$};
+    \draw[-stealth] (0,0) -- ++(0,2.5) node[at end, above left]{$y$};
+    \draw (0,0) -- ++(2,0.75) node[midway,above left]{$R$} node[circ](a){};
+    \draw[-stealth] (a) arc [start angle=30,end angle=75,radius=2.2] node[midway,above right]{s} coordinate(b);
+    \draw (b) -- (0,0);
+    \draw [draw = orange] (0,0) ++(0.5,0.18) arc (30:60:0.8) node [pos=.4, left] {\textcolor{orange}{$\theta$}};
+  \end{tikzpicture}
+\end{figure}
+
+\noindent
+allora l'angolo $\theta$ descritto si calcola come
 \[\boxed{\theta=\frac{s}{R}}\]
 che viene naturalmente espresso in \textbf{radianti}. Inoltre $\theta$ non è solo un angolo, ma è anche una \quotes{\textbf{coordinata angolare}} che permette di esprimere
 \begin{itemize}
-  \item \textbf{velocità angolare}: $\dfrac{d\theta}{dt}=\omega$
-  \item \textbf{accelerazione angolare}: $\dfrac{d\omega}{dt}=\dfrac{d^2\theta}{dt^2}=\alpha$
+  \item la \textbf{velocità angolare}, ossia la derivata nel tempo dell'angolo $\theta$ descritto
+  \[\boxed{\dfrac{d\theta}{dt}=\omega}\]
+  \item l'\textbf{accelerazione angolare}, ossia la derivata nel tempo della velocità angolare $\omega$, o anche la derivata seconda dell'angolo $\theta$ descritto
+  \[\boxed{\dfrac{d\omega}{dt}=\dfrac{d^2\theta}{dt^2}=\alpha}\]
 \end{itemize}
-come nel caso di un accelerazione angolare costante, calcolata come
-\[\boxed{\theta(t)=\theta_0+\omega t + \frac{1}{2}\alpha t^2}\]
-che ricorda esattamente un la cinematica di un moto uniformemente accelerato (infatti, in questo caso, si una un \textbf{memento angolare costante}).\\
 
 \vspace{1em}
 \noindent
-\textbf{Osservazione}: Nel caso di un moto rotatorio, è fondamentale considerare l'attrito (che è un attrito statico, non essendoci moto relativo tra le superifici di contatto).\\
+\textbf{Esempio}: Nel caso caso di \emph{accelerazione angolare costante}, si possono impiegare le quantità note per fornire la legge oraria seguente
+\[\boxed{\theta(t)=\theta_0+\omega t + \frac{1}{2}\alpha t^2}\]
+che ricorda esattamente la cinematica di un moto uniformemente accelerato (infatti, in questo caso, si una un \textbf{momento di forza costante}).\\
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Nel caso di un moto rotatorio, è fondamentale considerare l'attrito (che è un \textbf{attrito statico}, non essendoci moto relativo tra le superifici di contatto):
+
+\begin{figure}[H]
+  \centering
+  \colorlet{xcol}{blue!70!black}
+  \colorlet{vcol}{green!60!black}
+  \colorlet{myred}{red!65!black}
+  \colorlet{mypurple}{blue!60!red!80}
+  \colorlet{acol}{red!50!blue!80!black!80}
+  \tikzstyle{rvec}=[->,xcol,very thick,line cap=round]
+  \tikzstyle{vvec}=[->,vcol,very thick,line cap=round]
+  \tikzstyle{myarr}=[{Latex[length=3,width=3]}-,xcol]
+  \tikzstyle{force}=[->,myred,very thick,line cap=round]
+  \tikzstyle{mass}=[line width=0.6,draw=red!30!black, %rounded corners=1,
+                    top color=red!40!black!30,bottom color=red!40!black!10,shading angle=30]
+  \tikzstyle{ground}=[preaction={fill,top color=black!10,bottom color=black!5,shading angle=20},
+                      fill,pattern=north east lines,draw=none,minimum width=0.3,minimum height=0.6]
+  \tikzstyle{metal}=[fill,top color=black!40,bottom color=black!20,shading angle=10]
+  \begin{tikzpicture}[scale=1.5]
+    \def\W{4.8} % ground width
+    \def\H{3.2} % ground height
+    \def\D{0.3} % ground depth
+    \def\R{0.8} % disk radius
+    \def\d{1.0} % disks' distances from edge
+    \def\angb{{(2*\d-\W)*180/pi-90}} % angle point 2
+    \coordinate (A)  at (\d,\R);     % disk 1 origin
+    \coordinate (B)  at (\W-\d,\R);  % disk 2 origin
+    \coordinate (RA) at ($(A)+(-90:\R)$);   % point 1
+    \coordinate (RB) at ($(B)+(\angb:\R)$); % point 2
+    \coordinate (BB) at ($(B)+(-90:\R)$);   % point 2 bottom
+
+    % GROUND
+    \draw[ground] %(0,0) rectangle++ (-\D,\H) (-\D,\H) rectangle++ (\W,\D);
+      (0,0) rectangle++ (\W,-\D);
+    \draw (0,0) --++ (\W,0);
+
+    % DISK 1
+    \draw[mass] (A) circle(\R);
+    \draw[blue!50!black,fill=blue!90!black] (RA) circle(0.06*\R);
+    \draw[->] (A) -- (RA) node[midway,above=0,left=0,scale=0.8] {$R$}; %node[right=3] {$M$}
+    \draw[vvec] (A) --++ (0.7*\R,0) node[below] {$\vb{v}$};
+    \draw[red!40!black,fill=red!80!black!80] (A) circle(0.08*\R) node[above=0.1,scale=0.8] {$M$}; %node[right=1,scale=0.8] {CM}
+    %\draw[force] (TD)++(0.08,0) --++ (0,0.8*\RD) node[right] {$\vb{T}$};
+    \draw[->] (A)++(30:1.2*\R) arc(30:-10:1.0*\R) node[midway,above right=0] {$\omega$};
+
+    % DISK 2
+    \draw[mass] (B) circle(\R);
+    \draw[thick,blue!40!black] (BB) arc(-90:\angb:\R);
+    \draw[blue!50!black,fill=blue!90!black] (RB) circle(0.06*\R);
+    \draw[->] (B) -- (RB);
+    \draw[dashed] (B) --++ (0,-\R) --++ (0,-0.1*\R);
+    \draw[vvec] (B) --++ (0.7*\R,0) node[below] {$\vb{v}$};
+    \draw[red!40!black,fill=red!80!black] (B) circle(0.08*\R);
+    \draw pic[<-,scale=0.8,"$\theta$",draw,angle radius=8,angle eccentricity=1.6] {angle=RB--B--BB};
+    \draw[->,blue!50!black] (A)++(0,1.3*\R) --++ (\W-2*\d,0) node[midway,fill=white,inner sep=1,scale=0.8] {$s=R\theta$};
+    %\draw[->] (B)++(30:1.2*\R) arc(30:-10:1.0*\R) node[midway,above right=-1] {$\omega$};
+  \end{tikzpicture}
+  \caption{Corpo in rotolamento}
+  \label{fig:corpo_rotolamento}
+\end{figure}
+
+\noindent
 Inoltre, se un corpo rotola con velocità $\vec v$, allora ciò significa che si può definire una funzione spostamento nel tempo:
 \begin{flalign*}
-  x(t) & := \text{ posizione del centro del cerchio in funzione del tempo}\\
-  \theta(t) & := \text{ rapporto fra lo spostamento traslatorio orizzontale e il raggio della circonferenza}
+  x(t) & := \text{ posizione del centro del cerchio in funzione del tempo};\\
+  \theta(t) & := \text{ rapporto fra lo spostamento traslatorio orizzontale e il raggio della circonferenza};
 \end{flalign*}
 Si osservi, infatti, che nel caso di piccoli spostamenti, l'arco descritto da una circonferenza $\Delta s$ può essere approssimato allo spostamento orizzontale $\Delta x$, per cui
 \[\Delta \theta = \frac{\Delta s}{r} \cong \frac{\Delta x}{r}\]
 Ciò, allora, porta alla seguente approssimazione:
 \[\boxed{\theta(t) = \theta_0 + \frac{x(t)}{r}}\]
-sempre ponendo che $v=\omega r$.
+e da ciò segue anche la relazione seguente $v=\omega r$ (che non è sempre necessariamente vera, ma per il rotolamento sì).
 
 \vspace{1em}
 \subsubsection{Rototraslazione}
@@ -5738,10 +5841,10 @@ Talvolta si parla anche di \textbf{rototraslazione}, ovvero un moto che è sia r
 
 \vspace{1em}
 \subsection{Corpi rigidi - Dinamica}
-Partendo dal presuppposto che un corpo rigido è approssimabile tramite il modello di un corpo esteso, ossia un \textbf{assieme di punti materiale con distanze relative fisse}.\\
-L'applicazione del centro di massa ad un assieme di punti permette di scrivere la legge:
-\[\boxed{\vec F_{\text{tex}} = M \cdot \vec a_{\text{CM}}}\]
-che è una proprietà totalemente generale e, quindi, include anche il caso dei corpi rigidi. Ciò permette di affermare che la risultate delle forze esterne, anche se ciascuna presenta un punto di applicazione diverso, si comporta come se fosse un unica forza che agisce sul centro di massa, come se fosse un punto materiale.
+Partendo dal presuppposto che un corpo rigido è approssimabile tramite il modello di un corpo esteso, ossia un \textbf{assieme di punti materiali con distanze relative fisse}.\\
+L'applicazione del concetto di centro di massa ad un assieme di punti permette di scrivere la legge:
+\[\boxed{\vec F_{\text{ext}} = M \cdot \vec a_{\text{CM}}}\]
+che è una proprietà totalemente generale e, quindi, include anche il caso dei corpi rigidi. Ciò permette di affermare che la risultate delle forze esterne, anche se ciascuna presenta un punto di applicazione diverso, si comporta come se fosse un'unica forza che agisce sul centro di massa, come se l'intero corpo fosse un singolo punto materiale.
 
 \begin{corollary}
   Naturalmente, se non vi sono forze esterne applicate al corpo esteso
@@ -5751,40 +5854,108 @@ che è una proprietà totalemente generale e, quindi, include anche il caso dei 
 
 \vspace{1em}
 \noindent
-\subsubsection{Corpi rigidi - Energia cinetica}
+\subsection{Corpi rigidi - Energia cinetica}
 Si consideri un sistema di punti materiali (ovvero un insieme di punti le cui velocità e masse possono essere diverse fra di loro); naturalmente, l'energia cinetica totale del sistema è
 \[K=\frac{1}{2}\sum_i m_i v_i^2\]
 mentre la velocità del centro di massa si calcola come
 \[\vec v_{\text{CM}}=\frac{1}{M} \sum_i m_i \vec v_i\]
 e volendo spostarsi nel sistema di riferimento del centro di massa, si calcoli la velocità relativa al centro di massa come:
 \[\vec v_i = \vec v_{\text{CM}} + \vec v_i'\]
-Allora, ricalcolando nuovamente l'energia cinetica totale, si ottiene
+in cui $\vec v_i'$ è proprio la velocità relativa tra il sistema di riferimento dell'osservatore e il sistema di riferimento del centro di massa, ossia la velocità relativa al centro di massa. Allora, ricalcolando nuovamente l'energia cinetica totale, si ottiene
 \[K=\frac{1}{2}\sum_i m_i \cdot \left(\vec v_{\text{CM}} + \vec v_{i}'\right)^2=\frac{1}{2}\sum_i m_i \cdot \left(\vec v_{\text{CM}} + \vec v_{i}'\right) \cdot \left(\vec v_{\text{CM}} + \vec v_{i}'\right) = \frac{1}{2}\sum_i m_i \cdot \left(\vec v_{\text{CM}}^2 + \vec v_{i}'^2 + 2 \vec v_{\text{CM}} \cdot \vec v_i'\right)\]
 che permette di ottenere
-\[K=\frac{1}{2}M v_{\text{CM}}^2 + \frac{1}{2}\sum_i m_i v_i'^2 + \vec v_{\text{CM}} \cdot \hspace{-4em} \underbrace{\sum_i m_i \cdot \vec v_i}_{0 \text{ perché } \vec p_{\text{tot}} \text{ nel centro di massa}}\]
-per cui si ottiene il seguente risultato generale (che non dipende dal fatto che si parli di corpi rigidi o meno)
+\[K=\frac{1}{2}M v_{\text{CM}}^2 + \frac{1}{2}\sum_i m_i v_i'^2 + \vec v_{\text{CM}} \cdot \hspace{-4em} \underbrace{\sum_i m_i \cdot \vec v_i'}_{0 \text{ perché } \vec p_{\text{tot}}=0 \text{ nel centro di massa}}\]
+per cui si ottiene il seguente \textbf{risultato generale} (che non dipende dal fatto che si parli di corpi rigidi o meno)
 \[\boxed{K_{\text{tot}}=K_{\text{CM}}+K_{\text{rel}}}\]
+in cui $K_{\text{CM}}$ è l'energia cinetica del centro di massa, mentre $K_{\text{rel}}$ è l'energia cinetica del moto relativo al centro di massa.
 
 \vspace{1em}
 \noindent
-\textbf{Osservazione}: Si osservi che, nel caso di un corpo rigido,
+\textbf{Osservazione}: Si osservi che, nel caso di un \textbf{corpo rigido}, il moto relativo al centro di massa è proprio la rotazione (in quanto si parla di un moto che conserva le distanze fisse rispetto al centro di massa), per cui
 \[\boxed{K_{\text{tot}}=K_{\text{CM}}+K_{\text{rot}}}\]
-in cui $K_{\text{rot}}$ prende il nome di \textbf{energia cinetica di rotazione}. Al fine di determinare tale energia, si consideri una massa $m$ che ruota con velocità angolare $\omega$ descrivendo una circonferenza di raggio $r$. Da ciò segue che l'energia cinetica del corpo è, ovviamente:
-\[K=\frac{1}{2}mv^2=\frac{1}{2m(\omega r)^2=\frac{1}{2}m\omega^2r^2}\]
+in cui $K_{\text{rot}}$ prende il nome di \textbf{energia cinetica di rotazione}. Al fine di determinare tale energia, si consideri una massa $m$ che ruota con velocità angolare $\omega$ descrivendo una circonferenza di raggio $r$:
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1.5,shorten >=1pt,auto,node distance=1cm,thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+    \node[main node](m) at (2,0.75) {$m$};
+    \draw (0,0) node[circ]{} node[below]{asse};
+    \draw (0,0) -- (m) node[midway,above left]{$R$};
+    \draw[-stealth] ([xshift=-0.18,yshift=0.26cm]m) arc [start angle=30,end angle=75,radius=2.2] node[midway,above right]{$\omega$} coordinate(b);
+  \end{tikzpicture}
+\end{figure}
+
+\noindent
+Da ciò segue che l'energia cinetica del singolo punto materiale è, ovviamente:
+\[K=\frac{1}{2}mv^2=\frac{1}{2}m(\omega r)^2=\frac{1}{2}m\omega^2r^2\]
+in quanto è nota la relazione $v=\omega r$.\\
 Se, invece, si considera un assieme di punti, il risultato generale diviene:
 \[K=\frac{1}{2} \sum_i m_i v_i^2 = \frac{1}{2} \sum_i m_i (\omega r_i)^2 = \frac{1}{2} \omega^2 \underbrace{\sum_i m_i r_i^2}_{I}\]
-in cui
+in quanto tutti i punti devono necessariamente ruotare alla stessa velocità angolare $\omega$, la quale è costante. Tale risultato permette di introdurre la quantià seguente
 \[\boxed{I=\sum_i m_i r_i^2}\]
-prende il nome di \textbf{momento di inerzia}. Ecco che sulla base di tale definizione è possibile definire l'energia cinetica totale di un corpo rigido come
-\[\boxed{k_{\text{tot}} = K_{\text{CM}} + K_{\text{rot}} = \frac{1}{2}M v_{\text{CM}}^2 + \frac{1}{2}I \omega^2}\]
-in cui $I$ è il momento di interzia attorno ad un asse che passa per il centro della massa (sempre ricordando come $v=\omega r$).\\
+che prende il nome di \textbf{momento di inerzia}, in cui $r_i$ è la distanza della massa $i$-esima dall'asse di rotazione. Ecco che sulla base di tale quantità è possibile definire l'energia cinetica totale di un corpo rigido come
+\[\boxed{K_{\text{tot}} = K_{\text{CM}} + K_{\text{rot}} = \frac{1}{2}M v_{\text{CM}}^2 + \frac{1}{2}I \omega^2}\]
+in cui $I$ è il momento di interzia attorno ad un asse che passa per il centro di massa del corpo rigido (sempre ricordando come $v=\omega r$). È interessante, però, osservare, che l'energia cinetica di un corpo in rotolamento, non è totalmente spesa per aumentare la velocità di traslazione del corpo stesso, ma una parte è anche spesa per il rotolamento steso, come viene esposto chiaramente nell'esempio che segue.
 
 \vspace{1em}
 \noindent
-\textbf{Osservazione}: Si osservi che se si considerano due piani inclinati identici, sul primo del quale vi è una massa quadrata $m$ e sul secondo una sfera $m$, allora, se entrambi partono da un'altezza $h$ e si spostano senza attrito, applicando la conservazione dell'energia meccanica, si ottiene:
+\textbf{Esempio}: Si considerano due piani inclinati identici, sul primo del quale vi è una massa quadrata $m$ e sul secondo una sfera, sempre di massa $m$:
+
+\begin{figure}[H]
+  \centering
+  \colorlet{xcol}{blue!70!black}
+  \colorlet{vcol}{green!60!black}
+  \colorlet{myred}{red!65!black}
+  \colorlet{mypurple}{blue!60!red!80}
+  \colorlet{acol}{red!50!blue!80!black!80}
+  \tikzstyle{rvec}=[->,xcol,very thick,line cap=round]
+  \tikzstyle{vvec}=[->,vcol,very thick,line cap=round]
+  \tikzstyle{myarr}=[{Latex[length=3,width=3]}-,xcol]
+  \tikzstyle{force}=[->,myred,very thick,line cap=round]
+  \tikzstyle{mass}=[line width=0.6,draw=red!30!black, %rounded corners=1,
+                    top color=red!40!black!30,bottom color=red!40!black!10,shading angle=30]
+  \tikzstyle{ground}=[preaction={fill,top color=black!10,bottom color=black!5,shading angle=20},
+                      fill,pattern=north east lines,draw=none,minimum width=0.3,minimum height=0.6]
+  \tikzstyle{metal}=[fill,top color=black!40,bottom color=black!20,shading angle=10]
+  \begin{tikzpicture}[scale=1.5]
+    \def\R{0.5} % disk radius
+    \def\W{3.2}  % ground width
+    \def\ang{30} % ground angle
+    \def\mx{2.5} % mass x position
+    \coordinate (X) at (\ang:\mx); % wheel position
+    \coordinate (C) at ($(X)+(\ang+90:\R)$); % wheel center
+    \draw[thick,top color=blue!20!black!30,bottom color=white,shading angle=\ang+10]
+      (0,0) coordinate (O) -- (\ang:\W) coordinate (T) -- ({\W*cos(\ang)},0) coordinate (L) -- cycle;
+      \begin{scope}
+        \tikzset{shift={(30:2)}, rotate=30}
+        \draw[mass] ([xshift=-0.2cm,yshift=-0.6cm]C) rectangle ++(3*\R/2,3*\R/2) (C) node[myred!70!black] {$m$};
+      \end{scope}
+    \draw pic["$\theta$",draw=black,angle radius=22,angle eccentricity=1.3] {angle=L--O--T};
+    \draw[<->] (X) --++ (0,{-\mx*sin(\ang)}) node[midway,right] {$h$};
+  \end{tikzpicture}
+  \hspace{5em}
+  \begin{tikzpicture}[scale=1.5]
+    \def\R{0.5} % disk radius
+    \def\W{3.2}  % ground width
+    \def\ang{30} % ground angle
+    \def\mx{2.5} % mass x position
+    \coordinate (X) at (\ang:\mx); % wheel position
+    \coordinate (C) at ($(X)+(\ang+90:\R)$); % wheel center
+    \draw[thick,top color=blue!20!black!30,bottom color=white,shading angle=\ang+10]
+      (0,0) coordinate (O) -- (\ang:\W) coordinate (T) -- ({\W*cos(\ang)},0) coordinate (L) -- cycle;
+    \draw[mass] (C) circle(\R) node[myred!70!black] {$m$};
+    \draw pic["$\theta$",draw=black,angle radius=22,angle eccentricity=1.3] {angle=L--O--T};
+    \draw[<->] (X) --++ (0,{-\mx*sin(\ang)}) node[midway,right] {$h$};
+  \end{tikzpicture}
+  \caption{Confronto di corpi in rotolamento}
+  \label{fig:confronto_corpi_rotolamento}
+\end{figure}
+
+\noindent
+In questo caso, se entrambi partono da un'altezza $h$ e si spostano senza attrito, applicando la conservazione dell'energia meccanica, si ottiene:
 \begin{enumerate}
   \item $\displaystyle{\frac{1}{2}m v_f^2 = mgh}$
-  \item $\displaystyle{\frac{1}{2}m v_f^2 + \frac{1}{2} I \frac{v^2}{r^2} = mgh}$
+  \item $\displaystyle{\frac{1}{2}m v_f^2 + \frac{1}{2} I \frac{v_f^2}{r^2} = mgh}$
 \end{enumerate}
 In cui è evidente come la velocità finale della prima massa sarà maggiore della seconda (e quindi arriva prima), in quanto nel secondo caso parte dell'energia potenziale viene \quotes{persa o spesa} per effettuare la rotazione.
 
@@ -5796,25 +5967,42 @@ ma se si considera un corpo continuo si ottiene
 \[I=\int r^2 \cdot dm\]
 e se la densità è data si ha
 \[I=\int r^2 \cdot \rho(\vec r) \cdot dV\]
-che, in ognuno di talui tre casi, è interpretabile come \textbf{la resistenza di un corpo al cambiamento di velocità angolare} (che è molto simile alla definizione della massa inerziale).\\
+che, in ognuno di taluni tre casi, il concetto di momento di inerzia è interpretabile come \textbf{la resistenza di un corpo al cambiamento di velocità angolare} (che è molto simile alla definizione della massa inerziale): più il momento di inerzia è grande, maggiore sarà la resistenza che il corpo oppone alla variazione della propria velocità angolare e viceversa.\\
 Tuttavia, la definizione del momento di inerzia dipende dalla \textbf{posizione} e dall'\textbf{orientazione} dell'asse di rotazione (su uno stesso corpo, ad assi di rotazione differenti corrispondono momenti di interzia differenti: più la massa è distante dall'asse di rotazione, maggiore sarà il suo momento di inerzia).
 
 \vspace{1em}
 \noindent
 \textbf{Osservazione}: Naturalmente, nel caso di un punto materiale di massa $m$, a distanza $r$ dall'asse di rotazione, si ha che il suo momento di inerzia è calcolabile come:
 \[I_{\text{punto}}= m r^2\]
-se, invece, si considerano due punti di massa $\frac{m}{2}$ a distanza $r$ dall'asse di rotazione, si ha che
+se, invece, si considerano due punti di massa $\dfrac{m}{2}$ (affinché la massa totale del sistema sia sempre $m$) a distanza $r$ dall'asse di rotazione, si ha che
 \[I_{2 \text{ punti}} = \frac{m}{2}r^2 + \frac{m}{2}r^2 = mr^2\]
-Più in generale, considerando $n$ punti di massa $\frac{m}{n}$ a distanza $r$ dal centro si avrà che
+Più in generale, considerando $n$ punti di massa $\dfrac{m}{n}$ a distanza $r$ dal centro si avrà che
 \[I_{n \text{ punti}} = \sum_{i=1}^n \frac{m}{n} r^2 = m r^2\]
 e si va al limite si ottiene sempre che
-\[I_{\infty \text{ punti}} = \sum_{i=1}^\infty \frac{m}{n} r^2 = m r^2\]
-ed è possibile calcolare il momento di inerzia anche per altri corpi:
-\begin{itemize}
-  \item Sfera piena: $\displaystyle{I=\frac{2}{5} m r^2}$;
-  \item Sfera cava: $\displaystyle{I=\frac{2}{3} m r^2}$;
-  \item Cilindro: $\displaystyle{I=\frac{2}{5} m r^2}$;
-\end{itemize}
+\[I_{\infty \text{ punti}} = \sum_{i=1}^\infty \frac{m}{n} r^2 =  \int r^2 \cdot dm = m r^2\]
+ed è possibile calcolare il momento di inerzia anche per altri corpi, come mostrato nella tabella seguente:
+
+\begin{table}[H]
+  \centering
+  \rowcolors{1}{white}{white}
+  \setlength{\tabcolsep}{4pt}
+  \renewcommand{\arraystretch}{2}
+  \begin{tabular}{|l|l|}
+    \hline
+    \textbf{Oggetto} & \textbf{Momento di inerzia}\\
+    \hline
+    Anello & \hspace{2em} $\displaystyle{I=m R^2}$\\
+    \hline
+    Sfera piena & \hspace{2em} $\displaystyle{I=\frac{2}{5} m r^2}$\\
+    \hline
+    Sfera cava & \hspace{2em} $\displaystyle{I=\frac{2}{3} m r^2}$\\
+    \hline
+    Cilindro & \hspace{2em} $\displaystyle{I=\frac{1}{2} m r^2}$\\
+    \hline
+  \end{tabular}
+  \caption{Tabella dei momenti di inerzia}
+  \label{tab:tabella_momenti_inerzia}
+\end{table}
 
 \newpage
 \noindent
@@ -6215,6 +6403,97 @@ per cui è possibile dividere il momento angolare totale in \textbf{momento ango
 per cui si ottiene la relazione fondamentale
 \[\boxed{\vec L = \vec L_o + \vec L_s}\]
 
+\newpage
+\noindent
+\begin{center}
+  28 Aprile 2022
+\end{center}
+È noto che il momento angolare totale cambia quando la risultante totale dei momenti di forza è nullo. Inoltre, affinché vi sia equilibrio statico, la risultante delle forze applicate e dei momenti angolari deve essere nulla.
+
+\vspace{1em}
+\subsection{Momento angolare - Corpo rigido}
+Si consideri un corpo rigido che ruota attorno ad un asse fissato con velocità angolare $\omega$; si consideri, poi, un generico punto materiale $m_i$ a distanza $\vec r_i$ dall'asse avente velocità $\vec v_i$; allora si ha che
+\[\vec L = \sum_i \vec l_i = \sum_i \vec r_i \times m_i \vec v_i = \sum_i m_i \vec r_i \times \vec v_i\]
+ma essendo, com'è noto, verificata la relazione seguente
+\[\vert \vec v_i \vert = \vert \vec r_i \vert \cdot \omega\]
+si può esprimere $\vec v_i$ in funzioene di $\omega$, per cui
+\[\vec L = \sum_i m_i r_i^2 \vec \omega = I \omega^2\]
+ma siccome $\vec \omega$ è costante per tutti i corpi, si ottiene come il momento angolare per un corpo rigido sia
+\[\boxed{\vec L = I \vec \omega}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Il momento angolare di spin della terra è
+\[L=I\omega \cong \frac{2}{5} M R^2 \omega = \frac{2}{5}M R^2 \cdot \frac{2\pi}{T} = 7 \times 10^{33} \frac{\text{kg m}^2}{\text{s}}\]
+
+\vspace{1em}
+\noindent
+\subsection{Conservazione del momento angolare}
+È già noto che se non vi sono momenti di forza esterni che agiscono sul sistema, allora è possibile applicare la conservazione del momento angolare, ovvero
+\[\frac{d \vec l}{dt} = 0 \longrightarrow \vec L_i = \vec L_f\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio $\boldsymbol{1}$}: Si consideri un bambino di massa $m$ che si muove ad una velocità $\vec v$ e che ad un certo punto salta su una giostra circolare di massa $M$ e di raggio $R$, proprio sull'estremità della circonferenza. Se la giostra è inizialmente a riposo, si determini la velocità angolare del sistema alla fine.\\
+In questo caso, l'energia in generale non è conservata, in quanto si tratta di una sorta di urto anelastico, in cui i due corpi, dopo l'urto, rimangono collegati fra di loro. Tuttavia, non essendoci momenti di forza esterni che agiscono sul sistema, si può applicare la conservazione del momento angolare, ovvero
+\[\vec L_i = \vec L_f\]
+Il momento angolare iniziale è dato solamente dal contributo del bambino, il quale si muove ad una velocità $\vec v$ a distanza $R$ dal centro della giostra, per cui
+\[\vec L_i = \vec r \times m \vec v = m R v \cdot \hat{k}\]
+Per quanto concerne il momento angolare finale, siccome i due corpi rimangono attaccati l'uno all'altro, si può approssimare come un corpo rigido avente momento angolare $I \omega$, in cui $I=I_g+I_b$, per cui
+\[\vec L_f = (I_g + I_b) \cdot \omega = \left(\frac{1}{2}MR^2 + mR^2\right) \cdot \vec \omega\]
+per cui, siccome $L_i=L_f$, è facile capire come la velocità angolare cercata sia data da
+\[\omega = \frac{mv}{\left(\dfrac{1}{2}M + m\right) \cdot R}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio $\boldsymbol{2}$}: Si consideri il sistema Terra-Luna e si determini la posizione relativa del centro di massa dalla Terra e dalla Luna, come mostrato di seguito:
+\[x_{\text{CM}} = \frac{m_T \cdot 0 + m_L \cdot d}{m_T + m_L} = \frac{m_L}{m_T + m_L} \cdot d\]
+supponendo la posizione $x=0$ in corrispondenza della Terra. Ecco, quindi, che la distanza Terra-centro di massa e Luna-centro di massa si calcola come:
+\[d_L=d \frac{m_T}{m_T+m_L} \hspace{1em} \text{e} \hspace{1em} d_T=d \frac{m_L}{m_T+m_L}\]
+in questo modo il momento orbitale del sistema Terra-Luna si calcola come segue
+\[\vec L_o = (m_T d_T^2 + m_L d_L^2) \cdot \omega = [...] = \frac{m_T m_L}{m_T+m_L} d^2 \omega\]
+in cui il prodotto $m_T m_L$ prende il nome di \quotes{\textbf{massa ridotta}}.\\
+Avendo, ora, determinato, il momento angolare orbitale, è possibile procedere al calcolo del momento angolare di spin per la Terra (ossia $L_T = I_T \omega_T$) e per la Luna (ossia $L_L = I_L \omega_L$), sfruttando il fatto che la velocità angolare della Luna è la stessa di quella del sistema, visto che mostra alla terra sempre la stessa faccia. Avendo ciò, ora, è possibile calcolare il momento angolare totale, dato dalla somma del momento angolare orbitale e quello di spin.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che sia nel caso della Terra e della Luna che nel caso del bambino sulla giostra, il momento d'inerzia è dato da $m R^2$
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio}: Si consideri un'asta \emph{non omogenea} di lunghezza $L=101$ cm e forza peso $F_t=2.0$ N.\\
+Naturalmente il diagramma a corpi liberi dello scenario di cui sopra è
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \draw (0,0) node[circ]{};
+    \draw[-stealth] (0,0) -- ++(0,-1) node[midway,right]{$\vec F_t$};
+    \draw[-stealth] (0,0) -- ++(-0.5,0.5) node[midway,left]{$\vec F_{T_1}$};
+    \draw[-stealth] (0,0) -- ++(0.5,0.5) node[midway,right]{$\vec F_{T_2}$};
+  \end{tikzpicture}
+  \caption{}
+  \label{}
+\end{figure}
+
+\noindent
+Naturalmente le condizioni di equilibrio sono
+\[\sum \vec F_{\text{ext}} = 0 \hspace{1em} \text{e} \hspace{1em} \sum \vec \tau_{\text{ext}} = 0\]
+Tali condizioni si traducono nelle seguenti equazioni (considerando come perno il punto di applicazione della forza peso):
+\[
+  \left\{
+  \rowcolors{1}{white}{white}
+  \begin{array}{l}
+    \vec F_{T_1} + \vec F_{T_1} + \vec F_t = 0\\
+    -x \cdot F_{T_1} \cos(\theta) \cdot \hat{k} + (L-x) \cdot F_{T_2} \cos(\phi) \cdot \hat{k}\\
+  \end{array}
+  \right.
+\]
+in cui ovviamente il momento di forza della forza peso è nullo, essendo il braccio proprio $0$.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si presti particolare attenzione al segno del prodotto vettoriale: impiegare sempre la regola della mano destra per determinare se il prodotto vettoriale \textbf{entra nella pagina} (ossia è \textbf{negativo}) oppure \textbf{esce dalla pagina} (ossia è \textbf{positivo}).
 
 
 
