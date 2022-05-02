@@ -5928,7 +5928,7 @@ in cui $I$ è il momento di interzia attorno ad un asse che passa per il centro 
       (0,0) coordinate (O) -- (\ang:\W) coordinate (T) -- ({\W*cos(\ang)},0) coordinate (L) -- cycle;
       \begin{scope}
         \tikzset{shift={(30:2)}, rotate=30}
-        \draw[mass] ([xshift=-0.2cm,yshift=-0.6cm]C) rectangle ++(3*\R/2,3*\R/2) (C) node[myred!70!black] {$m$};
+        \draw[mass] ([xshift=-0.3cm,yshift=-0.5cm]C) rectangle ++(3*\R/2,3*\R/2) ([yshift=-0.2cm]C) node[myred!70!black] {$m$};
       \end{scope}
     \draw pic["$\theta$",draw=black,angle radius=22,angle eccentricity=1.3] {angle=L--O--T};
     \draw[<->] (X) --++ (0,{-\mx*sin(\ang)}) node[midway,right] {$h$};
@@ -5986,20 +5986,22 @@ ed è possibile calcolare il momento di inerzia anche per altri corpi, come most
   \centering
   \rowcolors{1}{white}{white}
   \setlength{\tabcolsep}{4pt}
-  \renewcommand{\arraystretch}{2}
-  \begin{tabular}{|l|l|}
+  \renewcommand{\arraystretch}{2.3}
+  \begin{tabularx}{0.5 \textwidth}{|P|P|}
     \hline
     \textbf{Oggetto} & \textbf{Momento di inerzia}\\
     \hline
-    Anello & \hspace{2em} $\displaystyle{I=m R^2}$\\
+    Anello & $\displaystyle{I=m R^2}$\\
     \hline
-    Sfera piena & \hspace{2em} $\displaystyle{I=\frac{2}{5} m r^2}$\\
+    Sfera piena & $\displaystyle{I=\frac{2}{5} m r^2}$\\
     \hline
-    Sfera cava & \hspace{2em} $\displaystyle{I=\frac{2}{3} m r^2}$\\
+    Sfera cava & $\displaystyle{I=\frac{2}{3} m r^2}$\\
     \hline
-    Cilindro & \hspace{2em} $\displaystyle{I=\frac{1}{2} m r^2}$\\
+    Cilindro & $\displaystyle{I=\frac{1}{2} m r^2}$\\
     \hline
-  \end{tabular}
+    Cilindro cavo & $\displaystyle{I=m R^2}$\\
+    \hline
+  \end{tabularx}
   \caption{Tabella dei momenti di inerzia}
   \label{tab:tabella_momenti_inerzia}
 \end{table}
@@ -6012,19 +6014,84 @@ ed è possibile calcolare il momento di inerzia anche per altri corpi, come most
 La formulazione per l'energia cinetica del moto di rotazione si calcola considerando il momento di inerzia, il quale dipede dall'asse di rotazione del corpo stesso (in quanto il momento di inerzia si calcola in base alla distanza dei contributi di massa dall'asse di rotazione). È stato osservato, inoltre, quale sia il momento di inerzia di un anello che, come si può facilmente intuire, è lo stesso di un anello cavo.\\
 Al fine di determinare il periodo di rotazione sapendo la velocità angolare $\omega$, è possibile impiegare la definizione e isolare $T$ come segue
 \[\omega=\frac{2\pi}{T} \longrightarrow T=\frac{2\pi}{\omega}\]
-Se si considera un'accelerazione angolare costante $\alpha$ e una velocità angolare iniziale $\omega$, allora il tempo impiegato per arrestarsi è
+Se si considera un'accelerazione angolare costante $\alpha$ (e negativa) e una velocità angolare iniziale $\omega$, allora il tempo impiegato per arrestarsi è
 \[t=\frac{\omega}{\alpha}\]
+secondo la definizione per la quale $\omega= \alpha t$ (che rassomiglia alla legge oraria del moto uniformemente accelerato).\\
 Se si considera la definizione di energia cinetica di rotazione e di velocità angolare, si ha che
 \[K=\frac{1}{2}I \omega^2 \longrightarrow K=\frac{1}{2} I \frac{4\pi^2}{T^2} \longrightarrow T=\sqrt{\frac{2\pi^2 I}{K}}\]
 e sapendo che $I=m r^2$, avendo due masse $m$ a distanza $d$ l'una dall'altra, si ottiene
 \[I=2m \left(\frac{d}{2}\right)^2 \longrightarrow \frac{1}{2}md^2\]
 per cui si ha:
 \[T=\sqrt{\frac{2\pi^2 I}{K}}=\sqrt{\frac{\pi^2 m d^2}{K}} = \pi\]
-essendo tutte le misure unitarie.
+nell'ipotesi in cui tutte le misure siano unitarie.
 
 \vspace{1em}
 \noindent
-\textbf{Esercizio}: Un blocco di massa $m$ è attacato ad un filo di massa trascurabile, che è avvolto intorno a un ciclindro omogeneo di massa $M$ e raggio $R_0$. Il cilindro è libero di girare, con attrito trascurabile, intorno a un asse orizzontale fisso passante per il suo centro. Dopo che il blocco è sceso di un tratto verticale $h$ a partire dalla quiete, si determini la velocità lineare del centro del blocco e la velocità angolare del cilindro rispetto al suo asse di rotazione.\\
+\textbf{Esercizio}: Un blocco di massa $m$ è attacato ad un filo di massa trascurabile, che è avvolto intorno a un ciclindro omogeneo di massa $M$ e raggio $R_0$, come mostrato nella figura seguente:
+
+\begin{figure}[H]
+  \centering
+  \pgfmathsetmacro{\xdeg}{30}
+  \pgfmathsetmacro{\xx}{cos(\xdeg)}
+  \pgfmathsetmacro{\xy}{sin(\xdeg)}
+
+  \pgfmathsetmacro{\ydeg}{150}
+  \pgfmathsetmacro{\yx}{cos(\ydeg)}
+  \pgfmathsetmacro{\yy}{sin(\ydeg)}
+
+  \pgfmathsetmacro{\zdeg}{90}
+  \pgfmathsetmacro{\zx}{cos(\zdeg)}
+  \pgfmathsetmacro{\zy}{sin(\zdeg)}
+  \newcommand{\tdcyl}[5]{% origin x, origin y, origin z, radius, height
+        \path (1,0,0);
+        \pgfgetlastxy{\cylxx}{\cylxy}
+        \path (0,1,0);
+        \pgfgetlastxy{\cylyx}{\cylyy}
+        \path (0,0,1);
+        \pgfgetlastxy{\cylzx}{\cylzy}
+        \pgfmathsetmacro{\cylt}{(\cylzy * \cylyx - \cylzx * \cylyy)/ (\cylzy * \cylxx - \cylzx * \cylxy)}
+        \pgfmathsetmacro{\ang}{atan(\cylt)}
+        \pgfmathsetmacro{\ct}{1/sqrt(1 + (\cylt)^2)}
+        \pgfmathsetmacro{\st}{\cylt * \ct}
+        \filldraw[fill=white] (#4*\ct+#1,#4*\st+#2,#3) -- ++(0,0,#5) arc[start angle=\ang,delta angle=-180,radius=#4] -- ++(0,0,-#5) arc[start angle=\ang+180,delta angle=180,radius=#4];
+        \filldraw[fill=white] (#1,#2,#3+#5) circle[radius=#4];
+    }
+
+    \newcommand{\tdcylxy}[5]{% origin x, origin y, origin z, radius, height
+        \path (1,0,0);
+        \pgfgetlastxy{\cylxx}{\cylxy}
+        \path (0,1,0);
+        \pgfgetlastxy{\cylyx}{\cylyy}
+        \path (0,0,1);
+        \pgfgetlastxy{\cylzx}{\cylzy}
+        \pgfmathsetmacro{\cylt}{(\cylzy * \cylyx - \cylzx * \cylyy)/ (\cylzy * \cylxx - \cylzx * \cylxy)}
+        \pgfmathsetmacro{\ang}{atan(\cylt)}
+        \pgfmathsetmacro{\ct}{1/sqrt(1 + (\cylt)^2)}
+        \pgfmathsetmacro{\st}{\cylt * \ct}
+        \filldraw[fill=white] (#4*\ct+#1,#4*\st+#2,#3) -- ++(0,0,#5) arc[start angle=\ang,delta angle=180,radius=#4] -- ++(0,0,-#5) arc[start angle=\ang+180,delta angle=180,radius=#4];
+        \filldraw[fill=white] (#1,#2,#3) circle[radius=#4];
+    }
+  \begin{tikzpicture}[x={(\xx*1cm,\xy*1cm)},y={(\yx*1cm,\yy*1cm)},z={(\zx*1cm,\zy*1cm)}]
+      % \tdcyl{0}{0}{3}{1}{3} % x y z   r h
+      \begin{scope}[z={(\xx*1cm,\xy*1cm)},x={(\yx*1cm,\yy*1cm)},y={(\zx*1cm,\zy*1cm)}]
+          % This is a x-growing cylinder
+          \tdcylxy{0}{0}{0}{1.5}{3} % y z x  r h
+          \tdcylxy{0}{0}{0}{1.5}{2.4} % y z x  r h
+          \tdcylxy{0}{0}{0}{1.5}{1.8} % y z x  r h
+          \tdcylxy{0}{0}{0}{1.5}{1.2} % y z x  r h
+      \end{scope}
+      \draw (0,0,0) node[circ]{} -- ++(-3,0,0);
+      \draw (4.05,0,0) -- ++(2,0,0);
+      \draw (0,0,0) -- (0,-1.5,0) node[midway,below]{$M$};
+      \draw (0,0,0) -- (0,0,1.5) node[midway,left]{$R_0$};
+      \draw (2.4,-1.5,0) -- ++(0,0,-3) node[circ]{} node[below]{$m$} ++(-1.5,1,0) -- ++(3,0,0) -- ++(0,-2,0) -- ++(-3,0,0) -- ++(0,2,0) -- ++(0,0,-1) -- ++(0,-2,0) -- ++(0,0,1) ++(0,0,-1) -- ++(3,0,0) -- ++(0,0,1);
+  \end{tikzpicture}
+  \caption{Massa collegata ad un cilindro rotante}
+  \label{fig:massa_cilindro_rotante}
+\end{figure}
+
+\noindent
+Il cilindro è libero di girare, con attrito trascurabile, intorno a un asse orizzontale fisso passante per il suo centro. Dopo che il blocco è sceso di un tratto verticale $h$ a partire dalla quiete, si determini la velocità lineare del centro del blocco e la velocità angolare del cilindro rispetto al suo asse di rotazione.\\
 Immediatamente è possibile applicare la conservazione dell'energia meccanica del sistema cilindro-blocco: le energie coinvolte sono l'energia cinetica (anche di rotazione) e l'energia potenziale, per cui
 \[E_i=E_f \longrightarrow K_i+\mathcal{U}_i=K_f+\mathcal{U}_f\]
 ma siccome il sistema, inizialmente, parte dalla quiete, l'energia cinetica iniziale è nulla. Per cui si ha
@@ -6033,62 +6100,168 @@ Ovviamente, la variazione di energia cinetica è $\Delta \mathcal{U}=mgh$, mentr
 \[\frac{1}{2}mv^2 + \frac{1}{2}I\omega^2 = mgh\]
 ma siccome $v$ e $\omega$ sono legate fra di loro dalla relazione
 \[\omega=\frac{v}{R_0}\]
-per cui si ottiene che
+in quanto un punto a velocità $v$ sulla circonferenza del cilindro presenta la velocità della massa $m$, essendo connessi tramite il filo. Pertanto si ottiene che
 \[v^2 \cdot \left(1 + \frac{I}{m \cdot R_0^2}\right) = 2gh\]
 e sapendo che il cilindro è omogeneo, allora
 \[I=\frac{1}{2} M R_0^2\]
 per cui la velocità lineare del centro del blocco si ottiene:
-\[v = \sqrt{\frac{2gh}{1 + \dfrac{2M}{m}}}\]
-e volendo conoscere la velocità angolare del cilindro, è sufficiente dividere $v$ per $R_0$.
+\[\boxed{v = \sqrt{\frac{2gh}{1 + \dfrac{M}{2m}}}}\]
+e volendo conoscere la velocità angolare del cilindro, è sufficiente dividere $v$ per $R_0$. Dalla formula ottenuta si capisce bene che se la massa $M$ del cilindro è $0$, allora si ottiene una semplice caduta libera per la quale si può ignorare il cilindro stesso. Se la massa $M \to +\infty$, allora la velocità del blocco $v \to 0$, in quanto il momento d'inerzia del cilindro diviene molto grande e, quindi, la resistenza alla variazione di velocità angolare del cilindro stesso cresce.
 
 \vspace{1em}
 \noindent
-\textbf{Esempio}: Si consideri un oggetto rotondo si massa $m$ e raggio $R$ che rotola giù da un piano inclinato, partendo da un'altezza $h$ nello stato di quiete. Allora, considerando l'attrito trascurabile, si può applicare la consdervazione dell'energia meccanica, per cui
+\textbf{Esempio}: Si consideri un oggetto rotondo si massa $m$ e raggio $R$ che rotola giù da un piano inclinato, partendo da un'altezza $h$ nello stato di quiete:
+
+\begin{figure}[H]
+  \centering
+  \colorlet{xcol}{blue!70!black}
+  \colorlet{vcol}{green!60!black}
+  \colorlet{myred}{red!65!black}
+  \colorlet{mypurple}{blue!60!red!80}
+  \colorlet{acol}{red!50!blue!80!black!80}
+  \tikzstyle{rvec}=[->,xcol,very thick,line cap=round]
+  \tikzstyle{vvec}=[->,vcol,very thick,line cap=round]
+  \tikzstyle{myarr}=[{Latex[length=3,width=3]}-,xcol]
+  \tikzstyle{force}=[->,myred,very thick,line cap=round]
+  \tikzstyle{mass}=[line width=0.6,draw=red!30!black, %rounded corners=1,
+                    top color=red!40!black!30,bottom color=red!40!black!10,shading angle=30]
+  \tikzstyle{ground}=[preaction={fill,top color=black!10,bottom color=black!5,shading angle=20},
+                      fill,pattern=north east lines,draw=none,minimum width=0.3,minimum height=0.6]
+  \tikzstyle{metal}=[fill,top color=black!40,bottom color=black!20,shading angle=10]
+  \begin{tikzpicture}[scale=1.5]
+    \def\R{0.5} % disk radius
+    \def\W{3.2}  % ground width
+    \def\ang{30} % ground angle
+    \def\mx{2.5} % mass x position
+    \coordinate (X) at (\ang:\mx); % wheel position
+    \coordinate (C) at ($(X)+(\ang+90:\R)$); % wheel center
+    \draw[thick,top color=blue!20!black!30,bottom color=white,shading angle=\ang+10]
+      (0,0) coordinate (O) -- (\ang:\W) coordinate (T) -- ({\W*cos(\ang)},0) coordinate (L) -- cycle;
+    \draw[mass] (C) circle(\R) node[myred!70!black] {$m$};
+    \draw pic["$\theta$",draw=black,angle radius=22,angle eccentricity=1.3] {angle=L--O--T};
+    \draw[<->] (X) --++ (0,{-\mx*sin(\ang)}) node[midway,right] {$h$};
+  \end{tikzpicture}
+  \caption{Massa rotonda in rotolamento}
+  \label{fig:massa_rotonda_rotolamento}
+\end{figure}
+
+\noindent
+Allora, considerando l'attrito trascurabile, si può applicare la conservazione dell'energia meccanica, per cui
 \[mgh=\frac{1}{2}mv^2 + \frac{1}{2}I\omega^2\]
-ma siccome si parla sempre di rotolamento, è nota la relazione
+ma siccome si parla sempre di \textbf{rotolamento} (e solo in questo caso), è nota la relazione
 \[\omega=\frac{v}{R}\]
 da cui si ha che
 \[\boxed{v=\sqrt{\frac{2gh}{1 + \dfrac{I}{mR^2}}}}\]
-E sapendo come determinare il momento di inerzia $I$ di diversi oggetti, si ha che:
+Si osservi che il rapporto
+\[\dfrac{I}{mR^2}\]
+è necessariamente un numero puro, in quanto $I$ presenta, nella sua definizione, sempre il fattore $mR^2$, che quindi si semplifica con il denominatore. Infatti, sapendo come determinare il momento di inerzia $I$ di diversi oggetti, si ottengono i risultati seguenti
 \begin{itemize}
-  \item Sfera piena: $I=\frac{2}{5}mR^2 \longrightarrow v=\sqrt{2gh} \cdot \sqrt{\frac{5}{7}}$
-  \item Sfera cava: $I=\frac{2}{3}mR^2 \longrightarrow v=\sqrt{2gh} \cdot \sqrt{\frac{3}{5}}$
+  \item Sfera piena
+  \[I=\frac{2}{5}mR^2 \longrightarrow v=\sqrt{2gh} \cdot \sqrt{\frac{5}{7}}\]
+  \item Sfera cava
+  \[I=\frac{2}{3}mR^2 \longrightarrow v=\sqrt{2gh} \cdot \sqrt{\frac{3}{5}}\]
 \end{itemize}
-Pertanto, la velocità di movimento di un corpo in rotolamento non dipende dalla sua massa, dalla sua dimensione, dal raggio, etc., ma solamente dalla sua distribuzione di massa (ovvero dalla forma dell'oggetto, ossia se è un cilindro, una sfera, etc.)
+Pertanto, \textbf{la velocità di movimento di un corpo in rotolamento} non dipende dalla sua massa, dalla sua dimensione, dal raggio, etc., ma \textbf{dipende solamente dalla sua distribuzione di massa} (ovvero dalla forma dell'oggetto, ossia se è un cilindro, una sfera, etc.)
 
 \vspace{1em}
 \noindent
 \textbf{Osservazione}: Pertanto, due cilindri, di raggio diverso e massa diversa, ma con densità uniforme, si muoveranno alla stessa velocità.\\
-Si considerino, poi, due biglie identiche che sono posizionate su due rotaie a distanze diverse: allora, la biglia che si posiziona sulle rotaie più ravvicinate fra di loro si muove a velocità maggiore, in quanto il raggio di rotazione della sfera rispetto al punto di contatto con le rotaie è molto maggiore rispetto ad una biglia poggiata sulle rotaie a distanza maggiore. Ecco che allora la velocità alla quale si muovono le due biglie si calcola come segue:
+Si considerino, poi, due biglie identiche che sono posizionate su due rotaie a distanze diverse:
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+      \draw[line width=3pt,very thick] (-.75,.75) -- ++(2,2);
+      \draw[fill=myred!80!black] (1,1) circle [radius=1];
+      \draw[line width=3pt,very thick] (.75,-.75) -- ++(2,2);
+  \end{tikzpicture}
+  \caption{Biglie in rotazione su rotaie}
+  \label{fig:biglie_rotazione_rotaie}
+\end{figure}
+
+\noindent
+Allora, la biglia che si posiziona sulle rotaie più ravvicinate fra di loro si muove a velocità maggiore, in quanto il raggio di rotazione della sfera rispetto al punto di contatto con le rotaie è più grande rispetto ad una biglia poggiata su rotaie a distanza maggiore. Infatti, in questo caso non è vero che $v = \omega R$ (con $R$ raggio della biglia), ma si ha che $v=\omega r'$, in cui $r'$ è il raggio descritto dalla biglia in rotazione sulle rotaie.\\
+Ecco che allora la velocità alla quale si muovono le due biglie si calcola come segue:
 \[\boxed{v=\sqrt{\frac{2gh}{1 + \dfrac{I}{m r'^2}}}}\]
 in cui più $r' \to R$ (ossia più le rotaie sono vicine tra loro), più la velocità aumenta, ma se $r' \to 0$ (ovvero più le rotaie si allontanano), allora la velocità di traslazione diminuisce a scapito di quella di rotazione.
 
 \vspace{1em}
 \subsection{Teorema degli assi paralleli}
-Si consideri una massa informe, il cui centro di massa, a distanza $d$ dall'asse di rotazione, ruota a velocità angolare $\omega$. Allora, per quanto già visto, si ha
-\[K_{\text{tot}} = K_{\text{rot}} + K_{\text{CM}} = \frac{1}{2}I_{\text{CM}} + \frac{1}{2}M v_{\text{CM}}^2\]
+Il teortema degli assi paralleli è estremamente utile per conoscere il momento di inerzia di un corpo attorno ad un certo asse sapendo già qual è il suo momento di inerzia attorno ad un altro asse.\\
+Si consideri, allora, una massa uniforme, il cui centro di massa, a distanza $d$ dall'asse di rotazione, ruota a velocità angolare $\omega$. Allora, per quanto già visto, si ha
+\[K_{\text{tot}} = K_{\text{rot}} + K_{\text{CM}} = \frac{1}{2}I_{\text{CM}} \omega^2 + \frac{1}{2}M v_{\text{CM}}^2\]
 per cui si ottiene che
-\[K_{\text{tot}}=\frac{1}{2} \left(\right)\]
+\[K_{\text{tot}}=\frac{1}{2} \underbrace{\left(I_{\text{CM}} + Md^2\right)}_{I_{\text{tot}}} \cdot \omega^2\]
+in cui, essendo $d$ la distanza tra il centro di massa e l'asse di rotazione, allora la velocità del centro di massa è $v_{\text{CM}}=\omega d$. Il teorema degli assi paralleli, quindi, è il seguente
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{TEOREMA DEGLI ASSI PARALLELI}}\\
+    \parbox{\linewidth}{Volendo calcolare il momento di inerzia di un corpo attorno ad un qualsiasi asse, conoscendo il momento di inerzia dello stesso attorno al centro di massa, si può impiegare il \textbf{teorema degli assi paralleli} che afferma che
+    \[\boxed{I_p = I_{\text{CM} + Md^2}}\]
+    in cui $p$ è il punto attorno a quale il sistema ruota e $d$ è la distanza $p-\text{CM}$, ovverosia la distanza tra il punto attorno al quale avviene la rotazione e il centro di massa.
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{2em}
+\noindent
+\textbf{Esempio}: Si consideri una porta di forma rettangolare (di dimensioni $l,h,s$) avente una densità uniforme. Allora il momento di inerzia del suo centro di massa si calcola come
+\[I_{\text{CM}}=\int r^2 \cdot dm = \int r^2 \rho dV = \int r^2 \frac{M}{l \cdot h \cdot s} \cdot dv\]
+A questo punto, considerando la posizione del centro di massa pari a $\frac{l}{2}$ e siccome $dV = dx \cdot hs$ (ove $hs$ è la sezione della porta), è facile determinare
+\[I_{\text{CM}}=\int_{-\frac{l}{2}}^{\frac{l}{2}} x^2 \frac{M}{l \cdot s \cdot h} \cdot h \cdot s \cdot dx = \frac{M}{l} \cdot \int_{-\frac{l}{2}}^{\frac{l}{2}} x^2 \cdot dx = \frac{M}{l} \cdot \left[\frac{x^3}{3}\right]_{-\frac{l}{2}}^{\frac{l}{2}}\]
+che si traduce nel seguente risultato
+\[\boxed{I_{\text{CM}} = \frac{1}{12}Ml^2}\]
+che è un risultato molto più generale che per una porta, ma per un qualsiasi oggetto a parallelepipedo, come un'asta (ovviamente considerando sempre l'asse di rotazione passante per il centro di massa).\\
+Tuttavia, una porta non ruota attorno al proprio centro di massa, ma attorno ad uno dei lati, per cui ora è possibile applicare il teorema degli assi paralleli e considerare la distanza del centro di massa da uno dei lati come $\frac{l}{2}$, ottenendo
+\[\boxed{I=I_{\text{CM}}+M \cdot \left(\frac{l}{2}\right)^2=\frac{1}{12}Ml^2+\frac{1}{4}Ml^2=\frac{1}{3}Ml^2}\]
+per cui è evidente come sia più facile far ruotare una porta attorno al proprio centro di massa invece che attorno ad uno dei lati.
+
+\newpage
+\noindent
+\subsection{Prodotto vettoriale - Richiamo}
+Dati due vettori $\vec{A}$ e $\vec{B}$ aventi un angolo $\theta$ compreso tra i due
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \draw[-,fill=white!95!red](0,0)--(3,0)--(4,1)--(1,1)--cycle;
+    \node at (2,0.5) {$|\textcolor{blue}{a}\times \textcolor{red}{b}|$};
+    \draw[ultra thick,-latex,blue](0,0)--(3,0)node[midway,below]{$a$};
+    \draw[ultra thick,-latex,red](0,0)--(1,1)node[midway,above]{$b$};
+    \draw[ultra thick,-latex,blue!50!red](0,0)--(0,3)node[pos=0.7,right]{$a\times b$};
+    \draw (0.6,0) arc [start angle=0,end angle=45,radius=0.6]
+    node[pos=0.7,right]{$\theta$};
+  \end{tikzpicture}
+  \caption{Prodotto vettoriale}
+  \label{fig:prodotto_vettoriale_1}
+\end{figure}
+
+\noindent
+Allora il prodotto vettoriale tra $\vec A$ e $\vec B$ è
+\[\vec C = \vec A \times \vec B\]
+in cui
+\[\vert \vec C \vert = \vert \vec A \vert \cdot \vert \vec B \vert \cdot \sin(\theta)\]
+in cui $\vec C \perp \vec A$ e $\vec C \perp \vec B$ e il suo verso è dato dalla regola della mano destra.\\
+Non solo, ma era anche noto come il vettore velocità potesse essere descritto anche come prodotto vettoriale tra il vettore $\vec \omega$ e $\vec r$, per cui $\vec v = \vec \omega \times \vec r$. È molto conveniente, infatti, descrivere il versore dell'asse di rotazione del vettore $\vec \omega$ come
+\[\frac{\vec \omega}{\vert \vec \omega \vert}\]
+in cui $\vert \omega \vert$ è semplicemente la velocità angolare, calcolabile come il rapporto tra $v$ e $R$.\\
+Allo stesso modo, per l'accelerazione angolare $\vec \alpha$ si ha che il suo asse è
+\[\frac{\vec \alpha}{\vert \vec \alpha \vert}\]
+essendo $\vert \alpha \vert$ l'accelerazione angolare.
 
 \vspace{1em}
 \noindent
-\textbf{Esempio}: Si consideri una porta di forma rettangolare (di dimensioni $l,h,s$) avente una distribuzione uniforme. Allora il momento di inerzia del suo centro di massa si calcola come
-\[I_{\text{CM}}=\int r^2 \cdot dm = \int r^2 \rho dV = \int r^2 \frac{M}{l \cdot h \cdot s} \cdot dv\]
-A questo punto, siccome il centro di massa si trova in posizione $\frac{l}{2}$ e siccome $dV = dx \cdot hs$, è facile determinare
-\[I_{\text{CM}}=\int_{-\frac{l}{2}}^{\frac{l}{2}} x^2 \frac{M}{l \cdot s \cdot h} \cdot h \cdot s \cdot dx = \frac{M}{l} \cdot \int_{-\frac{l}{2}}^{\frac{l}{2}} x^2 \cdot dx = \frac{M}{l} \cdot \left[\frac{x^3}{3}\right]_{-\frac{l}{2}}^{\frac{l}{2}} = \frac{1}{12}Ml^2\]
-che è un risultato molto più generale che per una porta, ma per un qualsiasi oggetto a parallelepipedo (ovviamente considerando sempre come asse di rotazione passante per il centro di massa).\\
-Tuttavia, una porta non ruota attorno al proprio centro di massa, ma attorno ad uno dei lati, per cui ora è possibile applicare il teorema degli assi paralleli e considerare la distanza del centro di massa da uno dei lati come $\frac{l}{2}$, ottenendo
-\[I=I_{\text{CM}}+M \cdot \left(\frac{l}{2}\right)^2=\frac{1}{12}Ml^2+\frac{1}{4}Ml^2=\frac{1}{3}Ml^2\]
-per cui è evidente come sia più facile far ruotare una porta attorno al proprio centro di massa invece che attorno ad uno dei lati.
-
-\vspace{1em}
-\subsection{Prodotto vettoriale}
-È noto che dati due vettori $\vec{A}$ e $\vec{B}$ aventi un angolo $\theta$ compreso tra i due, allora il prodotto vettoriale tra $\vec A$ e $\vec B$ è $\vec C = \vec A \times \vec B$, per cui $\vert \vec C \vert = \vert \vec A \vert \cdot \vert \vec B \vert \cdot \sin(\theta)$, in cui $\vec C \perp \vec A$ e $\vec C \perp \vec B$ e il suo verso è dato dalla regola della mano destra.\\
-Non solo, ma era anche noto come il vettore velocità potesse essere descritto anche come prodotto vettoriale tra il vettore $\vec \omega$ e $\vec r$, per cui $\vec v = \vec \omega \times \vec r$. È molto conveniente, infatti, descrivere il versore dell'asse di rotazione del vettore $\vec \omega$ come
-\[\frac{\vec \omega}{\vert \vec \omega \vert}\]
-e allo stesso modo, per l'accelerazione angolare $\vec \alpha$ si ha che il suo asse è
-\[\frac{\vec \alpha}{\vert \vec \alpha \vert}\]
-Inoltre, se l'asse è fisso si ha che $\vec a \parallel \vec \omega$ e se $\vec \alpha$ è costante, allora $\vec \omega = \vec \omega_0 + \vec \alpha \cdot t$.
+\textbf{Osservazione}: Si osservi che se l'asse è fisso si ha che $\vec a \parallel \vec \omega$ e se $\vec \alpha$ è costante, allora si ha che
+\[\vec \omega = \vec \omega_0 + \vec \alpha \cdot t\]
+per cui
+\[\vec \alpha=\frac{\vec \omega}{t}\]
 
 \newpage
 \noindent
@@ -6123,8 +6296,7 @@ Di seguito si espone la definizione di \textbf{momento di forza}:
     \[\vert \vec \tau \vert = \vert \vec r \vert \cdot \vert \vec F \vert \cdot \sin(\theta) = r \cdot (F \cdot \sin(\theta)) = (r \cdot \sin(\theta)) \cdot F\]
     ove $\theta$ è l'angolo compreso tra il vettore $\vec r$ e il vettore $\vec F$ (ovviamente $\theta$ dovrà essere misurato facendo coincidere il punto applicazione dei due vettori).\\
     In altre parole il modulo del momento di forza è dato dal prodotto tra la distanza dall'asse e la componente perpendicare della forza (ovvero $r \cdot (F \cdot \sin(\theta))$).\\
-    O ancora, il modulo del momento di forza è dato dal prodotto tra la forza e il braccio, ossia la distanza del vettore forza dal punto di applicazione del vettore $\vec r$, chiamato \textbf{braccio} (ovvero $(r \cdot \sin(\theta)) \cdot F$, in cui $(r \cdot \sin(\theta))$ prende il nome di braccio).
-    \vspace{3mm}}\\
+    O ancora, il modulo del momento di forza è dato dal prodotto tra la forza e il braccio, ossia la distanza del vettore forza dal punto di applicazione del vettore $\vec r$, chiamato \textbf{braccio} (ovvero $(r \cdot \sin(\theta)) \cdot F$, in cui $(r \cdot \sin(\theta))$ prende il nome di braccio).\vspace{3mm}}\\
     \hline
 \end{tabularx}
 

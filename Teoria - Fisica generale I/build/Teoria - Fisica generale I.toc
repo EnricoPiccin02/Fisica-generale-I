@@ -81,23 +81,23 @@
 \contentsline {subsection}{\numberline {8.2}Corpi rigidi - Dinamica}{107}{}%
 \contentsline {subsection}{\numberline {8.3}Corpi rigidi - Energia cinetica}{108}{}%
 \contentsline {subsection}{\numberline {8.4}Momento di inerzia}{109}{}%
-\contentsline {subsection}{\numberline {8.5}Teorema degli assi paralleli}{112}{}%
-\contentsline {subsection}{\numberline {8.6}Prodotto vettoriale}{113}{}%
-\contentsline {subsection}{\numberline {8.7}Momento di forza}{114}{}%
-\contentsline {subsubsection}{\numberline {8.7.1}Momento di forza dovuto alla gravità}{116}{}%
-\contentsline {subsection}{\numberline {8.8}Baricentro}{116}{}%
-\contentsline {subsection}{\numberline {8.9}Ribaltamento}{117}{}%
-\contentsline {subsection}{\numberline {8.10}Leve e ingranaggi}{118}{}%
-\contentsline {subsection}{\numberline {8.11}Potenza}{119}{}%
-\contentsline {subsection}{\numberline {8.12}Momento angolare}{119}{}%
-\contentsline {subsection}{\numberline {8.13}Momento angolare e dinamica}{120}{}%
-\contentsline {subsection}{\numberline {8.14}Equazioni cardianli della meccanica}{120}{}%
-\contentsline {subsection}{\numberline {8.15}Equilibrio statico di un corpo rigido}{120}{}%
-\contentsline {subsection}{\numberline {8.16}Orbita e spin}{121}{}%
-\contentsline {subsection}{\numberline {8.17}Momento angolare - Corpo rigido}{122}{}%
-\contentsline {subsection}{\numberline {8.18}Conservazione del momento angolare}{122}{}%
-\contentsline {section}{\numberline {9}Oscillazioni}{124}{}%
-\contentsline {section}{\numberline {10}Solidi e fluidi}{125}{}%
-\contentsline {section}{\numberline {11}Temperatura e calore}{126}{}%
-\contentsline {section}{\numberline {12}Il primo principio della termodinamica}{127}{}%
-\contentsline {section}{\numberline {13}Il secondo principio della termodinamica}{128}{}%
+\contentsline {subsection}{\numberline {8.5}Teorema degli assi paralleli}{114}{}%
+\contentsline {subsection}{\numberline {8.6}Prodotto vettoriale - Richiamo}{115}{}%
+\contentsline {subsection}{\numberline {8.7}Momento di forza}{116}{}%
+\contentsline {subsubsection}{\numberline {8.7.1}Momento di forza dovuto alla gravità}{118}{}%
+\contentsline {subsection}{\numberline {8.8}Baricentro}{118}{}%
+\contentsline {subsection}{\numberline {8.9}Ribaltamento}{119}{}%
+\contentsline {subsection}{\numberline {8.10}Leve e ingranaggi}{120}{}%
+\contentsline {subsection}{\numberline {8.11}Potenza}{121}{}%
+\contentsline {subsection}{\numberline {8.12}Momento angolare}{121}{}%
+\contentsline {subsection}{\numberline {8.13}Momento angolare e dinamica}{122}{}%
+\contentsline {subsection}{\numberline {8.14}Equazioni cardianli della meccanica}{122}{}%
+\contentsline {subsection}{\numberline {8.15}Equilibrio statico di un corpo rigido}{122}{}%
+\contentsline {subsection}{\numberline {8.16}Orbita e spin}{123}{}%
+\contentsline {subsection}{\numberline {8.17}Momento angolare - Corpo rigido}{124}{}%
+\contentsline {subsection}{\numberline {8.18}Conservazione del momento angolare}{124}{}%
+\contentsline {section}{\numberline {9}Oscillazioni}{126}{}%
+\contentsline {section}{\numberline {10}Solidi e fluidi}{127}{}%
+\contentsline {section}{\numberline {11}Temperatura e calore}{128}{}%
+\contentsline {section}{\numberline {12}Il primo principio della termodinamica}{129}{}%
+\contentsline {section}{\numberline {13}Il secondo principio della termodinamica}{130}{}%
