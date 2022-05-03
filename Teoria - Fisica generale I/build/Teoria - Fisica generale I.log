@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.27)  2 MAY 2022 09:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.27)  3 MAY 2022 06:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -621,6 +621,9 @@ LaTeX Warning: Label `fig:fisica_molla_verticale' multiply defined.
 
 LaTeX Warning: Label `fig:esempio_di_urto' multiply defined.
 
+
+LaTeX Warning: Label `fig:piano_inclinato' multiply defined.
+
 )
 \openout1 = `"Teoria - Fisica generale I.aux"'.
 
@@ -843,31 +846,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 5760--5762
 
  []
 
-[106] [107] [108] [109] [110] [111] [112] [113] [114] [115]
-Underfull \hbox (badness 10000) in paragraph at lines 6314--6316
-
+[106] [107] [108] [109] [110] [111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122] [123] [124] [125] [126] [127]
+Overfull \hbox (166.44589pt too wide) detected at line 6904
+\OT1/cmr/m/n/10 ^^A\OML/cmm/m/it/10 E \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 E[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 E[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 K[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 K[] \OT1/cmr/m/n/10 = [] \OMS/cmsy/m/n/10 ^^@ [] \OT1/cmr/m/n/10 = [] \OMS/cmsy/m/n/10 ^^@ [] \OT1/cmr/m/n/10 = []\OML/cmm/m/it/10 I[]![] []
  []
 
-[116] [117] [118] [119] [120] [121] [122] [123] [124] [125] [126] [127] [128] [129] [130] (build/Teoria - Fisica generale I.aux)
+[128] [129] [130] [131] [132] [133] [134] [135] (build/Teoria - Fisica generale I.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 47098 strings out of 480445
- 1234366 string characters out of 5892391
- 2295114 words of memory out of 5000000
- 63745 multiletter control sequences out of 15000+600000
+ 47111 strings out of 480445
+ 1234666 string characters out of 5892391
+ 2295147 words of memory out of 5000000
+ 63758 multiletter control sequences out of 15000+600000
  426260 words of font info for 109 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  128i,28n,130p,775b,2417s stack positions out of 5000i,500n,10000p,200000b,80000s
  </Users/enricopiccin/Library/texlive/2021basic/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmib10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/symbols/m
-sbm10.pfb>
-Output written on "build/Teoria - Fisica generale I.pdf" (130 pages, 728663 bytes).
+cm/cmmib10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.p
+fb></usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on "build/Teoria - Fisica generale I.pdf" (135 pages, 753839 bytes).
 PDF statistics:
- 537 PDF objects out of 1000 (max. 8388607)
- 370 compressed objects within 4 object streams
+ 557 PDF objects out of 1000 (max. 8388607)
+ 384 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
  53 words of extra memory for PDF output out of 10000 (max. 10000000)
 

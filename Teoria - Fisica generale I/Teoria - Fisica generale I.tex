@@ -6259,9 +6259,9 @@ essendo $\vert \alpha \vert$ l'accelerazione angolare.
 \vspace{1em}
 \noindent
 \textbf{Osservazione}: Si osservi che se l'asse è fisso si ha che $\vec a \parallel \vec \omega$ e se $\vec \alpha$ è costante, allora si ha che
-\[\vec \omega = \vec \omega_0 + \vec \alpha \cdot t\]
+\[\boxed{\vec \omega = \vec \omega_0 + \vec \alpha \cdot t}\]
 per cui
-\[\vec \alpha=\frac{\vec \omega}{t}\]
+\[\boxed{\vec \alpha=\frac{\vec \omega}{t}}\]
 
 \newpage
 \noindent
@@ -6290,33 +6290,83 @@ Di seguito si espone la definizione di \textbf{momento di forza}:
 \begin{tabularx}{\textwidth}{@{}|P|@{}}
     \hline
     {\textbf{MOMENTO DI FORZA}}\\
-    \parbox{\linewidth}{Il \textbf{momento di forza} viene definito come il prodotto vettoriale tra il vettore punto di applicazione e il vettore forza, ovvero
+    \parbox{\linewidth}{Il \textbf{momento di forza} viene definito come il prodotto vettoriale tra il vettore punto di applicazione (che presenta esso stesso come punto di applicazione l'asse di rotazione) e il vettore forza, ovvero
     \[\boxed{\vec \tau = \vec r \times \vec F}\]
     e per determinare il modulo di tale momento è sufficiente calcolare
     \[\vert \vec \tau \vert = \vert \vec r \vert \cdot \vert \vec F \vert \cdot \sin(\theta) = r \cdot (F \cdot \sin(\theta)) = (r \cdot \sin(\theta)) \cdot F\]
-    ove $\theta$ è l'angolo compreso tra il vettore $\vec r$ e il vettore $\vec F$ (ovviamente $\theta$ dovrà essere misurato facendo coincidere il punto applicazione dei due vettori).\\
-    In altre parole il modulo del momento di forza è dato dal prodotto tra la distanza dall'asse e la componente perpendicare della forza (ovvero $r \cdot (F \cdot \sin(\theta))$).\\
-    O ancora, il modulo del momento di forza è dato dal prodotto tra la forza e il braccio, ossia la distanza del vettore forza dal punto di applicazione del vettore $\vec r$, chiamato \textbf{braccio} (ovvero $(r \cdot \sin(\theta)) \cdot F$, in cui $(r \cdot \sin(\theta))$ prende il nome di braccio).\vspace{3mm}}\\
+    ove $\theta$ è l'angolo compreso tra il vettore $\vec r$ e il vettore $\vec F$ (ovviamente $\theta$ dovrà essere misurato facendo coincidere il punto applicazione dei due vettori).\vspace{3mm}}\\
     \hline
 \end{tabularx}
 
 \vspace{1em}
 \noindent
-\textbf{Osservazione $\boldsymbol{1}$}: Si consideri la seguente rappresentazione tridimensionale del momento di forza:
-\[raffigurazione\]
-Allora, giacché è noto che è possibile scomporre $\vec F$ nelle sue componenti \emph{radiale} e \emph{angolare}
-\[\vec F = F_r \cdot \hat{r} + F_{\theta} \cdot \hat{\theta}\]
-si può semplicemente calcolare il momento di forza come
-\[\vec \tau = \vec r \times \vec F = r \cdot F \sin(\theta) \cdot \hat{k} = \tau_z \cdot \hat{k} = r \cdot F_\theta \cdot \hat{k}\]
-Applicando, inoltre, la seconda legge della dinamica, si evince facilmente come
-\[F_\theta=m a_\theta=mr\alpha\]
-e, quindi,
-\[\tau_z=r F_\theta=m r^2 \alpha\]
-ciò permette di capire come $\tau$ produca un'\textbf{accelerazione angolare}.\\
+\textbf{Osservazione}: In altre parole il modulo del momento di forza è dato dal prodotto tra la distanza dall'asse e la componente perpendicolare della forza (ovvero $r \cdot (F \cdot \sin(\theta))$):
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \draw[thick, -stealth] (0,0) -- ++(2,0) node[midway,above]{$\vec r$};
+    \draw[thick, -stealth] (2,0) -- ++(2,2) node[midway,below right]{$\vec F$};
+    \draw[thick, -stealth] (2,0) -- ++(0,2) node[midway,left]{$\vert F_y \vert = \vert F \vert \sin(\theta)$};
+    \draw[dashed] (2,2) -- (4,2) (2,0) -- ++(1,0);
+    \draw [draw = orange] (2,0) ++(.8,0) arc (0:45:0.8) node [pos=.4, left] {\textcolor{orange}{$\theta$}};
+  \end{tikzpicture}
+\end{figure}
+
+\noindent
+O ancora, il modulo del momento di forza è dato dal prodotto tra la forza e il \textbf{braccio}, ossia la distanza del vettore forza dal punto di applicazione del vettore $\vec r$ (ovvero $(r \cdot \sin(\theta)) \cdot F$, in cui $(r \cdot \sin(\theta))$ prende il nome di braccio):
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \draw[thick, -stealth] (0,0) -- ++(3,0) node[midway,above]{$\vec r$};
+    \draw[thick, -stealth] (3,0) -- ++(1,1) node[midway,below right]{$\vec F$};
+    \draw[dashed] (3,0) -- ++(-1,-1);
+    \draw[thick, -stealth] (0,0) -- (1.5,-1.5) node[midway,below left]{$r \sin(\theta)$};
+    \draw[thick, -stealth] (1.5,-1.5) -- ++(1,1) node[midway,below right]{$\vec F$};
+  \end{tikzpicture}
+\end{figure}
 
 \vspace{1em}
 \noindent
-\textbf{Osservazione $\boldsymbol{2}$}: Se ora si consiera un corpo rigido, al fine di determinare il momento di forza totale è necessario sommare i contributi di tutte le forze applicate al corpo rigido, per cui
+\textbf{Osservazione}: Si consideri la seguente rappresentazione tridimensionale del momento di forza, nel quale si pone l'asse di rotazione in corrispondenza dell'asse $z$:
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1.5]
+    \draw[-stealth] (0,0)  -- ++(0,2) node[at end, above]{$\hat{z}$};
+    \draw[-stealth] (-1,1) -- ++(4,-4) node[at end, below]{$y$};
+    \draw[-stealth] (1,1)  -- ++(-4,-4) node[at end, below]{$x$};
+    \draw[very thick, -stealth] (0,0)  -- ++(.5,-2) node[midway,below left]{$\vec r$};
+    \draw[very thick, -stealth] (.5,-2)  -- ++(2,0) node[midway,above]{$\vec F$};
+    \draw[dashed] (2.5,-2) -- ++(-.45,.65) coordinate(a);
+    \draw[dashed] (2.5,-2) -- ++(-1.8,-.75) coordinate(b);
+    \draw[very thick, -stealth] (.5,-2)  -- (a) node[midway,above]{$\vec F_{\theta}$};
+    \draw[very thick, -stealth] (.5,-2)  -- (b) node[midway,left]{$\vec F_{\vec r}$};
+    \draw [draw = orange] (.5,-2) ++(.5,0) arc (0:-73:0.5) node [pos=.4, left] {\textcolor{orange}{$\theta$}};
+  \end{tikzpicture}
+  \caption{Calcolo del momento di forza in 3 dimensioni}
+  \label{fig:momento_forza_tridimensionale}
+\end{figure}
+
+\noindent
+Allora, giacché è noto che è possibile scomporre $\vec F$ nelle sue componenti \emph{radiale} $\vec F_{\vec r}$ e \emph{angolare} $\vec F_{\theta}$
+\[\vec F = F_r \cdot \hat{r} + F_{\theta} \cdot \hat{\theta}\]
+si può semplicemente calcolare il momento di forza come
+\[\vec \tau = \vec r \times \vec F = r \cdot F \sin(\theta) \cdot \hat{k} = \tau_z \cdot \hat{k} = r \cdot F_\theta \cdot \hat{k}\]
+Applicando, inoltre, la seconda legge della dinamica $\vec F = m \vec a$, si evince facilmente come la componente di $\vec F$ in direzione $\theta$ sia proprio data dal prodotto tra la massa $m$ e l'accelerazione in direzione $\theta$
+\[F_\theta=m a_\theta=mr\alpha\]
+l'ultima uguaglianza è giustificata dal fatto che l'accelerazione perpendicolare all'asse di rotazione si può calcolare come
+\[a_\theta=r \cdot \alpha=r \cdot \frac{d \omega}{d t} = r \cdot \frac{1}{r} \cdot \frac{dv}{dt} = \frac{dv}{dt}\]
+dal momento che
+\[\boxed{\vec a_\theta = \vec r \cdot \alpha}\]
+Pertanto si evince come
+\[\boxed{\tau_z=r F_\theta=m r^2 \alpha}\]
+ciò permette di capire come il momento di forza $\tau$ produca un'\textbf{accelerazione angolare}.
+
+\vspace{1em}
+\noindent
+Se ora si consiera un corpo rigido, al fine di determinare il momento di forza totale è necessario sommare i contributi di tutte le forze applicate al corpo rigido, per cui
 \[\tau_z=\sum_i \left(\vec r_i \times \vec F_i\right) = \sum_{i} r_i \cdot F_{i,\theta}\]
 ma siccome in un corpo rigido tutti i punti presentano la stessa accelerazione angolare è facile capire come
 \[\sum_{i} r_i \cdot F_{i,\theta} = \sum_{i} r_i \cdot m_i r_i \alpha = \sum_{i} r_i^2 m_i \alpha = I \alpha\]
@@ -6326,8 +6376,11 @@ che è un esatto analogo della seconda legge della dinamica $\vec F = m \vec a$.
 
 \vspace{1em}
 \noindent
-\textbf{Attenzione}: Si osservi che la legge $\vec \tau = I \vec \alpha$ è valida e applicabile solamente se
+\textbf{Attenzione}: Si osservi che la legge
+\[\vec \tau = I \vec \alpha\]
+è valida e applicabile solamente se
 \[\left\{
+    \rowcolors{1}{white}{white}
     \begin{array}{l}
       \textbf{asse è fisso}\\
       \text{oppure}\\
@@ -6338,37 +6391,129 @@ che è un esatto analogo della seconda legge della dinamica $\vec F = m \vec a$.
 \vspace{1em}
 \noindent
 \textbf{Esempio}: Si consideri il cilindro seguente:
-\[raffigurazione\]
-e si determini l'accelerazione della massa $m$. Naturalmente, sulla massa $m$ vi sono due forze applicate, ossia la forza peso $\vec F_t$ e la forza di tensione $\vec F_T$, mentre sul cilindro vi è applicata una forza di tensione che produce una rotazione dello stesso.\\
+
+\begin{figure}[H]
+  \centering
+  \pgfmathsetmacro{\xdeg}{30}
+  \pgfmathsetmacro{\xx}{cos(\xdeg)}
+  \pgfmathsetmacro{\xy}{sin(\xdeg)}
+
+  \pgfmathsetmacro{\ydeg}{150}
+  \pgfmathsetmacro{\yx}{cos(\ydeg)}
+  \pgfmathsetmacro{\yy}{sin(\ydeg)}
+
+  \pgfmathsetmacro{\zdeg}{90}
+  \pgfmathsetmacro{\zx}{cos(\zdeg)}
+  \pgfmathsetmacro{\zy}{sin(\zdeg)}
+  \newcommand{\tdcyl}[5]{% origin x, origin y, origin z, radius, height
+        \path (1,0,0);
+        \pgfgetlastxy{\cylxx}{\cylxy}
+        \path (0,1,0);
+        \pgfgetlastxy{\cylyx}{\cylyy}
+        \path (0,0,1);
+        \pgfgetlastxy{\cylzx}{\cylzy}
+        \pgfmathsetmacro{\cylt}{(\cylzy * \cylyx - \cylzx * \cylyy)/ (\cylzy * \cylxx - \cylzx * \cylxy)}
+        \pgfmathsetmacro{\ang}{atan(\cylt)}
+        \pgfmathsetmacro{\ct}{1/sqrt(1 + (\cylt)^2)}
+        \pgfmathsetmacro{\st}{\cylt * \ct}
+        \filldraw[fill=white] (#4*\ct+#1,#4*\st+#2,#3) -- ++(0,0,#5) arc[start angle=\ang,delta angle=-180,radius=#4] -- ++(0,0,-#5) arc[start angle=\ang+180,delta angle=180,radius=#4];
+        \filldraw[fill=white] (#1,#2,#3+#5) circle[radius=#4];
+    }
+
+    \newcommand{\tdcylxy}[5]{% origin x, origin y, origin z, radius, height
+        \path (1,0,0);
+        \pgfgetlastxy{\cylxx}{\cylxy}
+        \path (0,1,0);
+        \pgfgetlastxy{\cylyx}{\cylyy}
+        \path (0,0,1);
+        \pgfgetlastxy{\cylzx}{\cylzy}
+        \pgfmathsetmacro{\cylt}{(\cylzy * \cylyx - \cylzx * \cylyy)/ (\cylzy * \cylxx - \cylzx * \cylxy)}
+        \pgfmathsetmacro{\ang}{atan(\cylt)}
+        \pgfmathsetmacro{\ct}{1/sqrt(1 + (\cylt)^2)}
+        \pgfmathsetmacro{\st}{\cylt * \ct}
+        \filldraw[fill=white] (#4*\ct+#1,#4*\st+#2,#3) -- ++(0,0,#5) arc[start angle=\ang,delta angle=180,radius=#4] -- ++(0,0,-#5) arc[start angle=\ang+180,delta angle=180,radius=#4];
+        \filldraw[fill=white] (#1,#2,#3) circle[radius=#4];
+    }
+  \begin{tikzpicture}[x={(\xx*1cm,\xy*1cm)},y={(\yx*1cm,\yy*1cm)},z={(\zx*1cm,\zy*1cm)}]
+      % \tdcyl{0}{0}{3}{1}{3} % x y z   r h
+      \begin{scope}[z={(\xx*1cm,\xy*1cm)},x={(\yx*1cm,\yy*1cm)},y={(\zx*1cm,\zy*1cm)}]
+          % This is a x-growing cylinder
+          \tdcylxy{0}{0}{0}{1.5}{3} % y z x  r h
+          \tdcylxy{0}{0}{0}{1.5}{2.4} % y z x  r h
+          \tdcylxy{0}{0}{0}{1.5}{1.8} % y z x  r h
+          \tdcylxy{0}{0}{0}{1.5}{1.2} % y z x  r h
+      \end{scope}
+      \draw (0,0,0) node[circ]{} -- ++(-3,0,0);
+      \draw (4.05,0,0) -- ++(2,0,0);
+      \draw (0,0,0) -- (0,-1.5,0) node[midway,below]{$M$};
+      \draw (0,0,0) -- (0,0,1.5) node[midway,left]{$R_0$};
+      \draw (2.4,-1.5,0) -- ++(0,0,-3) node[circ]{} node[below]{$m$} ++(-1.5,1,0) -- ++(3,0,0) -- ++(0,-2,0) -- ++(-3,0,0) -- ++(0,2,0) -- ++(0,0,-1) -- ++(0,-2,0) -- ++(0,0,1) ++(0,0,-1) -- ++(3,0,0) -- ++(0,0,1);
+  \end{tikzpicture}
+  \caption{Massa collegata ad un cilindro rotante}
+  \label{fig:massa_cilindro_rotante_1}
+\end{figure}
+
+\noindent
+Si determini l'accelerazione della massa $m$. Naturalmente, sulla massa $m$ vi sono due forze applicate, ossia la forza peso $\vec F_t$ e la forza di tensione $\vec F_T$, mentre sul cilindro vi è applicata una forza di tensione che produce una rotazione dello stesso, come mostrato di seguito:
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \draw (0,0) node[circ]{};
+    \draw[-stealth] (0,0) -- ++(0,2) node[midway,left]{$\vec F_T$};
+    \draw[-stealth] (0,0) node[circ]{} (0,0) -- ++(0,-2) node[midway,left]{$\vec F_t$};
+  \end{tikzpicture}
+  \hspace{5em}
+  \begin{tikzpicture}
+    \draw (0,0) node[circ]{};
+    \draw (0,0) circle[radius=1.5];
+    \draw[dashed] (0,0) -- ++(1.5,0) node[midway,above]{$R_0$};
+    \draw[-stealth] (1.5,0) -- ++(0,-2) node[midway,right]{$\vec F_T$};
+  \end{tikzpicture}
+  \caption{Diagramma a corpo libero della massa e del cilindro}
+  \label{fig:diagramma_corpo_libero_massa_cilindro}
+\end{figure}
+
+\noindent
 Naturalmente, dalla seconda legge di Newton applicata al blocco $m$, si evince come
 \[ma = -mg + F_T\]
-mentre per quanto riguarda il cilindro si ha che
+mentre per quanto riguarda il cilindro, essendo l'asse fisso e $\vec F_T \perp \vec R_0$ si ha che
 \[\tau = I \alpha \longrightarrow F_T \cdot R_0 = \frac{1}{2}M R_0^2 \cdot \left(-\frac{a}{R_0}\right) \longrightarrow F_T = -\frac{1}{2}M a\]
-A questo punto, pertanto, è possibile ottenere come
+in quanto la fune consente di vincolare l'accelerazione angolare del cilindro con quella tangenziale della massa. A questo punto, pertanto, è possibile ottenere la seguente equazione
 \[ma = -mg + F_T \longrightarrow ma=-mg+\frac{1}{2}Ma \longrightarrow ma-\frac{1}{2}Ma=-mg \longrightarrow a \cdot \left(m-\frac{1}{2}M\right)=-mg\]
 pertanto si ottiene come
-\[a=-\frac{mg}{\displaystyle{\left(m-\frac{1}{2}M\right)}}\]
+\[a=-\frac{m}{\displaystyle{\left(m-\frac{1}{2}M\right)}} \cdot g\]
 
 \vspace{1em}
 \noindent
-\textbf{Osservazione}: ... continua ... con al derivazione dell'accelerazione angolare.
+\textbf{Osservazione}: Com'è noto, per quanto riguarda una traiettoria angolare, per la quale un punto materiale percorre uno spostamento $\Delta s$ a distanza $R$ dal centro e descrivendo un angolo $\Delta \theta$, si ha che
+\[\Delta \theta=\frac{\Delta s}{R} \longrightarrow \Delta s = R \cdot \Delta \theta \]
+Dervivando l'ultima quantità rispetto al tempo si ottiene
+\[\frac{\Delta s}{\Delta t} = R \cdot \frac{\Delta \theta}{\Delta t} \longrightarrow v = R \omega\]
+e derivando nuovamente rispetto al tempo si ottiene
+\[\frac{v}{\Delta t} = R \cdot \frac{\omega}{\Delta t} \longrightarrow a = R \alpha\]
+per cui si ottiene
+\[\boxed{\alpha=\frac{a}{R}}\]
 
 \vspace{1em}
 \subsubsection{Momento di forza dovuto alla gravità}
-Si consideri un corpo il cui asse di rotazione non coincide con il centro di massa; allora, considerando una generica una massa $m_i$ che compone il corpo rigido, su di esso agisce una forza peso $\vec f_{t,i}$ che presenta un punto di applicazione posizionato in $\vec r_i$.\\
+Si consideri un corpo il cui asse di rotazione non coincide con il centro di massa; allora, considerando una generica una massa $m_i$ che compone il corpo rigido, su di esso agisce una forza peso $\vec F_{t,i}$ che presenta un punto di applicazione posizionato in $\vec r_i$.\\
 Allora è ovvio, per quanto detto, che
 \[\vec \tau = \sum_i \vec r_i \times \vec F_{t,i} = \sum_i \vec r_i \times (-\hat{j} \cdot m_i g) = -g \cdot \sum_i m_i \vec r_i \times \hat{j}\]
 Ma naturalmente si ha che
-\[\vec r_i \times \hat{j} = x_i \cdot (\hat{i} \times \hat{j}) + y_i \cdot (\hat{j} \times \hat{j}) + z_i \cdot (\hat{k} \times \hat{j}) = x_i \hat{k} + 0 - z_i \hat{i}\]
+\[\vec r_i = x_i \cdot \hat{i} + y_i \cdot \hat{j} + z_i \cdot \hat{k}\]
+per cui si perviene al risultato seguente
+\[\vec r_i \times \hat{j} = x_i \cdot (\hat{i} \times \hat{j}) + y_i \cdot (\hat{j} \times \hat{j}) + z_i \cdot (\hat{k} \times \hat{j}) = x_i \cdot \hat{k} + 0 - z_i \cdot \hat{i}\]
 pertanto si ottiene che
-\[-g \cdot \sum_i m_i \vec r_i \times \hat{j} = -g \cdot \sum_i m_i \left(x_i \hat{k} - z_i \hat{i}\right) = -g \cdot \left(\sum_i m_i x_i\right) \hat{k} + g \cdot \left(\sum_i m_i z_i\right) \hat{j}\]
+\[-g \cdot \sum_i m_i \vec r_i \times \hat{j} = -g \cdot \sum_i m_i \left(x_i \cdot \hat{k} - z_i \cdot \hat{i}\right) = -g \cdot \left(\sum_i m_i x_i\right) \cdot \hat{k} + g \cdot \left(\sum_i m_i z_i\right) \cdot \hat{j}\]
 ma ricordando che
 \[\frac{\displaystyle{\sum_i m_i x_i}}{\displaystyle{\sum_i m_i}} = x_{\text{CM}} \hspace{1em} \text{e} \hspace{1em} \frac{\displaystyle{\sum_i m_i z_i}}{\displaystyle{\sum_i m_i}} = z_{\text{CM}}\]
-per cui si ottiene che
-\[-g \cdot \left(\sum_i m_i x_i\right) \hat{k} + g \cdot \left(\sum_i m_i z_i\right) \hat{j} = -g M x_{\text{CM}} \hat{k} + g M z_{\text{CM}} \hat{i}\]
+si ottiene
+\[-g \cdot \left(\sum_i m_i x_i\right) \cdot \hat{k} + g \cdot \left(\sum_i m_i z_i\right) \cdot \hat{j} = -g M x_{\text{CM}} \cdot \hat{k} + g M z_{\text{CM}} \cdot \hat{i}\]
 ovvero
 \[\boxed{\tau=\vec r_{\text{CM}} \times \left(- \hat{j} M g\right) = \vec r_{\text{CM}} \times \vec F_{t}}\]
-per cui il \textbf{momento di forza dovuto alla gravità è uguale al momento di forza applicato solo sul centro di massa}.
+per cui il \textbf{momento di forza dovuto alla gravità è uguale al momento di forza applicato solo sul centro di massa}; indipendentemente dalla distribuzione di massa, il momento di forza dovuto alla gravità si calcola considerando tutta la massa concentrata nel centro di massa.\\
+Ciò significa anche che se l'asse di rotazione è proprio il centro di massa, allora il momento di forza associato è nullo (essendo il braccio nullo): la forza di gravità non produce alcun momento di forza su un oggetto libero di muoversi.
 
 \vspace{1em}
 \subsection{Baricentro}
@@ -6383,35 +6528,90 @@ Di seguito si espone la definizione del concetto di \textbf{baricentro}:
 \begin{tabularx}{\textwidth}{@{}|P|@{}}
     \hline
     {\textbf{CENTRO DI GRAVITÀ}}\\
-    \parbox{\linewidth}{La definizione di \textbf{baricentro} coincide con quella di \emph{centro di massa}, anche definito \textbf{centro di gravità}.
+    \parbox{\linewidth}{La definizione di \textbf{baricentro} coincide con quella di \emph{centro di massa}, anche definito \textbf{centro di gravità}, in quanto è il punto di applicazione della forza di gravità.
     \vspace{3mm}}\\
     \hline
 \end{tabularx}
 
 \vspace{1em}
 \noindent
-\textbf{Esempio $\boldsymbol{1}$}: Si consideri un oggetto sospeso ad una parete con l'asse di rotazione non allineato con il centro di massa:
-\[raffigurazione\]
-allora, in questo caso, si ha un momento di forza dovuto alla forza peso, determinabile come
+\textbf{Esempio $\boldsymbol{1}$}: Si consideri un oggetto sospeso ad una parete con l'asse di rotazione non allineato con il centro di massa; allora, in questo caso, si ha un momento di forza dovuto alla forza peso, determinabile come
 \[\vec \tau = \vec r_{\text{CM}} \times \vec F_{t} \neq 0\]
-Si ha equilibrio solamente quanto il \textbf{centro di massa} è allineato alla verticale passante per il perno. Per tale ragione è sufficiente considerare due misure per determinare il centro di massa: dati due piani passanti uno per il perno e contenente la verticele al perno e uno orizzontale all'oggetto, si determina facilmente il baricentro.
+Si ha equilibrio solamente quando il \textbf{centro di massa} è allineato alla verticale passante per il perno, ossia il punto attorno al quale il corpo ruota ed è, quindi, vincolato al soffitto. Per tale ragione è sufficiente considerare due misure per determinare il centro di massa: se il corpo è in equilibrio, allora è noto che il centro di massa si trova sulla verticale passante per il perno; ora è sufficiente appendere il medesimo copo ma su un altro punto per determinare una nuova retta nella quale è collocato il centro di massa: l'intersezione delle due rette permette di determinare il baricentro.
 
 \vspace{1em}
 \noindent
 \textbf{Esempio $\boldsymbol{2}$}: Si consideri un'asta di lunghezza $L$ che, inizalmente verticale, viene inclinata con un angolo $\theta$. Naturalmente si ha che il momento di forza dovuto alla forza di gravità è
 \[\vec \tau = \vec r \times \vec F = r F_t \sin(\theta)\]
-ma è noto che la distanza del centro di massa è pari a $\frac{L}{2}$; inoltre, è noto che
-\[\tau=I \alpha = \frac{1}{3}mL^2 \cdot \alpha\]
+ma è noto che la distanza del centro di massa è pari a $r=\frac{L}{2}$, per cui
+\[\vec \tau = r F_t \sin(\theta) = \frac{L}{2} mg \sin(\theta)\]
+inoltre, dal momento che si suppone l'asta di densità uniforme e l'asse in corrispondenza di un una sua estremità, si ottiene
+\[\vec \tau=I \alpha = \frac{1}{3}mL^2 \cdot \alpha\]
 per cui alla fine è immediato determinare l'accelerazione angolare $\alpha$ come segue
 \[\frac{L}{2}mg \sin(\theta)=\frac{1}{3} mL^2 \alpha \longrightarrow \alpha = \frac{3}{2}\frac{g}{L} \sin(\theta)\]
 Se ora si volesse calcolare l'accelerazione lineare $a$ nel punto più alto si ottiene:
-\[\alpha L = \frac{3}{2}g \sin(\theta)\]
-e ciò significa che ad un certo angolo si avrà che $a > g$, per cui l'intera struttura in caduta potrebbe rompersi.
+\[a = \alpha L = \frac{3}{2}g \sin(\theta)\]
+e ciò significa che ad un certo angolo si avrà che $a > g$, ossia il punto più alto dell'asta accelera più velocemente del centro di massa, per cui l'intera struttura in caduta potrebbe rompersi.
 
 \vspace{1em}
 \subsection{Ribaltamento}
-Si consideri un oggetto posizionato su un piano inclinato di un angolo $\theta$ e avente un centro di massa CM posizionato in corrispondenza di $\vec r_{\text{CM}}$. Ovviamente, su tale oggetto agisce la forza peso, la forza normale e la forza di attrito statico; facilmente si può trovare che
+Si consideri un oggetto posizionato su un piano inclinato di un angolo $\theta$ e avente un centro di massa CM posizionato in corrispondenza di $\vec r_{\text{CM}}$, come mostrato di seguito
+
+\vspace{1em}
+\noindent
+\begin{figure}[H]
+  \centering
+  \newcommand{\ang}{30}
+
+  \begin{tikzpicture} [font = \small, scale=1.5]
+
+  % triangle:
+  \draw [draw = orange, fill = orange!15] (0,0) coordinate (O) -- (\ang:6)
+  	coordinate [pos=.45] (M) |- coordinate (B) (O);
+
+  % angles:
+  \draw [draw = orange] (O) ++(.8,0) arc (0:\ang:0.8)
+  	node [pos=.4, left] {$\theta$};
+  \draw [draw = orange] (B) rectangle ++(-0.3,0.3);
+
+  \begin{scope} [-latex,rotate=\ang]
+
+  % Object (rectangle)
+  \draw [fill = purple!30,
+  	draw = purple!50] (M) rectangle ++ (1,.6);
+
+  % Weight Force and its projections
+  \draw [dashed] (M) ++ (.5,.3) coordinate (MM) -- ++ (0,-1.29)
+  	node [very near end, right] {$\vec{F}_t \cdot \cos{\theta}$};
+
+  \draw [dashed] (MM) -- ++ (-0.75,0)
+  	node [very near end, left] {$\vec{F}_t \cdot \sin{\theta}$};
+
+  \draw (MM) -- ++ (-\ang-90:1.5)
+  	node [very near end,below left ] {$\vec{F}_t$};
+
+  % Normal Force
+  \draw (MM) -- ++ (0,1.29)
+  node [very near end, right] {$\vec{F}_N$};
+
+  \draw (M) node[circ]{};
+  \draw (MM) node[above right]{CM};
+  \draw[-stealth] (M) -- (MM) node[midway,below left]{$\vec r_{\text{CM}}$};
+  \end{scope}
+  \end{tikzpicture}
+  \caption{Piano inclinato}
+  \label{fig:piano_inclinato}
+\end{figure}
+
+\noindent
+Ovviamente, su tale oggetto agisce la forza peso, la forza normale e la forza di attrito statico; facilmente, essendo tutto statico, si può applicare la seconda legge della dinamica, ottenendo:
+\[\vec F = m \vec a = 0 = \vec F_s + \vec F_N + \vec F_t\]
+per cui si può trovare che
 \[F_N=F_t \cdot \cos(\theta) \hspace{1em} \text{e} \hspace{1em} F_s=F_t \cdot \sin(\theta)\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Ovviamente, quando si considerano i vettori posizione, bisogna considerare come loro punto di applicazione l'asse di rotazione al fine di calcolare, poi, il momento di forza.
 
 \newpage
 \noindent
@@ -6666,6 +6866,88 @@ in cui ovviamente il momento di forza della forza peso è nullo, essendo il brac
 \vspace{1em}
 \noindent
 \textbf{Osservazione}: Si presti particolare attenzione al segno del prodotto vettoriale: impiegare sempre la regola della mano destra per determinare se il prodotto vettoriale \textbf{entra nella pagina} (ossia è \textbf{negativo}) oppure \textbf{esce dalla pagina} (ossia è \textbf{positivo}).
+
+\newpage
+\noindent
+\begin{center}
+  2 Maggio 2022
+\end{center}
+Considerando l'esempio precedente, è possibile, come già anticipato, considerare una differente origine attorno alla quale valutare i momenti di forza, come il punto di applicazione della prima forza di tensione $\vec F_{T_1}$, per cui si ottiene la seguente sommatoria:
+\[\vec \tau_{T_1} + \vec \tau_{T_2} + \vec \tau_p = -x \cdot F_p + l \cdot F_{T_2} \cdot \cos(\phi)\]
+in questo modo, di fatto, il momento di forza associato alla forza di tensione $\vec F_{T_1}$ è nullo e tutti gli altri momenti di forza si calcolano in modo più agevole. Ovviamente il risultato ottenuto è il medesimo a quello precedente.\\
+Al fine di determinare il modulo delle forze, è utile richiamare l'equazione di equilibrio di forze e scomporre tale equazione nelle sue due componenti $x$ e $y$, per cui
+\begin{flalign*}
+  x &: - F_{T_1} \cdot \sin(\theta) + F_{T_2} \cdot \sin(\phi) = 0\\
+  y &: F_{T_1} \cdot \cos(\theta) + F_{T_2} \cdot \cos(\phi) - F_t = 0
+\end{flalign*}
+a cui deve essere aggiunta anche l'equazione dei momenti di forza:
+\[-x \cdot F_p + l \cdot F_{T_2} \cdot \cos(\phi)\]
+È possibile, dall'ultima equazione, ricavare il vincolo
+\[F_{T_2} \cos(\phi) = \frac{x}{L} F_t\]
+per cui, dalla seconda equazione si evince come
+\[F_{T_1} \cos(\theta) + \frac{x}{L} F_t - F_t \longrightarrow F_{T_1} \cos(\theta) = F_t \cdot \left(1 + \frac{x}{L}\right) \longrightarrow F_T = \frac{\displaystyle{\left(1 + \frac{x}{L}\right)}}{\cos(\theta)} \cdot F_t\]
+Dovendo ora, determinare il valore di $x$, è utile impiegare la prima equazione, per cui
+\[F_{T_1} \sin(\theta) = F_{T_2} \sin(\phi) \longrightarrow \left(1-\frac{x}{L}\right) \frac{\sin(\theta)}{\cos(\theta)} F_t = \frac{x}{L} \frac{\sin(\phi)}{\cos(\phi)} F_t\]
+e moltiplicando ambo i membri per $L$, si ha
+\[(L-x) \tan(\theta) = x \tan(\phi) \longrightarrow x \cdot \left(\tan(\phi) + \tan(\theta)\right) = L \tan(\theta)\]
+ottenendo, quindi
+\[x=L \frac{\tan(\theta)}{\tan(\phi) + \tan(\theta)}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio}: Il dicso $B$ ruota liberamente con velocità angolare $\omega_B$ ed è solidale con un'asta cilindrica che ne sporge lungo l'asse di rotazione. Il disco $C$ ha un foro al centro che consente di infilarlo sull'asta; il disco $C$, inizialmente in quiete, viene lasciato cadere sul disco $B$. Si determini la velocità angolare del sistema dopo che l'attrito tra $B$ e $C$ li ha portati a una velocità angolare comune. Si determini la variazione dell'energia cinetica del sistema e si esprima il risultato in termini di $\omega_B$, $I_B$ e $I_C$.\\
+In questo problema, giacché vi è attrito, non si ha conservazione dell'energia, ma si ha conservazione del momento angolare, per cui
+\[\vec L_i = \vec L_f \longrightarrow I_B \vec \omega_B = (I_B+I_C) \vec \omega\]
+Per cui si evince semplicemente come
+\[\boxed{\vec \omega = \vec \omega_B \frac{I_B}{I_C + I_B}}\]
+Al fine di determinare la variazione di energia, si ha
+\[\Delta E=E_f-E_i=K_{\text{rot},f}-K_{\text{rot},i}=\left(\frac{1}{2}(I_B+I_C) \omega^2 \right) - \left( \frac{1}{2}I_B\omega_B^2\right) = \left(\frac{1}{2}(I_B+I_C) \cdot \omega_B^2 \frac{I_B^2}{(I_C + I_B)^2} \right) - \left( \frac{1}{2}I_B\omega_B^2\right)=\frac{1}{2} I_B \omega_B^2 \left(\frac{I_B}{I_B+I_C}-1\right)\]
+
+\vspace{1em}
+\subsection{Seconda legge di Keplero}
+La seconda legge di Keplero afferma che\\
+\vspace{1em}
+\emph{La congiungente di un pianeta con il Sole spazza aree uguali in intervalli di tempo uguali} (ciò significa che i pianeti, quando sono più lontani dal sole, ruotano più lentamente rispetto a quando si trovano nelle sue prossimità), ovvero
+\[A \propto \Delta t\]
+
+\vspace{1em}
+\noindent
+Tale legge può essere dimostrata, ora, alla luce del teorema di conservazione del momento angolare: naturalmente la velocità $\vec v$ del pianeta attorno al sole è sempre tangenziale all'orbita, avente raggio $\vec r$, per cui
+\[\vec l= \vec r \times \vec p = m \vec r \times \vec v\]
+ma se si considera $\theta$ l'angolo compreso tra i vettori $r$ e $p$ si ottiene
+\[\vec l = m \vec r \vec v = mrv \sin(\theta)\]
+Dovendo determinare la relazione con l'area descritta dal pianeta, si osserva semplicemente come
+\[dA=\frac{1}{2}ds \cdot r \sin(\theta) = \frac{1}{2}v dt r \sin(\theta)\]
+Pertanto, si ottiene
+\[dA = \underbrace{\left(\frac{1}{2} vr \sin(\theta) \right)}_{\frac{l}{2m}} dt\]
+Pertanto, in conclusione si ottiene che
+\[\vec l = \vec r \times \vec p = m \vec r \times \vec v = mr v \sin(\theta) \hat{k}\]
+in cui $m r v \sin(\theta)$ è costante in quanto il momento angolare è conservato.
+
+\vspace{1em}
+\subsection{Fisica di un quadricottero}
+I quadricotteri presentano quattro rotori, ciascuno dei quali garantisce una forza di propulsione $\vec F_s$ identica. Tale velivolo può quindi compiere $4$ movimenti, ciascuno per ogni asse e poi un movimento rotatorio attorno all'asse vertiale.\\
+La forza di propulsione $\vec F_s$ può essere spiegata in modo analogo alla forza di propulsione di un razzo, per cui
+\[F=\frac{dp}{dt}=v \frac{dm}{dt}\]
+in cui, ovviamente, $dm$ è la massa del fluido che viene spostato. Considerando il flusso di aria di forma cilindrica, si ha che
+\[dm=\rho dV = \rho dl A = \rho v dt A\]
+per cui si ottiene che
+\[\frac{dm}{dt}=\rho v A\]
+che permette di concludere come la forza di propulsione è dato da
+\[\boxed{F_s=v^2 \rho A} \longrightarrow F_s \cong 2A \rho v^2\]
+anche se dovrebbe essere $F_s=v^2 \rho 2A$, in quanto è più aria ad essere spostata, pari a circa due volte l'area del cilindro considerato.\\
+Avendo a disposizione i dati del drone, si può considerare la velocità per mantenere una posizione stazionaria è
+\[v=...continua...\]
+È importante, tuttavia, considerare il fatto che i droni possono ruotare su se stessi; non solo, se tutte le eliche ruotassero nello stesso verso, per la consdervazione del momento angolare, il drone stesso ruoterebbe in direzione opposta a quello delle eliche; in realtà, le eliche opposte ruotano nello stesso verso che è opposto rispetto a quello delle altre due; in questo modo, quindi, si ottiene che
+\[\vec L_1 + \vec L_2 + \vec L_3 + \vec L_4 = 0\]
+per cui il drone è stabile.\\
+Al fine di muoversi, il drone deve modificare la forza di propulsione di opprtune eliche:
+\begin{itemize}
+  \item se il drone deve alzarsi, allora tutte le eliche devono fornire la stessa forza di propulsione;
+  \item se il drone deve muoversi in orizzontale, è necessario aumentare la forza di propulsione delle eliche opposte al movimeno, affinché la forza risultante sia orizzontale.
+  \item se il drone deve ruotare su se stesso, allora saranno le eliche che ruotano nello stesso verso a dover presentare la stessa forza di propulsione, ottenendo un momento angolare tale da garantire la rotazione cercata.
+\end{itemize}
+
 
 
 
