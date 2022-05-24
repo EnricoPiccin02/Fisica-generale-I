@@ -1,105 +1,155 @@
-\babel@toc {italian}{}
-\babel@toc {italian}{}
-\babel@toc {italian}{}
-\contentsline {section}{\numberline {1}Introduzione}{4}{}%
-\contentsline {subsection}{\numberline {1.1}Metodo scientifico}{4}{}%
-\contentsline {section}{\numberline {2}Unità e vettori}{5}{}%
-\contentsline {subsection}{\numberline {2.1}Grandezza fisica}{5}{}%
-\contentsline {subsection}{\numberline {2.2}Cifre significative e incertezza}{5}{}%
-\contentsline {subsubsection}{\numberline {2.2.1}Operazioni di base}{6}{}%
-\contentsline {subsection}{\numberline {2.3}Ordini di grandezza}{6}{}%
-\contentsline {subsection}{\numberline {2.4}Analisi dimensionale}{7}{}%
-\contentsline {subsection}{\numberline {2.5}Scalari e vettori}{7}{}%
-\contentsline {subsection}{\numberline {2.6}Prodotto con uno scalare}{8}{}%
-\contentsline {subsection}{\numberline {2.7}Somma vettoriale}{8}{}%
-\contentsline {subsection}{\numberline {2.8}Versori}{8}{}%
-\contentsline {subsection}{\numberline {2.9}Modulo e direzione}{9}{}%
-\contentsline {subsection}{\numberline {2.10}Prodotto scalare}{10}{}%
-\contentsline {section}{\numberline {3}Cinematica}{11}{}%
-\contentsline {subsection}{\numberline {3.1}Posizione e spostamento}{11}{}%
-\contentsline {subsection}{\numberline {3.2}Posizione in funzione del tempo}{12}{}%
-\contentsline {subsection}{\numberline {3.3}Velocità}{13}{}%
-\contentsline {subsection}{\numberline {3.4}Accelerazione}{14}{}%
-\contentsline {subsection}{\numberline {3.5}Moto uniformemente accelerato}{16}{}%
-\contentsline {subsubsection}{\numberline {3.5.1}Caduta libera dei gravi}{18}{}%
-\contentsline {subsubsection}{\numberline {3.5.2}Moto dei proiettili}{19}{}%
-\contentsline {subsection}{\numberline {3.6}Moto in 2D e 3D}{22}{}%
-\contentsline {subsection}{\numberline {3.7}Moto circolare uniforme}{23}{}%
-\contentsline {subsection}{\numberline {3.8}Moti relativi}{27}{}%
-\contentsline {subsubsection}{\numberline {3.8.1}Caso generale}{28}{}%
-\contentsline {section}{\numberline {4}Dinamica}{29}{}%
-\contentsline {subsection}{\numberline {4.1}Massa}{29}{}%
-\contentsline {subsection}{\numberline {4.2}Forza}{30}{}%
-\contentsline {subsection}{\numberline {4.3}Principi della dinamica - Leggi di Newton}{30}{}%
-\contentsline {subsection}{\numberline {4.4}Forza peso}{30}{}%
-\contentsline {subsection}{\numberline {4.5}Forza normale}{31}{}%
-\contentsline {subsection}{\numberline {4.6}Forza di tensione}{34}{}%
-\contentsline {subsection}{\numberline {4.7}Forza di attrito}{38}{}%
-\contentsline {subsection}{\numberline {4.8}Attrito dovuto a un fluido (resistenza)}{44}{}%
-\contentsline {subsection}{\numberline {4.9}Dinamica del moto circolare uniforme}{46}{}%
-\contentsline {subsection}{\numberline {4.10}Sistemi non-inerziali}{48}{}%
-\contentsline {subsection}{\numberline {4.11}Prodotto vettoriale}{49}{}%
-\contentsline {subsection}{\numberline {4.12}Pseudo-forza di Coriolis}{51}{}%
-\contentsline {section}{\numberline {5}Gravità}{53}{}%
-\contentsline {subsection}{\numberline {5.1}L'esperimento di Cavendish}{54}{}%
-\contentsline {subsection}{\numberline {5.2}Campo gravitazionale}{55}{}%
-\contentsline {subsection}{\numberline {5.3}Massa gravitazionale e inerziale}{55}{}%
-\contentsline {subsection}{\numberline {5.4}Corpi estesi}{56}{}%
-\contentsline {subsection}{\numberline {5.5}Leggi di Keplero}{57}{}%
-\contentsline {section}{\numberline {6}Energia}{60}{}%
-\contentsline {subsection}{\numberline {6.1}Energia cinetica}{60}{}%
-\contentsline {subsection}{\numberline {6.2}Lavoro}{61}{}%
-\contentsline {subsection}{\numberline {6.3}Teorema lavoro-energia cinetica}{61}{}%
-\contentsline {subsection}{\numberline {6.4}Lavoro compiuto da una forza variabile}{64}{}%
-\contentsline {subsection}{\numberline {6.5}Lavoro compiuto dalla forza di gravità}{66}{}%
-\contentsline {subsection}{\numberline {6.6}Forze conservative}{67}{}%
-\contentsline {subsection}{\numberline {6.7}Energia potenziale}{69}{}%
-\contentsline {subsubsection}{\numberline {6.7.1}Energia potenziale gravitazionale}{70}{}%
-\contentsline {subsubsection}{\numberline {6.7.2}Energia potenziale elastica}{70}{}%
-\contentsline {subsection}{\numberline {6.8}Potenza}{70}{}%
-\contentsline {subsection}{\numberline {6.9}Conservazione dell'energia}{74}{}%
-\contentsline {subsection}{\numberline {6.10}Velocità di fuga}{77}{}%
-\contentsline {section}{\numberline {7}Moto dei sistemi}{84}{}%
-\contentsline {subsection}{\numberline {7.1}Centro di massa}{84}{}%
-\contentsline {subsection}{\numberline {7.2}Moto del centro di massa}{89}{}%
-\contentsline {subsection}{\numberline {7.3}Dinamica del centro di massa}{89}{}%
-\contentsline {subsection}{\numberline {7.4}Conservazione della quantità di moto}{90}{}%
-\contentsline {subsection}{\numberline {7.5}Seconda legge di Newton reinterpretata}{92}{}%
-\contentsline {subsection}{\numberline {7.6}Impulso}{94}{}%
-\contentsline {subsection}{\numberline {7.7}Urti}{95}{}%
-\contentsline {subsubsection}{\numberline {7.7.1}Urti tra due corpi}{97}{}%
-\contentsline {subsubsection}{\numberline {7.7.2}Urti elastici}{98}{}%
-\contentsline {subsection}{\numberline {7.8}Urto in 1D - Elastico}{99}{}%
-\contentsline {subsection}{\numberline {7.9}Urto in 1D - Anelastico}{100}{}%
-\contentsline {subsection}{\numberline {7.10}Urti - Riepilogo}{100}{}%
-\contentsline {subsection}{\numberline {7.11}Moto dei razzi}{102}{}%
-\contentsline {section}{\numberline {8}Moto e dinamica dei corpi rigidi}{105}{}%
-\contentsline {subsection}{\numberline {8.1}Corpi rigidi - Cinematica}{105}{}%
-\contentsline {subsubsection}{\numberline {8.1.1}Traslazione}{106}{}%
-\contentsline {subsubsection}{\numberline {8.1.2}Rotazione}{106}{}%
-\contentsline {subsubsection}{\numberline {8.1.3}Rototraslazione}{107}{}%
-\contentsline {subsection}{\numberline {8.2}Corpi rigidi - Dinamica}{107}{}%
-\contentsline {subsection}{\numberline {8.3}Corpi rigidi - Energia cinetica}{108}{}%
-\contentsline {subsection}{\numberline {8.4}Momento di inerzia}{109}{}%
-\contentsline {subsection}{\numberline {8.5}Teorema degli assi paralleli}{114}{}%
-\contentsline {subsection}{\numberline {8.6}Prodotto vettoriale - Richiamo}{115}{}%
-\contentsline {subsection}{\numberline {8.7}Momento di forza}{116}{}%
-\contentsline {subsubsection}{\numberline {8.7.1}Momento di forza dovuto alla gravità}{119}{}%
-\contentsline {subsection}{\numberline {8.8}Baricentro}{120}{}%
-\contentsline {subsection}{\numberline {8.9}Ribaltamento}{121}{}%
-\contentsline {subsection}{\numberline {8.10}Leve e ingranaggi}{122}{}%
-\contentsline {subsection}{\numberline {8.11}Potenza}{123}{}%
-\contentsline {subsection}{\numberline {8.12}Momento angolare}{123}{}%
-\contentsline {subsection}{\numberline {8.13}Momento angolare e dinamica}{124}{}%
-\contentsline {subsection}{\numberline {8.14}Equazioni cardianli della meccanica}{124}{}%
-\contentsline {subsection}{\numberline {8.15}Equilibrio statico di un corpo rigido}{124}{}%
-\contentsline {subsection}{\numberline {8.16}Orbita e spin}{125}{}%
-\contentsline {subsection}{\numberline {8.17}Momento angolare - Corpo rigido}{126}{}%
-\contentsline {subsection}{\numberline {8.18}Conservazione del momento angolare}{126}{}%
-\contentsline {subsection}{\numberline {8.19}Seconda legge di Keplero}{129}{}%
-\contentsline {subsection}{\numberline {8.20}Fisica di un quadricottero}{129}{}%
-\contentsline {section}{\numberline {9}Oscillazioni}{131}{}%
-\contentsline {section}{\numberline {10}Solidi e fluidi}{132}{}%
-\contentsline {section}{\numberline {11}Temperatura e calore}{133}{}%
-\contentsline {section}{\numberline {12}Il primo principio della termodinamica}{134}{}%
-\contentsline {section}{\numberline {13}Il secondo principio della termodinamica}{135}{}%
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {section}{\numberline {1}Introduzione}{5}{}%
+\contentsline {subsection}{\numberline {1.1}Metodo scientifico}{5}{}%
+\contentsline {section}{\numberline {2}Unità e vettori}{6}{}%
+\contentsline {subsection}{\numberline {2.1}Grandezza fisica}{6}{}%
+\contentsline {subsection}{\numberline {2.2}Cifre significative e incertezza}{6}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}Operazioni di base}{7}{}%
+\contentsline {subsection}{\numberline {2.3}Ordini di grandezza}{7}{}%
+\contentsline {subsection}{\numberline {2.4}Analisi dimensionale}{8}{}%
+\contentsline {subsection}{\numberline {2.5}Scalari e vettori}{8}{}%
+\contentsline {subsection}{\numberline {2.6}Prodotto con uno scalare}{9}{}%
+\contentsline {subsection}{\numberline {2.7}Somma vettoriale}{9}{}%
+\contentsline {subsection}{\numberline {2.8}Versori}{9}{}%
+\contentsline {subsection}{\numberline {2.9}Modulo e direzione}{10}{}%
+\contentsline {subsection}{\numberline {2.10}Prodotto scalare}{11}{}%
+\contentsline {section}{\numberline {3}Cinematica}{12}{}%
+\contentsline {subsection}{\numberline {3.1}Posizione e spostamento}{12}{}%
+\contentsline {subsection}{\numberline {3.2}Posizione in funzione del tempo}{13}{}%
+\contentsline {subsection}{\numberline {3.3}Velocità}{14}{}%
+\contentsline {subsection}{\numberline {3.4}Accelerazione}{15}{}%
+\contentsline {subsection}{\numberline {3.5}Moto uniformemente accelerato}{17}{}%
+\contentsline {subsubsection}{\numberline {3.5.1}Caduta libera dei gravi}{19}{}%
+\contentsline {subsubsection}{\numberline {3.5.2}Moto dei proiettili}{20}{}%
+\contentsline {subsection}{\numberline {3.6}Moto in 2D e 3D}{23}{}%
+\contentsline {subsection}{\numberline {3.7}Moto circolare uniforme}{24}{}%
+\contentsline {subsection}{\numberline {3.8}Moti relativi}{28}{}%
+\contentsline {subsubsection}{\numberline {3.8.1}Caso generale}{29}{}%
+\contentsline {section}{\numberline {4}Dinamica}{30}{}%
+\contentsline {subsection}{\numberline {4.1}Massa}{30}{}%
+\contentsline {subsection}{\numberline {4.2}Forza}{31}{}%
+\contentsline {subsection}{\numberline {4.3}Principi della dinamica - Leggi di Newton}{31}{}%
+\contentsline {subsection}{\numberline {4.4}Forza peso}{31}{}%
+\contentsline {subsection}{\numberline {4.5}Forza normale}{32}{}%
+\contentsline {subsection}{\numberline {4.6}Forza di tensione}{35}{}%
+\contentsline {subsection}{\numberline {4.7}Forza di attrito}{39}{}%
+\contentsline {subsection}{\numberline {4.8}Attrito dovuto a un fluido (resistenza)}{45}{}%
+\contentsline {subsection}{\numberline {4.9}Dinamica del moto circolare uniforme}{47}{}%
+\contentsline {subsection}{\numberline {4.10}Sistemi non-inerziali}{49}{}%
+\contentsline {subsection}{\numberline {4.11}Prodotto vettoriale}{50}{}%
+\contentsline {subsection}{\numberline {4.12}Pseudo-forza di Coriolis}{52}{}%
+\contentsline {section}{\numberline {5}Gravità}{54}{}%
+\contentsline {subsection}{\numberline {5.1}L'esperimento di Cavendish}{55}{}%
+\contentsline {subsection}{\numberline {5.2}Campo gravitazionale}{56}{}%
+\contentsline {subsection}{\numberline {5.3}Massa gravitazionale e inerziale}{56}{}%
+\contentsline {subsection}{\numberline {5.4}Corpi estesi}{57}{}%
+\contentsline {subsection}{\numberline {5.5}Leggi di Keplero}{58}{}%
+\contentsline {section}{\numberline {6}Energia}{61}{}%
+\contentsline {subsection}{\numberline {6.1}Energia cinetica}{61}{}%
+\contentsline {subsection}{\numberline {6.2}Lavoro}{62}{}%
+\contentsline {subsection}{\numberline {6.3}Teorema lavoro-energia cinetica}{62}{}%
+\contentsline {subsection}{\numberline {6.4}Lavoro compiuto da una forza variabile}{65}{}%
+\contentsline {subsection}{\numberline {6.5}Lavoro compiuto dalla forza di gravità}{67}{}%
+\contentsline {subsection}{\numberline {6.6}Forze conservative}{68}{}%
+\contentsline {subsection}{\numberline {6.7}Energia potenziale}{70}{}%
+\contentsline {subsubsection}{\numberline {6.7.1}Energia potenziale gravitazionale}{71}{}%
+\contentsline {subsubsection}{\numberline {6.7.2}Energia potenziale elastica}{71}{}%
+\contentsline {subsection}{\numberline {6.8}Potenza}{71}{}%
+\contentsline {subsection}{\numberline {6.9}Conservazione dell'energia}{75}{}%
+\contentsline {subsection}{\numberline {6.10}Velocità di fuga}{78}{}%
+\contentsline {section}{\numberline {7}Moto dei sistemi}{85}{}%
+\contentsline {subsection}{\numberline {7.1}Centro di massa}{85}{}%
+\contentsline {subsection}{\numberline {7.2}Moto del centro di massa}{90}{}%
+\contentsline {subsection}{\numberline {7.3}Dinamica del centro di massa}{90}{}%
+\contentsline {subsection}{\numberline {7.4}Conservazione della quantità di moto}{91}{}%
+\contentsline {subsection}{\numberline {7.5}Seconda legge di Newton reinterpretata}{93}{}%
+\contentsline {subsection}{\numberline {7.6}Impulso}{95}{}%
+\contentsline {subsection}{\numberline {7.7}Urti}{96}{}%
+\contentsline {subsubsection}{\numberline {7.7.1}Urti tra due corpi}{98}{}%
+\contentsline {subsubsection}{\numberline {7.7.2}Urti elastici}{99}{}%
+\contentsline {subsection}{\numberline {7.8}Urto in 1D - Elastico}{100}{}%
+\contentsline {subsection}{\numberline {7.9}Urto in 1D - Anelastico}{101}{}%
+\contentsline {subsection}{\numberline {7.10}Urti - Riepilogo}{101}{}%
+\contentsline {subsection}{\numberline {7.11}Moto dei razzi}{103}{}%
+\contentsline {section}{\numberline {8}Moto e dinamica dei corpi rigidi}{106}{}%
+\contentsline {subsection}{\numberline {8.1}Corpi rigidi - Cinematica}{106}{}%
+\contentsline {subsubsection}{\numberline {8.1.1}Traslazione}{107}{}%
+\contentsline {subsubsection}{\numberline {8.1.2}Rotazione}{107}{}%
+\contentsline {subsubsection}{\numberline {8.1.3}Rototraslazione}{108}{}%
+\contentsline {subsection}{\numberline {8.2}Corpi rigidi - Dinamica}{108}{}%
+\contentsline {subsection}{\numberline {8.3}Corpi rigidi - Energia cinetica}{109}{}%
+\contentsline {subsection}{\numberline {8.4}Momento di inerzia}{110}{}%
+\contentsline {subsection}{\numberline {8.5}Teorema degli assi paralleli}{115}{}%
+\contentsline {subsection}{\numberline {8.6}Prodotto vettoriale - Richiamo}{116}{}%
+\contentsline {subsection}{\numberline {8.7}Momento di forza}{117}{}%
+\contentsline {subsubsection}{\numberline {8.7.1}Momento di forza dovuto alla gravità}{120}{}%
+\contentsline {subsection}{\numberline {8.8}Baricentro}{121}{}%
+\contentsline {subsection}{\numberline {8.9}Ribaltamento}{122}{}%
+\contentsline {subsection}{\numberline {8.10}Leve e ingranaggi}{124}{}%
+\contentsline {subsection}{\numberline {8.11}Potenza}{125}{}%
+\contentsline {subsection}{\numberline {8.12}Momento angolare}{126}{}%
+\contentsline {subsection}{\numberline {8.13}Momento angolare e dinamica}{127}{}%
+\contentsline {subsection}{\numberline {8.14}Equazioni cardianli della meccanica}{127}{}%
+\contentsline {subsection}{\numberline {8.15}Equilibrio statico di un corpo rigido}{128}{}%
+\contentsline {subsection}{\numberline {8.16}Orbita e spin}{128}{}%
+\contentsline {subsection}{\numberline {8.17}Momento angolare - Corpo rigido}{130}{}%
+\contentsline {subsection}{\numberline {8.18}Conservazione del momento angolare}{130}{}%
+\contentsline {subsection}{\numberline {8.19}Seconda legge di Keplero}{133}{}%
+\contentsline {subsection}{\numberline {8.20}Fisica di un quadricottero}{133}{}%
+\contentsline {section}{\numberline {9}Oscillazioni}{135}{}%
+\contentsline {subsection}{\numberline {9.1}Moto armonico}{135}{}%
+\contentsline {subsubsection}{\numberline {9.1.1}Cinematica del moto armonico}{135}{}%
+\contentsline {subsubsection}{\numberline {9.1.2}Dinamica del moto armonico}{136}{}%
+\contentsline {subsection}{\numberline {9.2}Energia}{137}{}%
+\contentsline {subsection}{\numberline {9.3}Pendolo}{138}{}%
+\contentsline {subsection}{\numberline {9.4}Moto armonico smorzato}{140}{}%
+\contentsline {subsection}{\numberline {9.5}Moto armonico forzato}{140}{}%
+\contentsline {section}{\numberline {10}Solidi e fluidi}{141}{}%
+\contentsline {subsection}{\numberline {10.1}Proprietà dei solidi}{141}{}%
+\contentsline {subsubsection}{\numberline {10.1.1}Deformazioni}{141}{}%
+\contentsline {subsection}{\numberline {10.2}Elasticità}{142}{}%
+\contentsline {subsection}{\numberline {10.3}Fluidi}{142}{}%
+\contentsline {subsection}{\numberline {10.4}Pressione}{143}{}%
+\contentsline {subsubsection}{\numberline {10.4.1}Principio (o legge) di Pascal}{143}{}%
+\contentsline {subsection}{\numberline {10.5}Equilibrio idrostatico}{144}{}%
+\contentsline {subsection}{\numberline {10.6}Flusso laminare e turbolento}{145}{}%
+\contentsline {subsection}{\numberline {10.7}Equazione di continuità}{145}{}%
+\contentsline {subsection}{\numberline {10.8}Teorema di Bernoulli}{146}{}%
+\contentsline {subsection}{\numberline {10.9}Viscosità}{147}{}%
+\contentsline {section}{\numberline {11}Termodinamica}{148}{}%
+\contentsline {subsection}{\numberline {11.1}Principio ``Zero'' della termodinamica}{149}{}%
+\contentsline {subsection}{\numberline {11.2}Temperatura}{149}{}%
+\contentsline {subsection}{\numberline {11.3}Gas perfetto}{151}{}%
+\contentsline {subsection}{\numberline {11.4}Dilatazione termica}{152}{}%
+\contentsline {subsection}{\numberline {11.5}Equilibrio termodinamico}{155}{}%
+\contentsline {subsection}{\numberline {11.6}Equazione di stato dei gas perfetti}{156}{}%
+\contentsline {subsection}{\numberline {11.7}Equazione di stato dei gas non-perfetti}{156}{}%
+\contentsline {subsection}{\numberline {11.8}Trasformazione termodinamica}{156}{}%
+\contentsline {subsection}{\numberline {11.9}Diagramma di Clapeyron - Pressione/Volume}{157}{}%
+\contentsline {subsection}{\numberline {11.10}Trasferimenti di energia}{158}{}%
+\contentsline {subsection}{\numberline {11.11}Calore specifico}{160}{}%
+\contentsline {subsection}{\numberline {11.12}Capacià termica molare}{161}{}%
+\contentsline {subsection}{\numberline {11.13}Calore latente}{162}{}%
+\contentsline {subsection}{\numberline {11.14}Lavoro termodinamico}{163}{}%
+\contentsline {section}{\numberline {12}Il primo principio della termodinamica}{165}{}%
+\contentsline {subsection}{\numberline {12.1}Trasformazione isocora}{166}{}%
+\contentsline {subsection}{\numberline {12.2}Trasformazione isobara}{166}{}%
+\contentsline {subsection}{\numberline {12.3}Trasformazione ciclica}{166}{}%
+\contentsline {subsection}{\numberline {12.4}Espansione libera}{166}{}%
+\contentsline {subsection}{\numberline {12.5}Relazione di Mayer}{167}{}%
+\contentsline {subsection}{\numberline {12.6}Trasformazione adiabatica}{169}{}%
+\contentsline {subsubsection}{\numberline {12.6.1}Energia interna e Lavoro - Trasformazione adiabatica}{170}{}%
+\contentsline {subsection}{\numberline {12.7}Trasformazione isoterma}{171}{}%
+\contentsline {subsection}{\numberline {12.8}Riassunto}{172}{}%
+\contentsline {section}{\numberline {13}Teoria cinetica dei gas}{173}{}%
+\contentsline {subsection}{\numberline {13.1}Ipotesi di lavoro}{173}{}%
+\contentsline {subsection}{\numberline {13.2}Valore medio delle velocità}{173}{}%
+\contentsline {subsection}{\numberline {13.3}Pressione a livello microscopico}{174}{}%
+\contentsline {subsection}{\numberline {13.4}Temperatura a livello microscopico}{176}{}%
+\contentsline {subsection}{\numberline {13.5}Equipartizione dell'energia}{177}{}%
+\contentsline {subsection}{\numberline {13.6}Capacità termiche molari}{177}{}%
+\contentsline {subsection}{\numberline {13.7}Legge di Dulong e Petit}{180}{}%
+\contentsline {subsection}{\numberline {13.8}Distribuzione delle velocità}{180}{}%
+\contentsline {section}{\numberline {14}Il secondo principio della termodinamica}{182}{}%

@@ -14,6 +14,9 @@
 \usetikzlibrary {shapes.gates.logic.US, shapes.gates.logic.IEC, calc}
 \tikzset {branch/.style={fill, shape = circle, minimum size = 3pt, inner sep = 0pt}}
 \usetikzlibrary{matrix,calc}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{shapes.geometric}
 \usepackage{multirow}
 \usepackage{float}
 \usepackage{geometry}
@@ -29,26 +32,9 @@
 \usepackage{graphicx}
 \usepackage{subfig}
 \usepackage{physics}
-\tikzset{>=latex} % for LaTeX arrow head
-\colorlet{pinkskin}{pink!25}
-\colorlet{brownskin}{pink!5!brown!45}
-\colorlet{myred}{red!90!black}
-\colorlet{myblue}{blue!90!black}
-\colorlet{mypurple}{blue!50!red!80!black!80}
-\colorlet{Bcol}{violet!90}
-\colorlet{BFcol}{red!60!black}
-\colorlet{veccol}{green!45!black}
-\colorlet{Icol}{blue!70!black}
-\colorlet{mucol}{red!90!black}
-\tikzstyle{BField}=[->,line width=2,Bcol]
-\tikzstyle{current}=[->,Icol] %thick,
-\tikzstyle{force}=[->,line width=2,BFcol]
-\tikzstyle{vector}=[->,line width=2,veccol]
-\tikzstyle{thick vector}=[->,line width=2,veccol]
-\tikzstyle{mu vector}=[->,line width=2,mucol]
-\tikzstyle{velocity}=[->,line width=2,veccol]
-\tikzstyle{charge+}=[very thin,draw=black,top color=red!50,bottom color=red!90!black,shading angle=20,circle,inner sep=0.5]
-
+%\usepackage{luamplib}
+\usepackage[outline]{contour} % glow around text
+\contourlength{1.0pt}
 \graphicspath{ {./img/} }
 \newtheorem{theorem}{Teorema}[section]
 \newtheorem{corollary}{Corollario}[theorem]
@@ -74,6 +60,11 @@
 \renewcommand\tabularxcolumn[1]{>{\vspace{\fill}}m{#1}<{\vspace{\fill}}}
 \renewcommand\arraystretch{}
 \newcolumntype{P}{>{\centering\arraybackslash}X}
+\newcommand{\gear}[5]{%
+    \foreach \i in {1,...,#1}
+    {   [rotate=(\i-1)*360/#1] (0:#2) arc (0:#4:#2) {[rounded corners=0.5pt] -- (#4+#5:#3)  arc (#4+#5:360/#1-#5:#3)} --  (360/#1:#2)
+    }
+}
 
 \title{\textbf{Università di Trieste\\ \vspace{1em}
 Laurea in ingegneria elettronica e informatica}}
@@ -2840,6 +2831,25 @@ Inoltre si ha che
 
   \begin{figure}[H]
     \centering
+    \colorlet{pinkskin}{pink!25}
+    \colorlet{brownskin}{pink!5!brown!45}
+    \colorlet{myred}{red!90!black}
+    \colorlet{myblue}{blue!90!black}
+    \colorlet{mypurple}{blue!50!red!80!black!80}
+    \colorlet{Bcol}{violet!90}
+    \colorlet{BFcol}{red!60!black}
+    \colorlet{veccol}{green!45!black}
+    \colorlet{Icol}{blue!70!black}
+    \colorlet{mucol}{red!90!black}
+    \tikzstyle{BField}=[->,line width=2,Bcol]
+    \tikzstyle{current}=[->,Icol] %thick,
+    \tikzstyle{force}=[->,line width=2,BFcol]
+    \tikzstyle{vector}=[->,line width=2,veccol]
+    \tikzstyle{thick vector}=[->,line width=2,veccol]
+    \tikzstyle{mu vector}=[->,line width=2,mucol]
+    \tikzstyle{velocity}=[->,line width=2,veccol]
+    \tikzstyle{charge+}=[very thin,draw=black,top color=red!50,bottom color=red!90!black,shading angle=20,circle,inner sep=0.5]
+
     \begin{tikzpicture}[scale=0.5]
       \coordinate (O) at (1.0,0.7);    % ORIGIN
       \coordinate (WT) at ( 2.9,-1.1); % WRIST TOP
@@ -6595,12 +6605,12 @@ Si consideri un oggetto posizionato su un piano inclinato di un angolo $\theta$ 
   node [very near end, right] {$\vec{F}_N$};
 
   \draw (M) node[circ]{};
-  \draw (MM) node[above right]{CM};
-  \draw[-stealth] (M) -- (MM) node[midway,below left]{$\vec r_{\text{CM}}$};
+  \draw (MM) node[right]{CM};
+  \draw[-stealth] (M) -- (MM) node[below]{$\vec r_{\text{CM}}$};
   \end{scope}
   \end{tikzpicture}
   \caption{Piano inclinato}
-  \label{fig:piano_inclinato}
+  \label{fig:piano_inclinato_1}
 \end{figure}
 
 \noindent
@@ -6618,18 +6628,93 @@ per cui si può trovare che
 \begin{center}
   27 Aprile 2022
 \end{center}
-Ovviamente quando si considera un oggetto posizionato su un piano inclinato, la condizione di ribaltamento prevede che il centro di massa dell'oggetto sia perfettamente allineata con il perno di rotazione.\\
-Chiamata $b$ la distanza tra il perno e il piede della perpendicolare al piano inclinato passante per il centro di massa, la condizione di stabilità prevede semplicemente che
-\[\boxed{\tan(\theta) < \frac{b}{y_{\text{CM}}}}\]
-per cui per aumentare la stabilità è sufficiente abbassare il baricentro o aumentare la base di appoggio, in modo tale da rendere il rapporto più grande possibile.
+Ovviamente quando si considera un oggetto posizionato su un piano inclinato, la condizione di ribaltamento prevede che il centro di massa dell'oggetto sia perfettamente allineato sulla verticla con il perno di rotazione.\\
+Chiamata $b$ la distanza tra il perno e il piede della perpendicolare al piano inclinato passante per il centro di massa, , mentre $y_{\text{CM}}$ è la distanza tra il piano e il centro di massa stesso, come mostrato di seguito
 
 \vspace{1em}
 \noindent
-\textbf{Esercizio}: Dal lato passeggiero, una Jeep si ribalta se è inclinata più di $41^\circ$. La velocità non deve superare per evitare di ribaltarsi in una curva di raggio $R=100$ m.\\
-Al fine di risolvere tale problema, è utile passare ad un sistema di riferimento inerziale, in cui si può considerare la forza apparente centrifuga (se, invece, si considerasse un sistema di riferimento inerziale vi sarebbero troppi contributi da considerare e, siccome, si sta considerando un sistema che accelera, l'asse non è fisso, per cui non si può applicare la condizione $\vec \tau = I \vec \alpha$).\\
+\begin{figure}[H]
+  \centering
+  \newcommand{\ang}{30}
+
+  \begin{tikzpicture} [font = \small,]
+
+  % triangle:
+  \draw [draw = orange, fill = orange!15] (0,0) coordinate (O) -- (\ang:6)
+  	coordinate [pos=.45] (M) |- coordinate (B) (O);
+
+  % angles:
+  \draw [draw = orange] (O) ++(.8,0) arc (0:\ang:0.8)
+  	node [pos=.4, left] {$\theta$};
+  \draw [draw = orange] (B) rectangle ++(-0.3,0.3);
+
+  \begin{scope} [rotate=\ang]
+
+  % Object (rectangle)
+  \draw [fill = purple!30, draw = purple!50] (M) rectangle ++(2,2.8);
+  \draw (M) ++(1,1.4) coordinate (MM) -- ++(0,-1.4) node[midway, above right]{$y_{\text{CM}}$} coordinate(aa);
+  \draw (MM) -- (M);
+  \draw[stealth-stealth] ([yshift=-1.5cm]MM) -- ([yshift=-0.1cm]M) node[midway,below]{$b$};
+
+  \draw [draw = orange] (MM) ++(-0.5,-0.8) arc (-110:-65:0.8) node [pos=0, left] {\textcolor{orange}{$\theta$}};
+  \end{scope}
+  \end{tikzpicture}
+  \caption{Piano inclinato}
+  \label{fig:piano_inclinato_1}
+\end{figure}
+
+\noindent
+la \textbf{condizione di stabilità} prevede semplicemente che
+\[\boxed{\tan(\theta) < \frac{b}{y_{\text{CM}}}}\]
+per cui per aumentare la stabilità è sufficiente abbassare il baricentro o aumentare la larghezza della base di appoggio, in modo tale da rendere il rapporto più grande possibile.
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio}: Dal lato passeggiero, una Jeep si ribalta se è inclinata più di $41^\circ$. Si determini la velocità non deve superare per evitare di ribaltarsi in una curva di raggio $R=100$ m.\\
+Al fine di risolvere tale problema, è utile passare ad un sistema di riferimento non inerziale, in cui si può considerare la forza apparente centrifuga (se, invece, si considerasse un sistema di riferimento inerziale, vi sarebbero troppi contributi di forze da valutare e, siccome, si sta considerando un sistema nel quale la vettura accelera, l'asse non è fisso, per cui non si può applicare la condizione $\vec \tau = I \vec \alpha$).\\
 Se si passa ad un sistema di riferimento non inerziale, allora si ha solo la forza apparente $\vec F_a$ e la forza peso $\vec F_t$, per cui
 \[\vec F_{\text{tot}} = \vec F_a + \vec F_t\]
-Pertanto, la condizione di stabilità è che
+ovvero
+
+\vspace{1em}
+\noindent
+\begin{figure}[H]
+  \centering
+  \newcommand{\ang}{30}
+
+  \begin{tikzpicture} [font = \small,]
+
+  % triangle:
+  \draw [draw = orange, fill = orange!15] (0,0) coordinate (O) -- (\ang:6)
+  	coordinate [pos=.45] (M) |- coordinate (B) (O);
+
+  % angles:
+  \draw [draw = orange] (O) ++(.8,0) arc (0:\ang:0.8)
+  	node [pos=.4, left] {$\theta$};
+  \draw [draw = orange] (B) rectangle ++(-0.3,0.3);
+
+  \begin{scope} [rotate=\ang]
+
+  % Object (rectangle)
+  \draw [fill = purple!30, draw = purple!50] (M) rectangle ++(2,2.8);
+  \draw[very thick, -stealth] (M) ++(1,1.4) coordinate (MM) -- ++(0,-1.4) node[midway, above right]{$\vec F_t$} coordinate(aa);
+  \draw (MM) -- (M);
+  \draw[very thick,-stealth] (MM) -- ++(-1.4,0) node[midway, above left]{$\vec F_a$};
+
+  \draw [draw = orange] (MM) ++(-0.5,-0.8) arc (-110:-65:0.8) node [pos=0, left] {\textcolor{orange}{$\theta$}};
+  \end{scope}
+  \end{tikzpicture}
+  \caption{Condizione di ribaltamento di una Jeep}
+  \label{fig:piano_inclinato_2}
+\end{figure}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che in questo la forza peso non è diretta verso il basso, in quanto si è considerato un sistema di riferimento non inerziale, per cui la forza peso è diretta verso il basso rispetto alla Jeep.
+
+\vspace{1em}
+\noindent
+Si evince, quindi, che la condizione di stabilità è
 \[\tan(\theta) < \frac{F_a}{F_t}\]
 Naturalmente è noto che la forza apparente è una forza centrifuga, calcolabile come segue
 \[f_a=\frac{mv^2}{R} \longrightarrow \tan(\theta)=\frac{v^2}{Rg}\]
@@ -6638,22 +6723,92 @@ Peranto, la velocità che non deve essere superata è
 
 \vspace{1em}
 \subsection{Leve e ingranaggi}
-Il concetto di momento di forza si applica perfettamente a quello di leva. Affinché l'intero sistema costituito da una leva sia in equilibrio, si deve verificare la condizione seguente
+Il concetto di momento di forza si applica perfettamente a quello di leva, mostrata di seguito:
+
+\begin{figure}[H]
+  \centering
+  \tikzset{
+    pivot/.style={
+      draw,
+      regular polygon,
+      regular polygon sides = 3,
+      fill = red,
+      node distance = 0.5cm,
+      minimum height = 1em,
+      at = {(0,0)}
+    }
+  }
+
+  \begin{tikzpicture}
+    \node [pivot] (a) {Fulcro};
+    \draw (a.corner 1) -| ++(-2cm,5mm) [-stealth,very thick] -- ++(0,1) node[midway,left]{$\vec F_1$};
+    \draw (a.corner 1) -| ++(+4cm,5mm) [-stealth,very thick] -- ++(0,1) node[midway,left]{$\vec F_2$};
+    \draw (a.corner 1) ++(-1cm,-5mm) node[]{$L_1$};
+    \draw (a.corner 1) ++(2cm,-5mm)  node[]{$L_2$};
+  \end{tikzpicture}
+  \caption{Funzionamento di una leva}
+  \label{fig:funzionamento_leva}
+\end{figure}
+
+\noindent
+Affinché l'intero sistema costituito da una leva sia in equilibrio, si deve verificare la condizione seguente
 \[\sum \vec \tau = 0\]
 ovvero si deve avere che
 \[\vec \tau_1 + \vec \tau_2 = -F_1 L_1 + F_2 L_2 = 0 \longrightarrow F_1 L_1 = F_2 L_2\]
 Ottenendo, semplicemente, la condizione seguente
 \[\boxed{F_1=F_2 \cdot \frac{L_2}{L_1}}\]
-Nel caso degli ingranaggi, è sufficiente considerare il punto di contatto nel quale $\vec F_1 = - \vec F_2$, per cui si ottiene che
+per cui se, come nel caso descritto, $L_2 > L_1$, il loro rapporto è maggiore di $1$, per cui applicando una piccola forza sul braccio più lungo si ottiene una forza maggiore sul braccio più corto.
+
+\newpage
+\noindent
+Nel caso degli ingranaggi, se le ghiere sono ferme o si muovono a velocità costante, all'ora l'equilibrio rivela come nel punto di contatto $\vec F_1 = - \vec F_2$, come mostrato di seguito:
+
+\begin{figure}[H]
+  \centering
+  % given
+  \pgfmathsetmacro{\rOne}{1.6}% inner radius
+  \pgfmathsetmacro{\nOne}{16}% num teeth
+  \pgfmathsetmacro{\nTwo}{24}
+  \pgfmathsetmacro{\toothHeight}{0.2}
+  \pgfmathsetmacro{\toothFall}{1}% degrees where radius drops from inner to outer
+  \pgfmathsetmacro{\aOneTwo}{120}% angle from first to second
+
+  % computed
+  \pgfmathsetmacro{\rTwo}{\rOne*\nTwo/\nOne}% via equating tooth lengths
+  \pgfmathsetmacro{\ROne}{\rOne+\toothHeight}% outer radius
+  \pgfmathsetmacro{\RTwo}{\rTwo+\toothHeight}
+  \pgfmathsetmacro{\dOne}{(360/\nOne-\toothFall)/2}% degrees for a tooth; here inner deg = outer deg
+  \pgfmathsetmacro{\dTwo}{(360/\nTwo-\toothFall)/2}
+  \pgfmathsetmacro{\distOneTwo}{\rOne+\rTwo+\toothHeight+0.05}
+
+  \begin{tikzpicture}
+      \draw[thick] \gear{\nOne}{\rOne}{\ROne}{\dOne}{\toothFall};
+      \draw[thick, shift={(\aOneTwo:\distOneTwo)}, rotate=5.5] \gear{\nTwo}{\rTwo}{\RTwo}{\dTwo}{\toothFall};
+      \draw[-latex,very thick] (0,0) -- (\aOneTwo:\rOne) node[midway,above right]{$\vec r_1$};
+      \draw[-latex,very thick, shift={(\aOneTwo:\distOneTwo)}] (\aOneTwo+180:0) -- (\aOneTwo+180:\RTwo) node[midway,above right]{$\vec r_2$};
+      \draw[-latex,very thick, shift={(\aOneTwo:\distOneTwo)}] (\aOneTwo+180:\RTwo) -- ++(1.7,1) node[at end,above right]{$\vec F_2$};
+      \draw[-latex,very thick, shift={(\aOneTwo:\distOneTwo)}] (\aOneTwo+180:\RTwo) -- ++(-1.7,-1) node[at end,below left]{$\vec F_1$};
+  \end{tikzpicture}
+  \caption{Momento di forza per un ingranaggio}
+  \label{fig:momento_forza_ingranaggio}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Pertanto si ottiene che
 \[\tau_1 = r_1 F_1 \hspace{1em} \text{e} \hspace{1em} \tau_2 = r_2 F_2\]
 per cui si ottiene semplicemente che
 \[\boxed{\frac{\tau_1}{\tau_2}=\frac{r_1}{r_2} \longrightarrow \tau_1=\tau_2 \cdot \frac{r_1}{r_2}}\]
-ciò significa che applicando un piccolo momento di forza sulla ruota più grande, questo verrà applificato di un fattore $\frac{r_2}{r_1}$ sulla ruota più piccola (oppure verrà ridotto, nel caso contrario).
-... continua ...
+ciò significa che applicando un piccolo momento di forza sulla ruota più grande, questo verrà ridotto di un fattore
+\[\frac{r_2}{r_1}\]
+sulla ruota più piccola (oppure verrà amplificato, nel caso contrario).\\
+Analogamente, si può interpretare tale fenomeno fisico per mezzo degli angoli descritti dalle due ghiere, ottenendo
+\[\boxed{r_1 \theta_1 = r_2 \theta_2 \longrightarrow \frac{r_1}{r_2}=\frac{\theta_2}{\theta_1} = \frac{\omega_2}{\omega_1}}\]
+se vi è velocità costante.
 
 \vspace{1em}
 \subsection{Potenza}
-Com'è noto nel caso di forze e lavoro che la potenza era data dalla variazione del lavoro nel tempo, per cui
+Com'è noto nel caso di forze e lavoro, la potenza era data dalla variazione del lavoro nel tempo, per cui
 \[\boxed{P=\frac{dW}{dt}}\]
 ma essendo $dW=\vec F \cdot d \vec r$ e $d \vec r = \vec v dt$ è facile capire come $dW=\vec F \cdot \vec v dt$, per cui, analogamente
 \[\boxed{P=\vec F \vec v}\]
@@ -6664,6 +6819,11 @@ Pertanto, siccome è noto che
 ma essendo $FR=\tau$, si perviene facilmente al risultato seguente
 \[\boxed{P=\vec \tau \cdot \vec \omega}\]
 
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che nel caso degli ingranaggi, si era ottenuta l'equazione
+\[\frac{\tau_1}{\tau_2} = \frac{\omega_2}{\omega_1} \longrightarrow \tau_1 \omega_1 = \tau_2 \omega_2 \longrightarrow P_1 = P_2\]
+ossia la potenza sviluppata dalle due ghiere permane la stessa.
 
 \vspace{1em}
 \subsection{Momento angolare}
@@ -6689,33 +6849,42 @@ Di seguito si espone la definzione di \textbf{momento angolare}:
 \noindent
 \textbf{Osservazione}: Si osservi che nel caso di un moto circolare, la quantità di moto è $\vec p = m \vec v$, per cui il momento angolare è
 \[\vec l = \vec r \times m \vec v = mR^2 \vec \omega\]
-essendo $v=\omega R$ e $\vert \vec r \vert = R$.
+essendo $v=\omega R$, $\vert \vec r \vert = R$ e $\vec r \perp \vec v$.
 
 \vspace{1em}
 \noindent
-\textbf{Esempio $boldsymbol{1}$}: Il momento angolare della terra che ruota attorno al Sole è, ovviamente, per quanto appena trovato
+\textbf{Esempio $\boldsymbol{1}$}: Il momento angolare della terra che ruota attorno al Sole è, ovviamente, per quanto appena trovato
 \[l=mR^2 \omega = m_t \cdot d_{t-s}^2 \cdot \frac{2\pi}{T} = 2.7 \times 10^{40} \frac{\text{kg m}^2}{\text{s}}\]
 
 \vspace{1em}
 \noindent
-\textbf{Esempio $boldsymbol{2}$}: Il momento angolare di un elettrone in orbita intorno ad un protone (come l'idrogeno) è sempre dato da
+\textbf{Esempio $\boldsymbol{2}$}: Il momento angolare di un elettrone in orbita intorno ad un protone (come l'idrogeno) è sempre dato da
 \[l=m R^2 \omega=\frac{h}{2\pi}=\hbar= 1.05 \times 10^{-34} \frac{\text{kg m}^2}{\text{s}}\]
 in cui ovviamente è possibile determinare
 \[R=\sqrt{\frac{\hbar}{m \omega}}=\sqrt{\frac{\hbar T}{2\pi m}}=5.4 \times 10^{-14} \text{ m} = 0.5 \text{\AA}\]
+essendo
+\[\hbar = 1.05 \times 10^{-34} \frac{\text{kg m}^2}{s} \hspace{1em} \text{e} \hspace{1em} T=1.6 \times 10^{-16} \text{ s}\]
 
 \vspace{1em}
 \subsection{Momento angolare e dinamica}
 Per quanto concerne un punto materiale si ha che
 \[\frac{d}{dt} \vec l = \frac{d}{dt}(\vec r \times \vec p) = \frac{d \vec r}{dt} \times \vec p + \vec r \times \frac{d \vec p}{dt} = \vec v \times m \vec v + \vec r \times \vec F\]
-ma è ovvio come $\vec v \times m \vec v = 0$, mentre $\vec r \times \vec F = \tau$, per cui si ottiene come
-\[\frac{d \vec l}{dt}=\vec tau\]
+ma è ovvio come $\vec v \times m \vec v = 0$, in quanto prodotto vettoriale tra due vettori paralleli, mentre $\vec r \times \vec F = \tau$, per cui si ottiene come
+\[\boxed{\vec \tau = \frac{d \vec l}{dt}}\]
+che rappresenta un esatto analogo della seconda legge di Newton per il moto rotatorio.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che nell'allicazione della legge
+\[\vec \tau = \frac{d \vec l}{dt}\]
+bisogna fare in modo che $\vec l$ e $\vec \tau$ siano valutati considerando la medesima origine in un \textbf{sistema inserziale}.
 
 \vspace{1em}
 \subsection{Equazioni cardianli della meccanica}
 Dato un sistema di punti materiali, è possibile calcolare il momento angolare totale di tale sistema, ovver
 \[\vec L = \sum_i \vec l_i\]
 calcolando la derivata nel tempo di tale quantità, è facile capire come si ottenga la seguente quantità
-\[\frac{d \vec L}{dt} = \sum_i \frac{\vec l_i}{dt} = \sum_i \vec \tau_i\]
+\[\frac{d \vec L}{dt} = \sum_i \frac{d\vec l_i}{dt} = \sum_i \vec \tau_i\]
 ma applicando nuovamente la $3^\text{a}$ legge di Newton, si ottiene che la somma di tutti i momenti di forza interni si cancellano, per cui
 \[\frac{d \vec L}{dt} = \sum \vec \tau_{\text{ext}}\]
 Ecco che sono state ottenute le due equazioni cardinali della dinamica
@@ -6948,23 +7117,2657 @@ Al fine di muoversi, il drone deve modificare la forza di propulsione di opprtun
   \item se il drone deve ruotare su se stesso, allora saranno le eliche che ruotano nello stesso verso a dover presentare la stessa forza di propulsione, ottenendo un momento angolare tale da garantire la rotazione cercata.
 \end{itemize}
 
+\newpage
+\noindent
+\begin{center}
+  3 Maggio 2022
+\end{center}
+\section{Oscillazioni}
+L'oscillazione è alla base dello studio di molti fenomeni fisici. Il primo e più importante modello da studiare è il moto armonico, esposto di seguito.
 
+\vspace{1em}
+\subsection{Moto armonico}
+L'equazione alla base del moto armonico viene esposto di seguito:
+\[\boxed{x(t) = A \cdot \cos(\omega t + \phi)}\]
+in cui
+\begin{itemize}
+  \item $A$ prende il nome di \textbf{ampiezza}, avente la stessa unità di misura di $x$;
+  \item $\omega$ prende il nome di \textbf{pulsazione}, avente la misura di una frequenza [s$^{-1}$];
+  \item $\phi$ si chiama \textbf{fase}, privo di unità di misura.
+\end{itemize}
+La \textbf{quantità fisica} $x(t)$ presenta il seguente grafico
 
+\begin{figure}[H]
+  \centering
+  \colorlet{xcol}{blue!60!black}
+  \colorlet{myred}{red!80!black}
+  \colorlet{myblue}{blue!80!black}
+  \colorlet{mygreen}{green!40!black}
+  \colorlet{myorange}{orange!90!black}
+  \colorlet{mypurple}{red!50!blue!90!black!80}
+  \colorlet{mydarkred}{myred!80!black}
+  \colorlet{mydarkblue}{myblue!80!black}
+  \tikzstyle{xline}=[xcol,thick]
+  \tikzstyle{width}=[{Latex[length=5,width=3]}-{Latex[length=5,width=3]},thick]
+  \tikzset{
+    traj/.style 2 args={xline,postaction={decorate},decoration={markings,
+      mark=at position #1 with {\arrow{<}},
+      mark=at position #2 with {\arrow{<}}}
+    }
+  }
+  \def\tick#1#2{\draw[thick] (#1)++(#2:0.12) --++ (#2-180:0.24)}
+  \def\N{100} % number of samples
+  % COS
+  \def\xmax{6.6} % max x axis
+  \def\ymax{1.2} % max y axis
+  \def\A{0.8}    % amplitude
+  \def\om{(2.55*360/(0.94*\xmax))} % angular frequency in degrees
+
+  \begin{tikzpicture}
+    \def\phase{60}
+
+    % AXIS
+    \draw[->,thick] (0,-\ymax) -- (0,\ymax) node[left,xcol] {$x$};
+    \draw[->,thick] (-0.2*\ymax,0) -- (\xmax,0) node[below] {$t$};
+    \tick{0,\A}{0} node[left=0,scale=0.9] {$A$};
+    \tick{{\phase/\om},0}{90} node[below,scale=0.9] {$t_0$};
+    \draw[dashed] ({\phase/\om},0) --++ (0,1.2*\A);
+    \draw[dashed] ({180/\om},-1.3*\A) --++ (0,1.5*\A);
+    \draw[dashed] ({(180+\phase)/\om},-1.3*\A) --++ (0,1.5*\A);
+    \draw[->]
+      ({180/\om},-1.25*\A) --++ ({\phase/\om},0)
+      node[midway,below,scale=0.9] {$t_0 = \phi/\omega$};
+
+    % PLOT
+    \draw[xcol!30,thin,dashed,samples=\N,smooth,variable=\x,domain=0:0.94*\xmax]
+      plot(\x,{\A*cos(\om*\x)});
+    \draw[xline,samples=\N,smooth,variable=\x,domain=0:0.94*\xmax]
+      plot(\x,{\A*cos(\om*\x-\phase)});
+    \tick{{(360+\phase)/\om},0}{90} node[below,scale=0.9] {\contour{white}{$t_0+T$}};
+    \tick{{(720+\phase)/\om},0}{90} node[below,scale=0.9] {\contour{white}{$t_0+2T$}};
+  \end{tikzpicture}
+  \caption{Grafico di equazione $A \cdot \cos(\omega t + \phi)$}
+  \label{fig:grafico_moto_armonico}
+\end{figure}
+
+\noindent
+In cui è stato messo in evidenz anche il periodo $T$ di oscillazione, calcolato come segue:
+\[\omega=\frac{2 \pi}{T} \longrightarrow T = \frac{2\pi}{\omega}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che l'equazione vista in principio può essere riletta come segue:
+\[x(t)=A \cdot \cos(\omega \cdot (t- t_0))\]
+in cui $- \omega t_0 = \phi$.
+
+\vspace{1em}
+\subsubsection{Cinematica del moto armonico}
+Naturalmente, a partire dall'equazione del moto armonico seguente
+\[\boxed{x(t) = A \cdot \cos(\omega t + \phi)}\]
+si possono definire anche la derivata prima e seconda, ottenendo, rispettivamente
+\[v(t) = \frac{dx}{dt} = - A \omega \sin(\omega t + \phi)\]
+e
+\[a(t) = \frac{dv}{dt} = - A \omega^2 \cos(\omega t + \phi) = - \omega^2 x\]
+che rappresenta l'\textbf{equazione differenziale tipica del moto armonico}:
+\[\boxed{\frac{d^2x}{dt} = - \omega^2 x(t)}\]
+le cui soluzioni so tutte nella forma generale seguente
+\[x(t) = A \cdot \cos(\omega t + \phi)\]
+in cui $\omega$ rappresenta la pulsazione fornita dal problema, mentre $A$ e $\phi$ rappresentano dei parametri iniziali, ossia delle \quotes{costanti di integrazioni}.
+
+\vspace{1em}
+\subsubsection{Dinamica del moto armonico}
+Il classico esempio di applicazione delle leggi del moto armonico è quello che prevede di considerare una molla, di costante $k$, solidale con una massa $m$, mostrata di seguito:
+\[raffigurazione\]
+Realizzando il diagramma dei corpi liberi si ottiene
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \draw[-stealth] (0,0) node[circ]{} -- ++(2,0) node[midway,above]{$\vec{F}_m$};
+  \end{tikzpicture}
+\end{figure}
+
+\noindent
+Applicando la seconda legge della dinamica si ottiene che
+\[\sum \vec F = m \vec a = -kz = m a_x\]
+ma siccome l'accelerazione è la derivata seconda della posizione, si può facilmente vedere come
+\[a_x = \frac{d^2 x}{dt} = - \frac{k}{m} x = - \omega^2 x\]
+che è esattamente della forma vista in precedenza
+\[\boxed{\frac{d^2x}{dt} = - \omega^2 x(t)}\]
+in cui è facile evincere che
+\[\boxed{\omega = \sqrt{\frac{k}{m}}}\]
+e, quindi, la soluzione diviene
+\[x(t) = A \cos(\omega t + \phi)\]
+posto $\omega$ pari a quanto visto in precedenza. Se il blocco inizia a riposo in posizione $x_0 : A = x_0$, per cui
+\[x(t) = x_0 \cdot \cos(\omega t)\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che dalla equazione seguente
+\[\boxed{\omega = \sqrt{\frac{k}{m}}}\]
+si può facilmente capire come
+\begin{itemize}
+  \item Più la molla è rigida più aumenta la pulsazione;
+  \item Se la massa aumenta, la pulsazione descresce;
+  \item Se la compressione iniziale aumenta, la pulsazione rimane la stessa, essendo totalmente indipendente dall'ampiezza.
+\end{itemize}
+
+\vspace{1em}
+\subsection{Energia}
+L'energia meccanica totale di una molla è ovviamente data da
+\[E_{\text{tot}} = K + \mathcal{U} = \frac{1}{2}mv^2 + \frac{1}{2}k x^2\]
+che è un risultato calcolabile completamente a partire dall'equazione $x(t)=A \cos(\omega t + \phi)$, in quanto è noto come la velocità sia la derivata prima della posizione nel tempo, per cui
+\[v(t) = \frac{dx}{dt} = - A \omega \sin(\omega t + \phi)\]
+per cui si perviene al risultato proposto nel seguito
+\[K=\frac{1}{2}mv^2=\frac{1}{2}m (- \omega A \sin(\omega t + \phi))^2 = \frac{1}{2}A^2\omega^2 m \sin^2(\omega t + \phi)\]
+ma dal momento che si è ottenuto che
+\[\omega = \sqrt{\frac{k}{m}} \longrightarrow \omega^2 = \frac{k}{m}\]
+per cui l'energia cinetica diviene
+\[K=\frac{1}{2}A^2 \underbrace{\omega^2 m}_{k} \sin^2(\omega t + \phi)=\frac{1}{2}A^2 k \sin^2(\omega t + \phi)\]
+Per quanto concerne l'energia potenziale, invece, si può applicare direttamente la definzione $x(t)=A \cos(\omega t + \phi)$, per cui
+\[\mathcal{U}=\frac{1}{2}kx^2=\frac{1}{2}kA^2 \cos^2(\omega t + \phi)\]
+Dal momento che sono state ottenute due funzioni trigonometriche, di seguito vengono esposti i rispettivi grafici:
+
+\begin{figure}[H]
+  \centering
+  \colorlet{xcol}{blue!60!black}
+  \colorlet{myred}{red!80!black}
+  \colorlet{myblue}{blue!80!black}
+  \colorlet{mygreen}{green!40!black}
+  \colorlet{myorange}{orange!90!black}
+  \colorlet{mypurple}{red!50!blue!90!black!80}
+  \colorlet{mydarkred}{myred!80!black}
+  \colorlet{mydarkblue}{myblue!80!black}
+  \tikzstyle{xline}=[xcol,thick]
+  \tikzstyle{width}=[{Latex[length=5,width=3]}-{Latex[length=5,width=3]},thick]
+  \tikzset{
+    traj/.style 2 args={xline,postaction={decorate},decoration={markings,
+      mark=at position #1 with {\arrow{<}},
+      mark=at position #2 with {\arrow{<}}}
+    }
+  }
+  \def\tick#1#2{\draw[thick] (#1)++(#2:0.12) --++ (#2-180:0.24)}
+  \def\N{100} % number of samples
+  % COS
+  \def\xmax{6.6} % max x axis
+  \def\ymax{1.2} % max y axis
+  \def\A{0.8}    % amplitude
+  \def\om{(2.55*360/(0.94*\xmax))} % angular frequency in degrees
+
+  % ENERGY vs. x
+  \begin{tikzpicture}
+    \def\xmax{2.5}    % max x axis
+    \def\ymax{2.4}    % max y axis
+    \def\A{0.8*\xmax} % maximum extension
+    \def\E{0.8*\ymax} % maximum total energy
+
+    % AXIS
+    \draw[->,thick] (0,-0.1*\ymax) -- (0,\ymax) node[left] {$E$};
+    \draw[->,thick] (-\xmax,0) -- (\xmax,0) node[right] {$x$};
+    \draw[dashed] (-\A,0) --++ (0,0.9*\ymax);
+    \draw[dashed] ( \A,0) --++ (0,0.9*\ymax);
+    \draw[dashed] (-0.9*\xmax,\E) -- (0.9*\xmax,\E);
+
+    % PLOT
+    \draw[xline,myorange,samples=\N,smooth,variable=\x,domain=-\A:\A] plot(\x,{\E/(\A*\A)*\x*\x)});
+    \draw[xline,myred,samples=\N,smooth,variable=\x,domain=-\A:\A] plot(\x,{\E-\E/(\A*\A)*\x*\x)});
+    \tick{0,\E}{180} node[above right=0,scale=1] {$E_\text{tot}$};
+    \tick{-\A,0}{90} node[below=0,scale=1] {$-x_\text{max}$};
+    \tick{\A,0}{90} node[below=0,scale=1] {$x_\text{max}$};
+    \node[myorange,right,fill=white,inner sep=0,scale=0.9] at (0.92*\A,0.7*\E) {$U = \frac{1}{2}kx^2$};
+    \node[myred,right,fill=white,inner sep=0,scale=0.9] at (0.92*\A,0.3*\E) {$K = \frac{1}{2}mv^2$};
+  \end{tikzpicture}
+  \caption{Oscillazione di energia cinetica e potenziale}
+  \label{fig:oscillazione_energia_cinetica_potenziale}
+\end{figure}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Ovviamente, siccome le due funzioni di energia cinetica e potenziale presentano una funzione trigonometrica elevata al quadrato, l'oscillazione avrà una frequenza raddoppiata rispetto a quella di un oscillatore normale, in cui il termine trigonometrico è di primo grado: ciò significa che in ogni periodo vi saranno due picchi massimi anziché uno, in quanto la molla ha enrgia potenziale massima sia quando è estesa a sinistra che a destra, così come la velocità è massima in corrispondenza di $x=0$ per due volte quando la molla compie un'oscillazione:
+
+\begin{figure}[H]
+  \centering
+  \colorlet{xcol}{blue!60!black}
+  \colorlet{myred}{red!80!black}
+  \colorlet{myblue}{blue!80!black}
+  \colorlet{mygreen}{green!40!black}
+  \colorlet{myorange}{orange!90!black}
+  \colorlet{mypurple}{red!50!blue!90!black!80}
+  \colorlet{mydarkred}{myred!80!black}
+  \colorlet{mydarkblue}{myblue!80!black}
+  \tikzstyle{xline}=[xcol,thick]
+  \tikzstyle{width}=[{Latex[length=5,width=3]}-{Latex[length=5,width=3]},thick]
+  \tikzset{
+    traj/.style 2 args={xline,postaction={decorate},decoration={markings,
+      mark=at position #1 with {\arrow{<}},
+      mark=at position #2 with {\arrow{<}}}
+    }
+  }
+  \def\tick#1#2{\draw[thick] (#1)++(#2:0.12) --++ (#2-180:0.24)}
+  \def\N{100} % number of samples
+  % COS
+  \def\xmax{6.6} % max x axis
+  \def\ymax{1.2} % max y axis
+  \def\A{0.8}    % amplitude
+  \def\om{(2.55*360/(0.94*\xmax))} % angular frequency in degrees
+
+  % ENERGY vs. t
+  \begin{tikzpicture}
+    \def\ymax{2.4} % max y axis
+    \def\A{0.8*\ymax} % maximum extension
+    \def\om{(2.5*360/(0.94*\xmax))} % angular frequency in degrees
+
+    % AXIS
+    \draw[->,thick] (0,-0.1*\ymax) -- (0,\ymax) node[left] {$E$};
+    \draw[->,thick] (-0.1*\ymax,0) -- (\xmax,0) node[below] {$t$};
+    \draw[dashed] (0,\A) -- (0.95*\xmax,\A);
+
+    % PLOT
+    \draw[xline,myorange,samples=100+\N,smooth,variable=\x,domain=0:0.94*\xmax]
+      plot(\x,{\A*cos(\om*\x)^2});
+    \draw[xline,myred,samples=100+\N,smooth,variable=\x,domain=0:0.94*\xmax]
+      plot(\x,{\A*sin(\om*\x)^2});
+    \tick{0,\A}{0} node[left=0,scale=1] {$E_\text{tot}$};
+    \tick{{360/\om},0}{90} node[below,scale=1] {$T$};
+    \tick{{720/\om},0}{90} node[below,scale=1] {$2T$};
+
+  \end{tikzpicture}
+  \caption{Oscillazione completa di energia cinetica e potenziale}
+  \label{fig:oscillazione_completa_energia_cinetica_potenziale}
+\end{figure}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Pertanto l'energia totale $E_{\text{tot}}$ si può calcolare come
+\[E_{\text{tot}}=K+\mathcal{U}=\frac{1}{2}kA^2 \underbrace{\left[ \sin^2(\omega t + \phi) + \cos^2(\omega t + \phi) \right]}_{=1} = \frac{1}{2}kA^2\]
+per cui l'\textbf{energia totale è costante}: ciò non sorprende, in quanto si tratta di un \textbf{sistema conservativo}, in cui l'energia passa in continuazione da cinetica a potenziale.
+
+\vspace{1em}
+\subsection{Pendolo}
+Di seguito si espone la raffigurazione di un \textbf{pendolo}, per una migliore visualizzazione del problema fisico:
+
+\begin{figure}[H]
+  \centering
+  \colorlet{xcol}{blue!60!black}
+  \colorlet{vcol}{green!60!black}
+  \colorlet{myred}{red!65!black}
+  \colorlet{myblue}{blue!70!black}
+  \colorlet{mygreen}{green!40!black}
+  \colorlet{myorange}{orange!90!black}
+  \colorlet{mypurple}{red!50!blue!90!black!80}
+  \colorlet{mydarkred}{myred!70!black}
+  \colorlet{mydarkblue}{myblue!60!black}
+  \colorlet{acol}{red!50!blue!80!black!80}
+  \tikzstyle{CM}=[red!40!black,fill=red!80!black!80]
+  \tikzstyle{xline}=[xcol,thick]
+  \tikzstyle{mass}=[line width=0.6,red!30!black,fill=red!40!black!10,rounded corners=1,
+                    top color=red!40!black!20,bottom color=red!40!black!10,shading angle=20]
+  \tikzstyle{faded mass}=[dashed,line width=0.1,red!30!black!40,fill=red!40!black!10,rounded corners=1,
+                          top color=red!40!black!10,bottom color=red!40!black!10,shading angle=20]
+  \tikzstyle{rope}=[brown!70!black,very thick,line cap=round]
+  \def\rope#1{ \draw[black,line width=1.4] #1; \draw[rope,line width=1.1] #1; }
+  \tikzstyle{force}=[->,myred,very thick,line cap=round]
+  \tikzstyle{velocity}=[->,vcol,very thick,line cap=round]
+  \tikzstyle{Fproj}=[force,myred!40]
+  \tikzstyle{myarr}=[-{Latex[length=3,width=2]},thin]
+  \def\tick#1#2{\draw[thick] (#1)++(#2:0.12) --++ (#2-180:0.24)}
+
+  % PENDULUM
+  \def\L{2.8}  % string length
+  \def\ang{28} % angle string
+  \def\R{0.25} % ball radius
+  \def\F{1.0}  % force magnitude
+  \begin{tikzpicture}
+    \coordinate (M) at (\ang-90:\L);
+    \coordinate (M') at (0,-\L);
+    \coordinate (O) at (0,0);
+    \coordinate (B) at (0,-\L-2.2*\R);
+    \coordinate (FT) at ($(M)+(90+\ang:{\F*cos(\ang)+\R})$);
+    \coordinate (FG) at ($(M)+(-90:{\F+\R})$);
+    \coordinate (FGx) at ($(M)+(-90+\ang:{0.55*\F+\R})$);
+    \coordinate (MA) at ($(M)+(180+\ang:{\F*sin(\ang)+\R})$);
+    %\draw[faded mass] (M') circle(\R);
+    \draw[<->] (M)++(\ang-32:0.2*\L) node[below right=0,scale=0.9] {$x$}
+      --++ (\ang:0.17*\L) --++ (90+\ang:0.17*\L) node[above right=0,scale=0.9] {$y$};
+    \draw[dashed] (O) -- (B);
+    %\draw[dashed,myred!60!black] (MA) -- (FG);
+    \draw[dashed,myred!60!black] (M) -- (FGx);
+    \draw[dashed] (-90+\ang+10:\L) arc(-90+\ang+10:-110:\L) (B);
+    \rope{(O) -- (M)} \path (O) -- (M) node[midway,above right=-1] {$L$};
+    \fill[black] (O) circle(0.04);
+    \draw[force] (M) -- (FT) node[midway,left=0] {$\vec F_{T}$};
+    \draw[force] (M) -- (FG) node[right=0] {$m\vb{g}$};
+    \draw[force,acol] (M) -- (MA) node[right=2,below=0] {$m\vb{a}$}; %{\contour{white}{$m\vb{a}$}};
+    \draw[mass] (M) circle(\R) node {$m$};
+    \draw pic[myarr,"$\theta$",xcol,draw=xcol,angle radius=22,angle eccentricity=1.30] {angle=B--O--M}; %_\text{max}
+    \draw pic[myarr,"$\theta$",xcol,draw=xcol,angle radius=14,angle eccentricity=1.45] {angle=FG--M--FGx};
+  \end{tikzpicture}
+  \caption{Pendolo in oscillazione}
+  \label{fig:pendolo_oscillazione}
+\end{figure}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che siccome un pendolo oscillante rappresenta una rotazione attorno ad un \textbf{asse fisso}, è possibile impiegare il concetto di \textbf{momento di forza}, per cui
+\[\sum \vec \tau = I \vec \alpha\]
+Naturalmente, la forza di tensione non produce alcun momento di forza, giaccé $\vec F_T$ e $\vec r_T$ sono due vettori paralleli. La forza peso $\vec F_t$, invece, produce un momento di forza dato da
+\[\vec \tau_t = \vec r_t \times \vec F_t = L \cdot F_t \sin(\theta)\]
+pertanto si può scrivere
+\[-\hat{k} \cdot F_t L \sin(\theta) = I \alpha \cdot \hat{k}\]
+ma essendo $\alpha$ la derivata seconda dell'angolo rispetto al tempo, si ottiene
+\[\frac{d^2 \theta}{dt^2} = \frac{mg L}{I} \sin(\theta)\]
+questa equazione rassomiglia all'equazione differenziale caratteristica del moto oscillatorio, ma la presenza di $\sin(\theta)$ complica le cose. Tuttavia, per piccole oscillazioni (ovvero l'angolo $\theta$ è piccolo), si può approssimare $\sin(\theta)$ con $\theta$, essendo $\sin(\theta) \cong \theta$. Ciò permette di concludere che, per piccole oscillazioni, si ha
+\[\frac{d^2 \theta}{dt^2} = - \frac{mg L}{I} \theta\]
+un'equzione differenziale le cui soluzioni sono tutte e sole nella forma
+\[\theta(t) = A \cos(\omega t + \phi)\]
+in cui, sempre per piccole oscillazioni (dell'ordine di $15^\circ$), si ha
+\[\boxed{\omega = \sqrt{\frac{mg L}{I}}}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Naturalmente, nel caso in cui l'oggetto appeso al filo di un pendolo fosse una massa $m$ puntiforme, allora chiaramente il suo momento d'inerzia si potrebbe calcolare come $I=mL^2$, essendo $L$ la lunghezza del pendolo. Pertanto si ottiene che
+\[\boxed{\omega=\frac{g}{L}}\]
+che è un risultato più specifico di quello precedentemente ottenuto. Se, infatti, si avesse un corpo non approssimabile ad un punto, come il seguente
+
+\begin{figure}[H]
+  \centering
+  \colorlet{xcol}{blue!60!black}
+  \colorlet{vcol}{green!60!black}
+  \colorlet{myred}{red!65!black}
+  \colorlet{myblue}{blue!70!black}
+  \colorlet{mygreen}{green!40!black}
+  \colorlet{myorange}{orange!90!black}
+  \colorlet{mypurple}{red!50!blue!90!black!80}
+  \colorlet{mydarkred}{myred!70!black}
+  \colorlet{mydarkblue}{myblue!60!black}
+  \colorlet{acol}{red!50!blue!80!black!80}
+  \tikzstyle{CM}=[red!40!black,fill=red!80!black!80]
+  \tikzstyle{xline}=[xcol,thick]
+  \tikzstyle{mass}=[line width=0.6,red!30!black,fill=red!40!black!10,rounded corners=1,
+                    top color=red!40!black!20,bottom color=red!40!black!10,shading angle=20]
+  \tikzstyle{faded mass}=[dashed,line width=0.1,red!30!black!40,fill=red!40!black!10,rounded corners=1,
+                          top color=red!40!black!10,bottom color=red!40!black!10,shading angle=20]
+  \tikzstyle{rope}=[brown!70!black,very thick,line cap=round]
+  \def\rope#1{ \draw[black,line width=1.4] #1; \draw[rope,line width=1.1] #1; }
+  \tikzstyle{force}=[->,myred,very thick,line cap=round]
+  \tikzstyle{velocity}=[->,vcol,very thick,line cap=round]
+  \tikzstyle{Fproj}=[force,myred!40]
+  \tikzstyle{myarr}=[-{Latex[length=3,width=2]},thin]
+  \def\tick#1#2{\draw[thick] (#1)++(#2:0.12) --++ (#2-180:0.24)}
+
+  % PHYSICAL PENDULUM
+  \begin{tikzpicture}
+    \def\L{2.0}  % string length
+    \def\ang{28} % angle string
+    \def\R{0.25} % ball radius
+    \def\F{1.3}  % force magnitude
+    \coordinate (M) at (\ang-90:\L);
+    \coordinate (R) at (\ang-90:1.1*\L);
+    \coordinate (M') at (0,-\L);
+    \coordinate (O) at (0,0);
+    \coordinate (B) at (0,-\L-2.5*\R);
+    \coordinate (FT) at (90:\F);
+    \coordinate (FG) at ($(M)+(-90:\F)$);
+    \coordinate (FGx) at ($(M)+(-90+\ang:{0.55*\F+\R})$);
+    \coordinate (MA) at ($(M)+(180+\ang:{\F*sin(\ang)+\R})$);
+    \draw[mass]
+      (180:0.3*\L) to[out=90,in=180] (80:0.36*\L) to[out=0,in=90] (0:0.3*\L) to[out=-90,in=90]
+      ($(R)+(0:0.7*\L)$) to[out=-90,in=0] ($(R)+(-90:0.4*\L)$) to[out=180,in=-90] ($(R)+(-180:0.6*\L)$) to[out=90,in=-90] cycle; %node {$m$};
+    \draw[dashed] (O) -- (B);
+    \draw[dashed] (O) -- (M);
+    %\draw[dashed,myred!60!black] (MA) -- (FG);
+    \draw[dashed] (-90+\ang+10:\L) arc(-90+\ang+10:-110:\L) (B);
+    \fill[black] (O) circle(0.04);
+    \draw[CM] (M) circle(0.09);
+    \draw[force] (O) -- (FT) node[below right=0] {$\vb{F}_\mathrm{N}$};
+    \draw[force] (M) -- (FG) node[right=0] {$M\vb{g}$};
+  %  \draw[force,acol] (M) -- (MA) node[right=2,below=0] {$m\vb{a}$}; %{\contour{white}{$m\vb{a}$}};
+  %  \draw pic[myarr,"$\theta$",xcol,draw=xcol,angle radius=22,angle eccentricity=1.30] {angle=B--O--M}; %_\text{max}
+  %  \draw pic[myarr,"$\theta$",xcol,draw=xcol,angle radius=14,angle eccentricity=1.45] {angle=FG--M--FGx};
+  \end{tikzpicture}
+  \caption{Esempio di pendolo fisico generale}
+  \label{fig:esempio_pendolo_fisico_generale}
+\end{figure}
+
+\noindent
+Allora in questo caso non è possibile impiegare la definzione della pulsazione per un punto materiale, ma è necessario ricorrere alla formula più generale
+\[\omega = \sqrt{\frac{mg L}{I}}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che, nella definizione generale di pulsazione, si ha
+\[\omega=\frac{2\pi}{T}\]
+per cui, volendo isolare il periodo, si ottiene
+\[T = 2\pi \cdot \sqrt{\frac{L}{g}} = 2 \sqrt{\frac{L \pi^2}{g}}\]
+ma è interessante osservare come $\pi^2 \cong 9.86$, per cui è una buona apporssimazione scrivere
+\[T = 2 \sqrt{L}\]
+in cui naturalmente il peridoo viene espresso in [s] e la lunghezza viene espressa in [m].
 
 \newpage
-\section{Oscillazioni}
+\noindent
+\begin{center}
+  4 Maggio 2022
+\end{center}
+\subsection{Moto armonico smorzato}
+Naturalmente, il moto armonico perpetuo è impossibile da ottenere praticamente, per cui è sempre presente un contributo esterno che porta alla concllusione di tale moto oscillatorio.\\
+Le soluzioni generali di un moto armonico smorzato sono, in realtà, tre, esposte si seguito:
+\begin{enumerate}
+  \item Una soluzione di \textbf{sottosmorzamento}, in cui è presente comunque una componente oscillatoria
+  \[\boxed{x(t)=A e^{\gamma t} \cos(\omega_s t + \phi)}\]
+  nella quale l'ampiezza viene progressivamente ridotta col tempo di un fattore $e^{\gamma t}$. La pulsazione $\omega_s$ viene definita come segue
+  \[\boxed{\omega_s^2 = \omega^2 - \gamma^2}\]
+  il che significa che anche la frequenza viene progressivamente ridotta.
+
+  \item Una soluzione di \textbf{smorzamento critico}, il quale si viene a verificare quando $\omega=\gamma$.
+
+  \item Una soluzione di \textbf{sovrasmorzamento}, il quale si verifica quando $\omega<\gamma$.
+\end{enumerate}
+
+\vspace{1em}
+\noindent
+\subsection{Moto armonico forzato}
+Un moto armonico forzato viene causato quando un sistema esterno contribuisce all'oscillazione di una molla, per esempio, per cui si ottiene
+\[\sum \vec F = -kx - vb_x + F_0 \cos(\omega_e t)\]
+in cui $\omega_e$ è proprio la \textbf{pulsazione esterna}. La soluzione di questa equazione diviene
+\[x(t)=A_0 \cos(\omega_e t + \phi_e)\]
+della quale possono essere determinati anche l'ampiezza $A_0$ e $\phi_e$, ovvero
+\[\boxed{A_0 = \frac{\dfrac{F_0}{m}}{\sqrt{(\omega_e^2 - \omega^2)^2 + 4\gamma^2 \omega_e^2}}} \hspace{1em} \text{e} \hspace{1em} \boxed{\tan(\phi_e) = \frac{2 \gamma \omega_e}{\omega^2 - \omega_e^2}}\]
+in cui $\gamma$ è una quantificazione dello smorzamento. Tali equazioni descrivono il fenomeno che prende il nome di \textbf{risonanza}.
 
 \newpage
 \section{Solidi e fluidi}
+Di seguito si espongono le pricnipali proprietà di solidi e fluidi, le quali rappresentano il preludio per comprendere il concetto di termodinamica.
+
+\vspace{1em}
+\subsection{Proprietà dei solidi}
+Si consideri un corpo solido qualsiasi poggiato un piano e si definiscano le forze che possono agire su tale oggetto:
+\begin{itemize}
+  \item La \textbf{forza normale}, ortogonale alla superficie del solido, che può essere a sua volta
+  \begin{itemize}
+    \item di \textbf{tensione}, quando si tira il solido;
+    \item di \textbf{compressione}, quando si comprime il solido;
+  \end{itemize}
+  \item La forza \textbf{forza parallela}, ossia le cossiddette \textbf{forze di taglio} (dall'inglese \emph{shear forces});
+\end{itemize}
+Molto spesso è utile anche definire il rapporto seguente per descrivere lo sforzo compiuto:
+\[\boxed{\text{sforzo} = \frac{\text{forza}}{\text{area}}}\]
+Per quanto riguarda una compressione/tensione si definisce il coefficiente
+\[\sigma_t = \frac{F_N}{A}\]
+ossia lo \textbf{sforzo di tensione}, mentre per le forze di taglio si ha
+\[\sigma_s=\frac{F_p}{A}\]
+ossia lo \textbf{sforzo di taglio}. Mentre la forza normale applicata su tutte le facce viene definita
+\[\boxed{p=\frac{F_N}{A}}\]
+che prende il nome di \textbf{pressione}.
+
+\vspace{1em}
+\noindent
+\subsubsection{Deformazioni}
+Si consideri un solido di altezza $l$ sulla quale viene esercitata una forza di compressione/tensione tale da produrre una variazione di altezza pari a $\Delta l$, andando così a definire il concetto di
+\[\epsilon_t=\frac{\Delta l}{l}\]
+ossia la \textbf{deformazioni di trazione}, dall'inglese \emph{normal strain}, in cui \emph{strain} significa proprio deformazione.\\
+Se, invece, il solido viene compresso orizzontalmente tale da produrre una variazione di larghezza $\Delta x$, allora di definisce il coefficiente
+\[\epsilon_s = \frac{\Delta x}{l}\]
+che prende il nome di \textbf{deformazioni di taglio}, dall'inglese \emph{shear strain}.
+
+\vspace{1em}
+\noindent
+\subsection{Elasticità}
+In prima approssimazione si può intuire come la deformazione vari linearmente in funzione della forza applicata al corpo rigido, seguendo il grafico seguente:
+
+% \begin{figure}[H]
+%   \mplibtextextlabel{enable}
+%   \begin{mplibcode}
+%     beginfig(1);
+%         path xx, yy, ff;
+%         xx = origin -- 377 right;
+%         yy = origin -- 233 up;
+%         ff = origin .. (72, 144){1,2} .. (84, 144) .. (96, 144){1,1} .. (200, 220){right} .. (340, 160){2,-1.3};
+%
+%         for t=2, 4, 4.9:
+%             draw point t of ff -- (xpart point t of ff, ypart point 1 of yy + 20) dashed evenly scaled 1/2;
+%         endfor
+%         label.top("Strain hardening", (1/2 (xpart point 2 of ff + xpart point 4 of ff), ypart point 1 of yy));
+%         label.top("Necking", (1/2 (xpart point 4 of ff + xpart point 4.9 of ff), ypart point 1 of yy));
+%
+%         path rr;
+%         rr = point 0.4 of ff -- (xpart point 0.8 of ff, ypart point 0.4 of ff) -- point 0.8 of ff;
+%         draw rr; label.bot("Run", point 1/2 of rr); label.rt("Rise", point 3/2 of rr);
+%
+%         vardef pin_label@#(expr p, a, b)=
+%             draw a -- b cutbefore fullcircle scaled 8 shifted a withpen pencircle scaled 1/4 withcolor 1/2 white;
+%             label@#(p, b);
+%         enddef;
+%
+%         pin_label.lrt("Yield strength", point 1.2 of ff, point 2 of ff + (8, -18));
+%         pin_label.bot("Ultimate strength", point 4 of ff, point 4 of ff - (4, 24));
+%         pin_label.lrt("Fracture", point 5 of ff, point 5 of ff + (12, -18));
+%
+%         color french_blue; french_blue = 1/256(50, 122, 177);
+%         draw ff withpen pencircle scaled 1 withcolor french_blue;
+%
+%         drawarrow xx; label.rt("Strain, $\epsilon$", point 1 of xx);
+%         drawarrow yy; label.top("Stress, $\sigma$", point 1 of yy);
+%
+%         label("$\displaystyle\hbox{Young's modulus} = \hbox{Slope} = {\hbox{Rise}\over\hbox{Run}}$", point 1/2 of xx shifted 36 up);
+%     endfig;
+%   \end{mplibcode}
+%   \caption{Grafico sforzo-deformazione}
+%   \label{fig:grafico_stess_strain}
+% \end{figure}
+
+\noindent
+Naturalmente, la deformazione non può avvenire in maniera infinita, in quanto ad un certo punto il corpo solido si rompe (\textbf{frattura}) sotto la forza applicata. Se, invece, la deformazione aumenta con la deformazione sempre in maniera lineare, allora si entra nel regime di \textbf{plasticità}.\\
+Ciò che costiuisce un significato fisico importante è il rapporto tra sforzo ed elasticità, ovvero
+\[\frac{\sigma_t}{\epsilon_t} = \frac{\dfrac{F_N}{A}}{\dfrac{\Delta l}{l}} = y\]
+che prende il nome di \textbf{modulo di Young}. Se, invece, si considerano uno sforzo e una deformazione di taglio si ottiene
+\[\frac{\sigma_s}{\epsilon_s} = \frac{\dfrac{F_p}{A}}{\dfrac{\Delta x}{l}} = y\]
+che prende il nome di \textbf{modulo di compressione}. Un ultimo rapporto è il seguente
+\[\mathcal{B}=\frac{\Delta p}{\dfrac{\Delta V}{V}}\]
+che prende il nome di \textbf{modulo di compressione}, dall'inglese \emph{Bulk modulus}.
+
+\vspace{1em}
+\subsection{Fluidi}
+Si consideri un blocco di massa $\Delta m$ e volume $\Delta V$ immerso all'interno di un liquido, come per esempio l'acqua. Allora le forze esterne che agiscono su tale cubo sono
+\[\sum \vec F_{\text{ext}} = \Delta m \vec g + \vec F_s = 0\]
+in cui $\vec F_s$ prende il nome di \textbf{forza di spinta dovuta al fluido attorno al cubo}, la quale è eguale e contraria alla forza peso del blocco, essendo esso in equilibrio, per cui
+\[\vec F_s = - \Delta m \vec g\]
+ma siccome il fluido presenta una densità $\rho$ si può scrivere
+\[\vec F_s = - \Delta V \rho \vec g\]
+Se, ora, si suppone che il cubo è occupato da un altro materiale, si può sempre scrivere
+\[\sum \vec F_{\text{ext}} = \Delta m \vec g - \Delta V \rho \vec g\]
+e se si esegue la somma di tutti i blocchi di massa $\Delta m$ per comporre un corpo di qualsiasi altra forma si ottiene
+\[\boxed{\vec F_r = m \vec g - \rho V \vec g}\]
+che prende il nome di \textbf{principio di Archimede}: \emph{un corpo immerso parzialmente o totalmente in un fluido riceve una spinta di intensità pari al peso del fluido spostato e diretta verso l'alto lungo una retta passante per il centro di gravità del fluido spostato}.
+
+\vspace{1em}
+\subsection{Pressione}
+La definizione di \textbf{pressione} viene esposta di seguito:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{PRESSIONE}}\\
+    \parbox{\linewidth}{La pressione viene definita come \textbf{forza per unità di area}, ovvero
+    \[\boxed{p = \frac{F}{A}}\]
+    \vspace{-1mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che la pressione $p$ è uno scalare perché si considera solamente la componente della forza $\perp$ alla superficie.\\
+Le unità di misura della pressione sono differenti:
+\begin{itemize}
+  \item Il \textbf{Pascal} definito come
+  \[\boxed{\text{Pa} = \frac{\text{N}}{\text{m}^3}}\]
+  \item Il \textbf{bar} definito come
+  \[\boxed{1 \text{ bar} = 100 \text{ kPa} = 750 \text{ Torr}}\]
+  \item L'\textbf{atmosfera} definita come
+  \[\boxed{1 \text{ atm} = 101.325 \text{ kPa}}\]
+\end{itemize}
+
+\vspace{1em}
+\subsubsection{Principio (o legge) di Pascal}
+Il \textbf{principio di Pascal} viene esposto di seguito:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{PRINCIPIO DI PASCAL}}\\
+    \parbox{\linewidth}{La pressione esercitata su un fluido viene trasmessa inalterata in ogni punto del fluido e alla superficie del suo contenitore.\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+che si può facilmente visualizzare con l'esempio seguente:
+
+\begin{figure}[H]
+  \centering
+
+  \colorlet{mydarkblue}{blue!50!black}
+  \colorlet{myred}{red!65!black}
+  \colorlet{vcol}{green!45!black}
+  \colorlet{watercol}{blue!80!cyan!10!white}
+  \colorlet{darkwatercol}{blue!80!cyan!20!white}
+  \colorlet{metalcol}{blue!40!black!10!white}
+  \tikzstyle{force}=[->,myred,very thick,line cap=round]
+  \tikzstyle{vvec}=[->,very thick,vcol,line cap=round]
+  \tikzstyle{piston}=[blue!50!black,top color=blue!30,bottom color=blue!50,middle color=blue!20,shading angle=0]
+  \tikzstyle{water}=[draw=mydarkblue,top color=watercol!90,bottom color=watercol!90!black,shading angle=5]
+  \tikzstyle{vertical water}=[water,
+    top color=watercol!90!black!90,bottom color=watercol!90!black!90,middle color=watercol!80,shading angle=90]
+  \tikzstyle{dark water}=[draw=mydarkblue,top color=darkwatercol,bottom color=darkwatercol!80!black,shading angle=5]
+  \tikzstyle{metal}=[draw=metalcol!20!black,top color=metalcol,bottom color=metalcol!90!black,shading angle=10]
+  \tikzstyle{width}=[{Latex[length=3,width=3]}-{Latex[length=3,width=3]}]
+  \def\tick#1#2{\draw[thick] (#1)++(#2:0.1) --++ (#2-180:0.2)}
+  % PRESSURE HEIGTH DIFFERENCE
+  \begin{tikzpicture}
+    \def\L{3.5}        % distance pistons
+    \def\Lx{0.50}      % left piston horizontal radius
+    \def\Ly{0.08}      % left piston vertical radius
+    \def\Rx{1.00}      % right piston horizontal radius
+    \def\Ry{0.16}      % right piston vertical radius
+    \def\H{2.6}        % height tank
+    \def\d{0.28*\H}    % diameter connecting pipe
+    \def\hL{0.86*\H}   % left height water
+    \def\hR{0.74*\H}   % right height water
+    \def\pt{0.05*\H}   % piston thickness
+    \def\prx{0.040*\H} % piston pole radius
+    \def\pry{0.006*\H} % piston pole radius
+    \def\pLl{0.15*\H}  % left piston pole length
+    \def\pRl{0.26*\H}  % right piston pole length
+    \def\xL{0.30*\H}   % right piston displacement
+    \def\xR{\xL*\Lx/\Rx} % left piston displacement
+    \def\F{0.3*\H}     % force magnitude
+
+    % WATER
+    \draw[water,rounded corners=2]
+      (-\Lx,\hL) |-++ (\L+\Lx+\Rx,-\hL) |-++ (-2*\Rx,\hR) |-++ %arc (360:180:{\Rx} and {\Ry}) --++
+      (-\L+\Lx+\Rx,-\hR+\d) |- cycle; %(-2*\Lx,\hL-\t) -- arc (360:180:{\Lx} and {\Ly}) -- cycle;
+    \draw[blue!30!black,dashed,thin] (-\Lx,\hL-\pt-\xL) arc(180:360:{\Lx} and {\Ly});
+
+    % PISTON
+    \draw[metal]
+      (-\Lx,\hL) --++ (0,-\pt) arc (180:360:{\Lx} and {\Ly}) --++ (0,\pt)
+      (\L-\Rx,\hR) --++ (0,-\pt) arc (180:360:{\Rx} and {\Ry}) --++ (0,\pt)
+      (0,\hL) ellipse ({\Lx} and {\Ly})
+      (\L,\hR) ellipse ({\Rx} and {\Ry});
+    \draw[metalcol!20!black,dashed,thin]
+      (\L+\Rx,\hR-\pt+\xR) arc(0:180:{\Rx} and {\Ry});
+    \draw[metal]
+      (-\prx,\hL+\pLl) --++ (0,-\pLl) arc (180:360:{\prx} and {\pry}) --++ (0,\pLl)
+      (\L-\prx,\hR+\pRl) --++ (0,-\pRl) arc (180:360:{\prx} and {\pry}) --++ (0,\pRl)
+      (0,\hL+\pLl) ellipse ({\prx} and {\pry})
+      (\L,\hR+\pRl) ellipse ({\prx} and {\pry});
+    \draw[metalcol!20!black,dashed,thin]
+      (\L-\Rx,\hR-\pt+\xR) arc(180:360:{\Rx} and {\Ry});
+
+    % CONTAINER
+    \draw[thick,rounded corners=2]
+      (-\Lx,\H) |-++ (\L+\Lx+\Rx,-\H) --++ (0,\H)
+      (\Lx,\H) |-++ (\L-\Lx-\Rx,-\H+\d) --++ (0,\H-\d);
+    \draw[thick]
+      (0,\H) ellipse ({\Lx} and {\Ly}) (\L,\H) ellipse ({\Rx} and {\Ry});
+
+    % FORCES
+    \draw[force] (0,\hL+\pLl+\F) --++ (0,-\F) node[pos=0.4,left=0] {$F_1$};
+    \draw[force] (\L,\hR+\pRl+0.02) --++ (0,\F) node[midway,above=3,right=-1] {$F_2$};
+
+    % AXIS
+    \draw[->,thick] (-\Lx-0.2*\Rx,0.9*\H) --++ (0,-0.52*\H); %node[left] {$x_1$};
+    \draw[->,thick] (\L+1.2*\Rx,0.6*\H) --++ (0,0.40*\H); %node[right] {$x_2$};
+    \tick{-\Lx-0.2*\Rx,\hL-\pt}{0} node[left=0] {$0$};
+    \tick{-\Lx-0.2*\Rx,\hL-\pt-\xL}{0} node[left=0] {$x_1$};
+    \tick{\L+1.2*\Rx,\hR-\pt}{180} node[right=0] {$0$};
+    \tick{\L+1.2*\Rx,{\hR-\pt+\xR}}{180} node[right=0] {$x_2$};
+  \end{tikzpicture}
+  \caption{Principio di Pascal}
+  \label{fig:princpio_Pascal}
+\end{figure}
+
+\noindent
+Nel quale è evidente come, essendo la pressione costante, si ottiene
+\[p=\frac{F_1}{A_1}=\frac{F_2}{A_2} \longrightarrow F_2=\frac{A_2}{A_1} F_1\]
+che è il pricpio alla base delle \textbf{presse idrauliche}, ideate da Joseph Bramah.
+
+\vspace{1em}
+\subsection{Equilibrio idrostatico}
+Si consideri un blocco di massa $m$, avente un'area di base $A$ e un'altezza $dz$ immerso in un fluido. Allora la risultante delle forze applicate dal fluido sulle facce del parallelepipedo si può ottenere considerando il fatto che la pressione sia eguale su ogni faccia: pertanto la risultante orizzontale è ovviamente nulla, in cui tutti i contributi si cancellano, mentre per quanto riguarda la componente verticale si ottiene (non considerando il peso)
+\[F_s = F(z) - F(z+dz) = p(z) \cdot A - p(z+dz) \cdot A\]
+ma è noto, per il principio di Archimede che $F_s = \rho g V$, per cui
+\[\rho g V = p(z) A - p(z + dz) A\]
+ma siccome $V=A dz$, dividendo ambo i membri per $V$ si ottiene
+\[\rho g = \frac{p(z) - p(z+dz)}{dz} = - \frac{dp}{dz}\]
+che rappresenta l'\textbf{equazione fondamentale dell'equilibrio idrostatico}
+\[\boxed{\frac{dp}{dz}=-\rho g}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Attraverso tale risultato, è possibile ora determinare la pressione in una colonna di fluido. Partendo dal presupposto che l'acqua è un fluido incomprimibile, per cui la sua densità $\rho$ è indipendente da $p$, per cui $\rho g$ è costante, da cui
+\[\frac{dp}{dz} = - \rho g \longrightarrow \int dp = \int - \rho g dz\]
+e volendo conoscere il profilo di pressione in funzione dell'altezza, si ottiene
+\[\int_{p_{\text{atm}}} ^{p(z)} dp = - \rho g \int_0^z dz \longrightarrow p(z) - p_{\text{atm}} = - \rho g z\]
+per cui si ottiene
+\[\boxed{p(z)=p_{\text{atm}}\-\rho g z}\]
+Tale risultato permette di capire quale sia l'altezza $z_0$ alla quale la pressione atmosferica è eguale alla pressione del fluido, per cui
+\[p(z_0)=p_{\text{atm}}\-\rho g z_0 \longrightarrow z_0 = 0 \longrightarrow z_0 = \frac{P_{\text{atm}}}{\rho g} = 10 \text{ m}\]
+per cui si può anche scrivere
+\[p(z)=P_{\text{atm}} \cdot \left(1-\frac{z}{z_0} \right)\]
+ed essendo $z_0=10 $ m si ottiene se si scende sott'acqua, con $z_2=-20$ m, $z_3=-30$ m, allora il coefficiente
+\[1-\frac{z_2}{z_0} = -2 \hspace{1em} \text{e} \hspace{1em} 1-\frac{z_3}{z_0} = -3\]
+per cui ogni $10$ m la pressione atmosferica aumenta di $1$ atm.
 
 \newpage
-\section{Temperatura e calore}
+\noindent
+\begin{center}
+  5 Maggio 2022
+\end{center}
+Grazie alla legge fondamentale dell'idrostatica
+\[\boxed{\frac{dp}{dz} = - \rho g}\]
+è possibile calcolare le variazioni di pressione in funzione della variazione di profondità.\\
+Grazie a tale risultato si è evinto come la pressione atmosferica non possa spingere una colonna d'acqua più alta di circa $10$ m.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: La densità dell'acqua molto salata Mar Morto è $\rho_f=1.24$ kg/l. Si determini circa quale frazione del corpo di un bagnante rimane emerso.\\
+Dal momento che la somma delle forze esterne è nulla
+\[\sum \vec{F}_{\text{ext}} = 0\]
+per cui naturalmente la forza peso del bagnante (che si applica sul centro di massa del bagnante stesso) e la forza di spinta (che si applica sul centro di massa del fluido spostato), per cui
+\[m \vec g = \rho_f \vec g V_{f} \longrightarrow V_{f} = \frac{m}{\rho_f}\]
+Da notare che $V_f$ è il volume di fluido spostato, mentre il volume del bagnante è dato da
+\[V_b = \frac{m}{\rho_b}\]
+supponendo che la densità del bagnante sia $\rho_b \cong 1$ kg/l. Allora appare evidente come la porzione di corpo emerso è
+\[1-\frac{V}{V_b}=1-\frac{1}{1.24} \cong 20\%\]
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Per quanto riguarda un sifone ... continua ...
+
+\vspace{1em}
+\noindent
+\subsection{Flusso laminare e turbolento}
+Quando si considera un fluido, una parte di esso viene definito \textbf{laminare} un quanto il suo moto è pressoché lineare, mentre se il fluido è \textbf{turbolento} il suo moto è irregolare.\\
+Si può facilmente capire come il moto di un fluido turbolento sia molto complicato da descrivere a causa di una continua dissipazione dell'energia in scale sempre più piccole.\\
+Nel caso di un fluido laminare, invece, il suo moto può essere descritto tramite le cosiddette \textbf{linee di flusso} che non si incontrano mai e si mantengono sempre alla stessa distanza.
+
+\vspace{1em}
+\noindent
+\subsection{Equazione di continuità}
+Si consideri un contenitore come quello esposto, in cui vengono messi in evidenza delle sezioni e le loro proprietà:
+
+\begin{figure}[H]
+  \centering
+  \colorlet{mydarkblue}{blue!40!black}
+  \colorlet{myblue}{blue!30}
+  \colorlet{myred}{red!65!black}
+  \colorlet{vcol}{green!45!black}
+  \colorlet{watercol}{blue!80!cyan!10!white}
+  \colorlet{darkwatercol}{blue!80!cyan!80!black!30!white}
+  \tikzstyle{water}=[draw=mydarkblue,top color=watercol!90,bottom color=watercol!90!black,middle color=watercol!50,shading angle=0]
+  \tikzstyle{horizontal water}=[water,
+    top color=watercol!90!black!90,bottom color=watercol!90!black!90,middle color=watercol!80,shading angle=0]
+  \tikzstyle{dark water}=[draw=blue!20!black,top color=darkwatercol,bottom color=darkwatercol!80!black,middle color=darkwatercol!40,shading angle=0]
+  \tikzstyle{vvec}=[->,very thick,vcol,line cap=round]
+  \tikzstyle{force}=[->,myred,very thick,line cap=round]
+  \tikzstyle{width}=[{Latex[length=3,width=3]}-{Latex[length=3,width=3]}]
+
+  % EQUAZIONE DI CONTINUITÀ
+  \begin{tikzpicture}
+    \def\LL{2.0}         % length pipe left
+    \def\LR{1.7}         % length pipe right
+    \def\L{3.0*\LL}      % total length
+    \def\l{\L-\LL-\LR}   % length between pipes
+    \def\xL{0.24*\LL}    % position volume left
+    \def\xR{\L-0.80*\LR} % position volume right
+    \def\lL{0.7*\LR}     % length volume left
+    \def\lR{\lL*\ry/\Ry} % length volume right
+    \def\rx{0.08}        % small pipe horizontal radius left
+    \def\ry{0.32}        % small pipe vertical radius left
+    \def\Rx{0.18}        % big pipe vertical radius right
+    \def\Ry{0.90}        % big pipe vertical radius right
+    \def\v{1.3}          % velocity magnitude
+
+    % WATER
+    \draw[horizontal water]
+      (0,\ry) -- (0,-\ry)  coordinate (A1) --++ (\LL,0) to[out=0,in=180]
+      (\L-\LR,-\Ry) -- (\L,-\Ry) coordinate (A2) arc(-90:90:{\Rx} and \Ry)
+      --++ (-\LR,0)  to[out=180,in=0] (\LL,\ry) -- cycle;
+    \node[above left] at (A1) {$A_1$};
+    \node[above right=0] at (A2) {$A_2$};
+
+    % VOLUMES
+    \draw[vvec] (\xL+\lL+\rx,0) --++ (\v,0) node[right=0] {$v_1$};
+    \draw[vvec] (\xR+\lR+\Rx,0) --++ (\v*\ry/\Ry,0) node[right=0] {$v_2$};
+    \draw[dark water,dashed,very thin]
+      (\xL,0) ellipse({\rx} and \ry)
+      (\xR,0) ellipse({\Rx} and \Ry);
+    \draw[dark water]
+      (\xL,\ry) arc(90:-90:{\rx} and \ry) --++ (\lL,0)
+                arc(-90:90:{\rx} and \ry) -- cycle;
+    \draw[dark water]
+      (\xR,\Ry) arc(90:-90:{\Rx} and \Ry) --++ (\lR,0)
+                arc(-90:90:{\Rx} and \Ry) -- cycle;
+    \draw[width]
+      (\xL,-1.6*\ry) --++ (\lL,0) node[midway,fill=white,inner sep=0] {$\ell_1$};
+    \draw[width]
+      (\xR,-1.15*\Ry) --++ (\lR,0) node[midway,below] {$\ell_2$};
+
+    % CONTAINER
+    \draw[mydarkblue,thick]
+      (0,\ry) -- (0,-\ry)  coordinate (A1) --++ (\LL,0) to[out=0,in=180]
+      (\L-\LR,-\Ry) -- (\L,-\Ry) coordinate (A2) arc(-90:90:{\Rx} and \Ry)
+      --++ (-\LR,0)  to[out=180,in=0] (\LL,\ry) -- cycle;
+    \draw[water,thick]
+      (0,0) ellipse({\rx} and \ry);
+
+  \end{tikzpicture}
+  \caption{Equazione di continuità}
+  \label{fig:equazione_continuita}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Il principio alla base del fluido descritto nella Figura \ref{fig:equazione_continuita} è che la quantità di massa che attraverso il tubo si mantiene costante in quanto la \textbf{materia si conserva}, per cui
+\[\boxed{\Delta m_1 = \Delta m_2}\]
+un'equazione che, riscritta calcolando le masse si diviene
+\begin{flalign*}
+  \Delta m_1 = \rho_1 A_1 \Delta l_1 = \rho_1 A_1 v_1 \Delta t\\
+  \Delta m_2 = \rho_2 A_2 \Delta l_2 = \rho_2 A_2 v_2 \Delta t
+\end{flalign*}
+che permette di ottenere l'\textbf{equazione di continuità} seguente
+\[\boxed{\rho_1 A_1 v_1 = \rho_2 A_2 v_2}\]
+e se si considera un flusso incomprimibile, allora $\rho_1=\rho_2$, per cui
+\[\boxed{v_1 A_1 = v_2 A_2}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che un palloncino riempito di elio, quando si trova in un treno in decelerazione, non si sposta in
+
+\vspace{1em}
+\subsection{Teorema di Bernoulli}
+Si consideri un tubo rimepito di fluido incomprimibile e che presenta i parametri di seguito esposti:
+
+\begin{figure}[H]
+  \centering
+  \colorlet{mydarkblue}{blue!40!black}
+  \colorlet{myblue}{blue!30}
+  \colorlet{myred}{red!65!black}
+  \colorlet{vcol}{green!45!black}
+  \colorlet{watercol}{blue!80!cyan!10!white}
+  \colorlet{darkwatercol}{blue!80!cyan!80!black!30!white}
+  \tikzstyle{water}=[draw=mydarkblue,top color=watercol!90,bottom color=watercol!90!black,middle color=watercol!50,shading angle=0]
+  \tikzstyle{horizontal water}=[water,
+    top color=watercol!90!black!90,bottom color=watercol!90!black!90,middle color=watercol!80,shading angle=0]
+  \tikzstyle{dark water}=[draw=blue!20!black,top color=darkwatercol,bottom color=darkwatercol!80!black,middle color=darkwatercol!40,shading angle=0]
+  \tikzstyle{vvec}=[->,very thick,vcol,line cap=round]
+  \tikzstyle{force}=[->,myred,very thick,line cap=round]
+  \tikzstyle{width}=[{Latex[length=3,width=3]}-{Latex[length=3,width=3]}]
+
+  % PRINCIPIO DI BERNOULLI
+  \begin{tikzpicture}
+    \def\LL{1.7}          % length pipe left
+    \def\LR{1.7}          % length pipe right
+    \def\L{3.5*\LL}       % total length
+    \def\H{2.0}           % height
+    \def\l{\L-\LL-\LR}    % length between pipes
+    \def\xL{0.32*\LL}     % position volume left
+    \def\xR{\L-0.80*\LR}  % position volume right
+    \def\lL{0.2*\LR}      % length volume left
+    \def\lR{\lL*\Ry/\ry}  % length volume right
+    \def\rx{0.08}         % small pipe horizontal radius left
+    \def\ry{0.32}         % small pipe vertical radius left
+    \def\Rx{0.18}         % big pipe vertical radius right
+    \def\Ry{0.90}         % big pipe vertical radius right
+    \def\v{1.0}           % velocity magnitude
+    \def\F{0.9}           % force magnitude
+    \def\y{(\Ry+0.35*\H)} % height from ground
+
+    % WATER
+    \draw[horizontal water,thick]
+      (0,\Ry) -- (0,-\Ry) coordinate (P1) --++ (\LL,0) to[out=0,in=180]
+      (\L-\LR,\H-\ry) -- (\L,\H-\ry) coordinate (P2) arc(-90:90:{\rx} and \ry)
+      --++ (-\LR,0)  to[out=180,in=0] (\LL,\Ry) -- cycle;
+    \node[above left=0] at (P1) {$P_1$};
+    \node[above=0,right=0] at (P2) {$P_2$};
+
+    % VOLUMES
+    \draw[vvec] (\xL+\lL+\Rx,0) --++ (\v*1.2*\ry/\Ry,0) node[above=0] {$v_1$};
+    \draw[vvec] (\xR+\lR+\rx,\H-0.2*\ry) --++ (\v,0) node[right=0] {$v_2$};
+    \draw[force] (\L-0.7*\ry+0.8*\F,\H+0.2*\ry) --++ (-0.8*\F,0) node[pos=0.3,above] {$F_2$};
+    \draw[dark water,dashed,very thin]
+      (\xL,0) ellipse({\Rx} and \Ry)
+      (\xR,\H) ellipse({\rx} and \ry);
+    \draw[dark water]
+      (\xL,\Ry)
+        arc(90:-90:{\Rx} and \Ry) coordinate (A1) --++ (\lL,0)
+        arc(-90:90:{\Rx} and \Ry) -- cycle;
+    \draw[dark water]
+      (\xR,\H+\ry) coordinate (A2)
+        arc(90:-90:{\rx} and \ry) --++ (\lR,0)
+        arc(-90:90:{\rx} and \ry) -- cycle;
+    \draw[width]
+      (\xL,1.15*\Ry) --++ (\lL,0) node[midway,above] {$\ell_1$};
+    \draw[width]
+      (\xR,\H-1.6*\ry) --++ (\lR,0) node[midway,fill=white,inner sep=0] {$\ell_2$};
+    \node[left=0,below=0] at (A1) {$A_1$};
+    \node[left=0,above=0] at (A2) {$A_2$};
+
+    % CONTAINER
+    \draw[mydarkblue,thick]
+      (0,\Ry) -- (0,-\Ry)  coordinate (A1) --++ (\LL,0) to[out=0,in=180]
+      (\L-\LR,\H-\ry) -- (\L,\H-\ry) coordinate (A2) arc(-90:90:{\rx} and \ry)
+      --++ (-\LR,0)  to[out=180,in=0] (\LL,\Ry) -- cycle;
+    \draw[water,thick]
+      (0,0) ellipse({\Rx} and \Ry);
+
+    % HEIGHT
+    \draw[dashed] (0.23*\L,{-\y}) --++ (0.6*\L,0);
+    \draw[<->]
+      (1.1*\LL,{-\y}) --++ (0,{\y}) node[pos=0.13,above right=0] {$h_1$};
+    \draw[<->]
+      (0.95*\xR,{-\y}) --++ (0,{\H+\y}) node[midway,fill=white,inner sep=1] {$h_2$};
+    \draw[force] (0.1*\Ry-\F,0) --++ (\F,0) node[pos=0.4,above=0] {$F_1$};
+
+  \end{tikzpicture}
+  \caption{Teorema di Bernoulli}
+  \label{fig:teorema_bernoulli}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Applicando la conservazione dell'energia ad un fluido incomprimibile, si evince come
+\begin{flalign*}
+  E_1 = \Delta m g h_1 + \frac{1}{2}\Delta m v_1^2\\
+  E_2 = \Delta m g h_2 + \frac{1}{2}\Delta m v_2^2
+\end{flalign*}
+Allora si evince come la variazione di energia sia
+\[\Delta E = E_2 - E_1 = W_{\text{ext}} = F_1 \Delta l_1 - F_2 \Delta l_2\]
+ma sapendo che, ovviamente,
+\[F_1 = P_1 A_1 \hspace{1em} \text{e} \hspace{1em} F_2 = P_2 A_2\]
+per cui si ottiene che
+\[W_{\text{ext}}=F_1 \Delta l_1 - F_2 \Delta l_2 = P_1 A_1 \Delta l_1 - P_2 A_2 \Delta l_2 = P_1 \Delta V_1 - P_2 \Delta V_2 = (P_1-P_2) \cdot \Delta V\]
+e considerando l'energia
+\[\Delta E = \Delta m g h_1 + \frac{1}{2} \Delta m v_2^2 - \Delta m g h_1 - \frac{1}{2} \Delta m v_1^2 = (P_1 - P_2) \cdot \Delta V\]
+che permette di concludere che
+\[\boxed{\rho g h_1 + \frac{1}{2} \rho v_2^2 + P_2 = \rho g h_1 + \frac{1}{2} \rho v_1^2 + P_1 = \text{ costante}}\]
+Più in gnerale
+\[\boxed{p + \frac{1}{2} \rho v^2 + \rho g h = \text{costante}}\]
+per cui se la velocità aumenta, mantenendo costante l'altezza, la pressione deve diminuire, etc.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio $\boldsymbol{1}$}: Si consideri una boccetta di profumo: quando si preme la boccetta di profumo si accelera l'aria, la quale aumenta la sua velocità e, quindi, siccome l'altezza si mantiene costante, la pressione deve diminuire e quindi si ha un effetto di aspirazione.
+
+\vspace{1em}
+\subsection{Viscosità}
+Di seguito si fornisce il concetto di viscosità:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{VISCOSITÀ}}\\
+    \parbox{\linewidth}{La \textbf{viscosità} viene definita come la forza dovuta ad un attrito interno, calcolata come
+    \[\boxed{F = h \cdot \frac{A v}{l}}\]
+    \vspace{-1mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: In un recipiente cilindrico pieno d'acqua sono praticati diversi fori. L'acqua esce dai fori in direzione orizzontale. Si determini a quale altezza deve essere praticato un foro perché l'acqua che ne zampilla tocchi terra alla massima distanza dal cilindro, supponendo che il fluido non sia viscoso.\\
+Applicando il teorema di Bernoulli, si consideri il punto di riferimento dato dal \quotes{pelo dell'acqua}, sul quale vi è una pressione pari alla pressione atmosferica, per cui
+\[p_{\text{atm}} + \rho g L + 0 = \text{ costante}\]
+Se si considera un foro a distanza $d$ dal \quotes{pelo dell'acqua} si ottiene che
+\[p_{\text{atm}} + \frac{1}{2} \rho g d + \frac{1}{2} \rho v^2 = \text{costante}\]
+e se si eguagliano le due quantità ottenute si ottiene che
+\[\boxed{v=\sqrt{2g \cdot d}}\]
+e volendo calcolare la distanza alla quale il getto d'acqua tocca terra, si consideri la seguente composizione del moto
+\[
+    \left\{
+      \rowcolors{1}{white}{white}
+      \begin{array}{l}
+        x=vt\\
+        y=-\frac{1}{2} g t^2 + (L-d)
+      \end{array}
+    \right.
+\]
+e siccome al tempo $t$ cercato $y(t)=0$, si evince come
+\[t=\sqrt{\frac{2 \cdot (L-d)}{g}}\]
+per cui la distanza alla quale il getto tocca terra è
+\[x=vt=\sqrt{4 d \cdot (L-d)}\]
+
+\newpage
+\section{Termodinamica}
+\noindent
+\begin{center}
+  9 Maggio 2022
+\end{center}
+Le leggi della meccanica note ed esposte fino a questo momento non sono sufficienti per comprendere e studiare appieno il moto di ogni sistema, in quanto molto spesso i sistemi interagenti sono costituiti da una quantità di particelle enorme, per le quali non è possibile studiare singolarmente la dinamica; per questo è più significativo abbandonare una teoria microscopica per abbracciare una \textbf{teoria macroscopica} di descrizione dei fenomeni naturali, ossia una \textbf{teoria fenomenologica} che si basa su osservazione del comportamento di sistemi nella loro interezza.\\
+Di seguito si espone la definizione di \textbf{termodinamica}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{TERMODINAMICA}}\\
+    \parbox{\linewidth}{La \textbf{termodinamica} è la \textbf{descrizione macroscopica} dell'\textbf{interazione} di un \textbf{sistema} con il suo \textbf{ambiente}.\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione}: Dalla definizione di cui sopra si evince come il sistema rappresenta ciò che si andrà a studiare, mentre l'ambiente è tutto il resto.
+
+\vspace{1em}
+\noindent
+Al fine di studiare i sistemi termodinamici è fondamentale impiegare delle \textbf{coordinate termodinamiche}, ossia delle \textbf{variabili macroscopiche}, di cui viene esposta la definizione nel seguito:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{COORDINATE/VARIABILI TERMODINAMICHE}}\\
+    \parbox{\linewidth}{Le \textbf{coordinate/variabili termodinamiche} sono le \textbf{grandezze fisiche macroscopiche} che descrivono lo \textbf{stato} del sistema.\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Esempi di coordinate termodinamiche sono
+\begin{itemize}
+  \item \emph{pressione}, ossia il rapporto tra la forza e la superficie su cui viene esercitata;
+  \item \emph{volume}, il quale diviene una coordinata particolarmente importante quando si studiano i gas, essendo comprimibili;
+  \item \emph{numero di moli}, over per \emph{mole} è da intendersi la quantità di materia che si trova in $12$ g di $C^{12}$, ossia carbonio $12$ (ossia la massa di un numero di Avogadro di particelle, pari a $6.02 \times 10^{23}$ particelle, siano esse atomi o molecole);
+  \item \emph{temperatura}, di cui verrà fornita la definizione nel seguito;
+  \item \emph{energia interna};
+  \item \emph{entropia};
+  \item etc.
+\end{itemize}
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{EQUILIBRIO/TRASFORMAZIONE TERMODINAMICO}}\\
+    \parbox{\linewidth}{Se le coordinate termodinamiche prese in esame per lo studio di un sistema rimangono \textbf{costanti} nel tempo, si dice che il sistema termodinamico è in \textbf{equilibrio} (si parla, infatti, di \textbf{equilibrio termodinamico}).\\
+    Alternativamente, se tali coordinate termodinamiche cambiano (non devono cambiare necessariamente tutte), allora il sistema non è più in equilibrio e, in questo caso, si parla di \textbf{trasformazione termodinamica}.\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Un cubetto di ghiaccio posto sul tavolo di una stanza non è in equilibrio, in quanto con buona probabilità inizierà a sciogliersi, cambiando volume e temperatura; per evitare la fusione del ghiaccio si sarebbe dovuto \textbf{isolare termicamente} tale sistema.\\
+Al fine di isolare un sistema con l'esterno si possono impiegare delle \textbf{pareti adiabatiche}, ossia delle pareti isolanti che \textbf{impediscono} ogni forma di \textbf{interazione} con l'\textbf{ambiente esterno}; esempi di pareti adiabatiche (o materiali isolanti) sono la lana, un termos, la spugna espansa, etc.\\
+Ovviamente, il concetto di parete adiabatica non esiste in realtà, si tratta solamente di un'approssimazione valida per brevi periodi, in quanto è impossibile isolare un sistema all'infinito; inoltre l'isolamento vale sia per freddo che per caldo, quindi impedisce un trasferimento di calore da e verso l'esterno.\\
+Una \textbf{parete diatermica}, al contrario, è una parete che separa il sistema dall'ambiente esterno che non solo permette l'interazione del sistema con l'esterno (in termini di scambi di energia e calore), ma viene anche favorita, come nel caso di metalli (ovviamente lo scambio di calore non sarà perfetto, in quanto si parla di approssimazioni necessarie per poter lavorare).
+
+\vspace{1em}
+\noindent
+\subsection{Principio \quotes{Zero} della termodinamica}
+Di seguito si espone l'enunciato del \textbf{principio \quotes{Zero} della termodinamica}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{PRINCIPIO \quotes{ZERO} DELLA TERMODINAMICA}}\\
+    \parbox{\linewidth}{Due sistemi in equilibrio termico con un terzo sistema (le cui coordinate termodinamiche, quindi, non variano) sono in equilibrio termico tra di loro (ossia una sorta di \textbf{proprietà transitiva}).\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione $\boldsymbol{1}$}: Il principio zero della termodinamica, quindi, afferma che se un sistema $A$ è in equilibrio con un sistema $B$ e il sistema $B$ è anche in equilibrio con un sistema $C$, allora i sistema $A$ e $C$ sono anche in equilibrio termico.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione $\boldsymbol{2}$}: Si osservi che al fine di verificare se un sistema è in equilibrio termodinamico con un altro non è necessario misurare tutte le coordinate termodinamiche, ma è sufficiente solamente misurare la \textbf{temperatura}.
+
+\vspace{1em}
+\subsection{Temperatura}
+Di seguito si espone la definizione di \textbf{temperatura}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{TEMPERATURA}}\\
+    \parbox{\linewidth}{La \textbf{temperatura} è una grandezza fisica che definisce se $2$ sistemi sono in \textbf{equilibrio termico}.\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{2em}
+\noindent
+Tuttavia, tale definizione non risulta essere molto pratica. Molto spesso è più conveniente impiegare la \textbf{definizione operativa} seguente:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{TEMPERATURA}}\\
+    \parbox{\linewidth}{La \textbf{temperatura} viene misurata tramite un \textbf{termometro}, ossia uno strumento che rileva la variazione di temperatura tramite la variazione significativa di un'altra grandezza fisica (tramite, quindi, delle \textbf{misure indirette}), come il \textbf{volume}, la differenza di potenziale (come per una termocoppia), la resistenza, la \textbf{pressione} di un gas mantenuto a volume costante, etc.\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione $\boldsymbol{1}$}: Ovviamente uno stesso termometro non può essere impiegato ovunque, per misurare ogni temperatura, in quanto vi sono limiti fisici dell'utilizzo dello strumento intrinsechi nella struttura dello stesso: per esempio il mercurio a $-38$ $^\circ$C solidifica.
+
+\newpage
+\noindent
+\textbf{Osservazione $\boldsymbol{2}$}: Al fine di costruire uno strumento capace di misurare una temperatura, è necessario effettuare la \textbf{taratura} dello stesso. Un modo molto pratico per effettuare tale taratura è quello di
+\begin{itemize}
+  \item posizionare il termometro su un blocco di ghiaccio fondente, pari a $0$ $^\circ$C;
+  \item posizionare il termometro su una pentola di acqua bollente, pari a $100$ $^\circ$C;
+  \item dividere tale intervallo in $100$ pari uguali.
+\end{itemize}
+La scelta di considerare come punto di riferimento i cambiamenti di fase dell'acqua è fondamentale in quanto si richiede che la temperatura si mantenga costante durante la misurazione, cosa che si ha sempre quando si ha un cambiamento di fase (un \textbf{termostato}, infatti, è un \textbf{sistema ideale}, in quanto non esistente in natura, che mantiene la \textbf{temperatura costante}; ovviamente la scelta di un termostato dipende dal sistema e dall'ambiente considerati).\\
+Tuttavia, effettuare la taratura prendendo come punto di riferimento i cambiamenti di fase dell'acqua, presenta un limite intrinseco: la \textbf{temperatura} in generale, e quella di fusione ed ebbollizione in particolare, \textbf{dipende dalla pressione}, come mostrato di seguito:
+
+\vspace{1em}
+\noindent
+\begin{figure}[H]
+  \colorlet{mylightblue}{blue!20}
+  \colorlet{myblue}{blue!50!black}
+  \colorlet{mydarkblue}{blue!30!black}
+  \colorlet{mylightred}{red!10}
+  \colorlet{myred}{red!50!black}
+  \colorlet{mydarkred}{red!60!black}
+  \colorlet{mydarkgreen}{green!30!black}
+
+  %\tikzstyle{midarr}=[decoration={markings,mark=at position 0.5 with {\arrow{stealth}}},postaction={decorate}]
+  \tikzset{
+    midarr/.style={decoration={markings,mark=at position #1 with {\arrow{stealth}}},postaction={decorate}},
+    midarr/.default=0.5
+  }
+  \def\tick#1#2{\draw[thick] (#1) ++ (#2:0.03*\ymax) --++ (#2-180:0.06*\ymax)}
+
+  \centering
+  % PHASE DIAGRAM
+  \begin{tikzpicture}[scale=1]
+    \message{Phase diagrams^^J}
+
+    \def\xtick#1#2{\draw[thick] (#1)++(0,.2) --++ (0,-.4) node[below=-.5pt] {#2};}
+    \def\ytick#1#2{\draw[thick] (#1)++(.2,0) --++ (-.4,0) node[left=-.5pt] {#2};}
+
+    % COORDINATES
+    \coordinate (O) at (0,0);
+    \coordinate (N1) at (2,10);
+    \coordinate (N2) at (11,10);
+    \coordinate (NE) at (12,10);
+    \coordinate (NW) at (0,10);
+    \coordinate (SE) at (12,0);
+    \coordinate (W) at (0,5);
+    \coordinate (S) at (6,0);
+    \coordinate (C) at (10.2,7.8); % critical
+    \coordinate (T) at (4,3);      % triple
+
+    % PATHS
+    \def\SL{(T) -- (N1)}
+    \def\SG{(O) to[out=20,in=-120] (T)}
+    \def\LG{(T) to[out=20,in=-120] (C)}
+    \def\atm{(0,5.5) -- (12,5.5)}
+    \path[name path=SL] \SL;
+    \path[name path=LG] \LG;
+    \path[name path=atm] \atm;
+
+    % REGIONS
+    \fill[mylightblue] \SG -- (N1) -- (NW) -- cycle;
+    \fill[blue!5] \LG -- (N2) -- (N1) -- cycle;
+    \fill[mylightred] \LG -- (N2) -- (NE) -- (SE) -- \SG -- cycle;
+    \node at (1.5,4.2) {solido};
+    \node at (7,2.2) {gas};
+    \node at (6,6.6) {liquido};
+
+    %% MIXED
+    %\shade[top color=mylightblue,bottom color=mylightred,shading angle=70]
+    %  (10.4,7.7) -- (11.2,10) -- (10.8,10) -- (10.0,7.7) -- cycle;
+
+    % POINTS
+    \fill[black,name intersections={of=SL and atm,by=M}] (M) circle (4pt);
+    \fill[black,name intersections={of=LG and atm,by=B}] (B) circle (4pt);
+    \fill (T) circle (4pt) node[below right,scale=1,align=right] {punto\\[-2pt]triplo};
+    \fill (C) circle (4pt) node[above=5pt,scale=1,align=center] {punto\\[-2pt]critico};
+
+    % LINES
+    \draw[thick] \SG;
+    \draw[thick] \LG;
+    \draw[thick] \SL;
+    \draw[dashed] (M) -- ($(M |- 0,0)$) coordinate (Mx);
+    \draw[dashed] (T) -- ($(T |- 0,0)$) coordinate (Tx);
+    \draw[dashed] (T) -- ($(T -| 0,0)$) coordinate (Ty);
+    \draw[dashed] (B) -- ($(B |- 0,0)$) coordinate (Bx);
+    \draw[dashed] (B) -- ($(B -| 0,0)$) coordinate (By);
+    \draw[dashed] (C) -- ($(C |- 0,0)$) coordinate (Cx);
+    \draw[dashed] (C) -- ($(C -| 0,0)$) coordinate (Cy);
+
+    % AXES
+    \draw[thick] (O) rectangle (NE);
+    \node[left=17pt,above,rotate=90] at (W) {$P$ [atm]};
+    \node[below=9pt] at (S) {$T$ [$^\circ$C]};
+    \xtick{Mx}{\hspace{-2pt}0}
+    \xtick{Tx}{\hspace{9pt}0.01}
+    \ytick{Ty}{0.006}
+    \xtick{Bx}{100}
+    \ytick{By}{1}
+    \xtick{Cx}{374}
+    \ytick{Cy}{218}
+  \end{tikzpicture}
+  \caption{Diagramma di stato dell'acqua}
+  \label{fig:diagramma_stato_acqua}
+\end{figure}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Un altro metodo, molto più complesso, per tarare un termometro è quello di misurare il \textbf{punto triplo dell'acqua}, ossia il punto nel quale coesistono i $3$ stati dell'acqua, realizzabile posizionando dell'acqua liquida all'interno di un contenitore ermetico nel quale è stato creato il vuoto e abbassando progressivamente la temperatura, fino a quando si forma del ghiaccio; il punto triplo si trova a $p=0.61$ kPa e alla temperatura di $T=0.01$ $^\circ$C.\\
+Tuttavia, in questo modo, si dispone di un solo punto per tarare il termometro, e non più due come nel caso precedente. Tuttavia, nell'ipotesi in cui si ponga che esista una relazione di proporzionalità diretta tra temperatura e pressione, si può scrivere
+\[T(p)=A p\]
+allora tramite un termometro a pressione (contenente un gas a volume costante) si rileva la pressione alla quale si è ottenuto il punto triplo, ottenendo
+\[A=\frac{T_3}{p_3}\]
+ove $T_3$ e $p_3$ sono rispettivamente la temperatura e la pressione rilevate nel punto triplo. Il valore $A$ ottenuto è il \textbf{coefficiente angolare} della retta di proporzionalità diretta tra temperatura e pressione, per cui
+\[\boxed{T(p)=\frac{T_3}{p_3} \cdot p}\]
+Resta ora, solamente, di atribuire a $T_3$ un valore di temperatura, come si era fatto in precedenza con $0$ $\circ$C e $100$ $\circ$C. Kelvin, infatti, attribuì al valore $T_3=273.16$ K (che corrisponde a $0.01$ $^\circ$C), in modo tale che la differenza tra la temperatura di ebbollizione dell'acqua e quella di fusione del ghiaccio fosse sempre pari a $100$ gradi, costruendo, quindi, una \textbf{scala centigrada}.\\
+Si osservi, infine, che la scala costruita da Kelvin è una \textbf{scala assoluta}, in quanto il coefficiente angolare è positivo e la pressione è sempre non negativa, per cui la temperatura è sempre positiva e il suo valore minimo è lo zero, ossia lo \textbf{zero assoluto}. In base a tale scala si ha la seguente corrispondenza
+\[0 \text{ $^\circ$C} \longrightarrow 273.15 \text{ K} \hspace{1em} \text{e} \hspace{1em} 100 \text{ $^\circ$C} \longrightarrow 373.15 \text{ K}\]
+
+\vspace{1em}
+\noindent
+\subsection{Gas perfetto}
+Si osservi, però, che anche il termometro così costruito presenta un problema: la temperatura e la pressione che si misurano con il termometro dipendono dal termometro stesso, a seconda della \textbf{quantità} e del \textbf{tipo} di \textbf{gas} che si sceglie, come tra O$_2$, N$_2$ e He: a pressioni molto elevate le temperature dei diversi gas hanno valori molto differenti fra loro:
+
+\begin{figure}[H]
+  \centering
+  \colorlet{myblue}{black!50!blue}
+  \colorlet{mygreen}{black!50!green}
+  \colorlet{myred}{black!50!red}
+
+  % PRESSURE vs. TEMPERATURE
+  \begin{tikzpicture}
+    \def\xmin{-2.0} \def\xmax{2.0}
+    \def\ymin{-0.1} \def\ymax{1.8}
+    \def\tick#1#2{\draw[thick] (#1+.08) --++ (0,-.16) node[below=-.5pt] {#2};}
+    \def\ym#1#2{#1*\xmin,{#2*(#1*\xmin-\xmin)/(\xmax-\xmin)}}
+    \def\ytick#1#2{\draw[thick] (#1)++(.2,0) --++ (-.4,0) node[left=-.5pt] {#2};}
+
+    % AXIS
+    \draw[->,thick]
+      (1.1*\xmin,0) -- (1.1*\xmax,0) node[right=2,below] {$p$};
+    \draw[->,thick]
+      (\xmin,\ymin) -- (\xmin,2.5*\ymax) node[left,align=center] {$T$ [$^\circ$C]};
+
+    % TICK
+    \tick{\xmin,0}{$0$}
+    \tick{1.1,0}{$p_3$}
+    \coordinate (T3) at (\xmin,0.5);
+    \ytick{T3}{$273.16$}
+
+    % GAS LINE
+    \draw[thin,myred,dashed] (\xmin,0.5) -- (\ym{0.45}{3.8}) coordinate (V1);
+    \draw[thick,myred] (V1) -- (\xmax,2.8) node[right] {He};
+    \draw[thin,mygreen,dashed] (\xmin,0.5) -- (\ym{0.50}{5}) coordinate (V2);
+    \draw[thick,mygreen] (V2) -- (\xmax,3.5) node[right] {N$_2$};
+    \draw[thin,myblue,dashed] (\xmin,0.5) -- (\ym{0.55}{6.5}) coordinate (V3);
+    \draw[thick,myblue] (V3) -- (\xmax,4.2) node[right] {O$_2$};
+  \end{tikzpicture}
+  \caption{Variazione di temperatura a differenti livelli di pressione}
+  \label{fig:temperatura_pressione}
+\end{figure}
+
+\noindent
+Ciò che, invece, succede quando la pressione $p_3 \to 0$, ossia la quantità di gas presente all'interno del termometro a pressione diminuisce tendendo anche'esso a $0$, allora la temperatura dei gas tende allo stesso valore, ovvero $T_3=273.16$ $^\circ$C:
+\[T=\lim_{p_3 \to 0} \frac{T_3}{p_3} \cdot p\]
+in cui $T_3=273.16$ $^\circ$C.\\
+Da tale osservazione segue la definizione di \textbf{gas perfetto}
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{GAS PERFETTO}}\\
+    \parbox{\linewidth}{Un gas perfetto è un \quotes{gas fittizio} per il quale la proporzionalità $p-T$ tra pressione e temperatura non vale solo nel caso rarefatto, ma vale sempre.\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\newpage
+\noindent
+\textbf{Osservazione}: Di seguito si espone un riepilogo delle scale di temperatura definite:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|>{\hsize=.1\textwidth}P|@{}|P|@{}|>{\hsize=.15\textwidth}P|@{}|>{\hsize=.3\textwidth}P|@{}}
+    \hline
+    \multicolumn{4}{|c|}{\textbf{SCALE DI TEMPERATURA}}\\
+    \hline
+    {\textbf{SCALA}} & {\textbf{CENTIGRADA}} & {\textbf{ASSOLUTA}} & {\textbf{DEFINIZIONE}}\\
+    \hline
+    Celsius ($^\circ$C) & Sì & No & \parbox{.3\textwidth}{\vspace{1em} La temperatura di fusione dell'acqua è posta a $0$ $^\circ$C, mentre quella di ebbollizione a $100$ $^\circ$C; inoltre la divisione della scala è equa dell'intervallo $0-100$. \vspace{1em}}\\
+    \hline
+    Kelvin (K) & Sì & Sì & \parbox{.3\textwidth}{\vspace{1em} La scala è definita un funzione del punto triplo dell'acqua, tenendo conto della pressione. \vspace{0.1em}}\\
+    \hline
+    Fahrenheit ($^\circ$F) & No & No & \parbox{.3\textwidth}{\vspace{1em} Fahrenheit ha crato una miscela di acqua e sale e ha posto a $0$ $^\circ$F il punto di fusione più basso possibile di tale miscela. L'altro punto di riferimento scelto è $96$ $^\circ$F (corrispondente alla temperatura del corpo umano). La conversione da Celsius a Fahrenheit si usa
+    \[T_\text{F}=1.8 \cdot T_\text{C} + 32\]}\\
+    \hline
+    Rankine ($\mathcal{R}$) & No & Sì & \parbox{.3\textwidth}{\vspace{1em} È una scala assoluta, non centigrada e con il valore di un grado pari a quello Fahrenheit, per cui
+    \[T_\mathcal{R}=1.8 \cdot T_\text{C}\]}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\subsection{Dilatazione termica}
+Il termometro a mercurio funziona sulla base del fenomeno della \textbf{dilatazione termica}. Si consideri una barra metallica di lunghezza iniziale $L_0$, posta vicino ad un materiale termostato (che non cambia la propria temperatura) che fa sì che la temperatura della barra passi da $T_0$ a $T$, allora la lunghezza finale diviene $L$.\\
+Si ha che $\Delta T=T-T_0$ e $\Delta L=L-L_0$ sono legate dalle seguenti proporzionalità:
+\begin{enumerate}
+  \item $\Delta L \propto \Delta T$: più si scalda un materiale più si allunga;
+  \item $\Delta L \propto L_0$: un'asta più lunga, a parità di differenza di temperatura, si allunga di più rispetto ad un'asta più corta;
+  \item $\Delta L$ dipende dal materiale e non è universale.
+\end{enumerate}
+Ciò permette di scrivere la seguente legge:
+\[\boxed{\Delta L = \alpha L_0 \Delta T}\]
+in cui $\alpha$ è un \textbf{coefficiente di dilatazione termica lineare} e dipende dal materiale, indipendentemente dalla sua geometria.
+
+\begin{figure}[H]
+  \tikzstyle{material}=[top color=blue!30,bottom color=blue!50,shading angle=10]
+  \tikzstyle{measure}=[fill=white,midway,inner sep=2]
+
+  \centering
+  \begin{tikzpicture}
+    \def\W{0.3}
+    \def\L{6}
+    \def\dL{1}
+
+    \draw[material] (0,-\W/2) rectangle ++(\L,\W);
+    \draw[<->] (0,-1.4*\W) --++ (\L,0) node[measure] {$L_0$};
+    \node[right=4pt] at (\L,0) {$T_0$};
+
+    \begin{scope}[yshift=-30pt]
+      \draw[material] (0,-\W/2) rectangle ++(\L+\dL,\W);
+      \draw[<->] (0,-1.4*\W) --++ (\L,0) node[measure] {$L_0$};
+      \draw[<->,below] (\L,-1.4*\W) --++ (\dL,0) node[measure] {$\Delta L$};
+      \node[right=4pt] at (\L+\dL,0) {$T_0+\Delta T$};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Dilatazione termica lineare}
+  \label{fig:dilatazione_termica_lineare}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Ovviamente è da intendersi questa relazione come un'approssimazione, in quanto la relazione non è propriamente diretta tra aumento di lunghezza e temperatura se si considerano grandi intervalli di temperatura; diviene tanto più vero quanto più gli intervalli di temperatura considerati sono piccoli. Non solo, ma anche lo stesso $\alpha$ non è costante: varia il proprio valore in funzione della temperatura alla quale si sta lavorando.\\
+È possibile, quindi, passare dalla formula particolare vista in precedenza a quella più generale esposta di seguito:
+\[\boxed{d L = \alpha(T) \cdot L \cdot dT}\]
+tale per cui
+\[\boxed{\alpha(T) = \frac{1}{L} \cdot \frac{dL}{dT}}\]
+
+\vspace{1em}
+\noindent
+Ovviamente, passando dal caso lineare a quello tridimensionale, si ottiene che per piccoli intervalli di temperatura si ha
+\[\boxed{\Delta V = \beta V_0 \Delta T}\]
+in cui $\beta$ è un \textbf{coefficiente di dilatazione termica volumica} e dipende dal materiale, indipendentemente dalla sua geometria. Considerando il differenziale si ottiene
+\[\boxed{dV = \beta(T) \cdot V \cdot dT}\]
+da cui si evince la seguente relazione
+\[\boxed{\beta(T) = \frac{1}{V} \cdot \frac{dV}{dT}}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che i valori $\alpha$ e $\beta$ sono quasi sempre positivi, tranne alcune eccezioni: l'acqua, al di sotto di $4$ $^\circ$C, presenta un $\beta < 0$, il che significa che diminuendo la temperatura, il volume aumenta; ciò risulta essere fondamentale per la vita nei laghi: quando la temperatura diminuisce, superati i $4$ $^\circ$C, l'acqua aumenta di volume, diminuisce la propria densità e si posizione verso l'alto, fino a quando si ghiaccia, isolando l'acqua sottostante che rimane liquida e la cui temperatura non scende ulteriormente, essendo isolata dal ghiaccio.\\
+In generale, tuttavia, per la grande maggioranza dei materiali, aumentanto la temperatura, il volume aumenta; questo è dovuto al fatto che le particelle all'interno di un solido, per esempio, sono legate fra di loro attraverso delle \quotes{molle}, tale per cui l'energia potenziale del legame è data proprio da una sorta di legge di Hooke
+\[E=\frac{1}{2}kx^2\]
+per cui l'energia accumulata dipende dalla distanza:
+
+\begin{figure}[H]
+  \centering
+  \tikzstyle{atom}=[ball color=blue!50!black]
+  \tikzstyle{bound}=[thick,black!80,decorate,decoration={coil,amplitude=6pt,segment length=5pt}]
+  % MORSE POTENTIAL
+  \begin{tikzpicture}
+    \def\A{1.9}
+    \def\a{1.1}
+    \def\r{1.2}
+    \def\m{1}
+    \def\N{30}
+    \def\xlow{{0.39*\r}}
+    \def\xmax{4.8}
+    \def\ymax{3.0}
+    \def\Emin{0.28}
+    \def\yA{-.5}
+    \def\E#1{{\Emin*(#1+1/2) - (\Emin*(#1+1/2))^2/(4*\A)}}
+
+    % AXIS
+    \draw[->,thick] (0,-0.04*\xmax) -- (0,\ymax)
+         node[left=0,anchor=south east,rotate=90,scale=1] {E. potenziale $U$};
+    \draw[->,thick] (-0.05*\xmax,0) -- (\xmax,0)
+         node[left=0,anchor=north east,scale=1] {Distanza $x$};
+
+    % MORSE POTENTIAL
+    \draw[very thick,blue!50!black,variable=\x,domain=\xlow:0.97*\xmax,samples=\N,smooth,name path=morse]
+      plot (\x,{\A*(1-exp(-\a*(\x-\r)))^2});
+
+    \path[name path=line1] (0,\E{0}) --++ (\xmax,0);
+
+    % ENERGY LEVEL
+    \foreach \i in {0,...,8}{
+      \path[name path=level\i] (0,\E{\i}) --++ (\xmax,0);
+      \draw[thick,red!50!black,name intersections={of=morse and level\i,name=E\i}]
+        (E\i-1) -- (E\i-2);
+      \ifthenelse{\i < 5}{ \node[right=0,red!50!black,scale=0.9] at (E\i-2) {$T_\i$}; }{}
+      \fill[red]
+        ($(E\i-1)!0.5!(E\i-2)$) circle (1pt) coordinate (E\i);
+    }
+
+    % MOLECULE
+    \def\i{2}
+    \draw[dashed,red] (E\i) -- (E\i |- 0,\yA) coordinate (A\i) --++ (0,.4*\yA);
+      %node [below,red!90!black,scale=0.8] {$\langle r \rangle$};
+    \draw[thick,black!80,decorate,decoration={coil,amplitude=3.3pt,segment length=3.3pt}]
+      (0.08,\yA) -- ($(0,\yA)!0.95!(A\i)$);
+    \fill[atom] (0,\yA) circle (0.14);
+    \fill[atom] (A\i) circle (0.14)
+      node[right=0,red!50!black,scale=0.9] {a $T_\i$};
+    \draw[{Stealth[scale=1,length=3,width=4]}-{Stealth[scale=1,length=3,width=4]},very thick,red!50!black]
+      (E\i-1 |- 0,.4*\yA) -- (E\i-2 |- 0,.4*\yA);
+
+  \end{tikzpicture}
+  \caption{Energia potenziale delle molecole in funzione della loro distanza}
+  \label{fig:energia_potenziale_molecole}
+\end{figure}
+
+\vspace{1em}
+\noindent
+Pertando, fornendo poca energia alle particelle, e quindi poca temperatura (nell'esempio $T_0$), la distanza media tra le molecole che si otterrà sarà data dal punto medio evidenziato in corrispondenza di $T_0$. Se invece l'energia è maggiore, e quindi la temperatura è maggiore, come $T_4$, allora la distanza media tra le molecole che si otterrà sarà data dal punto medio evidenziato in corrispondenza di $T_4$, per cui la distanza media tra gli atomi a più elevata a temperatura maggiore rispetto a temperature minori.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che nei binari di un treno è molto più conveniente lasciare più spazi tra i binari piuttosto che uno solo finale in quanto la dilatazione è proporzionale alla lunghezza e quindi si dovrebbe lasciare uno spazio enorme alla fine del binario per ottenere il medesimo risultato.
+
+\newpage
+\noindent
+\begin{center}
+  11 Maggio 2022
+\end{center}
+Si osservi che in prima approssimazione la relazione tra temperatura e volume di mercurio è lineare (e non direttamente proporzionale), in quanto a volume $0$ non corrisponde una temperatura di $0$ gradi, in quanto bisogna considerare un intercetta non nullo, ovvero
+\[T=A \cdot V + B\]
+Invece, se si considera il termometro a pressione, allora in questo caso esiste una proporzionalità diretta tra pressione e temperatura: alla pressione $0$ corrisponde lo $0$ K.
+\[T=A \cdot p\]
+Si osservi, inoltre, che il coefficiente di dilatazione termica presenta come unità di misura K$^{-1}$, in quanto, ovviamente
+\[\alpha = \frac{[\text{m}]}{[\text{m}] \cdot [\text{K}]}\]
+anche se è possibile misurare $\alpha$ sia in K$^{-1}$ che in C$^{-1}$, in quanto si tratta di differenza di temperatura e l'ampiezza del grado nelle due scale è la medesima; differente sarebbe stato se si fosse considerata la scala Fahrenheit.\\
+Si osservi che la relazione che sussiste tra il coefficiente di dilatazione lineare $\alpha$ e il coefficiente di dilatazione cubica $\beta$ si ottiene
+\[\boxed{\beta=3 \alpha}\]
+questo in quanto dalla formula si ottiene
+\[\beta = \frac{1}{V} \frac{dV}{dT}\]
+ed essendo il volume di un oggetto tridimensionale in prima approssimazione è $V=k \cdot l_1 l_2 l_3$, per cui
+\[\beta=\frac{1}{k \cdot l_1 l_2 l_3} \cdot \left[k \cdot l_2 l_3 \frac{dl_1}{dT} + k \cdot l_1 l_3 \frac{l_2}{dT} + k \cdot l_1 l_2 \frac{dl_3}{dT}\right]\]
+ma essendo, sempre per definizione
+\[\alpha=\frac{1}{L} \frac{dL}{dT} \longrightarrow \frac{dL}{dT} = \alpha L\]
+per cui si evince come
+\[\beta=\frac{1}{l_1 l_2 l_3} \cdot \left[3 \alpha \cdot l_1 l_2 l_3\right] = 3 \alpha\]
+
+\vspace{1em}
+\subsection{Equilibrio termodinamico}
+Di seguito si espone la definzione di \textbf{equilibrio termodinamico}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{EQUILIBRIO TERMODINAMICO}}\\
+    \parbox{\linewidth}{L'\textbf{equilibrio termodinamico} prevede $3$ tipologie di equilibrio
+    \begin{enumerate}
+      \item \textbf{Equilibrio termico}, per cui due sistemi in equilibrio presentano la medesima temperatura;
+      \item \textbf{Equilibrio meccanico}, ovvero sul sistema non agiscono forze;
+      \item \textbf{Equilibrio chimico}, per cui non vengono alterate le specie chimiche del sistema.
+    \end{enumerate}
+    \vspace{1mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+Quando un sistema è in \textbf{equilibrio termodinamico}, è possibile definire il suo stato tramite una \textbf{equazione di stato}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{EQUAZIONE DI STATO}}\\
+    \parbox{\linewidth}{Un'\textbf{equazione di stato} è una \textbf{relazione matematica} che correla le variabili termodinamiche. Per i sistemi idrostatici, le variabili termodinamiche da prendere in considerazione sono
+    \begin{itemize}
+      \item Pressione;
+      \item Volume;
+      \item Temperatura;
+    \end{itemize}
+    \vspace{1mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\subsection{Equazione di stato dei gas perfetti}
+Per i gas perfetti si osserva che
+\begin{itemize}
+  \item Il prodotto tra pressione e volume è costante quando sono costanti il numero di moli e la temeratura (\textbf{legge di Boyle});
+  \item Il rapporto tra pressione e temperatura è costante quando sono costanti il numero di moli e il volume;
+  \item Il rapporto tra pressione e numero di moli è costante quando sono costanti il volume e la temperatura.
+\end{itemize}
+Tali risultati permettono di ottenere che
+\[\frac{p V}{n T} = \text{ costante } = R = 8.31 \text{ J mol}^{-1} \text{ K}^{-1}\]
+per cui si ottiene l'eqauzione di stato dei gas perfetti
+\[\boxed{pV=nRT}\]
+
+\vspace{1em}
+\subsection{Equazione di stato dei gas non-perfetti}
+L'equazione di stato dei gas non-perfetti viene proposta da Van der Waals e tiene conto delle proprietà del gas specifico che si sceglie (mentre per il gas perfetto è ininfluente il tipo di gas scelto)
+\[\boxed{\left(p + \frac{a}{V^2}\right) \cdot \left(V-b\right) = n R T}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che per capire il numero di variabili indipendenti nell'equazione di stato si impiega la regola delle fasi di Gibbs, ovvero
+
+per cui si evince come nell'equazione di stato dei gas perfetti il numero di variabili indipendenti è pari a $2$, mentre la terza dipende necessariamente dalle altre due.
+
+\vspace{1em}
+\subsection{Trasformazione termodinamica}
+Di seguito si espone il significato di \textbf{trasformazione termodinamica}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{TRASFORMAZIONE TERMODINAMICA}}\\
+    \parbox{\linewidth}{Una \textbf{trasformazione termodinamica} è una trasformazione che \textbf{modifica lo stato del sistema}.\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\newpage
+\noindent
+\textbf{Osservazione}: Le trasformazioni possibili possono essere
+\begin{enumerate}
+  \item Una \textbf{trasformazione quasi statica}, che in realtà non esiste; non potendo, tramite una equazione di stato, descrivere tutte le coordinate termodinamiche, si considera che una trasformazione passa per infiniti stati di equilibrio, nei quali è possibile descrivere le coordinate in gioco;
+  \item Una \textbf{trasformazione ciclica} è una trasformazione nella quale lo stato finale coincide con lo stato iniziale (è possibile che vi sia una trasformazione ciclica anche quasi statica);
+  \item Una \textbf{trasformazione reversibile} è una trasformazione nella quale non solo lo stato finale del sistema coincide con lo stato iniziale, ma non vi sono nemmeno modifiche all'ambiente esterno. Affinché tali trasformazioni siano possibili devono essere rispettate due condizioni:
+  \begin{enumerate}
+    \item la trasformazione deve essere quasi statica;
+    \item non vi devono essere forze dissipative;
+  \end{enumerate}
+\end{enumerate}
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Un'esempio di trasformazione reversibile è quella che prevede di comprimere un gas e poi di riportarlo al volume inziale: tuttavia, nella compressione, vi sono forze dissipative date dall'attrito, per cui il pistone viene riscaldato e l'ambiente esterno viene modificato.\\
+Ecco perché le trasformazioni reali sono \textbf{irreversibili} e non reversibili.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Alcune altre trasformazioni importanti sono
+\begin{enumerate}
+  \item Trasformazione \textbf{ISOCORA}, che avviene a volume costante, con $\Delta V=0$;
+  \item Trasformazione \textbf{ISOBARA}, che avviene a pressione costante, con $\Delta p=0$;
+  \item Trasformazione \textbf{ISOTERMA}, che avviene a temperatura costante, con $\Delta T=0$;
+  \item Trasformazione \textbf{ADIABATICA}, che avviene senza scambio di calore con l'ambiente esterno, con $\Delta C=0$;
+\end{enumerate}
+
+\vspace{1em}
+\subsection{Diagramma di Clapeyron - Pressione/Volume}
+Il diagramma di Clapeyron è un diagramma \textbf{pressione-volume} che permette di definire, in ogni punto, uno stato di equilibrio, con precise coordinate di pressione, volume e temperatura.\\
+Si osservi che dato uno stato iniziale e finale, normalmente non è possibile conoscere ciò che accade nel mezzo, ma per una trasformazione quasi statica, passando per infiniti stati di equilibrio, è possibile tracciare un grafico continuo, come mostrato di seguito
+
+\begin{figure}[H]
+  \colorlet{mylightblue}{blue!20}
+  \colorlet{myblue}{blue!80!black}
+  \colorlet{mydarkblue}{blue!30!black}
+  \colorlet{mylightred}{red!10}
+  \colorlet{myred}{red!80!black}
+  \colorlet{mydarkred}{red!60!black}
+  \colorlet{mydarkgreen}{green!30!black}
+
+  %\tikzstyle{midarr}=[decoration={markings,mark=at position 0.5 with {\arrow{stealth}}},postaction={decorate}]
+  \tikzset{
+    midarr/.style={decoration={markings,mark=at position #1 with {\arrow{stealth}}},postaction={decorate}},
+    midarr/.default=0.5
+  }
+
+  \def\xtick#1#2{\draw[thick] (#1)++(0,.1) --++ (0,-.2) node[below=-.5pt,scale=0.9] {#2};}
+  \def\ytick#1#2{\draw[thick] (#1)++(.1,0) --++ (-.2,0) node[left=-.5pt,scale=0.9] {#2};}
+
+  \centering
+  % PV diagram - constant P
+  \def\xmax{3}
+  \def\ymax{2.5}
+  \begin{tikzpicture}
+
+    % AREA
+    \coordinate (A) at (.2*\xmax,.8*\ymax);
+    \coordinate (B) at (.8*\xmax,.8*\ymax);
+    \coordinate (C) at (.8*\xmax,.2*\ymax);
+    \fill[mylightblue] (A) rectangle (C|-0,0) node[midway,blue] {$W$};
+
+    % LINE
+    \draw[very thick,midarr=.55,myred] (A) -- (B);
+    \draw[very thick,midarr=.55,blue] (B) -- (C);
+    \fill (A) circle (2pt) node[right=5,above=2] {$P_1$, $V_1$};
+    \fill (B) circle (2pt);
+    \fill (C) circle (2pt) node[right=2] {$P_2$, $V_2$};
+
+    % AXIS
+    \draw[->,thick] (0,-0.1*\ymax) -- (0,\ymax) node[anchor=north east] {$P$};
+    \draw[->,thick] (-0.1*\xmax,0) -- (\xmax,0) node[anchor=north east] {$V$};
+  \end{tikzpicture}
+  \caption{Trasformazione isobara}
+  \label{fig:trasformazione_isobara}
+\end{figure}
+
+\hspace{2em}
+
+\begin{figure}[H]
+  \colorlet{mylightblue}{blue!20}
+  \colorlet{myblue}{blue!80!black}
+  \colorlet{mydarkblue}{blue!30!black}
+  \colorlet{mylightred}{red!10}
+  \colorlet{myred}{red!80!black}
+  \colorlet{mydarkred}{red!60!black}
+  \colorlet{mydarkgreen}{green!30!black}
+
+  %\tikzstyle{midarr}=[decoration={markings,mark=at position 0.5 with {\arrow{stealth}}},postaction={decorate}]
+  \tikzset{
+    midarr/.style={decoration={markings,mark=at position #1 with {\arrow{stealth}}},postaction={decorate}},
+    midarr/.default=0.5
+  }
+
+  \def\xtick#1#2{\draw[thick] (#1)++(0,.1) --++ (0,-.2) node[below=-.5pt,scale=0.9] {#2};}
+  \def\ytick#1#2{\draw[thick] (#1)++(.1,0) --++ (-.2,0) node[left=-.5pt,scale=0.9] {#2};}
+
+  \centering
+  % PV diagram - constant V
+  \def\xmax{3}
+  \def\ymax{2.5}
+  \begin{tikzpicture}
+    % AREA
+    \coordinate (A) at (.2*\xmax,.8*\ymax);
+    \coordinate (B) at (.2*\xmax,.2*\ymax);
+    \coordinate (C) at (.8*\xmax,.2*\ymax);
+    \fill[mylightblue] (B) rectangle (C|-0,0) node[below=-6,midway,blue] {$W$};
+
+    % LINE
+    \draw[very thick,midarr=.55,blue] (A) -- (B);
+    \draw[very thick,midarr=.55,myred] (B) -- (C);
+    \fill (A) circle (2pt) node[right=5,above=2] {$P_1$, $V_1$};
+    \fill (B) circle (2pt);
+    \fill (C) circle (2pt) node[right=2] {$P_2$, $V_2$};
+
+    % AXIS
+    \draw[->,thick] (0,-0.1*\ymax) -- (0,\ymax) node[anchor=north east] {$P$};
+    \draw[->,thick] (-0.1*\xmax,0) -- (\xmax,0) node[anchor=north east] {$V$};
+
+  \end{tikzpicture}
+  \caption{Trasformazione isocora}
+  \label{fig:trasformazione_iscora}
+\end{figure}
+
+\vspace{2em}
+
+\begin{figure}[H]
+  \colorlet{mylightblue}{blue!20}
+  \colorlet{myblue}{blue!80!black}
+  \colorlet{mydarkblue}{blue!30!black}
+  \colorlet{mylightred}{red!10}
+  \colorlet{myred}{red!80!black}
+  \colorlet{mydarkred}{red!60!black}
+  \colorlet{mydarkgreen}{green!30!black}
+
+  %\tikzstyle{midarr}=[decoration={markings,mark=at position 0.5 with {\arrow{stealth}}},postaction={decorate}]
+  \tikzset{
+    midarr/.style={decoration={markings,mark=at position #1 with {\arrow{stealth}}},postaction={decorate}},
+    midarr/.default=0.5
+  }
+
+  \def\xtick#1#2{\draw[thick] (#1)++(0,.1) --++ (0,-.2) node[below=-.5pt,scale=0.9] {#2};}
+  \def\ytick#1#2{\draw[thick] (#1)++(.1,0) --++ (-.2,0) node[left=-.5pt,scale=0.9] {#2};}
+
+  \centering
+  % PV diagram - isotherm
+  \def\N{40}
+  \def\xmax{3}
+  \def\ymax{2.5}
+  \begin{tikzpicture}
+    \def\isotherm{(A) to[out=-60,in=170] (B)}
+    \def\T{1.2}
+    \def\xa{.2*\xmax}
+    \def\xb{.8*\xmax}
+    \def\ya{{\T/(\xa)}}
+    \def\yb{{\T/(\xb)}}
+
+    % AREA
+    \coordinate (A) at (\xa,\ya);
+    \coordinate (B) at (\xb,\yb);
+    \fill[mylightblue,samples=\N,domain=\xa:\xb]
+      plot(\x,{\T/\x}) -- (B|-0,0) -- (A|-0,0) node[midway,left=4,above=5,blue] {$W$} -- cycle;
+
+    % LINE
+    \draw[myred,very thick,midarr=.58,samples=\N,domain={\xa}:{\xb}]
+      plot(\x,{\T/\x});
+    \fill (A) circle (2pt) node[right=5,above=2] {$P_1$, $V_1$};
+    \fill (B) circle (2pt) node[right=2] {$P_2$, $V_2$};
+
+    % AXIS
+    \draw[->,thick] (0,-0.1*\ymax) -- (0,\ymax) node[anchor=north east] {$P$};
+    \draw[->,thick] (-0.1*\xmax,0) -- (\xmax,0) node[anchor=north east] {$V$};
+
+  \end{tikzpicture}
+  \caption{Trasformazione isoterma}
+  \label{fig:trasformazione_isoterma}
+\end{figure}
+
+\vspace{1em}
+\subsection{Trasferimenti di energia}
+Le trasformazioni termodinamiche avvengono perchè si ha trasferimento di energia da o verso il sistema, energia sottoforma di
+\begin{itemize}
+  \item \textbf{calore};
+  \item \textbf{lavoro};
+\end{itemize}
+per cui si ottiene la definzione di \textbf{calore} seguente:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{CALORE}}\\
+    \parbox{\linewidth}{Il \textbf{calore} rappresenta l'energia scambiata tra sistema e ambiente dovuto \textbf{unicamente} alla variazione di temperatura $\Delta T$ tra sistema e ambiente.\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{2em}
+\noindent
+\textbf{Osservazione $\boldsymbol{1}$}: Si osservi che è possibile non avere cambiamento di temperatura nonostante vi sia trasferimento di calore tra sistema e ambiente, come nel caso dei cambiamenti di stato. La convenzione sul segno di calore è la seguente
+\begin{itemize}
+  \item Il calore è positivo $Q > 0$ quando viene assorbito dal sistema;
+  \item Il calore è negativo $Q z 0$ quando viene ceduto dal sistema all'ambiente;
+\end{itemize}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione $\boldsymbol{2}$}: Il trasferimento di calore può avvenire in tre modi differenti:
+\begin{enumerate}
+  \item \textbf{Conduzione}, per la quale è necessario un \textbf{mezzo}, ossia un materiale che metta in contatto sorgente e assorbitore di calore.
+  \[raffigurazione\]
+  Allora la conduzione viene misurata in funzione della cosiddetta \textbf{corrente termica}, data da
+  \[C=\frac{Q}{t}\]
+  una corrente termica che, in condizioni stazionare del sistema, viene data dalla formula seguente
+  \[\boxed{C=k A \frac{(T_2-T_1)}{L} = k A \frac{dT}{dL}}\]
+  ove $k$ prende il nome di \textbf{coefficiente di conducibilità termica}, misurata in W m$^{-1}$ K$^{-1}$, mentre $A$ e $L$ sono rispettivamente la sezione e la lunghezza del materiale conduttore.\\
+  Ovviamente la conducibilità dipende dal materiale, dalla differenza di temperatura e dalla geometria del materiale conduttore: più il materiale è conduttore, presenta una superficie di contatto è grande e lo spessore è piccolo, maggiore sarà la conducibilità termica, sempre nell'ipotesi che il materiale conduttore sia omogeneo e il calore si propaghi uniformemente.
+
+  \item Benché l'aria abbia un coefficiente di conducibilità termica molto basso, trasferisce calore tramite \textbf{convezione}. La convezione, infatti, funziona grazie alla variazione di densità (e quindi di volume) dei fluidi a seguito della variazione di temperatura.
+
+  \item L'\textbf{irraggiamento}, infine, è l'unico metodo di trasferimento di calore che non richiede un mezzo che funga da tramite, in quanto avviene anche nel vuoto; l'irraggiamento funziona in quanto tutti i corpi emettono energia, in questo caso calore, dalla loro superficie, in quanto aventi una certa temperatura; la trasmissione di tale energia avviene tramite \textbf{onde elettromagnetiche} seguendo la \textbf{legge di Stefan-Boltzmann}
+  \[\boxed{P=e \sigma A T^4}\]
+  in cui $e$ è una costante che dipende dal materiale, mentre $\sigma$ è una costante universale.
+\end{enumerate}
+
+\newpage
+\noindent
+\begin{center}
+  12 Maggio 2022
+\end{center}
+È noto che durante una trasformazione non è possbile definire che cosa sta succedendo al sistema, in quanto non si ha equilibrio; tuttavia, con l'approssimazione di una trasformazione quasi statica, si possono considerare infiniti stati di equilibrio.\\
+Attraverso un diagramma pressione volume, o diagramma di Clapeyron, ogni singolo punto rappresenta uno stato, in quanto nell'equazione di stato dei gas perfetti si evince come siano solamente due le variabili indipendenti.\\
+L'irraggiamento non necessita di un mezzo di trasmissione, anche se può essere presente, e riguarda tutti i corpi aventi una temperatura diversa da $0$ K. L'irraggiamento segue la \textbf{legge di Stefan-Boltzmann}
+\[\boxed{P=e \sigma A T^4}\]
+in cui
+\begin{itemize}
+  \item $e$ prende il nome di \textbf{coefficiente di emissione}, ed è un valore $0 \leq e \leq 1$;
+  \item $\sigma$ è la costante di Boltzmann, in particolare $\sigma = 5.67 \times 10^{-8}$ W m$^{-2}$ K$^{-4}$;
+  \item $A$ è l'area della superficie emettente;
+  \item $T$ è la temperatura della superficie emettente (molto spesso non vi è differenza tra temperatura della superficie e temperatura interna, ma nel caso di corpi complessi, come il sole, la differenza è significativa).
+\end{itemize}
+L'irraggiamente avviene tramite la trasmissione di onde elettromagnetiche le quali non sono sempre visibili, in quanto la loro visibilità dipende dalla frequenza delle onde emesse, non sempre rientrante nello spettro del visibile.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si consideri uno specchio parabolico, tale per cui i raggi paralleli vengano riflessi nel fuoco dello stesso e viceversa; allora, ponendo uno specchio di fronte all'altro e nei fuochi un pezzo di carta e una lampadina, dopo un po' di tempo il pezzo di carta brucia: ciò significa che l'irraggiamento effettivamente permette di trasmettere energia; ovviamente, se si tolgono gli specchi la carta non brucia più, in quanto la legge di Boltzmann permette di capire come la potenza irradiata dipenda dalla superficie emittente che, nel caso degli specchi è massimizzata, mentre senza gli specchi la superficie è esigua.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Un termos, dal momento che permette di creare un'intercapedina vuota tra l'interno e l'esterno, protegge sicuramente dalla convezione e dalla conduzione, non essendoci un mezzo. Inoltre, essendo molto spesso costruito con un materiale riflettente, tende a proteggere anche dall'irraggiamento.
+
+\vspace{1em}
+\subsection{Calore specifico}
+Per comprendere come avviene quantitativamente il trasferimento di calore, deve essere definito il concetto di \textbf{calore specifico}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{CALORE SPECIFICO}}\\
+    \parbox{\linewidth}{Il \textbf{calore specifico} $c$ rappresenta la \textbf{quantità di calore} necessaria per incrementare di $1$ K (o $1$ $^\circ$C) un Kg di una data sostanza, secondo la seguente equazione
+    \[\boxed{Q=m c \Delta T}\]
+    per cui se la differenza è temperatura è negativa, ossia la temperatura è diminuita, il calore è negativo, secondo la convenzione adottata in precedenza, e viceversa.\\
+    La formula precedentemente introdotta si applica solo per piccole differenze di temperatura
+    \[\delta Q = m c(T) dt\]
+    in cui $\delta Q$ (esattamente come $\delta W$) vengono denotati differentemente in quanto non sono proprietà del sistema, ma sono grandezze atte a definire dei trasferimenti di energia.
+    Da notare che il calore specifico
+    \begin{itemize}
+      \item dipende dalla sostanza;
+      \item dipende dalla trasformazione ($c_p$ è il calore specifico a pressione costante, $c_V$ è il calore specifico a volume costante);
+      \item dipende dalla temperatura.
+    \end{itemize}
+    \vspace{1mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio}: Si immergano $m=2$ Kg di ferro (Fe) alla temperatura iniziale di $T_{i,\text{Fe}}=95$ $^\circ$C all'interno di un volume $1$ L alla temperatura iniziale $T_{i,\text{H}_2\text{O}}$. Al fine di determinare la temperatura finale del sistema, è sufficiente eguagliare il calore ceduto dal ferro all'acqua e quello acquisito dall'acqua, per cui
+\[Q_{\text{Fe} \to \text{H}_2\text{O}} = - Q_{\text{H}_2\text{O} \to \text{Fe}} \hspace{1em} \text{oppure} \hspace{1em} \left \vert Q_{\text{Fe} \to \text{H}_2\text{O}} \right \vert = \left \vert Q_{\text{H}_2\text{O} \to \text{Fe}} \right \vert\]
+per cui
+\[m_{\text{Fe}} \cdot c_{\text{Fe}} \cdot (T_e-T_{i,\text{Fe}}) = - m_{\text{H}_2\text{O}} \cdot c_{\text{H}_2\text{O}} \cdot (T_e - T_{i,\text{H}_2\text{O}})\]
+ottenendo
+\[\boxed{T_e = \frac{m_{\text{Fe}} c_{\text{Fe}} \cdot T_{i,\text{Fe}} + m_{\text{H}_2\text{O}} c_{\text{H}_2\text{O}} \cdot T_{i,\text{H}_2\text{O}}}{m_{\text{Fe}} c_{\text{Fe}} + m_{\text{H}_2\text{O}} c_{\text{H}_2\text{O}}}}\]
+ossia una media pesata delle temperature iniziali dei due elementi considerati, ove il peso è il prodotto $m \cdot c$: ciò significa che vi sono due elementi da considerare per valutare la temperatura di equilibrio, ossia la massa dei corpi e il loro calore specifico.\\
+Si capisce facilmente, infatti, nell'esempio precedente che, essendo i calori specifici
+\[c_{\text{H}_2\text{O}} = 4180 \frac{\text{J}}{\text{Kg} \cdot \text{K}} \hspace{1em} \text{e} \hspace{1em} c_{\text{Fe}} = 918 \frac{\text{J}}{\text{Kg} \cdot \text{K}}\]
+
+\vspace{1em}
+\subsection{Capacià termica molare}
+Di seguito si espone una quantità simile al calore specifico, la quale prende il nome di \textbf{capacità termica molare}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{CAPACITÀ TERMICA MOLARE}}\\
+    \parbox{\linewidth}{La \textbf{capacità termica molare} $C$ rappresenta la \textbf{quantità di calore} necessaria per incrementare di $1$ K (o $1$ $^\circ$C) una mole di una data sostanza, secondo la seguente equazione
+    \[\boxed{Q=n C \Delta T}\]
+    in cui $n$ rappresenta il numero di moli. Ancora una volta, la capacità termica molare
+    \begin{itemize}
+      \item dipende dalla sostanza;
+      \item dipende dalla trasformazione ($C_p$ per la capacità termica molare a pressione costante, $C_V$ è la capacità termica molare a volume costante);
+      \item dipende dalla temperatura.
+    \end{itemize}
+    \vspace{1mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{2em}
+\noindent
+Analogamente si definisce il concetto di \textbf{caloria}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{CALORIA}}\\
+    \parbox{\linewidth}{La \textbf{caloria} cal rappresenta la \textbf{quantità di calore} necessaria per incrementare di $1$ K, o $1$ $^\circ$C (più precisamente da $14.5$ $^\circ$C a $15.5$ $^\circ$C) la temperatura di $1$ g di acqua a pressione atmosferica. Si ha
+    \[\boxed{1 \text{ cal} = 4.186 \text{ J}}\]
+    \vspace{-1mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\subsection{Calore latente}
+Si osservi che nei cambiamenti di fase è possibile avere trasferimento i calore senza variazione di temperatura. Ecco che allora la formulazione del calore necessario al cambiamento di fase si definisce come
+\[\boxed{Q=m \cdot L}\]
+in cui $L$ prende il nome di \textbf{calore latente}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{CALORE LATENTE}}\\
+    \parbox{\linewidth}{Il \textbf{calore latente} di \textbf{fusione}/\textbf{vaporizzazione} rappresenta la quantità di calore fornito o sottratto a $1$ Kg di sostanza durante un cambiamento di fase.\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che mentre il coefficiente di dilatazione termica e il calore specifico variavano al variare della temperatura, il \textbf{calore latente non dipende dalla temperatura}, essendo essa costante durante il cambiamento di fase.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Si calcoli la minima massa d'acqua $m_{\text{H}_2\text{O}}$ alla temperatura iniziale $T_0=25$ $^\circ$C per fondere un cubo di ghiaccio di massa $m_\text{G}$ alla temperatura di $0$ $^\circ$C. Ovviamente si ha l'uguaglianza seguente
+\[m_{\text{H}_2\text{O}} c_{\text{H}_2\text{O}} \Delta T = m_\text{G} L\]
+e dovendo essere la massa di acqua minima, si deve supporre che tutta l'acqua vari la propria temperatura fino a raggiungere $0$ $^\circ$C.\\
+Se si considera una massa di acqua pari a $m_{\text{H}_2\text{O}} = 10$ Kg e le stesse condizioni iniziali, si ottiene che
+\[-m_{\text{H}_2\text{O}} c_{\text{H}_2\text{O}} \cdot (T_e - T_{\text{H}_2\text{O}}) = m_\text{G} L + m_\text{G} c_{\text{H}_2\text{O}} \cdot (T_e - T_\text{G})\]
+Risolvendo l'equazione si ottiene che la temperatura di equilibrio finale sarà
+\[T_e=\frac{m_{\text{H}_2\text{O}} c_{\text{H}_2\text{O}} T_{\text{H}_2\text{O}} - m_\text{G} L + m_\text{G} c_{\text{H}_2\text{O}} T_\text{G}}{m_{\text{H}_2\text{O}} c_{\text{H}_2\text{O}} + m_\text{G} c_\text{G}} = 15 \text{ } ^\circ \text{C}\]
+
+\vspace{1em}
+\subsection{Lavoro termodinamico}
+Di seguito si espone il concetto di \textbf{lavoro termodinamico}
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{LAVORO TERMODINAMICO}}\\
+    \parbox{\linewidth}{Il \textbf{lavoro termodinamico} rappresenta la quatità di energia scambiata tra sistema e ambiente attraverso meccanismi indipendenti dalla differenza di temeperatura $\Delta T$ (principalmente si considererà lavoro dovuto a forze meccaniche).\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione $\boldsymbol{1}$}: Attenzione che nel caso del lavoro si considera una convenzione opposta rispetto al calore:
+\begin{itemize}
+  \item Il lavoro $W > 0$ è positivo quando è compiuto dal sistema;
+  \item Il lavoro $W < 0$ è negativo quando è subito dal sistema.
+\end{itemize}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione $\boldsymbol{2}$}: Si consideri un pistone riempito di fluido. Allora quando il fluido aumenta di volumme compie lavoro positivo; se, invece, il fluido viene compresso allora il lavoro è negativo.\\
+Dalla meccanica è noto come
+\[\delta W = F dx\]
+ed essendo $F = P \cdot A$ si ottiene
+\[\delta V = p \cdot A dx \longrightarrow \delta W = p dV\]
+ottenendo, quindi che
+\[\boxed{W = \int_{V_i}^{V_f} p \cdot dV}\]
+per cui il lavoro è l'area sottesa alla curva del grafico pressione-volume:
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Nel caso di una \textbf{trasformazione isobara}, si ha che il lavoro è
+\[\boxed{W=P \cdot \Delta V}\]
+mentre nel caso di una \textbf{trasformazione isocora} il lavoro è ovviamente nullo, per cui
+\[\boxed{W=0}\]\\
+Nel caso di una trasformazione isoterma per un gas perfetto si ha che
+\[p=\frac{n R T}{V}\]
+per cui si ottiene
+\[W = \int_{V_i}^{V_f} p dV = \int_{V_i}^{V_f} \frac{n R T}{V} dV = n R T \int_{V_i}^{V_f} \frac{dV}{V} = n R T \cdot \left[ \log(V_f) - \log(V_i) \right] = n R T \cdot \log \left(\frac{V_f}{V_i}\right)\]
+per cui il lavoro compiuto nel caso di una \textbf{trasformazione isoterma} è
+\[\boxed{W=n R T \cdot \log \left(\frac{V_f}{V_i}\right)}\]
+
+\newpage
+\noindent
+\begin{center}
+  16 Maggio 2022
+\end{center}
+\textbf{Esercizio $\boldsymbol{1}$}: Il numero di punti fissi necessari per tarare una termocoppia in cui la dipendenza della temperatura dalla differenza di potenziale è un polinomio del quarto ordine è pari a \textbf{5 punti}, in quanto è da considerarsi la relazione seguente:
+\[T=Ax^4 + Bx^3 + Cx^2 + Dx + E\]
+in cui si ravvisano, ovviamente, \textbf{5 incognite} e, quindi, \textbf{5 punti fissi}.
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio $\boldsymbol{2}$}: Se si deve calcolare la variazione di lunghezza considerando il volume si deve considerare la formula seguente:
+\[\Delta V = \beta V_0 \Delta T\]
+ed essendo la sezione costante, si ottiene
+\[A \cdot \Delta L = \beta \cdot A L_0 \cdot \Delta T\]
+per cui la formula finale è
+\[\Delta L = \beta L_0 \Delta T \longrightarrow L_0 = \frac{\Delta L}{\beta \cdot \Delta T}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio $\boldsymbol{3}$}: In $1.00$ kg di acqua a $80.0$ $^\circ$C vengono versati $100$ g di ghiaccio fondente e $200$ g di ghiaccio a $-40.0$ $^\circ$C. Si calcoli la temperatura della miscela all’equilibrio termico.\\
+Ovviamente si considera l'equazione seguente:
+\[-Q_{\text{H}_2\text{O}} = Q_{\text{GF},1} + Q_{\text{H}_2\text{O},1} + Q_{\text{G}} + Q_{\text{GF},2} + Q_{\text{H}_2\text{O},2}\]
+ottenendo la temperatura d'equilibrio seguente
+\[T_e = \frac{m_1 c_{\text{H}_2\text{O}} T_1 + (m_2 + m_3) \cdot (c_{\text{H}_2\text{O}} T_0 - L) - m_2 c_{\text{G}} (T_0 - T_3)}{c_{\text{H}_2\text{O}} \cdot (m_1 + m_2 + m_3)}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio $\boldsymbol{4}$}: Una mole di gas perfetto compie un'espansione isobara dallo stato $A$ allo stato $B$ e una compressione isoterma da $B$ a $C$. Si determini la pressione nel punto $C$.\\
+Allora sapendo che la trasformazione da $B$ a $C$ è isoterma è facile capire come
+\[T_{B,C} = \frac{P_B \cdot V_B}{n R} = \frac{P_C \cdot V_C}{n R} \longrightarrow P_{C} = \frac{P_B \cdot V_B}{V_C}\]
 
 \newpage
 \section{Il primo principio della termodinamica}
+Esistono, com'è noto, due modi per trasferire l'energia: calore e lavoro (da intendersi come calore meccanico). Per convenzione si ha che
+\begin{itemize}
+  \item Il calore è positivo $Q > 0$ quando viene assorbito dal sistema;
+  \item Il calore è negativo $Q z 0$ quando viene ceduto dal sistema all'ambiente;
+  \item Il lavoro $W > 0$ è positivo quando è compiuto dal sistema;
+  \item Il lavoro $W < 0$ è negativo quando è subito dal sistema.
+\end{itemize}
+Ciò significa che
+\[\boxed{\Delta U=Q-W}\]
+ossia la differenza tra calore e lavoro permette di ottenere l'\textbf{energia netta} acquisita dal sistema. Volendo sapere se tale energia dipende dalla trasformazione, si analizzino dapprima le componenti di lavoro e calore.\\
+Ovviamente il lavoro è da interpretarsi come
+\[W=\int_{V_i}^{V_f} p \cdot dV\]
+ossia l'area della parte di piano sottesa al grafico pressione e volume. Naturalmente se si considerano uno stato inziale e uno finale, esistono infiniti modi per congiungere tali due punti e l'area sottesa al grafico di tali funzioni non sarà sempre necessariamente lo stesso: \textbf{il lavoro dipende dalla trasformazione considerata}; analogamente, anche \textbf{il calore dipende dalla trasformazione considerata}.\\
+Tuttavia, ciò che è fondamentale, è che la differenza esposta in precedenza
+\[\boxed{\Delta U=Q-W}\]
+\textbf{non dipende dalla trasformazione}: dato lo stato iniziale e lo stato finale, è già possibile calcolare la variazione di \textbf{energia interna} (essendo $U$ il simbolo dell'\textbf{energia interna}), come esposto di seguito:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{PRIMO PRINCIPIO DELLA TERMODINAMICA}}\\
+    \parbox{\linewidth}{In una trasformazione in cui la quanittà di calore...
+
+    \[\boxed{\Delta U = U_f - U_i = Q - W \longrightarrow dU = \delta Q + \delta W}\]
+    che si configura come una conservazione del'energia.
+    \vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione $\boldsymbol{1}$}: In generale, la variazione di energia interna si esprime in termini di variazione di energia cinetica e potenziale (e quindi di energia meccanica) delle molecoli costituenti il sistema considerato. Infatti si ha che
+\[\boxed{U=\sum_i (K_i + \mathcal{U}_i)}\]
+in cui per un gas perfetto l'energia potenziale $\mathcal{U}_i \cong 0$, ovvero aumentando la temperatura di un gas perfetto, aumenta l'energia cinetica delle sue molecole.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione $\boldsymbol{2}$}: Dal momento che l'energia interna $\Delta U$ non dipende dalle trasformazioni termodinamiche considerate, ma solamente dallo \textbf{stato del sistema}, il quale viene descritto dalle coordinate termodinamiche di pressione, volume e temperatura, ossia
+\[U(p,V,T)\]
+ma essendo solamente due le grandezze indipendenti, è sufficiente considerare solamente due coordinate termodinamiche.\\
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione $\boldsymbol{3}$}: Chiaramente l'energia interna $U$ è stata definita a meno di una costante, appositamente non menzionata in quanto, considerando sempre delle variazioni di energia interna, tale costante diviene ininfluente.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio $\boldsymbol{1}$}: Scaldando una massa $m$ di acqua da $0$ $^\circ$ a $100$ $^\circ$, senza cambiamento di fase (in cui le piccole varizioni di volume subite dall'acqua sono trascurabili, ovvero la trasformazione è \textbf{isocora}), la variazione di energia interna $\Delta U$ si calcola come segue
+\[\Delta U = Q - W = m \cdot c_{\text{H}_2\text{O}} \cdot (T_{100} - T_0) - 0\]
+in cui il lavoro $W=0$ non essendoci lavoro compiuto da/sul sistema, essendo la trasformazione isocora. Ponendo $m$ pari ad una mole, essendovi 2 atomi di idrogendo e 1 di ossigeno, la massa è $16 + 2 \cdot 1 = 16$ g, quindi
+\[\Delta U = 16 \times 10^{-3} \text{ kg} \cdot 4180 \text{ } \frac{J}{Kg K} \cdot 100 K = 7.5 \text{ KJ}\]
+
+\vspace{1em}
+\subsection{Trasformazione isocora}
+Dal momento che in una trasformazione isocora il volume è costante ... continua ...
+
+\vspace{1em}
+\subsection{Trasformazione isobara}
+Dal momento che in una trasformazione isobara la pressione è costante, la variazione di energia interna è data da
+\[\Delta U = Q - W\]
+in cui il calore è dato da
+\[Q=m c_p \Delta T = n C_p \Delta T\]
+in cui $c_p$ e $C_p$ sono rispettivamente il calore specifico e la capacità termica a pressione costante. Il lavoro, invece, essendo la pressione costante, è dato da
+\[W=p \cdot \Delta T\]
+pertanto la variazione di energia interna è
+\[\Delta U = m c_p \Delta T - p \cdot \Delta T\]
+
+\vspace{1em}
+\subsection{Trasformazione ciclica}
+Nel caso di una trasformazione ciclica la variazione di energia interna è nulla: l'energia interna è una \textbf{funzione di stato}, ma se lo stato iniziale e finale sono i medesimi, l'energia interna sarà la stessa, per cui
+\[\Delta U = U(f) - U(i) = 0\]
+e come naturale conseguenza si ha che
+\[\boxed{Q=W}\]
+
+\vspace{1em}
+\subsection{Espansione libera}
+Si consideri un contenitore di pareti adiabatiche diviso in due parti, l'una contenente un gas e l'altra contenente il vuoto. Eliminando la separazione tra le due parti, il gas si espande e occupa tutto il volume.\\
+Considerando il sistema dato da tutto il contenitore, si ha che
+\[\Delta U = Q - W = 0\]
+in quanto le pareti sono adiabatiche e non si ha scambio di calore con l'esterno; inoltre il volume dell'intero contenitore non varia, per cui anche il calore è nullo.\\
+Ma essendo l'energia interna è una funzione di stato, si ha che
+\[U(p_i,V_i,T_i) = U(p_f,V_f,T_f)\]
+ma siccome le variabili indipendenti sono solo due, è lecito scrivere
+\[U(V_i,T_i) = U(V_f,T_f)\]
+Si potrebbe misurare sperimentalmente che a seguito di tale espansione, per un gas perfetto, la \textbf{temperatura si mantiene costante}, mentre è ovvio che $V_f \neq V_i$. Allora si ha che
+\[U(V_i,T) = U(V_f,T)\]
+ovvero l'energia interna calcolata rispetto a due volumi diversi è la stessa (ma si sarebbe potuto anche considerare la pressione); ciò permette di affermare che \textbf{l'energia interna di un gas perfetto dipende solo dalla temperatura}.\\
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che alla luce dalle seguenti evidente
+\begin{enumerate}
+  \item L'energia interna $U$ è una funzione di stato e non dipende dalla trasformazione (per cui è possibile scegliere la trasformazione più semplice da calcolare che permetta di passare dallo stato iniziale a quello finale);
+  \item per un gas pefetto, al fine di calcolare l'energia interna è sufficiente considerare solamente la temperatura (per cui dello stato iniziale e dello stato finale interessano solo la temperatura): ma siccome è noto che
+  \[p = \frac{n R T}{V}\]
+  per un gas perfetto \textbf{gli stati alla stessa temperatura si trovano su un'iperbole}; pertanto, è possibile scegliere come stato iniziale e stato finale uno qualsiasi dei punti che si trovano sull'iperbole passante per lo stato iniziale e finale dati; furbescamente si potrebbe scegliere la trasformazione isocora, tale per cui la variazione di energia interna di un gas perfetto assume sempre la formula seguente:
+  \[\boxed{\Delta U = Q = m C_v \Delta T = n C_v \Delta T}\]
+  in cui ovviamente il calore non può essere pari alla variaizone di energia interna, essendo il calore dipendente dalla trasformazione, a differenza dell'energia interna. Applicando il primo principio si ottiene che
+  \[\Delta E = Q - W \longrightarrow \Delta Q = m c_v \Delta T + p \cdot \Delta V\]
+\end{enumerate}
+
+\vspace{1em}
+\subsection{Relazione di Mayer}
+Dato un gas perfetto, per quanto esposto, è noto che la variazione di energia interna presenta sempre la seguente forma
+\[dU = n C_v dT\]
+Inoltre, per i gas perfetti è sempre valida l'equazione di stato seguente
+\[pV = n R T\]
+che, riscritta in forma differenziale, si ottiene
+\[p dV + V dp = n R d T\]
+ma se si considera una trasformazione isobara, tale per cui la pressione è costante, si ha che $dp = 0$, per cui
+\[pdV = n R dT \longrightarrow p \frac{dV}{dT} = nR\]
+Applicando, infine, il primo principio della termodinamica nel caso di una trasformazione isobara, si ha che
+\[dU = \delta Q - \delta W \longrightarrow n C_v dT = n C_p dT - p dV\]
+in cui compare la capacità termica a volume costante (in quanto indipendentemente dalla trasformazione la variazione di energia interna per un gas perfetto presenta sempre questa forma) e a pressione costante (essendo la pressione costante). Si ottiene, quindi, che
+\[n C_v dT = n C_p dT - p dV \longrightarrow C_v = C_p - \frac{p dV}{n dT} \longrightarrow C_p = C_v + \frac{p dV}{n dT}\]
+ma è noto che
+\[\frac{p dV}{n dT}=R\]
+per cui ottiene il risultato seguente
+\[C_p = C_v + \frac{p dV}{n dT} \longrightarrow C_p = C_v + R\]
+che si traduce nella \textbf{relazione di Mayer} seguente, valida solamente per i gas perfetti:
+\[\boxed{C_p = C_v + R}\]
+Tale risultato vale solo per i gas perfetti, in quanto per i solidi e per i liquidi $C_v = C_p$ e quindi tale relazione non può essere valida.
+
+\newpage
+\noindent
+\begin{center}
+  17 Maggio 2022
+\end{center}
+Si osservi che per \textbf{solamente per i gas perfetti} si ha che
+\[dU = n C_v dT\]
+così come la relazione di Mayer è valida solamente per i gas pefetti. Si ha, anche, che in funzione del primo risultato, si può esprimere il calore come
+\[\delta Q = U + \delta W \longrightarrow n C_v dT + p dV\]
+Infine si ha che se una trasformazione è isoterma, allora il calore è uguale al lavoro, per un gas perfetto, in quanto la variazione di energia è nulla, in quanto dipende solamente dalla temperatura.\\
+Si noti inoltre che in una trasformazione ciclica $\Delta U = Q - L = 0$, ma non solo, si ha anche che $\Delta T = \Delta p = \Delta V = 0$.
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio $\boldsymbol{1}$}: Si consideri l'aumento della temperatura di $1$ l di acqua da $50$ $^\circ$ C a $60$ $^\circ$ C, allora la variazione di energia interna è data da
+\[\Delta U = Q - W = m c_v \Delta T - \int_{V_i}^{V_f} p dV > 0\]
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio $\boldsymbol{2}$}: Si osservi che nel caso di una compressione reversibile di un gas perfetto costantemente in equilibrio con un termostato, la temperatura si mantiene costante e quindi la variazione di energia interna per un gas pefetto è nulla.
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio $\boldsymbol{3}$}: Si osservi che nel caso di una compressione reversibile di un gas non perfetto costantemente in equilibrio con un termostato, la temperatura si mantiene costante, mentre il volume diminuisce, quindi il sistema subisce del lavoro (il quale è negativo), per cui la variazione di energia è neccessariamente positiva.
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio $\boldsymbol{4}$}: In tutti i cambiamenti di fase si ha sempre aumento di energia interna, come nel caso dell'acqua.
+
+\vspace{1em}
+\subsection{Trasformazione adiabatica}
+\begin{enumerate}
+  \item In una trasformazione adiabatica non si ha scambio di energia interna con l'esterno, per cui $Q=0$. Applicando il primo principio della termodinamica si ottiene
+  \[\Delta U = Q - W = - W \longrightarrow dU = -\delta W = - p dV\]
+  e se si considera un \textbf{gas perfetto} allora si ottiene che
+  \[n C_v dT = - p dV\]
+  e quindi
+  \[\boxed{n dT = - \frac{p}{C_v} dV}\]
+
+  \item Sempre parlando di gas perfetti, si ha l'equazione di stato seguente:
+  \[pV = nRT \longrightarrow p dV + V dp = n R dT\]
+  ottenendo, quindi:
+  \[\boxed{n dT = \frac{1}{R} \cdot \left(p dV + V dp \right)}\]
+  Impiegando la relazione seguente si ottiene che
+  \[-\frac{p}{C_v} dV = \frac{1}{R} \cdot \left(p dV + V dp \right)\]
+  e aplicando la relazione di Mayer, tale per cui per i gas perfetti si ha $C_p = C_v + R \longrightarrow R = C_p - C_v$, da cui
+  \[-\frac{p}{C_v} dV = \frac{1}{C_p - C_v} \cdot \left(p dV + V dp \right)\]
+  e quindi
+  \[-\frac{C_p - C_v}{C_v} p dV = p dV + V dp \longrightarrow \left(- \frac{C_p}{C_v} + 1\right) \cdot p dV = p dV + V dp\]
+  e ponendo convenzionalmente
+  \[\boxed{\gamma = \frac{C_p}{C_v}}\]
+  per cui si ottiene
+  \[\left(- \gamma + 1\right) \cdot p dV = p dV + V dp \longrightarrow -\gamma \cdot p dV = V dp \longrightarrow -\gamma \frac{dV}{V} = \frac{dp}{p}\]
+  e volendo integrare si ottiene
+  \[- \gamma \int_{V_i}^{V_f} \frac{dV}{V} = \int_{p_i}^{p_f} \frac{dp}{p}\]
+  ovverosia
+  \[\gamma \cdot \left(\log(V_f) - \log(V_i)\right) = \log(p_f) - \log(p_i)\]
+  in cui è facile osservare come
+  \[\boxed{\log(p V^{\gamma}) = \text{costante}} \hspace{1em} \text{e} \hspace{1em} \boxed{pV^\gamma = \text{costante}}\]
+  ed è per questo che nel caso di una trasformazione adiabatica di un gas perfetto il diagramma pressione volume è proprio un'iperbole descritta da
+  \[\boxed{p = \frac{k}{V^\gamma}}\]
+  essendo
+  \[\boxed{\gamma = \frac{C_p}{C_v} > 1}\]
+  ossia una quantità maggiore di $1$ per la relazione di Mayer
+  \[C_p = C_V + R\]
+\end{enumerate}
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: È utile, molto spesso, impiegare la relazione appena ottenuta in combinazione con l'equazione di stato dei gas perfetti:
+\[
+  \left\{
+  \rowcolors{1}{white}{white}
+  \begin{array}{l}
+      pV^\gamma = \text{costante}\\
+      pV = n R T
+  \end{array}
+  \right.
+\]
+
+\vspace{1em}
+\subsubsection{Energia interna e Lavoro - Trasformazione adiabatica}
+Dal momento che in una trasformazione adiabatica il calore è nullo, ovvero $Q=0$, si ha, dal primo principio della termodinamica:
+\[\Delta U = - W\]
+e per definizione si ha che
+\[W = \int_{V_i}^{V_f} p dV\]
+ma è stato appena dimostrato che
+\[p V^\gamma = \text{costante}\]
+il che significa che tale prodotto è sempre lo stesso sia all'inizio che alla fine della trasformazione. Pertanto si ha che
+\[p V^\gamma = p_i V_i^\gamma \longrightarrow p = p_i \cdot \left(\frac{V_i}{V} \right)^\gamma\]
+per cui si può calcolare il lavoro come segue
+\[W = \int_{V_i}^{V_f} \frac{p_i V_i^\gamma}{V^\gamma} dV = p_i V_i^\gamma \cdot \int_{V_i}^{V_f} \frac{dV}{V^\gamma} = p_i V_i^\gamma \cdot \left[- \frac{1}{\gamma-1} \cdot \frac{1}{V^{\gamma -1}}\right]_{V_i}^{V_f}\]
+ciò permette, quindi, di ottenere
+\[- \frac{p_i V_i^\gamma}{\gamma - 1} \cdot \left[\frac{1}{v_f^{\gamma-1}} - \frac{1}{V_i^{\gamma - 1}}\right] = - \frac{p_i V_i^\gamma}{\gamma - 1} \cdot \frac{V_i^{\gamma - 1} - V_f^{\gamma - 1}}{V_f^{\gamma -1} \cdot V_i^{\gamma - 1}} = - \frac{p_i V_i}{\gamma - 1} \cdot \left[\left(\frac{V_i}{V_f}\right)^{\gamma - 1} - 1\right]\]
+per cui si ottiene che
+\[\boxed{W = \frac{p_i V_i}{\gamma - 1} \cdot \left[1 - \left(\frac{V_i}{V_f}\right)^{\gamma - 1}\right]}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi, quindi, che per una trasformazione adiabatica, in generale, si ottiene che $Q=0$ e quindi $\Delta U = -W$. Se, invece, si considerano i gas perfetti si ha anche che
+\[\boxed{p V^\gamma = \text{costante}} \hspace{1em} \text{con} \hspace{1em} \boxed{\gamma = \frac{C_p}{C_v} > 1}\]
+da cui si evince come il lavoro sia pari a
+\[\boxed{W = \frac{p_i V_i}{\gamma - 1} \cdot \left[1 - \left(\frac{V_i}{V_f}\right)^{\gamma - 1}\right]}\]
+
+\vspace{1em}
+\subsection{Trasformazione isoterma}
+È noto che in una trasformazione isoterma $\Delta T = 0$. Se si considera un \textbf{gas perfetto}, inoltre, si ha anche che
+\[pV = n R T \longrightarrow p = \frac{n R T}{V} \hspace{1em} \text{con} \hspace{1em} n R T = \text{costante}\]
+Inoltre, siccome per un gas perfetto l'enercia interna dipende solamente dalla temperatura, si ha che
+\[\Delta U = 0\]
+
+\vspace{1em}
+\subsection{Riassunto}
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{PPPPPP}
+    \hline
+    \multicolumn{4}{|c|}{\textbf{TRASFORMAZIONI TERMODINAMICHE}}\\
+    \hline
+    & {\textbf{ISOCORA}} & {\textbf{ISOBARA}} & {\textbf{ISOTERMA}} & {\textbf{ADIABATICA}} & {\textbf{CICLICA}}\\
+    \hline
+    $p-V$ & \[p = \frac{n R T}{V} \hspace{1em} \text{con} \hspace{1em} p \propto V\] & No & \parbox{.3\textwidth}{\vspace{1em} La temperatura di fusione dell'acqua è posta a $0$ $^\circ$C, mentre quella di ebbollizione a $100$ $^\circ$C; inoltre la divisione della scala è equa dell'intervallo $0-100$. \vspace{1em}}\\
+
+    \hline
+    $W$ & $0$ & $p \Delta V$ & Per i gas perfetti è uguale al $Q$ & In generale \[W=-\Delta U\] e per i gas perfetti è \[\boxed{W = \frac{p_i V_i}{\gamma - 1} \cdot \left[1 - \left(\frac{V_i}{V_f}\right)^{\gamma - 1}\right]}\] & Uguale al calore $Q$
+
+    \parbox{.3\textwidth}{\vspace{1em} La scala è definita un funzione del punto triplo dell'acqua, tenendo conto della pressione. \vspace{0.1em}}\\
+    \hline
+
+
+    $Q$ & $ $ \parbox{.3\textwidth}{\vspace{1em} Fahrenheit ha crato una miscela di acqua e sale e ha posto a $0$ $^\circ$F il punto di fusione più basso possibile di tale miscela. L'altro punto di riferimento scelto è $96$ $^\circ$F (corrispondente alla temperatura del corpo umano). La conversione da Celsius a Fahrenheit si usa
+    \[T_\text{F}=1.8 \cdot T_\text{C} + 32\]}\\
+    \hline
+    Rankine ($\mathcal{R}$) & No & Sì & \parbox{.3\textwidth}{\vspace{1em} È una scala assoluta, non centigrada e con il valore di un grado pari a quello Fahrenheit, per cui
+    \[T_\mathcal{R}=1.8 \cdot T_\text{C}\]}\\
+    \hline
+\end{tabularx}
+
+\newpage
+\section{Teoria cinetica dei gas}
+La termodinamica è lo studio macroscopico della materia. Tuttavia, quando si parla di dilatazione termica, si è osservato come l'aumento dell'energia comporta un aumento della distanza secondo una pseudo-legge di Hooke del tipo seguente
+\[\mathcal{U} = \frac{1}{2} k x^2\]
+per cui si è reso essenziale lo studio del comportamento microscopico della materia.\\
+Ecco che allora si espone la definizione di \textbf{teoria cinetica dei gas}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{TEORIA CINETICA}}\\
+    \parbox{\linewidth}{La \textbf{teoria cinetica} è un ramo della \textbf{meccanica statistica}; è un modello/teoria che permette di esprimere grandezze macroscopiche in termini di \textbf{medie} sui \textbf{moti atomici/molecolari}.\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\subsection{Ipotesi di lavoro}
+Alla base della teoria cinetica dei gas, devono essere formulate delle ipotesi di lavoro. In prima anlisi si può dire che
+\begin{enumerate}
+  \item Il gas che si sta considerando è un \textbf{gas perfetto} in cui, tuttavia, il numero di atomi/molecole è molto elevato (dell'ordine del numero di Avogadro): ciò siggnifica che le particelle non presentano energia potenziale, ma solo energia cinetica.
+  \item La meccanica degli atomi/molecole risponde alle leggi di Newton;
+  \item Gli urti tra le particelle, oppure tra le particelle e le pareti, sono sempre \textbf{urti elastici}, per cui la componente perpendicolare alla parete è l'unica componente che cambia segno (ma non modulo, che si mantiene costante);
+  \item Il gas è in equilibrio (che è un'ipotesi fondamentale, in quanto altrimenti non si potrebbe definire la temperatura);
+  \item Il moto delle particelle è perfettamente casuale;
+  \item Il gas è contenuto all'interno di un contenitore di forma a parallelepipedo di volume
+  \[V=L_1 \cdot L_2 \cdot L_3\]
+\end{enumerate}
+
+\vspace{1em}
+\subsection{Valore medio delle velocità}
+Il valore medio delle velocità si calcola come segue
+\[\boxed{\left<\vec v\right> = \frac{1}{N} \cdot \sum_{i=1}^N \vec v_i = 0}\]
+che è nulla in quanto il moto delle particelle è perfettamente casuale, quindi la probabilità di muoversi in qualsiasi direzione è sempre la stessa per tutte le molecole.\\
+Analogamente è possibile definire il valore medio del quadrato delle velocità, calcolato come segue
+\[\boxed{\left<\vec v^2\right> = \frac{1}{N} \cdot \sum_{i=1}^N \vec v_i^2 \geq 0}\]
+in quanto si sono considerate solamente componenti positive, essendo
+\[v_i^2 = v_{i,x}^2 + v_{i,y}^2 + v_{i,z}^2\]
+
+\newpage
+\noindent
+\begin{center}
+  18 Maggio 2022
+\end{center}
+La teoria cinetica dei gas è un modello microscopico che non contrasta con la teoria macroscopica precedente, in quanto a partire da ciò si possono comprendere i fenomeni di interesse su larga scala.\\
+Il valore medio delle velocità è sempre nullo in quanto il modello adottato prevede di considerare un moto omogeneo delle particelle di gas, per cui la probabilità di una particella di trovarsi in qualsiasi punto è sempre la stessa.\\
+Il valore medio del quadrato delle velocità, invece, non è detto che sia nullo, e permette anche di eliminare il concetto di vettore.
+
+\vspace{1em}
+\subsection{Pressione a livello microscopico}
+Il gas contenuto all'interno di un contenitore urta le pareti dello stesso ed esercita su di esse una forza e, quindi, una pressione.\\
+Al fine di calcolare tale pressione, è necessario considerare
+\begin{enumerate}
+  \item qual è la probabilità che una molecola urti le pareti (perché, ovviamente, una molecola che non urta la parete non esercita pressione);
+  \item come calcolare la forza che la particella esercita sulla superficie.
+\end{enumerate}
+Sapendo che il sistema è omogeneo, in cui sono contenute $N$ particelle in un volume $V$ di gas, dato un volume più piccolo $V_1$, il numero di molecole contenute in tale porzione è
+\[N_1 = N \cdot \frac{V_1}{V}\]
+Da ciò segue che la probabilità che una molecola si trovi nel volume $V_1$ è semplicemente
+\[p(E_1) = \frac{N_1}{N} = \frac{V_1}{V} < 1\]
+che è fondamentale che sia $< 1$, essendo una probabilità. Se ora si volesse sapere la probabilità che una molecola di gas si trovi a distanza $l_1$ da una parete $A$, apllicando quanto appena visto si ottiene:
+\[p(E_2) = \frac{V_{l_1}}{V} = \frac{A \cdot l_1}{A \cdot L_1} = \frac{L_2 \cdot L_3 \cdot l_1}{L_2 \cdot L_3 \cdot L_1} \cdot \frac{l_1}{L_1}\]
+Se ora, infine, si volesse determinare la probabilità che una molecola di velocità $v_x$ urti la parete $A$ \textbf{entro} un intervallo di tempo $\Delta t$ si deve chiedere che
+\[\frac{l_1}{v_x} < \Delta t \hspace{1em} \text{oppure} \hspace{1em} v_x \cdot \Delta t < l_1\]
+per cui si ottiene che
+\[P(E_3') = \frac{l_1}{L_1} \longrightarrow \frac{v_x \Delta t}{L}\]
+In realtà, bisogna anche osservare che è possibile che vi sia anche una velocità negativa tale per cui la particella comunque, in un tempo $\Delta t$, non riesca a toccare la parete; essendo il moto omogeneo, per eliminare queste eventualità si ha che
+\[P(E_3) = \frac{l_1}{L_1} \longrightarrow \frac{1}{2} \cdot \frac{v_x \Delta t}{L}\]
+
+\vspace{1em}
+\noindent
+Al fine di determinare la forza con cui una particella impatta sulla parete, si osservi che essa rimbalza, per cui $v_{x,\text{inziale}} = - v_{x,\text{finale}}$, ossia la velocità cambia segno. Applicando il teorema dell'impulso si ha che
+\[\vec J = \int \vec F dt = \vec F \cdot \Delta t\]
+suppposta $\vec F$ costante. Ma è anche noto che
+\[\vec J = \Delta \vec p\]
+per cui è possibile calcolare
+\[J_x = \Delta p = p_f - p_i = m (-v_{x,\text{finale}}) - m v_{x,\text{iniziale}} = - 2 m v_{x,\text{inziale}}\]
+che è da interpretarsi come l'impulso che la molecola imprime sulla parete (se si considerasse l'impulso che la parete imprime sulla molecola, si avrebbe l'opposto, ovvero $J_x = 2 m v_{x,\text{inziale}}$).\\
+Se ora si moltiplica l'impulso ottenuto per la probabilità di imprimere effettivamente tale impulso, si ottiene
+\[P_i \cdot J_{i,x} = \frac{1}{2} \cdot \frac{v_{x,\text{inziale}} \cdot \Delta t}{L_1} \cdot 2m v_{x,\text{inziale}} = \frac{m v_{x,\text{inziale}}^2 \Delta t}{L_1} = \left< J_{i,x} \right>\]
+ovvero l'\textbf{impulso medio della i-esima particella}. Dovendo considerare il contributo di tutte la particelle si ha che
+\[\left<J_x\right> = \sum_{i=1}^N \left< J_{i,x} \right> = \sum_{i=1}^N \frac{m v_{x,\text{inziale}}^2 \Delta t}{L_1} = \frac{m \Delta t}{L_1} \cdot \sum_{i=1}^N v_{x,\text{iniziale}^2}\]
+e dovendo ottenere la forza media si ha
+\[\left< F_{x} \right> = \frac{\left< J_x \right>}{\Delta t} =  \frac{m \Delta t}{L_1} \cdot \sum_{i=1}^N v_{x,\text{iniziale}^2} \cdot \frac{1}{\Delta t} = \frac{m}{L_1} \cdot \sum_{i=1}^N v_{x,\text{iniziale}}^2\]
+Avendo ora, la forza media, si può ottenere la pressione totale come segue:
+\[p=\frac{F}{A} = \frac{m}{L_1 \cdot L_2 \cdot L_3} \sum_{i=1}^N v_{x,\text{iniziale}}^2\]
+per cui alla fine si ottiene
+\[p V = m \cdot \sum_{i=1}^N v_{x,\text{iniziale}}^2\]
+e volendo ottenere quanto esposto in precedenza si ottiene
+\[p V = m \cdot \sum_{i=1}^N v_{x,\text{iniziale}}^2 = \frac{m}{N} \cdot \sum_{i=1}^N v_{x,\text{iniziale}}^2 \cdot N = \frac{m}{N} \cdot \left<v_x^2\right> \cdot N\]
+ed essendo il moto casuale, si può supporre che $\left<v_x^2\right>=\left<v_y^2\right>=\left<v_z^2\right>$, avendo già osservato che
+\[\left<v^2\right> = \left<v_x^2\right> + \left<v_y^2\right> + \left<v_z^2\right>\]
+si ottiene che
+\[\left<v^2\right> = 3 \left<v_x^2\right>\]
+per cui la definizione precedentemente ottenuta diviene
+\[\frac{m}{N} \cdot \left<v_x^2\right> \cdot N \longrightarrow \frac{m}{N} \cdot \frac{\left<v^2\right>}{3} \cdot N\]
+per cui la pressione all'interno del contenitore dipende dal volume del contenitore, dalla massa di ciascuna molecola, nonché dal loro numero e dalla loro velocità, ottenendo
+\[\boxed{pV = \frac{N m \left< v^2 \right>}{3}}\]
+
+\vspace{1em}
+\subsection{Temperatura a livello microscopico}
+Si osservi che a partire dal risultato precedente, è possibile richiamare l'equazione di stato dei gas perfetti, in quanto si ha che
+\[pV = n R T = \frac{N m \left< v^2 \right>}{3}\]
+per cui anche la temeperatura influenza la velocità delle particelle.\\
+Al fine di semplificarne lo studio, si supponga che il gas che si sta considerando sia \textbf{monoatomico} tale per cui i singoli atomi non abbiano la minima propensione ad attirarsi l'uno rispetto all'altro: ciò significa che l'energia interna è del gas è data dalla somma delle sole energie cinetiche delle particelle, ovvero
+\[U = \sum_{i=1}^N \frac{1}{2} m v_i^2 = \frac{1}{2} m N \underbrace{\frac{\displaystyle{\sum_{i=1}^N v_i^2}}{N}}_{\left< v^2 \right>} = \frac{N}{2} \left< v^2 \right>\]
+Volendo calcolare l'\textbf{energia cinetica media}, si ottiene
+\[\left<K\right>=\frac{1}{N} \sum_{i=1}^N \frac{1}{2} m v_i^2 = \frac{1}{2} m \underbrace{\frac{\displaystyle{\sum_{i=1}^N v_i^2}}{N}}_{\left< v^2 \right>} = \frac{1}{2} m \left< v^2 \right>\]
+che permette di osservare come
+\[\boxed{U=N \left< v^2 \right>}\]
+che è un risultato che vale \textbf{solamente} per \textbf{gas perfetti monoatomici}, in quanto solo in questo caso l'energia interna dipende solamente dalla componente cinetica.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che dai risultati seguenti
+\[\boxed{pV = \frac{N m \left< v^2 \right>}{3}} \hspace{1em} \text{e} \hspace{1em} \boxed{U=N \left< v^2 \right> = \frac{1}{2} N m \left<v^2\right>}\]
+èè possibile evincere come
+\[\boxed{U=\frac{3}{2} p V} \hspace{1em} \text{e} \hspace{1em} \boxed{U=\frac{3}{2} n R T}\]
+e sapendo che l'energia cinetica media si calcolare come $U = N \left< K \right>$ si ottiene che
+\[\left<K\right> = \frac{U}{N} = \frac{1}{N} \cdot \frac{3}{2} n R T = \frac{3}{2} \frac{n}{N} R T = \frac{3}{2} \frac{R}{N_A} \cdot T\]
+in cui il rapporto tra la costante $R$ e il numero di Avogadro $N_A$ prende il nome di \textbf{costante di Boltzmann}
+\[\boxed{K_B = \frac{R}{N_A} = 1.38 \times 10^{-23} \text{J K}^{-1}}\]
+per cui si ottiene che
+\[\boxed{\left<K\right> = \frac{3}{2} K_B T}\]
+che è un \textbf{risultato totalmente generale}, a differenza del risultato $U = N \left<K\right>$, il quale vale solamente per gas perfetti monoatomici privi di interazioni fra loro.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione $\boldsymbol{1}$}: Il fatto che l'energia cinetica sia proporzionale alla temperatura, in linea di principio, in meccanica classica, giungendo alla temperatura di $0$ K gli atomi dovrebbero arrestarsi, avendo velocità nulla (anche se questa teoria non è pià valida, in quanto, per esempio, l'elio He è liquido e quindi in movimento anche a $0$ K)
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione $\boldsymbol{2}$}: È possibile anche definire il concetto di \textbf{velocità quadratica media} come
+\[v_{\text{qm}} = \sqrt{\left<v^2\right>}\]
+tale per cui si ha
+\[\left<K\right> = \frac{1}{2} m v_{\text{qm}}^2\]
+
+\vspace{1em}
+\subsection{Equipartizione dell'energia}
+Si osservi che quanto esposto era valido principalmente per gas monoatomici; in particolare si è ottenuto che
+\[\left< K \right> \frac{3}{2} K_B T\]
+ove il fattore $3$ derivava dal fatto che
+\[\left<v_x^2\right>=\left<v_y^2\right>=\left<v_z^2\right>=\frac{\left<v^2\right>}{3}\]
+Inoltre si era ottenuto anche che
+\[\left<K\right>=\frac{1}{2}m \left<v^2\right> = \frac{1}{2} m \left[\left<v_x^2\right> + \left<v_y^2\right> + \left<v_z^2\right>\right] = \frac{1}{2} m \cdot (3 \cdot \left<v_x^2\right>) = \frac{3}{2} K_B T = \frac{3}{2} m \left<v_x^2\right> = 3 \cdot \left(\frac{1}{2} m \left<v_x^2\right>\right)\]
+per cui ogni \quotes{direzione} contribuisce all'energia totale con $\displaystyle{\frac{1}{2} K_B T}$, per ogni grado di libertà (ossia per ogni possibilità di movimento della molecola stessa). Il teorema di \textbf{equipartizione dell'energia} afferma proprio questo, come esposto di seguito
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{EQUIPARTIZIONE DELL'ENERGIA}}\\
+    \parbox{\linewidth}{Data una molecola più complessa rispetto ad una particella monoatomica, l'energia della stessa dipende dal numero di gradi di libertà della stessa, secondo la legge seguente:
+    \[\boxed{\left<E\right>=n_l \cdot \left(\frac{1}{2} K_B T\right)}\]
+    in cui $n_l$ sono i gradi di libertà. È chiaro che il problema è determinare quanti sono i gradi di libertà e quali di questi sono attivi (in funzione della temperatura). Per una molecola biatomica si ha che i gradi di libertà sono in totale di $6$, divisi in
+    \begin{itemize}
+      \item transazionali (attivi a tutte le temperature), che sono $3$;
+      \item rotazionali (attivi solo a temperature medie e alte), che sono $2$;
+      \item vibrazionali (attivi solo a temperature alte), che sono $2$.
+    \end{itemize}
+    \vspace{1mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\subsection{Capacità termiche molari}
+È noto che per un gas perfetto l'energia interna presenta la seguente formulazione
+\[dU = n C_v dT \longrightarrow C_v = \frac{1}{n} \cdot \frac{dU}{dT}\]
+nell'ipotesi di una trasformazione isocora. Per un gas monoatomico, in particolare, si ha che
+\[U=n_l \cdot \left(\frac{1}{2} K_B T\right) \cdot N\]
+e sapendo che
+\[K_B = \frac{R}{N_A} = n R\]
+per cui si ottiene
+\[C_v = \frac{1}{n} \cdot n_l \cdot \frac{1}{2} n R = \frac{n_l}{2} R\]
+per cui la capacità termica a volume costante è sempre data dall'equazione seguente
+\[\boxed{C_v = \frac{n_l}{2} R}\]
+e sfruttando la relazione di Mayer è anche possibile ottenere $C_p = R + C_v$.
+
+\vspace{1em}
+\noindent
+\textbf{Esempio}: Per esempio, un gas perfetto monoatomico può presentare solamente $n_l=3$ gradi di libertà, a qualsiasi temperatura, per cui
+\begin{itemize}
+  \item \(\displaystyle{C_v = \frac{3}{2} R}\)
+  \item \(\displaystyle{C_p = C_v + R = \frac{3}{2} R + R = \frac{5}{2} R}\)
+\end{itemize}
+Invece, un gas perfetto biatomico, a temperatura ambiente ($300$ K) presenta un numero di gradi di libertà pari a $n_l=3+2=5$ (dati dalla somma di quelli transazionali e rotazionali), per cui
+\begin{itemize}
+  \item \(\displaystyle{C_v = \frac{5}{2} R}\)
+  \item \(\displaystyle{C_p = C_v + R = \frac{5}{2} R + R = \frac{7}{2} R}\)
+\end{itemize}
+
+\newpage
+\noindent
+\begin{center}
+  19 Maggio 2022
+\end{center}
+\textbf{Osservazione $\boldsymbol{1}$}: Si osservi che se si aumenta la velocità degli atomi di un gas perfetto, la capacità termica molare a volume costante è sempre costante, proprio pari a
+\[C_v = \frac{3}{2} R\]
+e rimane costante anche la capacità termica molare a pressione costante, per la relazione di Mayer
+\[C_p = C_v + R = \frac{5}{2} R\]
+Dalla relazione seguente
+\[p V = nRT = \frac{1}{3} N m \left< v^2 \right>\]
+si evince come aumentino
+\begin{itemize}
+  \item la pressione (a volume costante);
+  \item la temperatura;
+  \item il volume (a pressione costante);
+\end{itemize}
+Inoltre è noto anche come
+\[U = \frac{3}{2} p V\]
+per cui aumenta anche l'energia interna aumentando la velocità. Non da ultimo aumenta anche la probabilità che una data particella colpisca la parete in un intervallo di tempo $\Delta t$.
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione $\boldsymbol{2}$}: Si osservi che non è possibile definire la temperatura media di una singola particella, in quanto la temperatura è definita in funzione della media delle energie cinetiche di tutte le particelle.
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio $\boldsymbol{1}$}: Si osservi che al fine di calcolare la velocità quadratica media delle molecole di aria in una stanza si può ricavare dalla seguente relazione
+\[\frac{1}{2} m v_{\text{qm}}^2 = \frac{3}{2} K_B T\]
+da cui si evince come
+\[v_{\text{qm}} = \sqrt{\frac{3 K_B T}{m}}\]
+e supponendo che la massa dell'aria dipende solamente dall'azoto $N_2$ di massa $2 \cdot 14 \cdot 1.67 \times 10^{-27} \text{ kg}$ si ottiene
+\[\frac{}{}\]
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio $\boldsymbol{2}$}: L'energia potenziale gravitazionale non è considerata nella teoria cinetica dei gas, ma ovviamente atomi e molecole, possedendo una massa, sono soggetti all'accelerazione di gravità.\\
+Si consideri un recipiente cubico di lato $1$ m contenente aria a temperatura ambiente. Si calcoli quanto varia al massimo l'energia cinetica delle molecole presenti nel contenitore a causa della forza di gravità.\\
+Allora impiegando il teorema lavoro energia cinetica si ha che
+\[\Delta K = m g h\]
+
+\vspace{1em}
+\noindent
+\textbf{Esercizio $\boldsymbol{3}$}: Due recipienti contengono lo stesso numero di molecole di azoto, con velocità quadratiche medie rispettivamente di $450$ m/s e $550$ m/s. Se si pongono i due recipienti in comunicazione, si determini quale sarà la temperatura all'equilibrio in $^\circ C$.\\
+Ovviamente, sapendo che la temperatura si calcola come
+\[T= \frac{1}{3} \cdot \frac{m v_{\text{qm}}^2}{K_B}\]
+Una volta fatto ciò si ha che la temperatura all'equilibrio è data da
+\[T_e = \frac{m C_v T_1 + m C_v T_2}{m C_v + m C_v} = 295 \text{ K} = 12 \text{ $^\circ$C}\]
+
+\vspace{1em}
+\subsection{Legge di Dulong e Petit}
+Si osservi che la stessa applicazione vista per i gas può essere adattata anche ai solidi, per i quali è possibile definire la capacità termica molare in funzione dei gradi di libertà.\\
+Essendo i solidi dei reticoli di atomi, tali atomi non possono traslare o ruotare, in quanto si sta considerando un'analisi microsocopica e il legame è molto forte. L'unica cosa che possono fare gli atomi è vibrare: si era visto che per una molecola biatomica i movimenti vibrazioessi erano $2$, ma potendo gli atomi vibrare in tutte e $3$ le direzioni, si ottiene che i gradi di liebrtà si hanno $n_l = 2 \cdot 3 = 6$, da cui
+\[\boxed{C_v = n_l \cdot \frac{R}{2} = 3 R}\]
+che prende il nome di \textbf{legge di Dulong e Petit}, che vale essenzialmente solo ad elevate temperature.
+
+
+\vspace{1em}
+\subsection{Distribuzione delle velocità}
+Al fine di definire come la velocità quadratica media sia distribuita tra le molecole, si consideri la seguente \textbf{funzione di distribuzione}:
+
+% Tabella per le definizione di concetti, etc...
+\vspace{1em}
+\rowcolors{1}{black!5}{black!5}
+\setlength{\tabcolsep}{14pt}
+\renewcommand{\arraystretch}{2}
+\noindent
+\begin{tabularx}{\textwidth}{@{}|P|@{}}
+    \hline
+    {\textbf{FUNZIONE DI DISTRIBUZIONE}}\\
+    \parbox{\linewidth}{La funzione di distribuzione $f(v)$ viene definita in modo tale da soddisfare la seguente legge
+    \[\Delta N = f(v) \cdot \Delta v\]
+    in cui $\Delta N$ rappresenta il numero di molecole con velocità compresa tra $v$ e $v + \Delta v$, essendo $\Delta v$ l'intervallo di velocità considerato.\vspace{3mm}}\\
+    \hline
+\end{tabularx}
+
+\vspace{1em}
+\noindent
+In altri termini, si sta costruendo un istogramma che permette di capire quante molecole presentano una certa velocità. Ma volendo essere più precisi, considerando
+\[dN = f(v) \cdot dv\]
+si puà calcolare il numero di molecole avente velocità tra $v$ e $v+\Delta v$ si ottiene
+\[N(v - v + \Delta v) = \int_{v}^{v+\Delta v} f(v') \cdot v\]
+in cui è facile capire come
+\[\int_{0}^{+\infty} f(v') \cdot v = N\]
+ossia il numero totale di molecole. Chiaramente, dividendo il numero di molecole che presentano una certa velocità per $N$ si ottiene la probabilità che le molecole abbiano una certa velocità. Infatti si ha proprio che
+\[\frac{1}{N} \cdot \int_{0}^{+\infty} f(v') \cdot v = \frac{1}{N} \cdot N = 1\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che la funzione di distribuzione delle velocità è nota ed è data dalla \textbf{funzione di distribuzione di Maxwell e Boltzmann}
+\[\boxed{f(v) = A v^2 e^{\displaystyle{-\frac{1}{2} \frac{m v^2}{K_B T}}}}\]
+in cui
+\[\boxed{A = 4 \pi N \cdot \left(\frac{m}{2\pi K_B T}\right)^{\dfrac{3}{2}}}\]
+e volendo ora calcolare la media di tale della variabile aleatoria avente tale distribuzione si ottiene
+\[E[\mathcal{X}] = \frac{1}{N} \cdot \int_0^{+\infty} f(v) x \cdot dv\]
+in cui $x$ rappresenta la quantità di cui dover calcolare il valore medio, come, per esempio, la velocità, come mostrato di seguito:
+\[\left<v^2\right> = \frac{1}{N} \cdot \int_0^{+\infty} f(v) v^2 \cdot dv = \frac{3 K_B T}{m}\]
+che è esattamente quanto è possibile ricavara dalla seguente equazione
+\[\left<K\right>=\frac{1}{2}m \left<v^2\right> = \frac{3}{2} K_B T \longrightarrow \left<v^2\right>=\frac{3 K_B T}{m}\]
+
+\vspace{1em}
+\noindent
+Un'altra importante quantità che è utile calcolare è la media dei moduli delle velocità, calcolabile come
+\[\left<v\right> = \frac{1}{N} \cdot \int_0^{+\infty} f(v) v \cdot dv = \sqrt{\frac{8 K_B T}{m \pi}}\]
+che è completamente diverso dalla radice quadrata della media delle velocità quadre
+\[\left<v^2\right> = \frac{3 K_B T}{m} \longrightarrow \sqrt{\left<v^2\right>} = \sqrt{\frac{3 K_B T}{m}} \neq \sqrt{\frac{8 K_B T}{m \pi}}\]
+che permette comunnque di calcolare la varianza
+\[\text{var} = \left<v^2\right> - \left<v\right>^2\]
+che permette di capire come sia fatta la distribuzione di Maxwell e Boltzmann:
+\begin{itemize}
+  \item ... continua ...
+\end{itemize}
+Al fine di determinare il punto massimo della distribuzione, ossia la velocità massima delle particelle, si deve imporre
+\[\frac{d f(v)}{d v} = 0\]
+che permette di ottenere
+\[v_{\text{max}} = \sqrt{\frac{2 K_B}{R}}\]
+
+\vspace{1em}
+\noindent
+\textbf{Osservazione}: Si osservi che l'acqua, a temperatura ambiente, evapora in quanto la distribuzione considerata mostra che vi saranno sempre, per quanto in quantità ridotta, delle molecole che presentano una velocità elevata capace di uscire dall'agglomerato di liquido.\\
+Analogamente, essendo l'alcool molto più vaporazzibile dell'acqua a temperatura ambiente, quando lo si pone sulle mani, il proprio corpo lo scalda e lo fa evaporare, sottraendoci calore.\\
+Analogamente, il sudore permette di assorbire calore dal proprio corpo: l'acqua si riscalda e le molecole aumentano la propria velocità, fino a quando essa è tale da evaporare.
 
 \newpage
 \section{Il secondo principio della termodinamica}
-
 
 \end{document}
